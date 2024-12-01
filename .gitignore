@@ -1,0 +1,36 @@
+# Folder build/output
+build/
+
+# Cache dan file sementara
+cache/
+
+# Log dan file debug
+log.txt
+errors.txt
+
+# File backup Ren'Py
+*.bak
+
+# File lint output
+game/lint.rpy
+
+# Folder Android/iOS packaging
+renpylauncher/android/
+renpylauncher/ios/
+
+# File konfigurasi editor/IDE
+.vscode/
+.idea/
+
+# File Python bytecode
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment Python (jika digunakan)
+venv/
+.env/
+
+# File sistem
+.DS_Store
+Thumbs.db
