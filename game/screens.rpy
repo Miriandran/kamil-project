@@ -297,7 +297,7 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") xpos 120 ypos 430 action Start() text_size 120
+            textbutton _("Start") xpos 120 ypos 430 action Start() text_size 120 hovered  [Play ("sound", "audio/click_button.mp3")]
 
         else:
 
@@ -307,7 +307,7 @@ screen navigation():
 
         #textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Options") xpos 115 ypos 530 action ShowMenu("preferences") text_size 115
+        textbutton _("Options") xpos 115 ypos 530 action ShowMenu("preferences") text_size 115 hovered  [Play ("sound", "audio/click_button.mp3")]
 
         if _in_replay:
 
@@ -315,9 +315,9 @@ screen navigation():
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            textbutton _("Main Menu") action MainMenu() 
 
-        textbutton _("Credit") xpos 117 ypos 640 action ShowMenu("about") text_size 115
+        textbutton _("Credit") xpos 117 ypos 640 action ShowMenu("about") text_size 115 hovered  [Play ("sound", "audio/click_button.mp3")]
 
         #if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -328,7 +328,7 @@ screen navigation():
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Exit") xpos 115 ypos 740 action Quit(confirm=not main_menu) text_size 115
+            textbutton _("Exit") xpos 115 ypos 740 action Quit(confirm=not main_menu) text_size 115 hovered  [Play ("sound", "audio/click_button.mp3")]
 
 
 style navigation_button is gui_button
