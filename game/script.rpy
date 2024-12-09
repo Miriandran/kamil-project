@@ -12,6 +12,10 @@ define a = Character('Ayah', color="#423d3d")
 # IMAGE BACKGROUND
 image kamartidur = im.Scale("bg/IstanaNegara.jpg", 1920, 1080)
 image ruangtamu = im.Scale("bg/Mobil.png", 1920, 1080)
+image acak1 = im.Scale("bg/acak1.png", 1920, 1080)
+image acak2 = im.Scale("bg/acak2.png", 1920, 1080)
+image acak3 = im.Scale("bg/acak3.png", 1920, 1080)
+image acak4 = im.Scale("bg/acak4.png", 1920, 1080)
 
 # IMAGE CHARA
 image kamil = "chara/kamil.png"
@@ -23,6 +27,7 @@ label start:
 # The game starts here.
     scene acak1
     with fade
+
     scene acak2
     with fade
     scene acak3

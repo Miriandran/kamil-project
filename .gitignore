@@ -3,7 +3,7 @@ build/
 
 # Cache dan file sementara
 cache/
-
+saves/
 # Log dan file debug
 log.txt
 errors.txt

@@ -1,84 +1,62 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/screens.rpy", line 351, in execute
-    screen main_menu():
-  File "game/screens.rpy", line 351, in execute
-    screen main_menu():
-  File "game/screens.rpy", line 364, in execute
-    use navigation
-  File "game/screens.rpy", line 288, in execute
+After initialization, but before game start.
+  File "game/screens.rpy", line 288, in prepare_screen
     screen navigation():
-  File "game/screens.rpy", line 288, in execute
+  File "game/screens.rpy", line 288, in prepare
     screen navigation():
-  File "game/screens.rpy", line 290, in execute
+  File "game/screens.rpy", line 290, in prepare
     fixed:
-  File "game/screens.rpy", line 298, in execute
+  File "game/screens.rpy", line 290, in prepare
+    fixed:
+  File "game/screens.rpy", line 298, in prepare
     if main_menu:
-  File "game/screens.rpy", line 300, in execute
-    textbutton _("Start") xpos 120 ypos 430 action Start() style gui_text
-  File "game/screens.rpy", line 300, in keywords
-    textbutton _("Start") xpos 120 ypos 430 action Start() style gui_text
+  File "game/screens.rpy", line 298, in prepare
+    if main_menu:
+  File "game/screens.rpy", line 300, in prepare
+    textbutton _("Start") xpos 120 ypos 430 action Start() text_size 120 hovered  [Play ("sound", "audio/click_button.mp3")] [Play ("sound", "audio/hovered_button.mp3")]
+  File "game/screens.rpy", line 300, in prepare
+    textbutton _("Start") xpos 120 ypos 430 action Start() text_size 120 hovered  [Play ("sound", "audio/click_button.mp3")] [Play ("sound", "audio/hovered_button.mp3")]
   File "game/screens.rpy", line 300, in <module>
-    textbutton _("Start") xpos 120 ypos 430 action Start() style gui_text
-NameError: name 'gui_text' is not defined
+    textbutton _("Start") xpos 120 ypos 430 action Start() text_size 120 hovered  [Play ("sound", "audio/click_button.mp3")] [Play ("sound", "audio/hovered_button.mp3")]
+TypeError: list indices must be integers or slices, not Play
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
-    python hide:
-  File "D:\renpy-8.3.2-sdk\renpy\ast.py", line 821, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "D:\renpy-8.3.2-sdk\renpy\python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
-    python hide:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
-    ui.interact()
-  File "D:\renpy-8.3.2-sdk\renpy\ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 2215, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 2745, in interact_core
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "D:\renpy-8.3.2-sdk\renpy\display\displayable.py", line 434, in visit_all
-    d.visit_all(callback, seen)
-  File "D:\renpy-8.3.2-sdk\renpy\display\displayable.py", line 434, in visit_all
-    d.visit_all(callback, seen)
-  File "D:\renpy-8.3.2-sdk\renpy\display\displayable.py", line 434, in visit_all
-    d.visit_all(callback, seen)
-  File "D:\renpy-8.3.2-sdk\renpy\display\screen.py", line 480, in visit_all
-    callback(self)
-  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 2745, in <lambda>
-    root_widget.visit_all(lambda d : d.per_interact())
-  File "D:\renpy-8.3.2-sdk\renpy\display\screen.py", line 491, in per_interact
-    self.update()
-  File "D:\renpy-8.3.2-sdk\renpy\display\screen.py", line 697, in update
-    self.screen.function(**self.scope)
-  File "game/screens.rpy", line 351, in execute
-    screen main_menu():
-  File "game/screens.rpy", line 351, in execute
-    screen main_menu():
-  File "game/screens.rpy", line 364, in execute
-    use navigation
-  File "game/screens.rpy", line 288, in execute
+  File "D:\renpy-8.3.2-sdk\renpy\bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "D:\renpy-8.3.2-sdk\renpy\main.py", line 652, in main
+    run(restart)
+  File "D:\renpy-8.3.2-sdk\renpy\main.py", line 94, in run
+    renpy.display.screen.prepare_screens()
+  File "D:\renpy-8.3.2-sdk\renpy\display\screen.py", line 1026, in prepare_screens
+    s.ast.prepare_screen()
+  File "game/screens.rpy", line 288, in prepare_screen
     screen navigation():
-  File "game/screens.rpy", line 288, in execute
+  File "game/screens.rpy", line 288, in prepare
     screen navigation():
-  File "game/screens.rpy", line 290, in execute
+  File "game/screens.rpy", line 290, in prepare
     fixed:
-  File "game/screens.rpy", line 298, in execute
+  File "game/screens.rpy", line 290, in prepare
+    fixed:
+  File "game/screens.rpy", line 298, in prepare
     if main_menu:
-  File "game/screens.rpy", line 300, in execute
-    textbutton _("Start") xpos 120 ypos 430 action Start() style gui_text
-  File "game/screens.rpy", line 300, in keywords
-    textbutton _("Start") xpos 120 ypos 430 action Start() style gui_text
+  File "game/screens.rpy", line 298, in prepare
+    if main_menu:
+  File "game/screens.rpy", line 300, in prepare
+    textbutton _("Start") xpos 120 ypos 430 action Start() text_size 120 hovered  [Play ("sound", "audio/click_button.mp3")] [Play ("sound", "audio/hovered_button.mp3")]
+  File "game/screens.rpy", line 300, in prepare
+    textbutton _("Start") xpos 120 ypos 430 action Start() text_size 120 hovered  [Play ("sound", "audio/click_button.mp3")] [Play ("sound", "audio/hovered_button.mp3")]
+  File "D:\renpy-8.3.2-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
   File "game/screens.rpy", line 300, in <module>
-    textbutton _("Start") xpos 120 ypos 430 action Start() style gui_text
-NameError: name 'gui_text' is not defined
+    textbutton _("Start") xpos 120 ypos 430 action Start() text_size 120 hovered  [Play ("sound", "audio/click_button.mp3")] [Play ("sound", "audio/hovered_button.mp3")]
+  File "D:\renpy-8.3.2-sdk\renpy\revertable.py", line 214, in __getitem__
+    rv = list.__getitem__(self, index)
+TypeError: list indices must be integers or slices, not Play
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.3.2.24090902
 Kamil 1.0
-Mon Dec  9 19:07:55 2024
+Mon Dec  9 20:28:02 2024
