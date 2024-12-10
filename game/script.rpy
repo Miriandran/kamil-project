@@ -4,8 +4,8 @@
 # name of the character.
 
 # DEFINE CHARACTERS
-define k = Character("Bima", color="#472301")
-define r = Character("Aryanto", color="#a8652e")
+define k = Character("Bima", image="chara/sma_kamil/k", color="#472301")
+define r = Character("Arya", color="#a8652e")
 define i = Character('Ibu', color="#423d3d")
 define a = Character('Ayah', color="#423d3d")
 
@@ -23,14 +23,40 @@ image sekolah_sore = im.Scale("bg/sekolahsore.jpg", 1920,1080)
 image jalan = im.Scale("bg/jalansore.jpg", 1920,1080)
 
 # IMAGE CHARA
-image f_Bima = "chara/hf_Kamil.png"
-image Bima = "chara/bu_kamil.png"
+image Bima:
+    "chara/sma_kamil/k netral.png"
+    zoom 0.5
 
-image f_Arya = "chara/sk_ridwan.png"
-image Arya = "chara/bu_ridwan.png"
+image Bima Marah:
+    "chara/sma_kamil/k angry.png"
+    zoom 0.5
+image Bima Lega : 
+    "chara/sma_kamil/k lega.png"
+    zoom 0.5
+image Bima Bingung :
+    "chara/sma_kamil/k conf.png"
+    zoom 0.5
+image Bima Bahagia :
+    "chara/sma_kamil/k happy.png"
+    zoom 0.5
+image Bima Kosong :
+    "chara/sma_kamil/k kosong.png"
+    zoom 0.5
+image Bima Malu : 
+    "chara/sma_kamil/k malu.png"
+    zoom 0.5
+
+image Arya Rapih = "chara/sk_ridwan.png"
+image Arya :
+    "chara/sma_ridwan.png"
+    zoom 0.45
 
 image ibu = "chara/ibu.png"
 image ayah = "chara/ayah.png"
+
+define cpos = Position(xalign=0.5, yalign=0)
+define rpos = Position(xalign=0.9, yalign=0)
+define lpos = Position(xalign=0,yalign=0)
 
 label start:
 # The game starts here.
@@ -43,9 +69,13 @@ label start:
     scene black
     with fade
     play sound "audio/dentumanpistol.mp3"
-    show Bima
+    show Bima Kosong at cpos with dissolve:
+        zoom 2.5
     "DORR!"
     "(dentuman pistol)"
+    show Bima Bingung at cpos:
+        zoom 2.5
+    k "...."
    
     scene kamartidur
     with dissolve
@@ -54,7 +84,8 @@ label start:
     play sound "audio/nafasberat.mp3"
     "(nafas berat terengah-engah)"
 
-    show f_Arya at Transform(xpos=0.5, ypos=0.15)
+    show Arya at cpos
+
     with fade
     r "Mimpi buruk lagi ya lu?"
 
@@ -66,12 +97,14 @@ label start:
     
 
 label y1:
-    hide f_Arya
-    show Bima at left
-    show Arya at right
+    show Bima at lpos
+    show Arya at rpos
+
+    show Bima Malu at lpos
     k "iya kak..."
     r "terus-terusan mimpi 
         buruk? kenapa sih?"
+    show Bima Bahagia at lpos
     k 'gapapa kok'
     r ' lu kalo ada apa-apa
         cerita aja ke gw. 
@@ -82,15 +115,19 @@ label y1:
     jump m1
 
 label t1:
-    hide f_Arya
-    show Bima at left
-    show Arya at right
+    show Bima at lpos
+    show Arya at rpos
+    show Bima Bingung at lpos
     k '...'
     r 'yeuu malah bengong'
     r ' lu kalo ada apa-apa
         cerita aja ke gw. 
         gini-gini gw kakak lu'
+    show Bima Kosong 
     k '...'
+    hide Arya
+    show Bima Kosong at cpos:
+        zoom 2
     '(tatapan kosong menyelimuti wajah Bima)'
 
     jump m1
@@ -103,20 +140,24 @@ label m1:
     a 'ayo turun nak. Jangan sampe telat sekolah'
     '(suara ayah ibu terdengar dari luar kamar)'
 
-    show Bima at left
+    show Bima Bingung at lpos
     k 'EH IYA SEKARANG JAM BERAPA?'
     '(panik karena bangun kesiangan)'
-    show Arya at right
+    show Arya at rpos
     r 'slow aja masih 5.30'
     '(Arya bersantai karena sudah siap-siap duluan)'
     hide Arya
 
-    show Arya at right
+    show Arya at rpos
     #[Arya sudah rapi dengan pakaian dan perlengkapannya]
+    show Bima Marah at lpos
     k 'MANA BISA GITU anjing, SEKOLAH KITA JAUH'
     r 'wkwkwk'
     #[Arya tertawa kecil]
+    show Bima at lpos
     r 'dah sana buruan siap-siap, gw tunggu sambil sarapan'
+    hide Arya
+    show Bima Bingung at lpos
     k 'oke hari ini jadwal kita olahraga, matematika, sama biologi'
     '(Bima sambil melihat selebaran jadwal yang nempel di dinding)'
     #[jadwal pelajaran sekolah SMA Cendekia Maju di selebaran kertas]
@@ -130,7 +171,7 @@ label m1:
 
 label minibuku:
     scene rakbuku
-    show Bima at right
+    show Bima at rpos
     $ correct_books = ["Buku Olahraga", "Buku Matematika", "Buku Biologi"]  # Correct books
     $ chosen_books = []  # Store player's choices
 
@@ -194,8 +235,8 @@ label minibuku:
 # Label ruangmakan
 label ruangmakan:
     scene ruangmakan with fade
-    show Bima at left
-    show Arya at right
+    show Bima Marah at lpos
+    show Arya at rpos
 
     k "YANTOO!!!"
     r "APAA?!" 
@@ -207,35 +248,42 @@ label ruangmakan:
     r "Apaan sih lu ga jel..."
 
     # Ibu interjects
+    show Bima at lpos
     i "Aduhh kalian ini gaada kerjaan yang lebih baik kah selain berantem terus?"
     i "Ibu berani sumpah tembok di rumah ini lebih sering dengerin kalian berantem daripada dengerin omongan baik."
     a "Udah nak, jangan berantem lagi."
     i "Marahin pak anaknya!"
     a "Bima, kalkulator kamu Ayah yang pinjam semalam waktu kamu tidur."
     a "Maaf ya nak, Ayah lupa ngembaliin kalkulator kamu ke tempatnya."
+    show Bima Malu at lpos
     k "Oalah, Ayah toh yang make. Hehehe."
-    r "Oalah, Ayah toh yang make."
+    r "Oalah, Ayah toh yang make. nyenyeneye"
+    show Bima Marah at lpos
     k "Ih bacot lu!"
     r "Nye nye nye, lu yang bacot."
     i "Heh udah!"
+    show Bima at lpos
     i "Sana kalian cepat siap-siap sekolah!"
+    
 
     # Time skip
     scene black with fade
     pause 1
     "06.00 WIB, 9 September 1999"
     scene depanrumah with fade
-    show Bima at left
-    show Arya at right
-
+    show Arya at rpos
+    show Bima Bingung at lpos
     k "Arya, lu udah siap belom?"
     r "Udah, yok berangkat."
+    show Bima Bahagia at lpos
     k "Buuu, Yah. Kita berangkat yaa."
+    show Bima at lpos
     a "Ya nak, hati-hati di jalan ya."
     i "Barang gaada yang ketinggalan?"
     r "Aku udah kebawa semua sih harusnya."
+    show Bima Bahagia at lpos
     k "Amannn."
-
+    show Bima Bingung at lpos
     r "Mau lu atau gw yang bawa motor?" 
 
     menu:
@@ -245,27 +293,36 @@ label ruangmakan:
             jump motorarya
 
 label motorbima:
+    show Bima Bahagia at lpos
     k "Gw aja gapapa, ntar baliknya lu."
+    show Bima at lpos
     r "Oke deh, jangan bunuh gw di jalan tapi."
+    show Bima Bahagia at lpos
     k "Mana ada, gw adalah the best rider on the world!"
     r "The best bacot kali lu."
     jump gerbangsekolah
 
 label motorarya:
+    show Bima Lega at lpos
     k "Lu aja yang bawa."
+    show Bima at lpos
     r "Eh nyuruh-nyuruh."
     r "Kemarin udah gw ya njing yang nyetir."
+    show Bima Marah at lpos
     k "Ya terus lu ngapain nawarin kocak?"
+    show Bima at lpos
     r "Formalitas aja WKWKWKWK."
+    show Bima Marah at lpos
     k "Yeuuu, yaudah mana kuncinya."
     jump gerbangsekolah
 
 label gerbangsekolah:
     scene gerbangsekolah with fade
-    show Bima at left
-    show Arya at right
+    show Bima at lpos
+    show Arya at rpos
     "06.30 depan gerbang sekolah, 9 September 1999"
 
+    show Bima Marah at lpos
     k "ANJINGGG!"
     r "Kenapaa?" 
     #[ekspresi muak kyk kenapa lagi ini orang]"
@@ -273,27 +330,35 @@ label gerbangsekolah:
     r "…" 
     #[ekspresi menghela nafas]
     r "Terus gimana?"
+    show Bima Malu at lpos
     k "Harus dibawa anjing. Lu tau kan Bu Titiek orangnya killer."
     r "…"
+    show Bima at lpos
     k "Gw harus balik pulang ngambil laporannya."
     r "Lu serius?"
     r "Gw jadi lu mending dihukum. Males anjing bolak-balik."
     k "Ga bisa gitu, gw harus balik."
     r "Lu becanda ya anjing, ini udah jam berapa?"
-
+    show Bima Bahagia at lpos
     k "Bisa. Gw bisa ngebut."
     r "Gila lu ya? Lu lupa 6 bulan lalu lu kecelakaan karena ngebut?"
+    show Bima Lega at lpos
     k "Yaelah itu gw cuman apes."
     r "Bukan apes. Lu emang ga bisa bawa motor ngebut, Bim."
     k "Yauda lah mau gimana lagi tapi ini laporan gw?"
     r "Haishhh."
+    show Bima at lpos
     r "Udah sini aja, gw yang nyetir."
     r "Lu ga becus bawa motor ngebut."
+    show Bima Malu at lpos
     k "Eh, jangan. Lu masuk aja sana."
+    show Bima Lega at lpos
     k "Ini kesalahan gw, biar gw yang tanggung jawab."
     r "Lu goblok ya? Tanggung jawab ya tanggung jawab, tapi kecelakaan tetep mematikan anjing."
+    show Bima Marah at lpos
     k "Ini tanggung jawab gw. Lu ga harus ikut terseret, Arya!"
     r "Bacot lu. Ga usah sok idealis. Gw gamau lu kenapa-kenapa."
+    show Bima Marah at lpos
     k "Hrggghhh."
     k "Yauda ayok buruan."
 
@@ -311,14 +376,14 @@ label mininabrak:
 label ganabrak:
     scene depanrumah with fade
     "06.44 sampai rumah."
-    show Bima at left
-    show Arya at right
+    show Bima at lpos
+    show Arya at rpos
     r "Wah gila, buruan ambil laporan lu."
     k "Iya, tunggu sini bentar ya." 
     "Bima masuk rumah."
 
     scene ruangtamu with fade
-    show Bima at right
+    show Bima at rpos
     i "Dek? Kenapa balik dek?"
     k "Laporan aku ketinggalan, Bu."
     i "Kan kan. Terus kakak kamu gimana?"
@@ -340,8 +405,8 @@ define s = Character('Satpam', color="#423d3d")
 
 label nabrak:
     scene depanrumah with fade
-    show Bima at left
-    show Arya at right
+    show Bima at lpos
+    show Arya at rpos
     "06.52 sampai rumah."
 
     r "Wah gila, buruan ambil, kita udah telat."
@@ -349,7 +414,7 @@ label nabrak:
     "Bima masuk rumah."
 
     scene ruangtamu with fade
-    show Bima at right
+    show Bima at rpos
     i "Dek? Kenapa balik dek?"
     k "Laporan aku ketinggalan, Bu."
     i "Kan kan. Terus kakak kamu gimana?"
@@ -359,8 +424,8 @@ label nabrak:
 
     scene gerbangsekolah with fade
     "07.07 gerbang sekolah."
-    show Bima at left
-    show Arya at right
+    show Bima at lpos
+    show Arya at rpos
     r "Waduh, mampus, kita telat."
     k "Wah iya anjing."
     show satpam at center
@@ -373,8 +438,8 @@ label nabrak:
     r "Dah gapapa. Udah makanan sehari-sehari ngadep guru BK."
     scene sekolah_sore with fade
     "16.36, 9 September 1999."
-    show Bima at left 
-    show Arya at right
+    show Bima at lpos 
+    show Arya at rpos
     k "Wah akhirnya kelar juga sekolah hari ini."
     r "Iya, hectic banget hari ini sampe ngebut-ngebut di jalan."
     k "Heeh. Sampe harus kena hukuman karena telat, hahahaha."
@@ -385,8 +450,8 @@ label nabrak:
 label nemudompet:
     # Show the wallet on the road
     scene jalan with fade
-    show Bima at left 
-    show Arya at right
+    show Bima at lpos 
+    show Arya at rpos
     "Baru jalan bentar..."
     #"[Tunjukin ada dompet di jalan]"
 
