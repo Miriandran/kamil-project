@@ -34,3 +34,5 @@ venv/
 # File sistem
 .DS_Store
 Thumbs.db
+
+game/saves/
