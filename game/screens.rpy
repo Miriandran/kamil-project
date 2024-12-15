@@ -3,7 +3,7 @@
 ################################################################################
 
 init offset = -1
-define gui.accent_color = '#0b1957'
+define gui.accent_color = '#ffffff'
 
 ################################################################################
 ## Styles
@@ -471,7 +471,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
                     transclude
 
-    use navigation
+    #use navigation
 
     textbutton _("Return"):
         style "return_button"
@@ -501,7 +501,7 @@ style game_menu_outer_frame:
     bottom_padding 45
     top_padding 180
 
-    background "gui/overlay/game_menu.png"
+    background "gui/overlay/game_menu2.png"
 
 style game_menu_navigation_frame:
     xsize 420
@@ -574,6 +574,10 @@ style about_text is gui_text
 
 style about_label_text:
     size gui.label_text_size
+
+style about_text:
+    color "#ffffff"
+    size gui.about_text_size
 
 
 ## Load and Save screens #######################################################

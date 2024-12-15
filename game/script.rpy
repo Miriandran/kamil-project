@@ -1,4 +1,5 @@
-﻿# ------------------------------------- X-SMA -------------------------------------
+﻿
+# ------------------------------------- X-SMA -------------------------------------
 # DEFINE CHARACTERS
 define k = Character("Brama", image="chara/sma_kamil/k", color="#472301")
 define r = Character("Arya", color="#a8652e")
@@ -9,20 +10,82 @@ define a = Character('Ayah', color="#423d3d")
 image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
 image acak2 = im.Scale("bg/acak2.jpg", 1920, 1080)
 image acak3 = im.Scale("bg/acak3.webp", 1920, 1080)
-image kamartidur = im.Scale("bg/kamar.jpg", 1920, 1080)
-image ruangtamu = im.Scale("bg/living.jpg", 1920, 1080)
-image ruangmakan = im.Scale("bg/living.jpg", 1920, 1080)
+image kamartidur = im.Scale("bg/kamar.png", 1920, 1080)
+image kamar= im.Scale("bg/kamarmalam.png", 1920, 1080)
+image ruangtamu = im.Scale("bg/Ruang Tamu.png", 1920, 1080)
+image ruangmakan = im.Scale("bg/ruang makan.png", 1920, 1080)
 image depanrumah = im.Scale("bg/rumahkmilkecil.png", 1920,1080)
+image rumah_sore = im.Scale("bg/ruang makan malam.png", 1920,1080)
 image rakbuku = im.Scale("bg/rakbuku.png", 1920,1080)
 image gerbangsekolah = im.Scale("bg/GerbangSekolah.png", 1920,1080)
 image sekolah_sore = im.Scale("bg/sekolahsore.jpg", 1920,1080)
 image jalan = im.Scale("bg/jalansore.jpg", 1920,1080)
+image dompet = im.Scale("bg/dompet.JPG", 1920,1080)
+image jalanan_malam = im.Scale("bg/jalan malam.jpg", 1920,1080)
+image jakarta_malam = im.Scale("bg/jakarta malem.jpg", 1920,1080)
+image restoran_1 = im.Scale("bg/restoduduk.png", 1920,1080)
+image kasir = im.Scale("bg/Restoran Kasir.png", 1920,1080)
+image tokobaju = im.Scale("bg/tokobaju.png", 1920,1080)
 
 # IMAGE CHARA
+image Brama Glitch:
+    At("chara/sma_kamil/k netral.png", glitch)
+    pause 0.2
+    At("chara/sma_kamil/k netral.png", animated_glitch)
+    pause 0.2
+    At("chara/sma_kamil/k netral.png", glitch)
+    pause 0.1
+    At("chara/sma_kamil/k netral.png", animated_glitch)
+    pause 0.1
+    At("chara/sma_kamil/k netral.png", glitch)
+    pause 0.3
+    At("chara/sma_kamil/k netral.png", animated_glitch)
+    pause 1.0
+    repeat
+image Arya Marah Glitch:
+    At("chara/sma_arya/RAGE.png", glitch)
+    pause 0.2
+    At("chara/sma_arya/RAGE.png", animated_glitch)
+    pause 0.2
+    At("chara/sma_arya/RAGE.png", glitch)
+    pause 0.1
+    At("chara/sma_arya/RAGE.png", animated_glitch)
+    pause 0.1
+    At("chara/sma_arya/RAGE.png", glitch)
+    pause 0.3
+    At("chara/sma_arya/RAGE.png", animated_glitch)
+    pause 1.0
+    repeat
+image Arya Menangis Glitch:
+    At("chara/sma_arya/CRYING.png", glitch)
+    pause 0.2
+    At("chara/sma_arya/CRYING.png", animated_glitch)
+    pause 0.2
+    At("chara/sma_arya/CRYING.png", glitch)
+    pause 0.1
+    At("chara/sma_arya/CRYING.png", animated_glitch)
+    pause 0.1
+    At("chara/sma_arya/CRYING.png", glitch)
+    pause 0.3
+    At("chara/sma_arya/CRYING.png", animated_glitch)
+    pause 1.0
+    repeat
+
+image Pencuri:
+    "chara/PENCURI/Neutral.png"
+    zoom 0.75
+image Pencuri Panik:
+    "chara/PENCURI/Panic.png"
+    zoom 0.75
+image Pencuri Pistol:
+    "chara/PENCURI/Pencuri rogoh tas.png"
+    zoom 0.5
+image Badge:
+    "chara/AYAH PULICI/Belum isi foto.png"
+    zoom 0.5
 image Brama:
     "chara/sma_kamil/k netral.png"
     zoom 0.5
-
 image Brama Marah:
     "chara/sma_kamil/k angry.png"
     zoom 0.5
@@ -105,9 +168,13 @@ label start:
     with fade
     scene black
     with fade
+
+    scene dentuman
     play sound "audio/dentumanpistol.mp3"
-    show Brama Kosong at cpos with dissolve:
-        zoom 2.5
+    show Brama Glitch:
+        xalign 0.5
+        yalign 0
+        zoom 1
     "DORR!"
     "(dentuman pistol)"
     show Brama Bingung at cpos:
@@ -276,6 +343,7 @@ label minibuku:
 #minigame pilih kalkulator
 
 
+image slide1 = im.Scale("text/X-SMA/Slide1.png", 1920, 1080)
 # Label ruangmakan
 label ruangmakan:
     scene ruangmakan with fade
@@ -317,8 +385,8 @@ label ruangmakan:
 
     # Time skip
     scene black with fade
+    show slide1
     pause 1
-    "06.00 WIB, 9 September 1999"
     scene depanrumah with fade
     show Arya at arpos
     show Brama Bingung at lpos
@@ -372,11 +440,15 @@ label motorarya:
     k "Yeuuu, yaudah mana kuncinya."
     jump gerbangsekolah
 
+image slide2 = im.Scale("text/X-SMA/Slide2.png", 1920, 1080)
 label gerbangsekolah:
+    scene black with fade
+    show slide2
+    pause 1
     scene gerbangsekolah with fade
     show Brama at lpos
     show Arya at arpos
-    "06.30 depan gerbang sekolah, 9 September 1999"
+
 
     show Brama Marah at lpos
     k "ANJINGGG!"
@@ -429,9 +501,13 @@ label mininabrak:
         '(minigame berhasil)':
             jump ganabrak
 
+image slide3 = im.Scale("text/X-SMA/Slide3.png", 1920, 1080)
+image slide5 = im.Scale("text/X-SMA/Slide5.png", 1920, 1080)
 label ganabrak:
+    scene black with fade
+    show slide3
+    pause 1
     scene depanrumah with fade
-    "06.44 sampai rumah."
     show Brama Lega at lpos
     show Arya Bingung at arpos
     r "Wah gila, buruan ambil laporan lu."
@@ -450,7 +526,9 @@ label ganabrak:
     k "Itu nunggu di depan. Aku langsung ya, Bu. Keburu telat."
     i "Iya, sana buru!"
     i "Hati-hati ya nak."
-
+    scene black with fade
+    show slide5
+    pause 1
     scene gerbangsekolah with fade
     "06.59 gerbang sekolah."
     show Brama Lega at lpos
@@ -467,8 +545,13 @@ label ganabrak:
     jump nemudompet
 
 define s = Character('Satpam', color="#423d3d")
-
+image slide4 = im.Scale("text/X-SMA/Slide4.png", 1920, 1080)
+image slide6 = im.Scale("text/X-SMA/Slide6.png", 1920, 1080)
+image slide7 = im.Scale("text/X-SMA/Slide7.png", 1920, 1080)
 label nabrak:
+    scene black with fade
+    show slide4
+    pause 1
     scene depanrumah with fade
     show Brama Cemas at lpos
     show Arya Kesal at arpos
@@ -490,7 +573,9 @@ label nabrak:
     k "Itu nunggu di depan. Aku langsung ya, Bu. Keburu telat."
     i "Iya, sana buru!"
     i "Hati-hati ya nak."
-
+    scene black with fade
+    show slide6
+    pause 1
     scene gerbangsekolah with fade
     "07.07 gerbang sekolah."
     show Brama Cemas at lpos
@@ -510,8 +595,11 @@ label nabrak:
     k "Iya kak, gw minta maaf ya jadi bawa lu di sini."
     show Arya Bahagia at arpos
     r "Dah gapapa. Udah makanan sehari-sehari ngadep guru BK."
+
+    scene black with fade
+    show slide7
+    pause 1
     scene sekolah_sore with fade
-    "16.36, 9 September 1999."
     show Brama Lega at lpos 
     show Arya Bahagia at arpos
     k "Wah akhirnya kelar juga sekolah hari ini."
@@ -534,8 +622,12 @@ label nemudompet:
 
     show Arya Bingung at arpos
     r "Eh apa itu?"
-    show Brama Bingung at lpos
+    hide Arya Bingung
+    hide Brama Bingung
+    scene dompet with fade
     k "Dompet?"
+    scene jalan with fade
+    show Brama Bingung at lpos
     show Arya Lega at arpos
     r "Wah, lumayan. Rezeki nggak kemana."
     show Brama Marah at lpos
@@ -572,9 +664,11 @@ label moral:
     "Arya mengalah dan setuju untuk mencari pemilik dompet."
     jump aaa
 
+image slide8 = im.Scale("text/X-SMA/Slide8.png", 1920, 1080)
 label aaa:
     # Scene starts with Arya and Brama talking
     scene jalan with fade
+    show Brama at lpos
     show Arya Kesal at arpos
     r "Jaman gini hidup itu keras. Kita harus bisa bertahan dengan cara apapun."
     show Brama Marah at lpos
@@ -603,15 +697,19 @@ label aaa:
     k "Oke."
 
     # Time skip to their return home
+    scene black with fade
+    show slide8
+    pause 1
     scene rumah_sore with fade
-    show Arya at arpos
+    show Arya at alpos
     show Brama at lpos
-    "16.42, 9 September 1999"
+
 
     show Ayah Bahagia at cpos
     a "Eehh, jagoan-jagoan Ayah udah pulang!"
-    show Arya Lega at arpos
+    show Arya Lega at alpos
     r "Hehe, iya Yah, udah kelar sekolahnya."
+    show Arya at alpos
     show Brama Bingung at lpos
     k "…" # (masih speechless kelakuan Arya)
     show Ibu at rpos
@@ -625,26 +723,31 @@ label aaa:
     k "Iya Yah, hehe, laporan Brama ketinggalan."
     show Ayah Bingung at cpos
     a "Wah kacau, lain kali bener-bener dicek ya, jangan sampe ada yang lupa."
-    show Arya Lega at arpos
+    show Arya Lega at alpos
     r "Walah, Ayah aja lupa ngembaliin kalkulator sampe tantrum tuh si anak."
+    show Arya at alpos
     show Brama Bingung at lpos
     k "Diem ya lu."
+    show Arya Bahagia at alpos
     show Ayah Tertawa at cpos
     a "HAHAHAHA, namanya juga udah bapak-bapak pasti lupaan."
 
     # Transition to the birthday moment
     show Ayah Bahagia at cpos
     i "Ngomong-ngomong, Brama, Arya, kalian inget nggak sekarang hari apa?"
-    show Arya Bingung at arpos
+    show Arya Bingung at alpos
     r "Hari Kamis?"
     show Brama Bahagia at lpos
     k "OH, HARI ULANG TAHUN AYAH!"
-    show Arya Kaget at arpos
+    show Arya Kaget at alpos
     r "OIYAA!"
+    show Arya Bahagia at alpos
     show Ayah Tertawa at cpos
     a "HAHAHAHA. Ternyata masih ada yang inget ulang tahun Ayah."
     show Ibu Senyum at rpos
     i "Kita harus ucapin apa, nakk? Satu, dua, tiga…"
+    show Arya Ketawa at alpos
+    show Brama Bahagia at lpos
     "Selamat ulang tahun Ayahhh!"
     show Ayah Tertawa at cpos
     a "Hahahaha, terima kasih yaa nak, Ibu."
@@ -663,7 +766,7 @@ label aaa:
 label sate:
     show Brama Bahagia at lpos
     k "Sate kayanya menarik deh Yah, udah lama ngga makan sate."
-    show Arya Kesal at arpos
+    show Arya Kesal at alpos
     r "Ah, tapi lagi pengen makanan berkuah. Sop buntut kali ya?"
     show Ibu at rpos
     i "Hmmm, sop buntut oke sih."
@@ -673,13 +776,13 @@ label sate:
 label sopbuntut:
     show Brama Bahagia at lpos
     k "Sop buntut kayanya menarik deh Yah, udah lama ngga makan sop buntut."
-    show Arya Kesal at arpos
+    show Arya Kesal at alpos
     r "Ah, tapi lagi pengen makanan bakaran. Sate kali ya?"
     show Ibu at rpos
     i "Hmmm, sate oke sih."
 
     jump makanmakan
-
+image slide9 = im.Scale("text/X-SMA/Slide9.png", 1920, 1080)
 label makanmakan:
     i "Yaudah yuk kita siap-siap dan beberes. Habis maghrib kita berangkat yaa!"
     k "Mau makan di mana kita, Bu?"
@@ -687,20 +790,23 @@ label makanmakan:
     a "Yaaa… kalau Ayah sih oke aja asal belanjanya ngga sampai 1 juta. HAHAHAHAHA!"
     r "Ya kalau ada 1 juta mah mending buat beli TV lagi, taruh di kamar Arya."
     a "Yeuuu, enak aja kamu!"
-    show Arya Ketawa at arpos
+    show Arya Ketawa at alpos
     a "Udah, sana siap-siap."
 
     # Time skip to evening preparation
-    "18.09, 9 September 1999, 162 menit sebelum dentuman"
-    scene kamartidur with fade
+    scene black with fade
+    show slide9
+    pause 1
+    scene kamar with fade
+    show Brama Bingung at lpos
     k "Kak, lu udah siap belom?"
-    show Arya Serius at arpos
+    show Arya Ketawa at arpos
     r "Lihat aja gw, udah cakep gini."
     k "Kali aja lu mau ngapain lagi kek."
     show Arya Kesal at arpos
     r "Ah, gw ngga seribet itu orangnya."
     k "Oh iya, ngomong-ngomong soal dompet tadi..."
-    show Brama Bingung at lpos
+    show Brama at lpos
     r "Udah lah, Bram, mau dipanjangin sampai kapan lagi?"
     k "Nggak gitu, gw mau ngomong sesuatu sama lu."
     r "Apa?"
@@ -791,25 +897,25 @@ label ibutibatiba:
     scene black with fade
     pause 0.5
 
-    scene kamar_dengan_pintu_terbuka with fade
+    scene ruangtamu with fade
     show Brama Lega at lpos
     k "Kita udah siap nih, Bu."
     show Arya Bahagia at arpos
     i "Widihh, udah cakep-cakep nih."
-    show Arya Serius at arpos
+    show Arya at arpos
     r "Ayah mana, Bu?"
     i "Ayah masih di kamar mandi, lagi mual-mual."
     
     show Arya Kaget at arpos
     a "Haloo, udah siap?" #(Ayah keluar dari kamar mandi)
     k "Ayah sakit? Ayah kalo ga enak badan ngga usah dipaksain makan di luar, yah."
-    show Arya Serius at arpos
+    show Arya  at arpos
     r "Iya, kita masih bisa ngerayain di rumah kok, Yah."
     show Arya Kesal at arpos
     i "Tuh kan, Ibu bilang apa tadi."
     show Arya Bahagia at arpos
     a "Gapapa kok, Ayah lagi merasa ga enak aja perasaannya, ga tau kenapa ya."
-    show Arya Serius at arpos
+    show Arya at arpos
     a "Apa mungkin Ayah ngga rela kehilangan uang sampe 1 juta? Hahahahaha."
     show Arya Kesal at arpos
     i "Ih Ayah, Ayah beneran gapapa?"
@@ -879,43 +985,64 @@ label minigame_nyetir:
 
 
 label sampei:
+    scene jakarta_malam
     show Brama Bahagia at lpos
     k "Alhamdulillah, udah sampe."
     # a sound of the car stopping.
     scene sarinah_dari_depan with fade
     show Arya Kaget at arpos
     i "Ayo nak, keburu tutup Sarinah-nya."
-    show Arya Tidur at arpos  # Ekspresi tidur untuk menunjukkan Ayah ketiduran
+    
     a "Ngghroookk..." 
-    #(Ayah ketiduran)
+    #(Ayah ketiduran)R
 
     jump akhirsampe
 
 label lamatpsampe:
-
+    scene jakarta_malam
     show Brama Bingung at lpos
     k "Ini beloknya kemana ya?"
     show Arya Kesal at arpos
     r "Tau jalan ga sih lu?"
     show Arya Kesal at arpos
     i "Ayo nak, keburu tutup Sarinah-nya."
-    show Arya Tidur at arpos  # Ekspresi tidur untuk menunjukkan Ayah ketiduran
     a "Ngghroookk..." 
 
     jump akhirsampe
 
-
+define pcpos = Position(xalign=0.5, yalign=0)
+define pistol = Position(xalign=0.5, yalign=0.4)
 define staff = Character('staff', color="#423d3d")
 define x = Character('Pencuri', color="#423d3d")
+
+image Pistol:
+    "cutscene/x/pistol.png"
+    zoom 1.5
+image Pistol Nembak:
+    "cutscene/x/pistolnembak.png"
+    zoom 1.5
+image dentuman = im.Scale("cutscene/x/bg.png", 1920, 1080)
+image slide10 = im.Scale("text/X-SMA/Slide10.png", 1920, 1080)
+image slide11 = im.Scale("text/X-SMA/Slide11.png", 1920, 1080)
+image slide12 = im.Scale("text/X-SMA/Slide12.png", 1920, 1080)
+image slide13 = im.Scale("text/X-SMA/Slide13.png", 1920, 1080)
+image slide14 = im.Scale("text/X-SMA/Slide14.png", 1920, 1080)
+image slide15 = im.Scale("text/X-SMA/Slide15.png", 1920, 1080)
+image slide16 = im.Scale("text/X-SMA/Slide16.png", 1920, 1080)
+image slide17 = im.Scale("text/X-SMA/Slide17.png", 1920, 1080)
+image slide18 = im.Scale("text/X-SMA/Slide18.png", 1920, 1080)
 
 label akhirsampe:
     i "Akhirnya, udah sampe juga."
     r "Fyuhhh, let’s go makannnn."
-
+    scene black with fade
+    show slide10
+    pause 1
     # Transition to the restaurant scene
     scene restoran_1 with fade
     staff "Selamat datang. Ini untuk buku menunya. Pesanan langsung ditulis di sini ya…"
     
+    show Brama Bahagia at lpos
     k "Ayah, Ibu, Kak, mau pesen apa? Brama aja yang nulisin."
     # Start the mini-game to order food here.
     #call mini_game_order_food
@@ -925,13 +1052,17 @@ label akhirsampe:
     a "Ya ngapain toh repot-repot ke restoran kalau masakan ibu itu yang terenak di dunia."
     i "Alah-alah masa sih ayah?"
     a "Loh iya dong, Arya, Brama, 20 tahun nikah sama ibu, ga pernah sekalipun ayah ngga habisin masakan ibu."
+    show Arya Ketawa at arpos
     r "Hahahaha, keliatan banget sih emang dari perutnya."
     a "HAHAHAHA!"
     k "Hahaha, ayah mah emang di mana-mana makannya banyak."
     i "Ih, percaya ga sih kalian, dulu ayah waktu masih bujang tuh badannya bagus tau."
     i "Ganteng dan gagah."
+    show Arya Kaget at arpos
     i "Kalau sekarang, ih, gantengnya emang masih iya, tapi gagahnya berubah jadi gajah."
     a "HAHAHA, ah ibu ini bisa aja."
+    show Arya at arpos
+    i "Iya, ayah kan dulu juga ga kalah keren dari Brama dan Arya."
     
     # Staff brings the food.
     staff "Silakan… (menyajikan makanan)"
@@ -940,55 +1071,91 @@ label akhirsampe:
     staff "Terima kasih kembali."
     
     # Transition to eating and wrapping up at the restaurant.
-    scene restoran_2 with fade
+    scene black with fade
+    show slide11
+    pause 1
+    scene restoran_1 with fade
+    show Brama Lega at lpos
+    show Arya Bahagia at arpos
     a "Alhamdulillah kenyang."
     i "Alhamdulillah, seneng banget deh yah, makasih yaaa."
     k "Besok traktir sop buntut dong yah."
     a "Wah tunggu ayah gajian lagi ya hahahaha."
     i "Brama, Arya, minta tolong bayarin ke kasir ya, ini bawa dompet ibu."
+    show Arya Ketawa at arpos
     r "Siap."
     
     # At the cashier.
+    scene black with fade
+    show slide12
+    pause 1
     scene kasir with fade
+    show Brama  at lpos
+    show Arya Bahagia at arpos
     k "Meja nomor 5, totalnya berapa kak?"
     staff "Totalnya jadi Rp120.000."
+    show Brama Bahagia at lpos
     k "Okee, ini kak."
     "Brama memberikan uang"
     staff "Uangnya pas ya? Terima kasih."
     k "Sama-sama kak."
+    show Brama  at lpos
+    show Arya Kesala at arpos
     r "Mahal amat ya sampe abis segitu."
+    show Brama Bahagia at lpos
     k "Yaelah bro, kita makan di Sarinah, beli sate berapa banyak juga tadi?"
+    show Arya Lega at arpos
     r "Yaaa, iya sihh."
-    
+
+    scene black with fade
+    show slide13
+    pause 1
     # The tension builds up as they notice something strange outside.
-    scene luar_restoran with fade
+    scene tokobaju with fade
+    show Brama Bingung at lpos
     k "Eh Arya, lihat deh toko baju sebrang."
+    show Arya Bingung at arpos
     r "Iya? Kenapa?"
+    show Brama Marah at lpos
     k "Lihat orang baju item itu? Dia lagi nyolong sepatu ga sih?"
     k "TUH TUH TUH DIA UMPETIN DI TAS DIA SI SEPATUNYA!"
+    show Arya Kaget at arpos
     r "EH IYA!"
     
     # Arya tries to calm down Brama.
+    show Arya at arpos
+    show Brama at lpos
     k "Wah gw harus bilang ke ayah."
+    show Arya Serius at arpos
     r "Eh, tunggu Bram!"
+    show Arya Kesal at arpos
     k "Kenapa kak?"
     r "Udah biarin aja, ga usah ikut campur urusan orang."
+    show Brama Bingung at lpos
     k "Urusan orang? Maksud lu?"
     r "Udah jangan ikut campur, biarin, itu urusan yang punya toko."
     k "Hahhh?? Lu udah gila ya? Itu kriminalitas anjing, sempet-sempetnya lu mikir gitu."
     r "Ya terus kenapa? Apa untungnya buat kita ngurusin dia?!"
+    show Brama Marah at lpos
     k "Lu beneran gila ya? Ayah kita polisi loh!"
     k "Ini udah jadi tanggung jawab ayah."
+    show Arya Kesala at arpos
     r "Yaudah, biarin ngapa sih, ngerepotin aja tau ga sih."
     k "Gw gamau tau, gw harus kasih tau ayah."
     
     # Brama rushes to tell Ayah about the situation.
+    scene black with fade
+    show slide14
+    pause 1
     scene kasir with fade
+    show Brama Marah at lpos
     k "YAHH! Ada pencuri yahh di toko seberang!!"
     a "Hmmmh? Gimana gimana?"
     k "Toko baju seberang yah, ada orang nyolong sepatu, Brama lihat dengan mata kepala sendiri."
     a "Bener Arya?"
+    show Arya Lega at arpos
     r "Iya yah."
+    show Arya at arpos
     a "Wah ga bener nih, ayok kita samperin."
     i "Dek, emang ga ada satpamnya yang jaga? Ulang tahun ayah masa harus tetep kerja sih?"
     a "Udah lah bu, ini tanggung jawab ayah."
@@ -997,677 +1164,82 @@ label akhirsampe:
     a "Mana? Ohhh, yang bawa tas itu?"
 
     # Transition to confrontation with the thief.
-    scene luar_restoran_confrontation with fade
+    scene black with fade
+    show slide15
+    pause 1
+    scene tokobaju with fade
     a "Permisi mas, saya Kompol Susilo, Kapolsek Matraman." #
-    #(showing badge)
+    show Badge at lpos
     a "Saya menerima laporan kecurigaan tindakan pencurian yang melibatkan mas sebagai tersangka."
     a "Untuk itu akan saya periksa mas untuk meluruskan apakah dugaan benar atau salah."
+    hide Badge
+    show Pencuri at pcpos
     x "Wah, salam kenal pak Susilo. Izin meluruskan, saya tidak mencuri barang apapun di toko ini."
     a "Maka biarkan saya memeriksa agar dugaan bisa dibantah jika memang tidak ada bukti."
     staff "Bapak polisi?"
     a "Iya, ada yang bisa saya bantu?"
     staff "Kami kehilangan satu pasang sepatu di rak pajangan A9 pak, sepertinya mas ini adalah pelakunya."
     a "Mas… menanggapi ini, saya mohon mas untuk kooperatif."
+    show Pencuri Panik at pcpos
+
     # Tension builds as X pulls a weapon.
     x "..." 
+    scene black with fade
+    show slide16
+    pause 0.5
+    scene black with fade
+    show slide17
+    pause 0.5
+    scene black with dissolve
+    show slide18
+    pause 1
     #(panicked look)
+    show Pencuri Pistol at pcpos
     "Pencuri mengeluarkan pistol dari sabuknya."
+    scene dentuman
+    show Pistol at pistol
+    pause 0.2
+    show Pistol Nembak at pistol
     "DORR!"
     # *DENTUMAN GUNSHOT*
 
     # Transition to chaos after the gunshot.
     # scene glitch_transition with glitch
+    hide Pistol Nembak
+    show Arya Kaget at acpos:
+        zoom 1.5
     r "AYAHHHHH!"
+    hide Arya Kaget
+
+    show Brama Glitch at cpos:
+        zoom 1
+    k "..."
+    hide Brama Glitch
+    show Arya Marah Glitch at acpos:
+        zoom 2
     r "BRAMA!"
     r "BRAMA!"
+    show Arya Menangis Glitch at acpos:
+        zoom 2
     r "BRAMA, LIHAT YANG KAMU PERBUAT!!!"
     
     # Glitching effect to show the impact of the incident.
     # This leads into the next part of the story.
 
-    return 
-# JUMP to Y-BUMN
+    return
+
+
 
 # # ------------------------------------- Y-BUMN Pre -------------------------------------
 # # DEFINE CHARACTERS
-define k = Character("Brama", color="#472301")
-define r = Character("Arya", )
-define o = Character("Others", )
-define n = Character("Nina", )
-define ist = Character("Istri", )
-define ceo = Character("CEO", )
-define ast = Character("Asisten", )
-define skre = Character("Sekretaris", )
-define an = Character("Andi", )
-define m = Character("Mahfudz", )
-define staffa = Character("Staff A", )
-define staffb = Character("Staff B", )
-define staffm = Character("Staff M", )
-define staffr = Character("Staff R", )
+# define k = Character("Brama", color="#472301")
 
 # # IMAGE BACKGROUND
-image kamartidur_y = im.Scale("bg/Rumah2 Tidur.png", 1920, 1080)
-image ruangmakan_y = im.Scale("bg/Rumah2 Makan.png", 1920, 1080)
-image kantorrumah_y = im.Scale("bg/Rumah2 Kantor.png", 1920, 1080)
-image terasrumah_y = im.Scale("bg/Rumah2 Kamil Dewasa.png", 1920, 1080)
-image bumnkantor = im.Scale("bg/BUMN Kantor.png", 1920, 1080)
-image bumnlobi = im.Scale("bg/BUMN Lobi.png", 1920, 1080)
-image bumnlorong = im.Scale("bg/BUMN Lorong.png", 1920, 1080)
-image bumnrapat = im.Scale("bg/BUMN Rapat.png", 1920, 1080)
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
 
 # # IMAGE CHARA
 # image Brama
 
-
-label ybumn:
-    k "Orang mengatakan kematian itu adalah hal mutlak, tidak dapat dihindarkan"
-    k "Tapi yang jadi pertanyaan adalah"
-    k "Kematian seperti apa yang diikhlaskan semua orang?"
-
-    #nunggu full face reveal depan cermin
-    k "Kematian ayah harus terjadi karena keegoisan anaknya."
-    k "..."
-    k "Andai saja waktu dapat berputar."
-    k "24 tahun telah berlalu.."
-    k "Kedamaian dan kerelaan belum kunjung aku temukan."
-
-    #Brama mendongak ke atas, tampilan dari samping
-    #ruangan di kamar mandi
-    k "Ayah, apakah engkau kecewa kepadaku?"
-    k "Ayah, aku hanya berusaha melakukan yang terbaik."
-    #Brama menunduk ke bawah, tampilan masih dari samping]
-    k "Apa jalan yang aku pilih sudah benar?"
-    k "..."
-    #dari atas sampai sini ga ada image karakter yang muncul di kiri kanan, murni karakter background]
-
-    #mulai sini balik ke biasanya, ada karakter di samping kiri kanan]
-    o "Tidak salah untuk bersedih dan menyesal."
-    o "Fitrah manusia sudah ditetapkan untuk memiliki perasaan."
-    o "Sangat wajar jika kamu merasa terpuruk kehilangan ayah."
-    o "Terlebih hal itu disebabkan oleh keputusanmu."
-    k "..."
-    o "Tetap ingatlah satu hal, Brama."
-    o "Kamu sudah melakukan hal yang benar."
-    o "Terkadang hal-hal yang terjadi berada di luar kendali kita."
-    o "Tetaplah fokus pada nilai moral yang kamu perjuangkan."
-    o "Tetaplah semangat."
-    
-    menu:
-        "Terima":
-            jump terima
-        "Denial":
-            jump denial
-
-label terima:
-    k "Kamu benar, Brama."
-    k "Takdir tuhan selalu tidak dapat ditebak."
-    k "Akan ada saatnya semua orang akan mati."
-    k "Termasuk ayah."
-    k "..."
-    #(suddenly Brama crying) Brama meneteskan air mata]
-
-    k "Tapi apakah aku harus melakukannya?"
-    k "Apakah aku bisa merubah masa lalu?"
-    jump nina
-
-label denial:
-    k "Engga, engga, engga!"
-    k "Aku ga bisa harus menjalani ini!"
-    k "Kenapa ya Allah??"
-    #(start to cry) Brama meneteskan air mata]
-    k "Kenapa engkau tidak menganugerahi aku otak bodoh dan apatis?"
-    k "Ayah seharusnya tidak akan mati karena aku."
-    k "..."
-    #menunduk sedih]
-    jump nina
-
-label nina:
-    #(Nina masuk ke kamar Brama dan memanggil Brama, ekspresi Brama kaget terbangun dari lamunannya)
-    #{musik make netral}
-    n "Nina  : Ayahhh!!"
-    #(Brama memalingkan muka sekejap untuk menutupi air mata) muka Brama ditutupi tangan]
-    k "Iya nak, kenapa nak?"
-    n "Ayah-ayah, ayo buruan sarapan udah ditunggu sama bundaaa!"
-    n "Bunda udah nunggu lama di meja makan ihh!"
-    n "Ayah juga buruuuu, nanti telat berangkat kerjaa!"
-    k "Oh hehehe, iya nina, sebentar ya ayah masih harus siap-siap dulu."
-    k "Kamu turun duluan ya nak, Ayah 5 menit lagi turun ke bawah."
-    k "Okay yah awas kalau lama."
-    #Ekspresi kesal nina]
-    k "Haduuhh aku tadi mikirin apa sampai ga sadar gini."
-    k "Dah dah, mending aku turun sekarang, terus sarapan dengan anak dan istriku."
-
-    #(time skip) (Brama pergi ke meja makan, istri dan nina udah duduk di kursi) (Brama dan keluarga lagi sarapan di meja makan, Istri bahagia menyambut Brama tapi anak kesal dengan Brama karena terlalu lama)
-    #ruang makan]
-    #{musik netral lagi}
-
-    ist "Pagi ayah, ngapain aja sii lama banget di atasnya?"
-    
-    menu:
-        "Cuci muka":
-            jump cucimuka
-        "benerin shower":
-            jump benerinshower
-
-label cucimuka:
-    k "Nggapapa kok sayang, tadi aku cuci muka bentar."
-    ist "Ohhh begituu."
-    jump lanjutmakan
-
-label benerinshower:
-    k "Nggapapa kok sayang, tadi shower kita bocor."
-    k "Jadi aku tadi benerin bentar."
-    ist "Loh, rusaknya parah kah?"
-    k "Engga kok, Alhamdulillah masih bisa diperbaiki."
-    ist "Yauda deh syukurlah."
-    jump lanjutmakan
-
-label lanjutmakan:
-    ist "Eh iya, yuk kita makannn!"
-    ist "Nina udah nungguin ayah nih dari tadi nggak turun-turun."
-    n "Iya nih ayah lama banget nggak tau apa kalau aku udah laper dan nungguin dari tadi."
-    k "Hehehe iya sayang maaf ya ayah kelamaan siap-siapnya."
-    k "Bunda masak apa pagi ini? Dari jauh aja aku bisa mencium aroma sedap masakan bunda."
-    ist "Ih bisa aja kamu yah,"
-    ist "Aku hari ini masak makanan kesukaan kamu banget nihh."
-    ist "Ada udang saus padang sama ayam mentega."
-    k "Wihhhhhhh."
-    ist "Kamu mau makan sama yang mana yah?"
-
-    menu:
-        "Udang saus padang dan ayam mentega":
-            jump dan
-        "Ayam mentega atau udang saus padang":
-            jump atau
-
-label dan:
-    k "Aku mau semuanya soalnya masakan kamu paling enak sedunia."
-    ist "Dasar ayah pagi-pagi udah gombal."
-    n "Iya nih ayah bisaan gombalnya huuuu."
-    jump laptop
-
-label atau:
-    k "Aku mau ayam mentega/udang saus padang aja deh."
-    k "Soalnya kan ayam mentega/udang saus padang kamu terenak di dunia."
-    ist "Dasar ayah pagi-pagi udah gombal."
-    n "Iya nih ayah bisaan gombalnya huuuu."
-    jump laptop
-
-label laptop:
-    n "Ayah berangkat jam berapa? Ini udah 06.15 loh."
-    n "Awas kena macet loh nanti di jalan."
-    n "Terus jadi telat deh masuk kantornya."
-    k "Eh iya bener juga makasih ya sayang udah diingetin."
-    n "Ayah cek lagi semua barang-barang bawaan ayah jangan sampai ada yang ketinggalan."
-    k "Iya sayang, ini udah ayah cek semuanya udah ada di tas ayah."
-    k "Wah iyaa, laptop ayah!"
-    k "Untung kamu ingetin, Nina."
-    k "Kalau nggak laptop ayah bakal ketinggalan di rumah."
-    k "Bunda lihat laptop ayah di mana nggak ya? Ayah lupa naruhnya."
-    ist "Kemarin bukannya ayah pake di ruang kerja ya?"
-    ist "Coba deh ayah cek juga di kamar kalau semisal di ruang kerja nggak ada."
-    n "Tuhkan untung aja aku ingetin."
-    n "Kalau nggak bisa-bisa ayah balik lagi ke rumah untuk ambil laptop doang."
-    k "Iya sayang, makasii yaa."
-    k "Laptop aku di mana ya?"
-    k "Aku lupa terakhir kali make aku taruh mana ya?"
-
-    menu:
-        "Ruang kerja":
-            jump ruangkerja
-        "Kamar":
-            jump ruangkamar
-
-label ruangkerja:
-    k "Laptop kemarin aku taruh mana ya?"
-    k "Aduh, ruang kerja ini kok berantakan banget? Aku pasti lupa taruh di mana lagi. Coba periksa dulu…"
-    k "Aha! Ini dia! Aku ingat tadi malam aku nge-charge laptop di sini. Untung ketemu."
-
-label ruangkamar:
-    k "Hmmm… laptopku di mana, ya?"
-    k "Kemarin aku sempat taruh di sini…"
-    k "Atau mungkin di meja kerja?"
-    k "Oh, ini diaa. Ternyata tertumpuk oleh buku. Untung ketemu."
-
-
-label berangkatkerja:
-    k "Ninaaa, makasih yaa nakk udah diingetin."
-    n "Iya, Ayah. Jangan sampai lupa lagi, ya!"
-    k "Maaa, aku berangkat yaa!"
-    ist "Iya sayangg, hati hatii!"
-
-    k "Fyuh, akhirnya bisa sampai tepat waktu."
-    staffa "Selamat pagi, Pak Brama."
-    k "Selamat pagi."
-    staffa "Saya ada kabar, Pak. Bisa berbicara sebentar?"
-    k "Boleh, ada apa ya?"
-    staffa "Jadi begini, Pak. Ada kabar bagus dari tim pemasaran."
-    staffa "Sepertinya kerja sama dengan klien baru sudah hampir rampung."
-    k "Oh iya? Bagus sekali."
-    k "Kalau begitu, saya minta tolong pastikan semua dokumen kontraknya sudah dicek sebelum finalisasi ya."
-    staffa "Baik, Pak."
-    k "Ada lagi yang perlu saya tahu?"
-    staffb "Pak, tadi pagi ada email dari tim IT tentang pembaruan sistem akuntansi kita."
-    k "Oke, lanjut."
-    staffb "Mereka butuh konfirmasi Bapak untuk lanjut ke tahap berikutnya."
-    k "Oh iya, itu penting. Saya cek nanti. Terima kasih sudah mengingatkan."
-    ast "Selamat pagi, Pak Brama. Hari ini ingin minum apa?"
-    k "Oh selamat pagi, Mas."
-    
-    menu:
-        "Kopi hitam":
-            jump kopihitam
-        "Teh hijau":
-            jump tehhijau
-
-label kopihitam:
-    k "Hari ini biasa ya, kopi hitam tanpa gula."
-    jump mulaikerja
-
-label tehhijau:
-    k "Saya pengen teh kayanya."
-    ast "Maaf pak, stok teh kita kosong."
-    k "Yasudah, seperti biasa aja."
-    jump mulaikerja
-
-label mulaikerja:
-    ast "Baik pak, ada lagi yang perlu saya siapkan?"
-    k "Oh iya, setelah ini saya langsung ke ruangan saya."
-    k "Nanti langsung antarkan ke sana saja."
-    ast "Baik pak."
-
-    k "Nahh iya, hari ini aku harus meeting online. Hampir saja lupa…"
-    ceo "Selamat pagi, semuanya."
-    ceo "Sebelum kita mulai, saya ingin memberi tahu mengenai regenerasi tim kita."
-    ceo "Izinkan saya memperkenalkan seorang kandidat untuk posisi strategis baru di perusahaan kita, Ibu Rosa."
-    ceo "Beliau akan mengamati proses kita hari ini dan memberikan masukan di kemudian hari."
-    rs "Terima kasih atas kesempatannya. Saya berharap bisa belajar banyak dari diskusi hari ini."
-    ceo "Baik, mari kita langsung masuk ke pembahasan utama."
-    ceo "Hari ini agenda kita akan mereview laporan keuangan tahunan."
-    ceo "Kemudian saya ingin memastikan semuanya sudah sesuai sebelum pembukuan ditutup akhir bulan."
-    ceo "Pak Brama, silakan memulai presentasi."
-    k "Selamat pagi, Bapak/Ibu Direksi. Saya akan memaparkan laporan keuangan tahunan kita."
-    k "Dimulai dari performa pendapatan selama tahun fiskal ini."
-    k "Mohon perhatian ke slide berikut ini."
-    k "Seperti yang terlihat, perusahaan mengalami kenaikan pendapatan sebesar 12% dibandingkan tahun lalu."
-    k "Namun, kita juga melihat adanya peningkatan pengeluaran operasional sebesar 8%, terutama di kuartal terakhir."
-    staffa "Kenaikan pengeluaran ini disebabkan oleh apa?"
-    staffa "Apakah ada proyek besar yang menyedot biaya lebih besar dari anggaran?"
-    k "Betul, ada dua proyek utama yang menjadi penyebab utama kenaikan biaya ini."
-    k "Yaitu pengembangan produk baru dan ekspansi ke pasar luar negeri."
-    k "Namun, tim keuangan kami telah memastikan bahwa semua alokasi biaya ini sesuai dengan perencanaan awal."
-    staffb "Pak Brama, saya perlu melihat file detail pengeluaran kuartal keempat. Bisa kirimkan sekarang?"
-    staffb "Terima kasih, Pak Brama. File ini sesuai dengan yang saya butuhkan."
-    k "Baik, Bapak/Ibu. Selain laporan pengeluaran, kami juga melihat adanya peningkatan margin keuntungan bersih sebesar 3%."
-    k "Ini berkat efisiensi dalam operasional dan optimalisasi proses produksi yang diterapkan sejak awal tahun."
-
-    k "Fyuh, akhirnya selesai juga presentasi hari ini."
-    k "Selanjutnya apa ya agendaku?"
-    skre "Pak Brama, maaf mengganggu. Ada hal penting yang baru saja saya dapatkan."
-    skre "Bapak perlu tahu ini sekarang."
-    k "Iya, apa ada masalah?"
-    skre "Ini terkait laporan tambahan dari tim audit."
-    k "Lanjutkan."
-    skre "Ada pembengkakan biaya di salah satu proyek besar kita, dan jumlahnya cukup signifikan."
-    k "Bagaimana? Tolong diulangi."
-    skre "Mohon maaf Pak, terdapat pembengkakan biaya pada salah satu proyek kita."
-    k "…"
-    skre "Sekali lagi mohon maaf Pak mengganggu waktunya."
-    k "…"
-    k "10 menit lagi silakan datang ke kantor saya."
-    k "Kita bicarakan detail permasalahannya."
-    skre "Baik Pak."
-
-    k "Aduh, masalah apa lagi."
-    k "Udah hampir tutup laporan tahunan."
-    k "Yaa semoga seberat apa pun itu bisa diselesaikan."
-    skre "Permisi, Pak."
-    k "Iya, silakan."
-    skre "Jadi, apakah kita sudah bisa membicarakan soal masalah pembiayaan proyek, Pak?"
-    k "Iya, mari kita bicarakan."
-    skre "Baik, Pak. Jadi pembiayaan proyek ekspansi perusahaan ke Singapura terjadi pembengkakan."
-    skre "Biaya pelaksanaan ekspansi ini jauh dari rencana anggaran perusahaan."
-    k "Hmmmmm, kasusnya seperti ini ya?"
-    k "Kalau begitu, apakah cadangan keuangan perusahaan dapat menutupi kerugian itu?"
-    skre "Berdasarkan perhitungan saya, keuangan kita tidak mencukupi itu."
-    k "Waduh…"
-    skre "Namun, masalah beratnya bukan pada hal itu saja, Pak."
-    k "Oke, apa lagi masalahnya?"
-    skre "Pak Bagas, salah satu yang bertanggung jawab pada pemilihan vendor."
-    skre "Tim audit telah menemukan adanya indikasi kecurangan pemilihan vendor."
-    skre "Sekaligus kecurangan operasional vendor."
-    k "Sebentar, jadi Pak Bagas telah melakukan kecurangan?"
-    skre "Benar, Pak."
-    k "Terus-terus? Apa yang sudah dilakukan Pak Bagas?"
-    skre "Lebih detailnya, direktur perusahaan vendor merupakan kerabat dekat Pak Bagas."
-    skre "Dan setelah ditelusuri lebih jauh, saham perusahaan vendor rupanya dipegang oleh anak perusahaan turunan kompetitor kita."
-    k "Oh, tunggu. Jadi Pak Bagas dalam hal ini bekerja sama dengan pesaing kita?"
-    skre "Iya, Pak."
-    k   "Baik, lalu apa kaitannya dengan pembiayaan kita?"
-    skre "Dalam rencana anggaran yang diajukan oleh Pak Bagas, anggaran dibuat seminimal mungkin agar vendor dapat menjadi pilihan kita."
-    k "Hmmm iya, saya ingat telah menandatangani RAB itu setelah berdiskusi dengan tim finansial."
-    skre "Sekarang operasional ekspansi tidak dapat dilanjutkan karena dana yang telah kita siapkan sesuai RAB tidak memenuhi biaya asli ekspansi."
-
-    menu:
-        "Batalkan saja proyeknya":
-            jump batalproyek
-        "Jalan keluar?":
-            jump jalankeluar
-
-label batalproyek:
-    k "Kalau begitu, kita batalkan saja proyek ekspansinya."
-    skre "Tidak bisa, Pak."
-    skre "Kita sudah menandatangani kontrak pengembangan dengan pihak Changi Airport."
-    k "Hmmm…"
-    k "Tunggu."
-    k "Seharusnya kan ini masalah pihak Changi."
-    k "Biaya operasional yang membengkak dari nilai kontrak seharusnya bukan jadi masalah kita."
-    skre "Idealnya memang seperti itu, Pak."
-    skre "Tapi sayangnya di MOU kontrak tidak dicantumkan demikian."
-    k "Wah iya juga, aku baru ingat."
-    jump rumit
-
-label jalankeluar:
-    k "Kamu ada ide untuk mengatasi masalah ini?"
-    skre "Sebaiknya pembengkakan ini bisa kita atasi."
-    skre "Kalau tidak, kita bisa merugi lebih banyak."
-    jump rumit
-
-label rumit:
-    k "Hmmmmm."
-    k "Ini rumit."
-    k "Saya telah mengerti situasinya."
-    k "Jadi saya simpulkan, Pak Bagas telah bekerja sama dengan kompetitor untuk menjatuhkan perusahaan ini melalui rekayasa anggaran."
-    skre "Benar, Pak. Hal paling buruknya adalah RAB itu yang menandatangani adalah Pak Brama."
-    skre "Artinya bila ekspansi ini gagal, Pak Brama dapat ikut terseret kasus penjatuhan perusahaan."
-    k "Saya mengerti."
-    k "Intinya, saya harus bertanggung jawab atas kecerobohan ini."
-    k "Baik, terima kasih atas kabarnya."
-    k "Tolong tinggalkan saya sendiri."
-    skre "Baik, Pak."
-
-    k "Ini masalah berat. Perjalanan hidupku sangat bergantung dengan momen ini."
-    k "Bagaimana ya aku harus menyelesaikan ini?"
-    k "Mungkin akan aku pastikan pada tim legal."
-
-    menu:
-        "Menelpon Pak Mahfudz":
-            jump pakmahfudz
-        "Bertanya ahli hukum di Kantor":
-            jump ahlihukumkantor
-
-label pakmahfudz:
-    k "Halo, Pak Mahfudz."
-    m "Halo, Pak Brama."
-    k "Bagaimana, Pak, kabarnya? Apa bisa kita berdiskusi sejenak?"
-    m "Maaf, Pak Brama, saya sedang rapat penting dengan anggota dewan."
-    m "Sekiranya hal yang dibicarakan itu penting, saya sarankan berbicara dengan Pak Andi."
-    k "Wah begitu ya, Pak."
-    k "Baik, akan saya komunikasikan dengan Pak Andi."
-    jump pakandi
-    
-label ahlihukumkantor:
-    k "Kalau tidak salah ingat, penasihat hukum utama kantor sedang keluar kota."
-    k "Mungkin aku bisa bertanya pada staf pembantunya di kantor ini."
-
-    staffa "Ada yang bisa saya bantu, Pak?"
-    k "Tolong panggilkan staf hukum."
-    k "Mungkin staf pembantu Pak Mahfudz."
-    staffa "Baik, Pak. Mohon ditunggu."
-    k "Oke."
-
-    staffm "Bapak mencari saya?"
-    k "Iya, saya ada perlu."
-    staffm "Baik, Pak. Apakah ini terkait hukum?"
-    k "Iya."
-    staffm "Baik, Pak. Tapi sebelum itu, saya ingin memohon maaf sebesar-besarnya."
-    staffm "Barusan saya dihubungi Pak Mahfudz untuk segera menyusul ke Kalimantan."
-    staffm "Meskipun begitu, akan saya antarkan kepada Pak Andi."
-    staffm "Beliau kebetulan sedang tidak sibuk."
-    k "Ya sudah kalau gitu."
-    k "Nanti saya telepon dari kantor saya saja."
-    k "Silakan segera bersiap menyusul Pak Mahfudz."
-    staffm "Oh baik, Pak, kalau begitu."
-    staffm "Saya izin duluan, Pak."
-    k "Iya."
-    jump pakandi
-
-label pakandi:
-    k "Halo, Pak Andi."
-    an "Oh, halo, Pak."
-    k "Bagaimana kabarnya, Pak?"
-    an "Alhamdulillah, kabar baik."
-    an "Jadi bagaimana, Pak? Ada yang bisa saya bantu?"
-    k "Nah iya, jadi begini, Pak."
-    k "Saya butuh konsultasi hukum terkait laporan keuangan perusahaan."
-    k "Ada potensi pembengkakan biaya yang mencurigakan di salah satu proyek besar kita."
-    k "Jika ada kesalahan atau masalah di sini, apakah ini bisa dianggap pelanggaran hukum?"
-    an "Baik, Pak Brama, itu tergantung pada apa yang menyebabkan pembengkakan tersebut."
-    an "Kalau ada bukti manipulasi data atau penggunaan dana yang tidak sesuai, ini bisa berujung pada investigasi hukum."
-    an "Bahkan bisa jadi ada potensi pidana jika melibatkan fraud atau pencucian uang."
-    k "…"
-    k "Kalau kita tidak segera menutup pembukuan atau menutupi masalah ini, apakah kita bisa diselamatkan secara hukum?"
-    an "Saya tidak bisa memberikan jaminan, Pak."
-    an "Saran saya, segera lakukan audit internal menyeluruh sebelum hal ini diketahui pihak eksternal."
-    an "Kalau ternyata masalahnya serius, mungkin kita perlu transparan dan melibatkan otoritas."
-    k "Baik, Pak. Terima kasih atas masukannya."
-
-    k "Ini masalah besar…"
-    k "Kalau informasi kesalahan ini sampai keluar, saya yang akan dimintai tanggung jawab."
-
-    k "…"
-    k "Kayanya aku perlu break."
-    k "Eh, sudah jam makan siang juga."
-    k "Kemana ya enaknya?"
-
-    menu:
-        "Kantin":
-            jump kantin
-        "Kafe":
-            jump kafe
-
-label kantin:
-    k "Mikirin masalah gini jadi laper."
-    k "Oh iya, dengar-dengar ada stan baru di kantin."
-    k "Jual apa ya dia kata sekretaris kemarin?"
-    k "Oh iya, kebab mozarela."
-    k "Menarik deh, mungkin aku harus coba cita rasa gen-Z."
-    jump curhatarya
-
-label kafe:
-    k "Mikirin masalah gini jadi laper."
-    k "Oh iya, dengar-dengar cafe di lantai bawah jualan menu baru."
-    k "Kopi apa ya?"
-    k "Duh lupa, padahal baru diomongin sama sekretaris kemarin."
-    k "Yaudah lihat aja nanti di bawah."
-    k "Sekalian makan bekal dari rumah."
-    jump curhatarya
-
-label curhatarya:
-    r "Pak Brama, saudaraku!"
-    k "..."
-    r "Kelihatannya kamu lagi pusing berat."
-    r "Ada masalah besar lagi, ya?"
-    r "Ceritalah, Bim."
-    r "Saudaramu ini direktur keuangan."
-    r "Masalah bagi gw udah kayak makanan sehari-hari. Hahahaha!"
-    k "..."
-
-    menu:
-        "cerita":
-            jump cerita
-        "Diam saja":
-            jump diamsaja
-
-label diamsaja:
-    k "Aman aja kok, Ar."
-    r "Udah lah, dikira bisa bohong ke abangmu ini?"
-    r "Kita udah tumbuh bareng lama, loh."
-    r "Dari kita kecil sampai…"
-    r "Lihatlah sekarang."
-    r "Kamu sudah sukses jadi direktur anak usaha Garuda."
-    r "Dan aku, sekarang aku jadi direktur keuangan Garuda."
-    r "Intinya begini."
-    r "Kalau ada masalah, cerita saja ke aku."
-    r "Mungkin meski aku tidak bisa kasih masukan sebagai saudara."
-    r "Setidaknya aku bisa memberikan tanggapan sebagai stakeholder perusahaan ini."
-    k "..."
-    jump cerita
-
-label cerita:
-    k "Haduh iya nih."
-    k "Masalah baru menimpa lagi."
-    k "Sangatlah pusing."
-    r "Emang ada masalah apa sih? Kok kayaknya berat banget."
-    k "Jadi gini, Kak."
-    k "Salah satu proyek kita ada yang bengkak anggarannya."
-    k "Anggaran nggak sesuai dengan rencana awal."
-    k "Bahkan berpotensi bikin perusahaan bangkrut."
-    r "Wah, ini sih masalah serius banget."
-    r "Sebentar, apa ini masalah ekspansi dapur katering ke bandara Changi?"
-    k "Kok tahu?"
-    r "Ayo lah, aku direktur keuangan."
-    r "Aku bisa tahu kalau ada persoalan keuangan yang aneh."
-    r "Ngomong-ngomong, udah ada investigasi belum mengenai hal itu?"
-
-    menu:
-        "Sudah":
-            jump sudah
-        "Jaga rahasia":
-            jump jagarahasia
-
-label sudah:
-    k "Sekretaris aku udah coba investigasi."
-    k "Rupanya ini ulah orang operasional."
-    k "Namanya Bagas."
-    k "Dia yang bagian milih vendor sekaligus yang nyusun rancangan anggaran."
-    k "Jadi, rancangan anggaran proyek ekspansi sengaja dikecilkan."
-    k "Kemudian vendor proyek ekspansi juga ternyata dari perusahaan pesaing."
-    r "Hmmm begitu ya."
-    r "Kalau begitu kenapa kamu setujui proposal anggaran itu?"
-    k "Ah, itu kesalahanku kurang teliti."
-    k "Saat itu aku terlalu banyak beban, Kak."
-    k "Jadinya gini deh, buntutnya jadi nggak fokus ngurus dokumen."
-    k "Intinya aku harus bisa mengatasi biaya membengkak itu supaya aku aman."
-    jump lanjutcerita
-
-label jagarahasia:
-    k "Belum, Wan."
-    k "Intinya dari pembengkakan biaya ini bikin kita butuh dana yang cukup besar."
-    r "Kamu benar, Bim."
-    r "Kalau aja sampai gagal mengatasi pembengkakan, perusahaan yang kamu pegang bisa rugi besar."
-    k "Iya, aku ngerti soal itu."
-    r "Tapi kalau hanya masalah itu, seharusnya saudaraku ini tidak segusar itu."
-    r "Apa masih ada yang disembunyikan?"
-    k "..."
-    k "Aku kena jebakan orang."
-    r "Apa?"
-    k "Intinya aku harus bisa mengatasi biaya membengkak itu supaya aku aman."
-    jump lanjutcerita
-
-label lanjutcerita:
-    r "Hmmm, begitu rupanya."
-    r "Kalau gitu kita harus segera cari suntikan modal."
-    r "Kamu sendiri udah nyoba nyari calon-calon investor yang sekiranya bisa buat investasi ke kita segera?"
-    k "Belum sih, Wan."
-    k "Tapi tadi aku dapat email dari PT. Angin Topan."
-    k "Mereka menawarkan untuk menyuntikkan dana besar ke proyek kita."
-    r "Wah bagus dong kalau gitu."
-    r "Tunggu apa lagi?"
-    r "Ini kesempatan besar buat nyelamatin perusahaan kamu."
-
-    menu:
-        "Ambil":
-            jump ambil
-        "Ragu":
-            jump ragu
-
-label ambil:
-    k "Ini emang menarik sih."
-    r "Tunggu apa lagi kalau begitu?"
-    k "Iya sih, habis ini aku coba rapatin sama direksi yang lain."
-    jump throwbackarya
-
-label ragu:
-    k "Tapi, Kak, apa nggak merasa aneh?"
-    r "Aneh kenapa?"
-    k "Kayak tiba-tiba banget pas di momen gini."
-    r "Eh bagus dong."
-    k "Iya sih, habis ini aku coba rapatin sama direksi yang lain."
-    jump throwbackarya
-
-label throwbackarya:
-    staffr "Pagi, Pak Arya."
-    r "Pagi, ada apa?"
-    staffr "Saya mendapatkan informasi mengenai anak perusahaan Garuda."
-    r "Anak perusahaan yang mana?"
-    staffr "Penyedia katering, Pak."
-    r "Ohhh, yang dipegang Brama adik aku?"
-    staffr "Iya, Pak."
-    r "Kenapa?"
-    staffr "*mengulangi cerita yang disampaikan sekretaris ke Brama*"
-    r "Hmmm begitu ya."
-    r "Terima kasih atas informasinya."
-    r "Tolong tinggalkan saya sendiri."
-    staffr "Baik, Pak."
-
-    r "Aduh, Brama ada aja."
-    r "Berbuat apa kamu sampai terjebak di masalah gini."
-    r "Kalau gini aku harus bantu dia."
-
-    menu:
-        "Minta bantuan direksi BUMN":
-            jump bantuanbumn
-        "Minta bantuan teman":
-            jump bantuanteman
-
-label bantuanbumn:
-    r "Kayanya aku harus coba menghubungi orang tinggi BUMN deh."
-    r "Hmmm, jadi direksi pusat nggak bisa bantu ya."
-    r "Mungkin aku kontak temenku yang punya banyak duit aja."
-    r "Kemarin dia bisa beli 2000 alat berat."
-    r "Duitnya banyak sih, harusnya."
-    jump lanjutthrwback
-
-label bantuanteman:
-    r "Kayanya aku harus coba menghubungi Suyono deh."
-    r "Kemarin dia bisa beli 2000 alat berat."
-    r "Duitnya banyak sih, harusnya."
-    jump lanjutthrwback
-
-label lanjutthrwback:
-    r "Eh, tapi apa kata Brama yang sok idealis itu?"
-    r "Kalau tahu apa yang aku lakuin gini bisa ditolak mentah-mentah bantuanku."
-    r "Bodo amat lah, dunia emang gini."
-    r "Mending untuk sekali-kali nerima bantuan koruptor daripada harus menderita."
-    r "Asal koruptor ini pakai perusahaan samaran sih aman."
-    r "Kasih nama PT. Angin Topan pasti Brama nggak tahu itu duit dari mana."
-    jump balikkamil
-
-label balikkamil:
-    k "Baik, sekian rapat kita kali ini."
-    k "Sebagai kesimpulan, keputusan belum bisa kita ambil."
-    k "Meskipun begitu, saya ucapkan terima kasih pada bapak ibu yang telah memberikan masukan."
-    k "Kepastian mengenai tawaran investasi PT. Angin Topan akan segera saya kabarkan."
-    k "Silakan untuk meninggalkan ruangan."
-
-    r "Bagaimana, Pak? Apakah dewan direksi menyetujui tawaran investor PT. Angin Topan?"
-    k "Eh, Arya."
-    k "Saya masih bingung terhadap keputusan apa yang harus saya ambil."
-    k "Dewan direksi setuju untuk mengambil kesempatan ini."
-    k "Mereka tidak mau perusahaan kita bangkrut dan karyawan kita kehilangan pekerjaan mereka."
-    k "Kalau saya sendiri masih bingung karena saya punya feeling nggak enak."
-    r "Udah lah, Bim."
-    r "Kalau kata saya, terima saja tawaran itu."
-    r "Emang kamu nggak kasihan apa buat keluarga karyawan yang bergantung pada pekerja kita untuk hidup sehari-hari?"
-    r "Saya dengar-dengar juga ada kemungkinan tindak pidana manipulasi keuangan yang bisa menyeret nama kamu ke jalur hukum."
-    r "Daripada kamu kena getahnya, mending bapak terima saja tawaran itu."
-
-    menu:
-        "Tolak":
-            jump a
-        "Terima":
-            jump b
 
 # # # ------------------------------------- A -------------------------------------
 # # DEFINE CHARACTERS
@@ -1834,3 +1406,229 @@ label balikkamil:
 
 # # IMAGE CHARA
 # image Brama
+
+init python:
+    class glitch(renpy.Displayable):
+        """
+        `randomkey`
+            Follows the rules of the random modume's seed function.
+            If not set, a random seed is generated when the transform is applied,
+            and stays the same afterwards.
+            If you want the effect to be random for each render operation, set to None.
+
+        `chroma`
+            Boolean, whether to apply the chromatic aberration effect.
+
+        `minbandheight`
+            Minimum height of each slice.
+
+        `offset`
+            The offset of each slice will be between -offset and offset pixels.
+
+        `nslices`
+            Number of slicings to do (the number of slices will be nslices + 1).
+            Setting this to 0 is not supported.
+            None (the default) makes it random.
+        """
+
+        NotSet = object()
+
+        def __init__(self, child, *, randomkey=NotSet, chroma=True, minbandheight=1, offset=30, nslices=None, **properties):
+            super().__init__(**properties)
+            self.child = renpy.displayable(child)
+            if randomkey is self.NotSet:
+                randomkey = renpy.random.random()
+            self.randomkey = randomkey
+            self.chroma = chroma
+            self.minbandheight = minbandheight
+            self.offset = offset
+            self.nslices = nslices
+
+        def render(self, width, height, st, at):
+            child = self.child
+            child_render = renpy.render(child, width, height, st, at)
+            cwidth, cheight = child_render.get_size()
+            if not (cwidth and cheight):
+                return child_render
+            render = renpy.Render(cwidth, cheight)
+            randomobj = renpy.random.Random(self.randomkey)
+            chroma = self.chroma and renpy.display.render.models
+            offset = self.offset
+            minbandheight = self.minbandheight
+            nslices = self.nslices
+            if nslices is None:
+                nslices = min(int(cheight/minbandheight), randomobj.randrange(10, 21))
+
+            theights = sorted(randomobj.randrange(int(cheight)+1) for k in range(nslices)) # y coordinates demarcating all the strips
+            offt = 0 # next strip's lateral offset
+            fheight = 0 # sum of the size of all the strips added this far
+            while fheight<cheight:
+                # theight is the height of this particular strip
+                if theights:
+                    theight = max(theights.pop(0)-fheight, minbandheight)
+                else:
+                    theight = cheight-theight
+
+                slice_render = child_render.subsurface((0, fheight, cwidth, theight))
+
+                if offt and chroma:
+                    for color_mask, chponder in (((False, False, True, True), 1.25), ((False, True, False, True), 1.), ((True, False, False, True), .75)):
+                        chroma_render = slice_render.subsurface((0, 0, cwidth, theight))
+                        chroma_render.add_property("gl_color_mask", color_mask)
+                        render.blit(chroma_render, (round(offt*chponder), round(fheight)))
+
+                else:
+                    render.blit(slice_render, (offt, round(fheight)))
+
+                fheight += theight
+                if offt:
+                    offt = 0
+                else:
+                    offt = randomobj.randrange(-offset, offset+1)
+
+            return render
+
+        def visit(self):
+            return [self.child]
+
+    class animated_glitch(glitch):
+        """
+        Glitches in a way that changes over time, but consistently, unlike glitch(randomkey=None).
+        Sets a timeout at the beginning. At the end of each timeout, sets a new one and changes the glitching.
+
+        `timeout_base`
+            The time in seconds between two changes of the glitching.
+            Can be either single float (or integer) value, or a tuple of two values between which the timeout
+            will be chosen following a uniform distribution, respecting the randomkey.
+            Defaults to .1 second.
+
+        `timeout_vanilla`
+            The length in seconds of the periods of time over which the child will be shown without any glitch.
+            Same values and meaning as `timeout_base`, except that if False, the child will never be shown without glitching.
+            If `timeout_base` is passed, defaults to the same value. Otherwise, defaults to (1, 3).
+        """
+
+        def __init__(self, *args, timeout_base=None, timeout_vanilla=None, **kwargs):
+            super().__init__(*args, **kwargs)
+            if timeout_vanilla is None:
+                if timeout_base is None:
+                    timeout_vanilla = (1, 3)
+                else:
+                    timeout_vanilla = timeout_base
+            if timeout_base is None:
+                timeout_base = .1
+
+            self.timeout_base = timeout_base
+            self.timeout_vanilla = timeout_vanilla
+            self.set_timeout(vanilla=(timeout_vanilla is not False))
+
+        def set_timeout(self, vanilla, st=0):
+            if vanilla:
+                timeout = self.timeout_vanilla
+            else:
+                timeout = self.timeout_base
+
+            if not isinstance(timeout, (int, float)):
+                timeout = renpy.random.Random(self.randomkey).uniform(*timeout)
+
+            self.timeout = timeout + st
+            self.showing_vanilla = vanilla
+
+        def render(self, width, height, st, at):
+            vanilla = self.showing_vanilla
+
+            if st >= self.timeout:
+                randomkey = self.randomkey
+                randomobj = renpy.random.Random(randomkey)
+                self.randomkey = randomobj.random()
+
+                # determine whether to show vanilla or not
+                if vanilla or (self.timeout_vanilla is False):
+                    # if we were showing it or if showing it is disabled
+                    vanilla = False
+                else:
+                    vanilla = (randomobj.random() < .3)
+
+                self.set_timeout(vanilla, st)
+
+            renpy.redraw(self, st-self.timeout)
+
+            if vanilla:
+                return renpy.render(self.child, width, height, st, at)
+            else:
+                return super().render(width, height, st, at)
+
+    class squares_glitch(renpy.Displayable):
+        """
+        `squareside`
+            The size, in pixels, of the side of the squares the child image will be cut to. This will
+            be adjusted so that all the "squares" (rectangles, really) have the same width and the
+            same height, and that none is cut at the borders of the image. Defaults to 20 pixels.
+
+        `chroma`
+            The probability for each square to get a chromatic effect. Defaults to .25.
+
+        `permutes`
+            The percentage of squares which will be moved to another square's place. If not passed,
+            defaults to a random value between .1 and .4.
+        """
+
+        NotSet = object()
+
+        def __init__(self, child, *args, randomkey=NotSet, **kwargs):
+            super().__init__()
+            self.child = renpy.displayable(child)
+            self.args = args
+            if randomkey is self.NotSet:
+                randomkey = renpy.random.random()
+            self.randomkey = randomkey
+            self.kwargs = kwargs
+
+        def render(self, width, height, st, at):
+            cwidth, cheight = renpy.render(self.child, width, height, st, at).get_size()
+            return renpy.render(self.glitch(self.child,
+                                            cwidth, cheight, renpy.random.Random(self.randomkey),
+                                            *self.args, **self.kwargs),
+                                width, height,
+                                st, at)
+
+        @staticmethod
+        def glitch(child, cwidth, cheight, randomobj, squareside=20, chroma=.25, permutes=None):
+            if not renpy.display.render.models:
+                chroma = False
+            if not (cwidth and cheight):
+                return child
+
+            ncols = round(cwidth/squareside)
+            nrows = round(cheight/squareside)
+            square_width = absolute(cwidth/ncols)
+            square_height = absolute(cheight/nrows)
+
+            lizt = []
+            for y in range(nrows):
+                for x in range(ncols):
+                    lizt.append(Transform(child,
+                                            crop=(absolute(x*square_width), absolute(y*square_height), square_width, square_height),
+                                            subpixel=True,
+                                            ))
+
+            if permutes is None:
+                permutes = randomobj.randrange(10, 40)/100 # between 10% and 40%
+            permutes = round(permutes*ncols*nrows)
+            permute_a = randomobj.sample(range(ncols*nrows), permutes)
+            permute_b = randomobj.sample(range(ncols*nrows), permutes)
+
+            for a, b in zip(permute_a, permute_b):
+                lizt[a], lizt[b] = lizt[b], lizt[a]
+
+            for k, el in enumerate(lizt):
+                if randomobj.random() < chroma:
+                    lizt[k] = Transform(el,
+                                        gl_color_mask=(randomobj.random()<.33, randomobj.random()<.33, randomobj.random()<.33, True),
+                                        # matrixcolor=HueMatrix(randomobj.random()*360),
+                                        )
+
+            return Grid(ncols, nrows, *lizt)
+
+        def __eq__(self, other):
+            return (type(self) == type(other)) and (self.args == other.args) and (self.kwargs == other.kwargs)
