@@ -36,3 +36,5 @@ venv/
 Thumbs.db
 
 game/saves/
+*.save
+*.save

@@ -90,7 +90,7 @@ define gui.about_text_size = 50
 
 ## The images used for the main and game menus.
 define gui.main_menu_background = im.Scale("gui/main_menu.JPG", 1920, 1080)
-define gui.game_menu_background = im.Scale("gui/game_menu.JPG", 1920, 1080)
+define gui.game_menu_background = im.Scale("gui/game_menu2.JPG", 1920, 1080)
 
 
 ## Dialogue ####################################################################
