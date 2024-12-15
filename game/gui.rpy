@@ -313,6 +313,9 @@ define gui.frame_tile = False
 define gui.bar_size = 38
 define gui.scrollbar_size = 18
 define gui.slider_size = 38
+define gui.slider_left_gutter = 10  # Batas kiri (dalam piksel)
+define gui.slider_right_gutter = 10  # Batas kanan (dalam piksel)
+
 
 ## True if bar images should be tiled. False if they should be linearly scaled.
 define gui.bar_tile = False
