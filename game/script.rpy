@@ -1,10 +1,7 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
+﻿
+# ------------------------------------- X-SMA -------------------------------------
 # DEFINE CHARACTERS
-define k = Character("Bima", image="chara/sma_kamil/k", color="#472301")
+define k = Character("Brama", image="chara/sma_kamil/k", color="#472301")
 define r = Character("Arya", color="#a8652e")
 define i = Character('Ibu', color="#423d3d")
 define a = Character('Ayah', color="#423d3d")
@@ -23,40 +20,81 @@ image sekolah_sore = im.Scale("bg/sekolahsore.jpg", 1920,1080)
 image jalan = im.Scale("bg/jalansore.jpg", 1920,1080)
 
 # IMAGE CHARA
-image Bima:
+image Brama:
     "chara/sma_kamil/k netral.png"
     zoom 0.5
 
-image Bima Marah:
+image Brama Marah:
     "chara/sma_kamil/k angry.png"
     zoom 0.5
-image Bima Lega : 
+image Brama Lega : 
     "chara/sma_kamil/k lega.png"
     zoom 0.5
-image Bima Bingung :
+image Brama Bingung :
     "chara/sma_kamil/k conf.png"
     zoom 0.5
-image Bima Bahagia :
+image Brama Cemas :
+    "chara/sma_kamil/k conf.png"
+    zoom 0.5
+image Brama Bahagia :
     "chara/sma_kamil/k happy.png"
     zoom 0.5
-image Bima Kosong :
+image Brama Kosong :
     "chara/sma_kamil/k kosong.png"
     zoom 0.5
-image Bima Malu : 
+image Brama Malu : 
     "chara/sma_kamil/k malu.png"
     zoom 0.5
 
-image Arya Rapih = "chara/sk_ridwan.png"
 image Arya :
-    "chara/sma_ridwan.png"
-    zoom 0.45
+    "chara/sma_arya/NEUTRAL.png"
+    zoom 1.45
+image Arya Marah:
+    "chara/sma_arya/RAGE.png"
+    zoom 1.45
+image Arya Lega : 
+    "chara/sma_arya/RELIEVED.png"
+    zoom 1.45
+image Arya Bingung :
+    "chara/sma_arya/CONFUSED.png"
+    zoom 1.45
+image Arya Bahagia :
+    "chara/sma_arya/HAPPY SMILE.png"
+    zoom 1.45
+image Arya Ketawa :
+    "chara/sma_arya/HAPPY LAUGH.png"
+    zoom 1.45
+image Arya Menangis :
+    "chara/sma_arya/CRYING.png"
+    zoom 1.45
+image Arya Kesal : 
+    "chara/sma_arya/ANNOYED.png"
+    zoom 1.45
+image Arya Kesala : 
+    "chara/sma_arya/ANNOYED NO EMOJI.png"
+    zoom 1.45
+image Arya Kecewa : 
+    "chara/sma_arya/DISSAPOINTED.png"
+    zoom 1.45
+image Arya Kaget : 
+    "chara/sma_arya/SHOCKED.png"
+    zoom 1.45
+image Arya Serius : 
+    "chara/sma_arya/SERIOUS.png"
+    zoom 1.45
 
-image ibu = "chara/ibu.png"
+image ibu = "chara/ibu.png" 
 image ayah = "chara/ayah.png"
 
+# buat brama
 define cpos = Position(xalign=0.5, yalign=0)
 define rpos = Position(xalign=0.9, yalign=0)
 define lpos = Position(xalign=0,yalign=0)
+
+# buat arya
+define acpos = Position(xalign=0.5, yalign=0)
+define arpos = Position(xalign=1.25, yalign=0)
+define alpos = Position(xalign=0,yalign=0)
 
 label start:
 # The game starts here.
@@ -69,22 +107,22 @@ label start:
     scene black
     with fade
     play sound "audio/dentumanpistol.mp3"
-    show Bima Kosong at cpos with dissolve:
+    show Brama Kosong at cpos with dissolve:
         zoom 2.5
     "DORR!"
     "(dentuman pistol)"
-    show Bima Bingung at cpos:
+    show Brama Bingung at cpos:
         zoom 2.5
     k "...."
    
     scene kamartidur
     with dissolve
 
-    "(seketika Bima bangun dari tidur bersamaan dengan suara pistol)"
+    "(seketika Brama bangun dari tidur bersamaan dengan suara pistol)"
     play sound "audio/nafasberat.mp3"
     "(nafas berat terengah-engah)"
 
-    show Arya at cpos
+    show Arya Serius at acpos
 
     with fade
     r "Mimpi buruk lagi ya lu?"
@@ -97,69 +135,76 @@ label start:
     
 
 label y1:
-    show Bima at lpos
-    show Arya at rpos
+    show Brama at lpos
+    show Arya at arpos
 
-    show Bima Malu at lpos
+    show Brama Malu at lpos
     k "iya kak..."
+    show Arya Bingung at arpos
     r "terus-terusan mimpi 
         buruk? kenapa sih?"
-    show Bima Bahagia at lpos
+    show Brama Bahagia at lpos
     k 'gapapa kok'
+    show Arya Lega at arpos
     r ' lu kalo ada apa-apa
         cerita aja ke gw. 
         gini-gini gw kakak lu'
+    show Arya Bahagia at arpos
     k 'iya, makasih ya'
-    '(Bima berterimakasih)'
+    '(Brama berterimakasih)'
 
     jump m1
 
 label t1:
-    show Bima at lpos
-    show Arya at rpos
-    show Bima Bingung at lpos
+    show Brama at lpos
+    show Arya at arpos
+    show Brama Bingung at lpos
     k '...'
+    show Arya Kesal at arpos
     r 'yeuu malah bengong'
+    show Arya Lega at arpos
     r ' lu kalo ada apa-apa
         cerita aja ke gw. 
         gini-gini gw kakak lu'
-    show Bima Kosong 
+    show Arya at arpos
+    show Brama Kosong 
     k '...'
     hide Arya
-    show Bima Kosong at cpos:
+    show Brama Kosong at cpos:
         zoom 2
-    '(tatapan kosong menyelimuti wajah Bima)'
+    '(tatapan kosong menyelimuti wajah Brama)'
 
     jump m1
 
 label m1:
-    hide Bima
+    hide Brama
     hide Arya
 
-    i 'naaaak, Bima, Arya, ayo sarapan'
+    i 'naaaak, Brama, Arya, ayo sarapan'
     a 'ayo turun nak. Jangan sampe telat sekolah'
     '(suara ayah ibu terdengar dari luar kamar)'
 
-    show Bima Bingung at lpos
+    show Brama Bingung at lpos
     k 'EH IYA SEKARANG JAM BERAPA?'
     '(panik karena bangun kesiangan)'
-    show Arya at rpos
+    show Arya Bahagia at arpos
     r 'slow aja masih 5.30'
     '(Arya bersantai karena sudah siap-siap duluan)'
     hide Arya
 
-    show Arya at rpos
+    show Arya at arpos
     #[Arya sudah rapi dengan pakaian dan perlengkapannya]
-    show Bima Marah at lpos
+    show Brama Marah at lpos
     k 'MANA BISA GITU anjing, SEKOLAH KITA JAUH'
+    show Arya Ketawa at arpos
     r 'wkwkwk'
     #[Arya tertawa kecil]
-    show Bima at lpos
+    show Brama at lpos
     r 'dah sana buruan siap-siap, gw tunggu sambil sarapan'
     hide Arya
-    show Bima Bingung at lpos
+    show Brama Bingung at lpos
     k 'oke hari ini jadwal kita olahraga, matematika, sama biologi'
-    '(Bima sambil melihat selebaran jadwal yang nempel di dinding)'
+    '(Brama sambil melihat selebaran jadwal yang nempel di dinding)'
     #[jadwal pelajaran sekolah SMA Cendekia Maju di selebaran kertas]
     k 'hmmmm berarti gw harus bawa buku, baju ganti, sama
             kalkulator'
@@ -171,11 +216,11 @@ label m1:
 
 label minibuku:
     scene rakbuku
-    show Bima at rpos
+    show Brama at rpos
     $ correct_books = ["Buku Olahraga", "Buku Matematika", "Buku Biologi"]  # Correct books
     $ chosen_books = []  # Store player's choices
 
-    "Bima mulai memilih buku yang harus dibawa dari rak buku."
+    "Brama mulai memilih buku yang harus dibawa dari rak buku."
 
     while len(chosen_books) < 3:
         $ options = []
@@ -199,32 +244,32 @@ label minibuku:
             # Add each option dynamically
             "Buku Olahraga" if "Buku Olahraga" in options:
                 $ chosen_books.append("Buku Olahraga")
-                "Bima mengambil Buku Olahraga."
+                "Brama mengambil Buku Olahraga."
 
             "Buku Matematika" if "Buku Matematika" in options:
                 $ chosen_books.append("Buku Matematika")
-                "Bima mengambil Buku Matematika."
+                "Brama mengambil Buku Matematika."
 
             "Buku Biologi" if "Buku Biologi" in options:
                 $ chosen_books.append("Buku Biologi")
-                "Bima mengambil Buku Biologi."
+                "Brama mengambil Buku Biologi."
 
             "Buku Sejarah" if "Buku Sejarah" in options:
                 $ chosen_books.append("Buku Sejarah")
-                "Bima mengambil Buku Sejarah."
+                "Brama mengambil Buku Sejarah."
 
             "Buku Fisika" if "Buku Fisika" in options:
                 $ chosen_books.append("Buku Fisika")
-                "Bima mengambil Buku Fisika."
+                "Brama mengambil Buku Fisika."
 
     # Check if the player's choices are correct
     $ correct_count = sum(1 for book in chosen_books if book in correct_books)
 
     if correct_count == 3:
-        "Bima: Hmmm... Semua buku yang gw pilih udah bener."
+        "Brama: Hmmm... Semua buku yang gw pilih udah bener."
         jump ruangmakan
     else:
-        "Bima: Aduh, kayaknya ada buku yang salah deh."
+        "Brama: Aduh, kayaknya ada buku yang salah deh."
         $ chosen_books = []
         jump minibuku
             
@@ -235,12 +280,14 @@ label minibuku:
 # Label ruangmakan
 label ruangmakan:
     scene ruangmakan with fade
-    show Bima Marah at lpos
-    show Arya at rpos
+    show Brama Marah at lpos
+    show Arya at arpos
 
     k "YANTOO!!!"
+    show Arya Kaget at arpos
     r "APAA?!" 
     k "Kalkulator gw mana heh?"
+    show Arya Kesal at arpos
     r "Apasih? Lu nuduh gw?"
     k "Ya siapa lagi weh, lu doang yang sering make barang gw."
     r "Sumpah demi Allah, gw kaga tau."
@@ -248,21 +295,24 @@ label ruangmakan:
     r "Apaan sih lu ga jel..."
 
     # Ibu interjects
-    show Bima at lpos
+    show Brama at lpos
+    show Arya at arpos
     i "Aduhh kalian ini gaada kerjaan yang lebih baik kah selain berantem terus?"
     i "Ibu berani sumpah tembok di rumah ini lebih sering dengerin kalian berantem daripada dengerin omongan baik."
     a "Udah nak, jangan berantem lagi."
     i "Marahin pak anaknya!"
-    a "Bima, kalkulator kamu Ayah yang pinjam semalam waktu kamu tidur."
+    a "Brama, kalkulator kamu Ayah yang pinjam semalam waktu kamu tidur."
     a "Maaf ya nak, Ayah lupa ngembaliin kalkulator kamu ke tempatnya."
-    show Bima Malu at lpos
+    show Brama Malu at lpos
     k "Oalah, Ayah toh yang make. Hehehe."
+    show Arya Kesal at arpos
     r "Oalah, Ayah toh yang make. nyenyeneye"
-    show Bima Marah at lpos
+    show Brama Marah at lpos
     k "Ih bacot lu!"
     r "Nye nye nye, lu yang bacot."
     i "Heh udah!"
-    show Bima at lpos
+    show Arya Bahagia at arpos
+    show Brama at lpos
     i "Sana kalian cepat siap-siap sekolah!"
     
 
@@ -271,19 +321,24 @@ label ruangmakan:
     pause 1
     "06.00 WIB, 9 September 1999"
     scene depanrumah with fade
-    show Arya at rpos
-    show Bima Bingung at lpos
+    show Arya at arpos
+    show Brama Bingung at lpos
     k "Arya, lu udah siap belom?"
+    show Arya Ketawa at arpos
     r "Udah, yok berangkat."
-    show Bima Bahagia at lpos
+    show Arya at arpos
+    show Brama Bahagia at lpos
     k "Buuu, Yah. Kita berangkat yaa."
-    show Bima at lpos
+    show Brama at lpos
     a "Ya nak, hati-hati di jalan ya."
     i "Barang gaada yang ketinggalan?"
+    show Arya Ketawa at arpos
     r "Aku udah kebawa semua sih harusnya."
-    show Bima Bahagia at lpos
+    show Arya at arpos
+    show Brama Bahagia at lpos
     k "Amannn."
-    show Bima Bingung at lpos
+    show Brama Bingung at lpos
+    show Arya Ketawa at arpos
     r "Mau lu atau gw yang bawa motor?" 
 
     menu:
@@ -293,36 +348,38 @@ label ruangmakan:
             jump motorarya
 
 label motorbima:
-    show Bima Bahagia at lpos
+    show Brama Bahagia at lpos
     k "Gw aja gapapa, ntar baliknya lu."
-    show Bima at lpos
+    show Brama at lpos
     r "Oke deh, jangan bunuh gw di jalan tapi."
-    show Bima Bahagia at lpos
+    show Arya at arpos
+    show Brama Bahagia at lpos
     k "Mana ada, gw adalah the best rider on the world!"
+    show Arya Kesala at arpos
     r "The best bacot kali lu."
     jump gerbangsekolah
 
 label motorarya:
-    show Bima Lega at lpos
+    show Brama Lega at lpos
     k "Lu aja yang bawa."
-    show Bima at lpos
+    show Brama at lpos
     r "Eh nyuruh-nyuruh."
     r "Kemarin udah gw ya njing yang nyetir."
-    show Bima Marah at lpos
+    show Brama Marah at lpos
     k "Ya terus lu ngapain nawarin kocak?"
-    show Bima at lpos
+    show Brama at lpos
     r "Formalitas aja WKWKWKWK."
-    show Bima Marah at lpos
+    show Brama Marah at lpos
     k "Yeuuu, yaudah mana kuncinya."
     jump gerbangsekolah
 
 label gerbangsekolah:
     scene gerbangsekolah with fade
-    show Bima at lpos
-    show Arya at rpos
+    show Brama at lpos
+    show Arya at arpos
     "06.30 depan gerbang sekolah, 9 September 1999"
 
-    show Bima Marah at lpos
+    show Brama Marah at lpos
     k "ANJINGGG!"
     r "Kenapaa?" 
     #[ekspresi muak kyk kenapa lagi ini orang]"
@@ -330,35 +387,35 @@ label gerbangsekolah:
     r "…" 
     #[ekspresi menghela nafas]
     r "Terus gimana?"
-    show Bima Malu at lpos
+    show Brama Malu at lpos
     k "Harus dibawa anjing. Lu tau kan Bu Titiek orangnya killer."
     r "…"
-    show Bima at lpos
+    show Brama at lpos
     k "Gw harus balik pulang ngambil laporannya."
     r "Lu serius?"
     r "Gw jadi lu mending dihukum. Males anjing bolak-balik."
     k "Ga bisa gitu, gw harus balik."
     r "Lu becanda ya anjing, ini udah jam berapa?"
-    show Bima Bahagia at lpos
+    show Brama Bahagia at lpos
     k "Bisa. Gw bisa ngebut."
     r "Gila lu ya? Lu lupa 6 bulan lalu lu kecelakaan karena ngebut?"
-    show Bima Lega at lpos
+    show Brama Lega at lpos
     k "Yaelah itu gw cuman apes."
-    r "Bukan apes. Lu emang ga bisa bawa motor ngebut, Bim."
+    r "Bukan apes. Lu emang ga bisa bawa motor ngebut, Bram."
     k "Yauda lah mau gimana lagi tapi ini laporan gw?"
     r "Haishhh."
-    show Bima at lpos
+    show Brama at lpos
     r "Udah sini aja, gw yang nyetir."
     r "Lu ga becus bawa motor ngebut."
-    show Bima Malu at lpos
+    show Brama Malu at lpos
     k "Eh, jangan. Lu masuk aja sana."
-    show Bima Lega at lpos
+    show Brama Lega at lpos
     k "Ini kesalahan gw, biar gw yang tanggung jawab."
     r "Lu goblok ya? Tanggung jawab ya tanggung jawab, tapi kecelakaan tetep mematikan anjing."
-    show Bima Marah at lpos
+    show Brama Marah at lpos
     k "Ini tanggung jawab gw. Lu ga harus ikut terseret, Arya!"
     r "Bacot lu. Ga usah sok idealis. Gw gamau lu kenapa-kenapa."
-    show Bima Marah at lpos
+    show Brama Marah at lpos
     k "Hrggghhh."
     k "Yauda ayok buruan."
 
@@ -376,28 +433,37 @@ label mininabrak:
 label ganabrak:
     scene depanrumah with fade
     "06.44 sampai rumah."
-    show Bima at lpos
-    show Arya at rpos
+    show Brama Lega at lpos
+    show Arya Bingung at arpos
     r "Wah gila, buruan ambil laporan lu."
-    k "Iya, tunggu sini bentar ya." 
-    "Bima masuk rumah."
+    show Brama Malu at lpos
+    k "Iya, tunggu sini bentar ya."
+    "Brama masuk rumah."
 
     scene ruangtamu with fade
-    show Bima at rpos
+    show Brama Malu at rpos
     i "Dek? Kenapa balik dek?"
+    show Brama Bingung at rpos
     k "Laporan aku ketinggalan, Bu."
+    show Ibu at cpos
     i "Kan kan. Terus kakak kamu gimana?"
+    show Brama Cemas at rpos
     k "Itu nunggu di depan. Aku langsung ya, Bu. Keburu telat."
     i "Iya, sana buru!"
     i "Hati-hati ya nak."
 
     scene gerbangsekolah with fade
     "06.59 gerbang sekolah."
-
+    show Brama Lega at lpos
+    show Arya Lega at arpos
     r "Anjing, hampir aja kita telat."
+    show Brama Bahagia at lpos
     k "Wah iya anjing, untung masih ada waktu."
+    show Brama Malu at lpos
     k "Makasih ya, Arya."
+    show Arya Bahagia at arpos
     r "Dah, buruan masuk. Lain kali traktir gw bakso."
+    show Brama Bahagia at lpos
     k "Iya iya, ntar jam istirahat."
     jump nemudompet
 
@@ -405,60 +471,77 @@ define s = Character('Satpam', color="#423d3d")
 
 label nabrak:
     scene depanrumah with fade
-    show Bima at lpos
-    show Arya at rpos
+    show Brama Cemas at lpos
+    show Arya Kesal at arpos
     "06.52 sampai rumah."
 
     r "Wah gila, buruan ambil, kita udah telat."
+    show Brama Malu at lpos
     k "Iya, tunggu sini bentar ya."
-    "Bima masuk rumah."
+    "Brama masuk rumah."
 
     scene ruangtamu with fade
-    show Bima at rpos
+    show Brama Bingung at rpos
     i "Dek? Kenapa balik dek?"
+    show Brama Malu at rpos
     k "Laporan aku ketinggalan, Bu."
+    show Ibu at cpos
     i "Kan kan. Terus kakak kamu gimana?"
+    show Brama Kosong at rpos
     k "Itu nunggu di depan. Aku langsung ya, Bu. Keburu telat."
     i "Iya, sana buru!"
     i "Hati-hati ya nak."
 
     scene gerbangsekolah with fade
     "07.07 gerbang sekolah."
-    show Bima at lpos
-    show Arya at rpos
+    show Brama Cemas at lpos
+    show Arya Kesala at arpos
     r "Waduh, mampus, kita telat."
+    show Brama Kosong at lpos
     k "Wah iya anjing."
-    show satpam at center
+    show satpam at cpos
     s "Kenapa telat? Tunggu di luar dulu."
+    show Brama Malu at lpos
     k "Tapi Pak…"
     s "Ga ada tapi-tapi. Tunggu guru BK ke sini."
     hide satpam
+    show Arya Kesal at arpos
     r "Yah, dihukum deh kita."
+    show Brama Kosong at lpos
     k "Iya kak, gw minta maaf ya jadi bawa lu di sini."
+    show Arya Bahagia at arpos
     r "Dah gapapa. Udah makanan sehari-sehari ngadep guru BK."
     scene sekolah_sore with fade
     "16.36, 9 September 1999."
-    show Bima at lpos 
-    show Arya at rpos
+    show Brama Lega at lpos 
+    show Arya Bahagia at arpos
     k "Wah akhirnya kelar juga sekolah hari ini."
     r "Iya, hectic banget hari ini sampe ngebut-ngebut di jalan."
+    show Brama Bahagia at lpos
     k "Heeh. Sampe harus kena hukuman karena telat, hahahaha."
+    show Arya Ketawa at arpos
     r "Hahahaha. Lu harus tau rasanya dihukum biar ga jadi siswa rajin mulu."
+    show Brama Lega at lpos
     k "Yok lah pulang. Capek."
     jump nemudompet
 
 label nemudompet:
     # Show the wallet on the road
     scene jalan with fade
-    show Bima at lpos 
-    show Arya at rpos
+    show Brama Bingung at lpos 
+    show Arya Bingung at arpos
     "Baru jalan bentar..."
     #"[Tunjukin ada dompet di jalan]"
 
+    show Arya Bingung at arpos
     r "Eh apa itu?"
+    show Brama Bingung at lpos
     k "Dompet?"
+    show Arya Lega at arpos
     r "Wah, lumayan. Rezeki nggak kemana."
+    show Brama Marah at lpos
     k "Eh, jangan ngaco lu. Itu punya orang."
+    show Arya Kesal at arpos
     r "Yaelah, gini doang mah. Lumayan loh, hari gini dapet 23.000."
 
     # Present moral choice
@@ -470,65 +553,105 @@ label nemudompet:
             jump moral
 
 label haram:
+    show Brama Cemas at lpos
     k "Tetep aja, Arya. Itu duit haram."
-    r "Alah, Bim. Gausah ngomongin halal haram deh."
+    show Arya Kesal at arpos
+    r "Alah, Bram. Gausah ngomongin halal haram deh."
     # Add consequences for choosing this path
-    "Bima merasa tidak nyaman dengan keputusan Arya, tapi memilih untuk diam."
+    "Brama merasa tidak nyaman dengan keputusan Arya, tapi memilih untuk diam."
     jump aaa
 
 label moral:
+    show Brama Marah at lpos
     k "Nggak boleh, Arya. Ini sama aja nyuri."
-    r "Mana ada, Bim. Duit hilang berarti udah bukan punya pemilik."
+    show Arya Kesal at arpos
+    r "Mana ada, Bram. Duit hilang berarti udah bukan punya pemilik."
+    show Brama Kosong at lpos
     k "Ya tetep aja. Kalau kita kehilangan dompet, pasti pengen yang nemu balikin, kan?"
-    r "Hah, dasar lu terlalu lurus aja, Bim."
+    show Arya Bingung at arpos
+    r "Hah, dasar lu terlalu lurus aja, Bram."
     "Arya mengalah dan setuju untuk mencari pemilik dompet."
     jump aaa
 
-
 label aaa:
-    # Scene starts with Arya and Bima talking
+    # Scene starts with Arya and Brama talking
     scene jalan with fade
+    show Arya Kesal at arpos
     r "Jaman gini hidup itu keras. Kita harus bisa bertahan dengan cara apapun."
+    show Brama Marah at lpos
     k "Tapi bukan berarti harus merugikan orang lain, Arya!"
-    r "Bim, lu jangan sok idealis mulu deh. Realita hidup itu kayak gini."
+    show Arya Bingung at arpos
+    r "Bram, lu jangan sok idealis mulu deh. Realita hidup itu kayak gini."
+    show Brama at lpos
     k "Tetep aja ini salah, Arya!"
-    r "Bodo amat lah, apa urusan lu? Bukan duit lu juga!" # (ngotot)
+    show Arya Kesal at arpos
+    r "Bodo amat lah, apa urusan lu? Bukan duit lu juga!"
+    show Brama Marah at lpos
     k "Ayah sama Ibu ga pernah ngajarin kayak gini, Arya!"
-    r "Eh, lu tau apa soal Ayah sama Ibu? Gw yang lahir duluan, Bim!"
-    k "…" # (kehabisan kata-kata untuk membujuk kakaknya) [ekspresi termenung agak kecewa]
+    show Arya Kesala at arpos
+    r "Eh, lu tau apa soal Ayah sama Ibu? Gw yang lahir duluan, Bram!"
+    show Brama Kosong at lpos
+    k "…" # (kehabisan kata-kata untuk membujuk kakaknya)
+    show Brama Bingung at lpos
     k "Lu pulang duluan aja, gw nyusul."
+    show Arya Bingung at arpos
     r "Yeuu, bete lu?"
-    k "Serah lu deh, gw pengen kencing." # (ketus)
+    show Brama at lpos
+    k "Serah lu deh, gw pengen kencing."
+    show Arya Kesal at arpos
     r "Yaelah, yauda sana. Gw tungguin."
+    show Brama at lpos
     k "Oke."
 
     # Time skip to their return home
     scene rumah_sore with fade
+    show Arya at arpos
+    show Brama at lpos
     "16.42, 9 September 1999"
 
+    show Ayah Bahagia at cpos
     a "Eehh, jagoan-jagoan Ayah udah pulang!"
+    show Arya Lega at arpos
     r "Hehe, iya Yah, udah kelar sekolahnya."
-    k "…" # (masih speechless kelakuan Arya) [senyum aja]
+    show Brama Bingung at lpos
+    k "…" # (masih speechless kelakuan Arya)
+    show Ibu at rpos
     i "Tadi gimana sekolahnya? Sampe bolak-balik gitu kalian?"
+    show Ayah Bingung at cpos
     a "Tadi kalian balik pulang?"
 
+    show Ibu Senyum at rpos
     i "Iya Yah, tadi baru banget Ayah berangkat kerja mereka balik pulang."
-    k "Iya Yah, hehe, laporan Bima ketinggalan."
+    show Brama Malu at lpos
+    k "Iya Yah, hehe, laporan Brama ketinggalan."
+    show Ayah Bingung at cpos
     a "Wah kacau, lain kali bener-bener dicek ya, jangan sampe ada yang lupa."
+    show Arya Lega at arpos
     r "Walah, Ayah aja lupa ngembaliin kalkulator sampe tantrum tuh si anak."
+    show Brama Bingung at lpos
     k "Diem ya lu."
+    show Ayah Tertawa at cpos
     a "HAHAHAHA, namanya juga udah bapak-bapak pasti lupaan."
 
     # Transition to the birthday moment
-    i "Ngomong-ngomong, Bima, Arya, kalian inget nggak sekarang hari apa?"
+    show Ayah Bahagia at cpos
+    i "Ngomong-ngomong, Brama, Arya, kalian inget nggak sekarang hari apa?"
+    show Arya Bingung at arpos
     r "Hari Kamis?"
+    show Brama Bahagia at lpos
     k "OH, HARI ULANG TAHUN AYAH!"
+    show Arya Kaget at arpos
     r "OIYAA!"
+    show Ayah Tertawa at cpos
     a "HAHAHAHA. Ternyata masih ada yang inget ulang tahun Ayah."
+    show Ibu Senyum at rpos
     i "Kita harus ucapin apa, nakk? Satu, dua, tiga…"
     "Selamat ulang tahun Ayahhh!"
+    show Ayah Tertawa at cpos
     a "Hahahaha, terima kasih yaa nak, Ibu."
+    show Ibu Senyum at rpos
     i "Jadiii… buat ngerayain ulang tahun Ayah, kita mau makan-makan dimana inii??"
+    show Ayah Tertawa at cpos
     a "Hahahaha, sok kalian tentukan. Ayah ngikut dan tinggal bayar aja. HAHAHAHA."
 
     menu:
@@ -539,18 +662,25 @@ label aaa:
             jump sopbuntut
     
 label sate:
+    show Brama Bahagia at lpos
     k "Sate kayanya menarik deh Yah, udah lama ngga makan sate."
+    show Arya Kesal at arpos
     r "Ah, tapi lagi pengen makanan berkuah. Sop buntut kali ya?"
+    show Ibu at rpos
     i "Hmmm, sop buntut oke sih."
 
     jump makanmakan
 
 label sopbuntut:
+    show Brama Bahagia at lpos
     k "Sop buntut kayanya menarik deh Yah, udah lama ngga makan sop buntut."
+    show Arya Kesal at arpos
     r "Ah, tapi lagi pengen makanan bakaran. Sate kali ya?"
+    show Ibu at rpos
     i "Hmmm, sate oke sih."
 
     jump makanmakan
+
 
 label makanmakan:
     i "Yaudah yuk kita siap-siap dan beberes. Habis maghrib kita berangkat yaa!"
@@ -569,7 +699,7 @@ label makanmakan:
     k "Kali aja lu mau ngapain lagi kek."
     r "Ah, gw ngga seribet itu orangnya."
     k "Oh iya, ngomong-ngomong soal dompet tadi..."
-    r "Udah lah, Bim, mau dipanjangin sampai kapan lagi?"
+    r "Udah lah, Bram, mau dipanjangin sampai kapan lagi?"
     k "Nggak gitu, gw mau ngomong sesuatu sama lu."
     r "Apa?"
 
@@ -604,24 +734,24 @@ label reemburse:
 label aryasalah:
     k "…"
     k "(Bingung mau gimana ngomongnya.)"
-    r "Kenapa, Bim?"
+    r "Kenapa, Bram?"
     k "Gapapa, ga jadi Arya."
     r "Hufft."
     r "(Menghela nafas.)"
-    r "Gini Bim, dunia ini ngga akan pernah adil Bim."
+    r "Gini Bram, dunia ini ngga akan pernah adil Bram."
     r "Lu lihat aja para pejabat di Senayan sana."
     r "Lu lihat aja tahun kemarin gimana bobroknya presiden kita?"
-    r "Kesengsaraan rakyat ga pernah mereka dengar, Bim!"
-    r "Dunia ini ga akan pernah adil, Bim."
+    r "Kesengsaraan rakyat ga pernah mereka dengar, Bram!"
+    r "Dunia ini ga akan pernah adil, Bram."
     r "Kehidupan ini ibarat bertahan di tengah hutan rimba."
     r "Lu harus bisa survive gimanapun caranya."
-    r "Lihat tuh Ayah. Ayah jadi polisi harus jual sawah kakek dulu, Bim!"
+    r "Lihat tuh Ayah. Ayah jadi polisi harus jual sawah kakek dulu, Bram!"
     k "Tapi…"
-    r "Tapi apa, Bim?"
+    r "Tapi apa, Bram?"
     k "Lihat Pak Habibie, Arya. Rupiah kita sekarang menguat banget."
     k "Pak Habibie, Arya! Dia mau berjuang untuk masyarakat."
     k "Kalo ibarat lu kehidupan ini adalah hutan belantara, beliau masih bisa sukses tanpa harus merugikan orang lain, Arya!"
-    r "Pak Habibie itu punya otak, Bim! Ga kaya aku yang goblok ini."
+    r "Pak Habibie itu punya otak, Bram! Ga kaya aku yang goblok ini."
     r "Bagi kami yang goblok ini akan terus-terusan dibodohi dan ga akan bisa maju."
     r "Cara satu-satunya bagi kami bisa bertahan hidup ya dengan mengusahakan segala cara!"
 
@@ -657,7 +787,7 @@ label ibutibatiba:
     a "Iya gapapa. Ayah sehat kok. Yok berangkat habis ini."
     k "Syukurlah. Yaudah, ayok kita berangkat."
     r "Yokkk!"
-    a "Bima, kamu yang bawa mobilnya ya."
+    a "Brama, kamu yang bawa mobilnya ya."
     k "Eh, kok aku, Yah? Kenapa ngga Kak Arya aja?"
     r "Udah lu aja, udah punya SIM juga."
     i "Ya sekali-kali lah, Nak. Mumpung udah ada SIM."
@@ -687,17 +817,17 @@ label minigame_nyetir:
     #         "Gas (Percepat mobil)":
     #             $ driving_speed += 10
     #             $ distance_covered += driving_speed // 10
-    #             "Bima menginjak pedal gas, kecepatannya sekarang [driving_speed] km/h."
+    #             "Brama menginjak pedal gas, kecepatannya sekarang [driving_speed] km/h."
     #         "Rem (Kurangi kecepatan)":
     #             $ driving_speed = max(0, driving_speed - 10)
-    #             "Bima menginjak rem, kecepatannya sekarang [driving_speed] km/h."
+    #             "Brama menginjak rem, kecepatannya sekarang [driving_speed] km/h."
     #         "Jaga kecepatan (Tetap stabil)":
     #             $ distance_covered += driving_speed // 15
-    #             "Bima menjaga kecepatan stabil di [driving_speed] km/h."
+    #             "Brama menjaga kecepatan stabil di [driving_speed] km/h."
 
     #     # Random events to make the mini-game challenging
     #     if renpy.random.randint(0, 10) < 3:
-    #         "Ada lubang di jalan! Bima harus menghindar."
+    #         "Ada lubang di jalan! Brama harus menghindar."
     #         menu:
     #             "Hindari ke kiri!":
     #                 $ driving_speed = max(0, driving_speed - 15)
@@ -709,7 +839,7 @@ label minigame_nyetir:
     #                 $ distance_covered -= 10
     #                 "Mobil sedikit oleng! Jarak yang ditempuh berkurang."
 
-    # "Bima berhasil membawa mobil sampai tujuan dengan selamat!"
+    # "Brama berhasil membawa mobil sampai tujuan dengan selamat!"
 
 
 label sampei:
@@ -747,7 +877,7 @@ label akhirsampe:
     scene restoran_1 with fade
     staff "Selamat datang. Ini untuk buku menunya. Pesanan langsung ditulis di sini ya…"
     
-    k "Ayah, Ibu, Kak, mau pesen apa? Bima aja yang nulisin."
+    k "Ayah, Ibu, Kak, mau pesen apa? Brama aja yang nulisin."
     # Start the mini-game to order food here.
     #call mini_game_order_food
     
@@ -755,7 +885,7 @@ label akhirsampe:
     i "Senengnyaa, jarang-jarang kita makan di restoran."
     a "Ya ngapain toh repot-repot ke restoran kalau masakan ibu itu yang terenak di dunia."
     i "Alah-alah masa sih ayah?"
-    a "Loh iya dong, Arya, Bima, 20 tahun nikah sama ibu, ga pernah sekalipun ayah ngga habisin masakan ibu."
+    a "Loh iya dong, Arya, Brama, 20 tahun nikah sama ibu, ga pernah sekalipun ayah ngga habisin masakan ibu."
     r "Hahahaha, keliatan banget sih emang dari perutnya."
     a "HAHAHAHA!"
     k "Hahaha, ayah mah emang di mana-mana makannya banyak."
@@ -776,7 +906,7 @@ label akhirsampe:
     i "Alhamdulillah, seneng banget deh yah, makasih yaaa."
     k "Besok traktir sop buntut dong yah."
     a "Wah tunggu ayah gajian lagi ya hahahaha."
-    i "Bima, Arya, minta tolong bayarin ke kasir ya, ini bawa dompet ibu."
+    i "Brama, Arya, minta tolong bayarin ke kasir ya, ini bawa dompet ibu."
     r "Siap."
     
     # At the cashier.
@@ -784,7 +914,7 @@ label akhirsampe:
     k "Meja nomor 5, totalnya berapa kak?"
     staff "Totalnya jadi Rp120.000."
     k "Okee, ini kak."
-    "Bima memberikan uang"
+    "Brama memberikan uang"
     staff "Uangnya pas ya? Terima kasih."
     k "Sama-sama kak."
     r "Mahal amat ya sampe abis segitu."
@@ -799,9 +929,9 @@ label akhirsampe:
     k "TUH TUH TUH DIA UMPETIN DI TAS DIA SI SEPATUNYA!"
     r "EH IYA!"
     
-    # Arya tries to calm down Bima.
+    # Arya tries to calm down Brama.
     k "Wah gw harus bilang ke ayah."
-    r "Eh, tunggu Bim!"
+    r "Eh, tunggu Bram!"
     k "Kenapa kak?"
     r "Udah biarin aja, ga usah ikut campur urusan orang."
     k "Urusan orang? Maksud lu?"
@@ -813,11 +943,11 @@ label akhirsampe:
     r "Yaudah, biarin ngapa sih, ngerepotin aja tau ga sih."
     k "Gw gamau tau, gw harus kasih tau ayah."
     
-    # Bima rushes to tell Ayah about the situation.
+    # Brama rushes to tell Ayah about the situation.
     scene kasir with fade
     k "YAHH! Ada pencuri yahh di toko seberang!!"
     a "Hmmmh? Gimana gimana?"
-    k "Toko baju seberang yah, ada orang nyolong sepatu, Bima lihat dengan mata kepala sendiri."
+    k "Toko baju seberang yah, ada orang nyolong sepatu, Brama lihat dengan mata kepala sendiri."
     a "Bener Arya?"
     r "Iya yah."
     a "Wah ga bener nih, ayok kita samperin."
@@ -849,11 +979,190 @@ label akhirsampe:
     # Transition to chaos after the gunshot.
     # scene glitch_transition with glitch
     r "AYAHHHHH!"
-    r "BIMAA!"
-    r "BIMAA!"
-    r "BIMAA, LIHAT YANG KAMU PERBUAT!!!"
+    r "BRAMA!"
+    r "BRAMA!"
+    r "BRAMA, LIHAT YANG KAMU PERBUAT!!!"
     
     # Glitching effect to show the impact of the incident.
     # This leads into the next part of the story.
 
-    return
+    return 
+# JUMP to Y-BUMN
+
+
+# # ------------------------------------- Y-BUMN Pre -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # # ------------------------------------- A -------------------------------------
+# # DEFINE CHARACTERS
+# define b = Character("Brama", color="#472301")
+# define o = Character("Other", color="#472301")
+# define s = Character("Sekretaris", color="#472301")
+
+# # IMAGE BACKGROUND
+# image kantor = im.Scale("bg/kantor.jpg", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama:
+#     "chara/Brama.png"
+#     zoom 0.5
+# image Brama Cemas:
+#     "chara/sma_kamil/k angry.png"
+#     zoom 0.5
+# image Brama Shocked : 
+#     "chara/sma_kamil/k lega.png"
+#     zoom 0.5
+# image Brama Serius :
+#     "chara/sma_kamil/k conf.png"
+#     zoom 0.5
+
+
+# #Posisi2 yang di dettermined buat image dengan resolusi chara 1239 x 3508 px
+# define cpos = Position(xalign=0.5, yalign=0)
+# define rpos = Position(xalign=0.9, yalign=0)
+# define lpos = Position(xalign=0,yalign=0)
+
+# label start: #email_keputusan
+#     scene kantor with fade
+#     show Brama at cpos
+
+#     "Suasana tegang, Brama sedang duduk di depan komputernya, mengetik email balasan untuk menolak tawaran investasi."
+
+#     show Brama Cemas at cpos
+#     b "Coba aja aku tahu lebih dalam tentang PT. Angin Topan..."
+#     b "Kalau kayak gini aku harus cari dana tambahan ke mana lagi?"
+
+#     show Other at left
+#     o "Sudah, tenang saja Brama. Tetaplah berpegang teguh pada prinsipmu itu."
+#     o "Ingatlah bahwa setiap permasalahan pasti akan ada solusinya."
+#     o "Bagaimana jika feeling-mu itu benar?"
+#     o "Bagaimana jika PT. Angin Topan justru membawa masalah lebih jauh?"
+#     o "Coba pikirkan kemungkinan bahwa Angin Topan membawa uang haram."
+#     o "Apa kamu nggak malu dengan keluarga kecilmu kalau nantinya tertangkap karena melakukan pencucian uang?"
+
+#     show Brama Shocked at cpos
+#     b "Benar juga... Kasihan dengan anak dan istriku."
+#     b "Mereka pasti malu punya suami dan seorang ayah koruptor."
+#     b "Semoga ada jalan untuk menyelesaikan permasalahan ini."
+
+#     "Brama terlihat sangat gelisah. Ia memanggil sekretarisnya melalui telepon."
+
+#     show Brama Serius at cpos
+#     b "Sekretaris, tolong adakan rapat dewan direksi darurat 1 jam lagi dengan semua direksi."
+#     b "Semua harus hadir untuk membahas persoalan ini."
+#     b "Dan pastikan tidak ada pihak asing yang masuk ke kantor."
+#     b "Saya nggak mau rapat terganggu, terlebih isu ini sangat penting."
+
+#     show Sekretaris at right
+#     s "Baik Pak, akan segera saya informasikan kepada seluruh direksi perusahaan."
+#     s "Untuk keamanan, akan saya sampaikan ke pihak security di depan."
+
+#     "Sekretaris keluar dari ruangan, meninggalkan Brama yang masih terlihat cemas."
+
+#     return
+
+# # ------------------------------------- B -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- C -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- D -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- E -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- F -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- G -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- H -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- I -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- J -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
