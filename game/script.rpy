@@ -1,5 +1,4 @@
-﻿
-# ------------------------------------- X-SMA -------------------------------------
+﻿# ------------------------------------- X-SMA -------------------------------------
 # DEFINE CHARACTERS
 define k = Character("Brama", image="chara/sma_kamil/k", color="#472301")
 define r = Character("Arya", color="#a8652e")
@@ -681,7 +680,6 @@ label sopbuntut:
 
     jump makanmakan
 
-
 label makanmakan:
     i "Yaudah yuk kita siap-siap dan beberes. Habis maghrib kita berangkat yaa!"
     k "Mau makan di mana kita, Bu?"
@@ -689,16 +687,20 @@ label makanmakan:
     a "Yaaa… kalau Ayah sih oke aja asal belanjanya ngga sampai 1 juta. HAHAHAHAHA!"
     r "Ya kalau ada 1 juta mah mending buat beli TV lagi, taruh di kamar Arya."
     a "Yeuuu, enak aja kamu!"
+    show Arya Ketawa at arpos
     a "Udah, sana siap-siap."
 
     # Time skip to evening preparation
     "18.09, 9 September 1999, 162 menit sebelum dentuman"
     scene kamartidur with fade
     k "Kak, lu udah siap belom?"
+    show Arya Serius at arpos
     r "Lihat aja gw, udah cakep gini."
     k "Kali aja lu mau ngapain lagi kek."
+    show Arya Kesal at arpos
     r "Ah, gw ngga seribet itu orangnya."
     k "Oh iya, ngomong-ngomong soal dompet tadi..."
+    show Brama Bingung at lpos
     r "Udah lah, Bram, mau dipanjangin sampai kapan lagi?"
     k "Nggak gitu, gw mau ngomong sesuatu sama lu."
     r "Apa?"
@@ -712,19 +714,25 @@ label makanmakan:
 
 label reemburse:
     k "Sebenernya waktu gw tadi minta nyusul karena kencing, gw ketemu Ujang."
+    show Brama Lega at lpos
     r "Terus?"
     k "Dompet itu, ternyata dompet Ujang."
     r "Ujang anak bahasa itu?"
     k "Iya."
+    show Arya Kaget at arpos
     r "Ngaku-ngaku aja kali. Orang di dompetnya gaada kartu identitas sama sekali."
     k "Tapi dia nyebutin ciri-ciri dompet yang sama persis, dan nominalnya sama persis yang lu ambil."
+    show Brama Malu at lpos
     r "Yaelah, terus gimana?"
     k "Dia bilang dia lagi butuh banget duitnya buat makan seminggu."
     k "Karena itu duit lu ambil, jadinya gw ga enak ke Ujang."
+    show Arya Serius at arpos
     r "Ngapain pake ga enak, yaudah lah itu kesialan Ujang."
     k "Mana bisa gitu Arya. Akhirnya duit Ujang gw ganti. Gw bilang gw yang nemu dompetnya."
+    show Arya Kesal at arpos
     r "Lah, tapi kan dompetnya masih ada di gw. Gimana lu ngembaliinnya?"
     k "Iya, gw bilang dompetnya masih lu amanin, jadi duitnya dulu yang gw kasih ke dia."
+    show Brama Malu at lpos
     r "Berarti ini dompet mau dibalikin besok?"
     k "Iya. Sekalian gw sekarang mau minta duit gw lu balikin."
     r "Heuuuhh. Percuma tadi debat panjang lebar, ujung-ujungnya ga jadi rezeki."
@@ -733,38 +741,50 @@ label reemburse:
 
 label aryasalah:
     k "…"
+    show Brama Bingung at lpos
     k "(Bingung mau gimana ngomongnya.)"
+    show Arya Serius at arpos
     r "Kenapa, Bram?"
     k "Gapapa, ga jadi Arya."
+    show Arya Kecewa at arpos
     r "Hufft."
     r "(Menghela nafas.)"
+    show Arya Serius at arpos
     r "Gini Bram, dunia ini ngga akan pernah adil Bram."
     r "Lu lihat aja para pejabat di Senayan sana."
+    show Arya Marah at arpos
     r "Lu lihat aja tahun kemarin gimana bobroknya presiden kita?"
     r "Kesengsaraan rakyat ga pernah mereka dengar, Bram!"
+    show Arya Serius at arpos
     r "Dunia ini ga akan pernah adil, Bram."
+    show Arya Kaget at arpos
     r "Kehidupan ini ibarat bertahan di tengah hutan rimba."
     r "Lu harus bisa survive gimanapun caranya."
+    show Arya Kesal at arpos
     r "Lihat tuh Ayah. Ayah jadi polisi harus jual sawah kakek dulu, Bram!"
     k "Tapi…"
+    show Arya Serius at arpos
     r "Tapi apa, Bram?"
     k "Lihat Pak Habibie, Arya. Rupiah kita sekarang menguat banget."
     k "Pak Habibie, Arya! Dia mau berjuang untuk masyarakat."
+    show Arya Kaget at arpos
     k "Kalo ibarat lu kehidupan ini adalah hutan belantara, beliau masih bisa sukses tanpa harus merugikan orang lain, Arya!"
+    show Arya Serius at arpos
     r "Pak Habibie itu punya otak, Bram! Ga kaya aku yang goblok ini."
     r "Bagi kami yang goblok ini akan terus-terusan dibodohi dan ga akan bisa maju."
     r "Cara satu-satunya bagi kami bisa bertahan hidup ya dengan mengusahakan segala cara!"
 
     jump ibutibatiba
 
-
-# label ibutibatiba:
 label ibutibatiba:
     i "Eeeh, ini ada apa ya ribut-ribut?" #(berbicara dari luar kamar)
     i "Udah siap belom kalian?"
+    show Arya Serius at arpos
     r "Udah, Bu." #(membalas dari dalam kamar)
+    show Arya Kesal at arpos
     r "Nanti kita bahas lagi." 
     "(berbisik Arya)"
+    show Arya Serius at arpos
     r "Gw gamau kesenangan ulang tahun Ayah harus diganggu dengan masalah dompet."
     k "Ya."
 
@@ -772,30 +792,46 @@ label ibutibatiba:
     pause 0.5
 
     scene kamar_dengan_pintu_terbuka with fade
+    show Brama Lega at lpos
     k "Kita udah siap nih, Bu."
+    show Arya Bahagia at arpos
     i "Widihh, udah cakep-cakep nih."
+    show Arya Serius at arpos
     r "Ayah mana, Bu?"
     i "Ayah masih di kamar mandi, lagi mual-mual."
     
+    show Arya Kaget at arpos
     a "Haloo, udah siap?" #(Ayah keluar dari kamar mandi)
     k "Ayah sakit? Ayah kalo ga enak badan ngga usah dipaksain makan di luar, yah."
+    show Arya Serius at arpos
     r "Iya, kita masih bisa ngerayain di rumah kok, Yah."
+    show Arya Kesal at arpos
     i "Tuh kan, Ibu bilang apa tadi."
+    show Arya Bahagia at arpos
     a "Gapapa kok, Ayah lagi merasa ga enak aja perasaannya, ga tau kenapa ya."
+    show Arya Serius at arpos
     a "Apa mungkin Ayah ngga rela kehilangan uang sampe 1 juta? Hahahahaha."
+    show Arya Kesal at arpos
     i "Ih Ayah, Ayah beneran gapapa?"
     a "Iya gapapa. Ayah sehat kok. Yok berangkat habis ini."
     k "Syukurlah. Yaudah, ayok kita berangkat."
+    show Arya Bahagia at arpos
     r "Yokkk!"
     a "Brama, kamu yang bawa mobilnya ya."
+    show Arya Kesala at arpos
     k "Eh, kok aku, Yah? Kenapa ngga Kak Arya aja?"
+    show Arya Kesal at arpos
     r "Udah lu aja, udah punya SIM juga."
+    show Arya Bahagia at arpos
     i "Ya sekali-kali lah, Nak. Mumpung udah ada SIM."
     i "Kasihan kakak kamu yang nyetir mulu."
+    show Arya Ketawa at arpos
     a "Hahahaha, Ayah juga pengen tau gimana skill kamu nyetir."
+    show Brama Lega at lpos
     k "Baikkk, siap komandan!"
 
     scene jalanan_malam with fade
+    show Brama at lpos
     k "Oke, ayo kita mulai jalan. Doain aja semuanya lancar!"
     
     jump minigame_nyetir
@@ -843,28 +879,31 @@ label minigame_nyetir:
 
 
 label sampei:
+    show Brama Bahagia at lpos
     k "Alhamdulillah, udah sampe."
-
     # a sound of the car stopping.
     scene sarinah_dari_depan with fade
+    show Arya Kaget at arpos
     i "Ayo nak, keburu tutup Sarinah-nya."
+    show Arya Tidur at arpos  # Ekspresi tidur untuk menunjukkan Ayah ketiduran
     a "Ngghroookk..." 
     #(Ayah ketiduran)
 
     jump akhirsampe
 
 label lamatpsampe:
-    # If the number of turns made is more than a certain threshold, show this part
-    # if turns > 3:  # Assumes 'turns' is tracked during the mini-game
+
+    show Brama Bingung at lpos
     k "Ini beloknya kemana ya?"
+    show Arya Kesal at arpos
     r "Tau jalan ga sih lu?"
+    show Arya Kesal at arpos
     i "Ayo nak, keburu tutup Sarinah-nya."
+    show Arya Tidur at arpos  # Ekspresi tidur untuk menunjukkan Ayah ketiduran
     a "Ngghroookk..." 
-        #(Ayah ketiduran)
-        
-        # Achievement Unlocked when you get lost
-        # $ achievement_unlocked = "Buta Map"
+
     jump akhirsampe
+
 
 define staff = Character('staff', color="#423d3d")
 define x = Character('Pencuri', color="#423d3d")
@@ -988,7 +1027,6 @@ label akhirsampe:
 
     return 
 # JUMP to Y-BUMN
-
 
 # # ------------------------------------- Y-BUMN Pre -------------------------------------
 # # DEFINE CHARACTERS
