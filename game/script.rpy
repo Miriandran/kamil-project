@@ -1,5 +1,4 @@
-﻿
-# # ------------------------------------- SCRIPT X - SMA -------------------------------------# #
+﻿# # ------------------------------------- SCRIPT X - SMA -------------------------------------# #
 # DEFINE CHARACTERS
 define k = Character("Brama", image="chara/sma_kamil/k", color="#e19f62")
 define r = Character("Arya", color="#e86868")
@@ -145,8 +144,43 @@ image Arya Serius :
     "chara/sma_arya/SERIOUS.png"
     zoom 1.45
 
-image ibu = "chara/ibu.png" 
-image ayah = "chara/ayah.png"
+image Ayah : 
+    "chara/ayah/biasa.png"
+    zoom 1.45
+image Ayahk : 
+    "chara/ayah/kaget.png"
+    zoom 1.45
+image Ayah us: 
+    "chara/ayah/serius.png"
+    zoom 1.45
+image Ayahw : 
+    "chara/ayah/ketawa.png"
+    zoom 1.45
+image Ayahs : 
+    "chara/ayah/senyum.png"
+    zoom 1.45
+
+image Ibu : 
+    "chara/ibu/biasa.png"
+    zoom 1.45
+image Ibum : 
+    "chara/ibu/marah.png"
+    zoom 1.45
+image Ibuf : 
+    "chara/ibu/fikir.png"
+    zoom 1.45
+image Ibu malu : 
+    "chara/ibu/malu.png"
+    zoom 1.45
+image Ibu sed : 
+    "chara/ibu/sedih.png"
+    zoom 1.45
+image Ibus : 
+    "chara/ibu/senyum.png"
+    zoom 1.45
+image Ibu us : 
+    "chara/ibu/serius.png"
+    zoom 1.45
 
 # buat brama
 define cpos = Position(xalign=0.5, yalign=0)
@@ -445,8 +479,11 @@ label ruangmakan:
     # Ibu interjects
     show Brama at lpos
     show Arya at arpos
+    show Ibum at Position(xalign=0.8, yalign=0.1)
     i "Aduhh kalian ini gaada kerjaan yang lebih baik kah selain berantem terus?"
     i "Ibu berani sumpah tembok di rumah ini lebih sering dengerin kalian berantem daripada dengerin omongan baik."
+    show Ayah us at Position(xalign=0.3, yalign=0.1)
+    show Ibu us at Position(xalign=0.8, yalign=0.1)
     a "Udah nak, jangan berantem lagi."
     i "Marahin pak anaknya!"
     a "Brama, kalkulator kamu Ayah yang pinjam semalam waktu kamu tidur."
