@@ -160,6 +160,10 @@ define alpos = Position(xalign=0,yalign=0)
 
 label start:
 # The game starts here.
+
+
+    play music "audio/semoga tense.wav"
+
     scene acak1
     with fade
     scene acak2
@@ -183,7 +187,7 @@ label start:
    
     scene kamartidur
     with dissolve
-
+    stop music
     "(seketika Brama bangun dari tidur bersamaan dengan suara pistol)"
     play sound "audio/nafasberat.mp3"
     "(nafas berat terengah-engah)"
@@ -195,8 +199,10 @@ label start:
 
     menu:
         "Iya kak..":
+            play music "audio/idle.wav"
             jump y1
         ".....":
+            play music "audio/idle.wav"
             jump t1
     
 
@@ -456,15 +462,18 @@ label ruangmakan:
     show Arya Bahagia at arpos
     show Brama at lpos
     i "Sana kalian cepat siap-siap sekolah!"
-    
+    stop music
 
     # Time skip
+    play sound "audio/ngetik.mp3"
     scene black with fade
     show slide1
     pause 1
+    stop sound
     scene depanrumah with fade
     show Arya at arpos
     show Brama Bingung at lpos
+    play music "audio/idle.wav"
     k "Arya, lu udah siap belom?"
     show Arya Ketawa at arpos
     r "Udah, yok berangkat."
@@ -520,6 +529,7 @@ label motorarya:
 
 image slide2 = im.Scale("text/X-SMA/Slide2.png", 1920, 1080)
 label gerbangsekolah:
+    play sound "audio/trans1.wav"
     scene black with fade
     show slide2
     pause 1
@@ -660,6 +670,8 @@ init python:
 # The game starts here.
 
 label mininabrak:
+    stop music
+    play music "audio/motor.mp3"
     scene black
     call screen chase_game
 
@@ -703,6 +715,9 @@ screen chase_game():
 image slide3 = im.Scale("text/X-SMA/Slide3.png", 1920, 1080)
 image slide5 = im.Scale("text/X-SMA/Slide5.png", 1920, 1080)
 label ganabrak:
+    stop music
+    play music "audio/idle.wav"
+    play sound "audio/trans1.wav"
     scene black with fade
     show slide3
     pause 1
@@ -725,9 +740,11 @@ label ganabrak:
     k "Itu nunggu di depan. Aku langsung ya, Bu. Keburu telat."
     i "Iya, sana buru!"
     i "Hati-hati ya nak."
+    play sound "audio/ngetik.mp3"
     scene black with fade
     show slide5
     pause 1
+    stop sound
     scene gerbangsekolah with fade
     "06.59 gerbang sekolah."
     show Brama Lega at lpos
@@ -748,12 +765,16 @@ image slide4 = im.Scale("text/X-SMA/Slide4.png", 1920, 1080)
 image slide6 = im.Scale("text/X-SMA/Slide6.png", 1920, 1080)
 image slide7 = im.Scale("text/X-SMA/Slide7.png", 1920, 1080)
 label nabrak:
+    play sound "audio/ckit.mp3"
+    stop music
     scene black with fade
     show slide4
     pause 1
     scene depanrumah with fade
+    stop sound
     show Brama Cemas at lpos
     show Arya Kesal at arpos
+    play music "audio/idle.wav"
     'sampai rumah'
     r "Wah gila, buruan ambil, kita udah telat gara lu nabrak si."
     show Brama Malu at lpos
@@ -771,9 +792,11 @@ label nabrak:
     k "Itu nunggu di depan. Aku langsung ya, Bu. Keburu telat."
     i "Iya, sana buru!"
     i "Hati-hati ya nak."
+    play sound "audio/ngetik.mp3"
     scene black with fade
     show slide6
     pause 1
+    stop sound
     scene gerbangsekolah with fade
     "07.07 gerbang sekolah."
     show Brama Cemas at lpos
@@ -793,7 +816,7 @@ label nabrak:
     k "Iya kak, gw minta maaf ya jadi bawa lu di sini."
     show Arya Bahagia at arpos
     r "Dah gapapa. Udah makanan sehari-sehari ngadep guru BK."
-
+    play sound "audio/trans1.wav"
     scene black with fade
     show slide7
     pause 1
@@ -895,9 +918,11 @@ label aaa:
     k "Oke."
 
     # Time skip to their return home
+    play sound "audio/ngetik.mp3"
     scene black with fade
     show slide8
     pause 1
+    stop sound
     scene rumah_sore with fade
     show Arya at alpos
     show Brama at lpos
@@ -990,11 +1015,13 @@ label makanmakan:
     a "Yeuuu, enak aja kamu!"
     show Arya Ketawa at alpos
     a "Udah, sana siap-siap."
-
+    stop music
     # Time skip to evening preparation
+    play sound "audio/transserem.wav"
     scene black with fade
     show slide9
     pause 1
+    play music "audio/idle.wav"
     scene kamar with fade
     show Brama Bingung at lpos
     k "Kak, lu udah siap belom?"
@@ -1010,7 +1037,7 @@ label makanmakan:
     r "Apa?"
 
     menu:
-        "Reemburse dompet":
+        "Reimburse dompet":
             jump reemburse
 
         "Arya salah":
@@ -1282,8 +1309,10 @@ label akhirsampe:
     i "Brama, Arya, minta tolong bayarin ke kasir ya, ini bawa dompet ibu."
     show Arya Ketawa at arpos
     r "Siap."
+    stop music
     
     # At the cashier.
+    play sound "audio/transserem.wav"
     scene black with fade
     show slide12
     pause 1
@@ -1306,6 +1335,7 @@ label akhirsampe:
     r "Yaaa, iya sihh."
 
     scene black with fade
+    play sound "audio/transserem.wav"
     show slide13
     pause 1
     # The tension builds up as they notice something strange outside.
@@ -1342,6 +1372,7 @@ label akhirsampe:
     k "Gw gamau tau, gw harus kasih tau ayah."
     
     # Brama rushes to tell Ayah about the situation.
+    play sound "audio/transserem.wav"
     scene black with fade
     show slide14
     pause 1
@@ -1362,6 +1393,7 @@ label akhirsampe:
     a "Mana? Ohhh, yang bawa tas itu?"
 
     # Transition to confrontation with the thief.
+    play sound "audio/transserem.wav"
     scene black with fade
     show slide15
     pause 1
@@ -1381,6 +1413,7 @@ label akhirsampe:
     show Pencuri Panik at pcpos
 
     # Tension builds as X pulls a weapon.
+    play music "audio/semoga tense.wav"
     x "..." 
     scene black with fade
     show slide16
@@ -1398,6 +1431,7 @@ label akhirsampe:
     show Pistol at pistol
     pause 0.2
     show Pistol Nembak at pistol
+    play sound "audio/dentumanpistol.mp3"
     "DORR!"
     # *DENTUMAN GUNSHOT*
 
@@ -1420,7 +1454,7 @@ label akhirsampe:
     show Arya Menangis Glitch at acpos:
         zoom 2
     r "BRAMA, LIHAT YANG KAMU PERBUAT!!!"
-    
+    stop music
     # Glitching effect to show the impact of the incident.
     # This leads into the next part of the story.
 
@@ -2360,7 +2394,7 @@ label rapat_dewan_direksi:
 
     return #Ending Penjara
 
-# # ------------------------------------- SCRIPT B -------------------------------------# #
+# # ------------------------------------- B -------------------------------------
 
 label B:
     scene ruang_rapatbumn with fade
@@ -2871,11 +2905,11 @@ label bramaberbeda:
 
     menu:
         "Ragu":
-            jump ragu
+            jump ragu3
         "Arya masuk akal":
-            jump arya_masuk_akal
+            jump arya_masuk_akal3
 
-label ragu:
+label ragu3:
     b "Arya mungkin benar."
     b "Kalau kita terlalu keras, kita bisa kehilangan semuanya."
 
@@ -2884,7 +2918,7 @@ label ragu:
 
     jump merenung
 
-label arya_masuk_akal:
+label arya_masuk_akal3:
     b "Arya mungkin punya poin yang baik."
     b "Tindakan yang terlalu gegabah bisa membuat kita kehilangan apa yang sudah kita perjuangkan."
 
@@ -3323,9 +3357,9 @@ label kembali_ke_script:
     masyarakat "SETUJU! Negara tidak peduli terhadap rakyatnya sendiri tapi malah memikirkan kantongnya sendiri!"
 
     # [Keadaan menjadi anarkis dan Kamil segera meninggalkan tempat dengan pengawalan ketat]
-    #{suara chaos demo anarkis}
-    #[Polisi menghadang massa yang semakin menggila dan berujung pada sedikit kerusuhan yang menyebabkan beberapa masyarakat mengalami luka-luka]
-    #{ditambah suara sirine polisi}
+    # {suara chaos demo anarkis}
+    # [Polisi menghadang massa yang semakin menggila dan berujung pada sedikit kerusuhan yang menyebabkan beberapa masyarakat mengalami luka-luka]
+    # {ditambah suara sirine polisi}
 
     # -time skip-
     "Setibanya di Jakarta, Kamil langsung pergi ke kantornya"
@@ -3808,11 +3842,11 @@ label G:
 
     menu:
         "Tolak mentah":
-            jump tolak_mentah
+            jump tolak_mentah2
         "Kita tidak boleh menyerah":
-            jump tidak_boleh_menyerah
+            jump tidak_boleh_menyerah2
 
-label tolak_mentah:
+label tolak_mentah2:
     a "Jadi, apa pilihan finalmu?"
     b "Aku menolak saranmu, aku akan memperjuangkan keadilan."
 
@@ -3837,7 +3871,7 @@ label tolak_mentah:
 
     jump pindahidealis
 
-label tidak_boleh_menyerah:
+label tidak_boleh_menyerah2:
     a "Jadi, apa pilihan finalmu?"
     b "Aku menolak saranmu, aku akan memperjuangkan keadilan."
 
