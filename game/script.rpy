@@ -2534,7 +2534,7 @@ label pergirapat:
 
     "Brama bergegas menuju kantor, merasa berat dengan tanggung jawab yang harus dihadapi."
 
-    jump rapat_dewan_direksi  # Melanjutkan ke rapat dewan direksi
+    jump ruang_rapat  # Melanjutkan ke rapat dewan direksi
 
 label menghubungiarya:
     b "Aku membutuhkan Arya. Ini sangat kacau situasinya."
@@ -2555,7 +2555,7 @@ label menghubungiarya:
 
     "Brama menutup telepon dan bersiap-siap untuk pergi."
 
-    jump rapat_dewan_direksi  # Melanjutkan ke rapat dewan direksi
+    jump ruang_rapat  # Melanjutkan ke rapat dewan direksi
 
 # Define the variable C
 define C = False
