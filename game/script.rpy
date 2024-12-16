@@ -1468,6 +1468,7 @@ image Brama_y:
 
 image Arya_y:
     "chara/arya.png"
+    zoom 1.5
     
 
 image telfonkabel:
@@ -1481,7 +1482,7 @@ define lpos = Position(xalign=0,yalign=0)
 
 # buat arya
 define aycpos = Position(xalign=0.5, yalign=0)
-define ayrpos = Position(xalign=0.9, yalign=0)
+define ayrpos = Position(xalign=1.25, yalign=0)
 define aylpos = Position(xalign=0,yalign=0)
 
 # buat telpon
@@ -1879,7 +1880,10 @@ label rumit:
             jump ahlihukumkantor
 
 label pakmahfudz:
+    hide Brama_y
+    show Brama_y at lpos
     k "Halo, Pak Mahfudz."
+    show telfonkabel at tlrpos
     m "Halo, Pak Brama."
     k "Bagaimana, Pak, kabarnya? Apa bisa kita berdiskusi sejenak?"
     m "Maaf, Pak Brama, saya sedang rapat penting dengan anggota dewan."
@@ -1919,8 +1923,8 @@ label ahlihukumkantor:
 label pakandi:
     scene bumnkantor with fade
     show Brama_y at lpos
-    show telfonkabel at tlrpos
     k "Halo, Pak Andi."
+    show telfonkabel at tlrpos
     an "Oh, halo, Pak."
     k "Bagaimana kabarnya, Pak?"
     an "Alhamdulillah, kabar baik."
@@ -1939,7 +1943,9 @@ label pakandi:
     an "Kalau ternyata masalahnya serius, mungkin kita perlu transparan dan melibatkan otoritas."
     k "Baik, Pak. Terima kasih atas masukannya."
     hide telfonkabel
+    hide Brama_y
 
+    show Brama_y at cpos
     k "Ini masalah besar…"
     k "Kalau informasi kesalahan ini sampai keluar, saya yang akan dimintai tanggung jawab."
 
@@ -1989,6 +1995,7 @@ label curhatarya:
     r "Masalah bagi gw udah kayak makanan sehari-hari. Hahahaha!"
     k "..."
 
+    hide Arya_y
     menu:
         "cerita":
             jump cerita
@@ -1996,6 +2003,7 @@ label curhatarya:
             jump diamsaja
 
 label diamsaja:
+    show Arya_y at ayrpos
     k "Aman aja kok, Ar."
     r "Udah lah, dikira bisa bohong ke abangmu ini?"
     r "Kita udah tumbuh bareng lama, loh."
@@ -2011,6 +2019,7 @@ label diamsaja:
     jump cerita
 
 label cerita:
+    show Arya_y at ayrpos
     k "Haduh iya nih."
     k "Masalah baru menimpa lagi."
     k "Sangatlah pusing."
@@ -2026,6 +2035,7 @@ label cerita:
     r "Aku bisa tahu kalau ada persoalan keuangan yang aneh."
     r "Ngomong-ngomong, udah ada investigasi belum mengenai hal itu?"
 
+    hide Arya_y
     menu:
         "Sudah":
             jump sudah
@@ -2033,6 +2043,7 @@ label cerita:
             jump jagarahasia
 
 label sudah:
+    show Arya_y at ayrpos
     k "Sekretaris aku udah coba investigasi."
     k "Rupanya ini ulah orang operasional."
     k "Namanya Bagas."
@@ -2048,6 +2059,7 @@ label sudah:
     jump lanjutcerita
 
 label jagarahasia:
+    show Arya_y at ayrpos
     k "Belum, Wan."
     k "Intinya dari pembengkakan biaya ini bikin kita butuh dana yang cukup besar."
     r "Kamu benar, Bim."
@@ -2071,7 +2083,8 @@ label lanjutcerita:
     r "Wah bagus dong kalau gitu."
     r "Tunggu apa lagi?"
     r "Ini kesempatan besar buat nyelamatin perusahaan kamu."
-
+    
+    hide Arya_y
     menu:
         "Ambil":
             jump ambil
@@ -2079,6 +2092,7 @@ label lanjutcerita:
             jump ragu
 
 label ambil:
+    show Arya_y at ayrpos
     k "Ini emang menarik sih."
     r "Tunggu apa lagi kalau begitu?"
     k "Iya sih, habis ini aku coba rapatin sama direksi yang lain."
@@ -2087,6 +2101,7 @@ label ambil:
     jump throwbackarya
 
 label ragu:
+    show Arya_y at ayrpos
     k "Tapi, Kak, apa nggak merasa aneh?"
     r "Aneh kenapa?"
     k "Kayak tiba-tiba banget pas di momen gini."
@@ -2162,7 +2177,7 @@ label balikkamil:
     hide Brama_y
     
     show Brama_y at lpos
-    show Arya_y at arpos
+    show Arya_y at ayrpos
     r "Bagaimana, Pak? Apakah dewan direksi menyetujui tawaran investor PT. Angin Topan?"
     k "Eh, Arya."
     k "Saya masih bingung terhadap keputusan apa yang harus saya ambil."
@@ -2174,7 +2189,10 @@ label balikkamil:
     r "Emang kamu nggak kasihan apa buat keluarga karyawan yang bergantung pada pekerja kita untuk hidup sehari-hari?"
     r "Saya dengar-dengar juga ada kemungkinan tindak pidana manipulasi keuangan yang bisa menyeret nama kamu ke jalur hukum."
     r "Daripada kamu kena getahnya, mending bapak terima saja tawaran itu."
-
+    hide Arya_y
+    hide Brama_y
+    
+    show Brama_y at cpos
     menu:
         "Tolak":
             jump A #ganti "jump i" kalo mauj lihat yang i
@@ -2457,8 +2475,8 @@ image Brama_y:
     zoom 0.5
 
 image Arya_y:
-    "chara/aryabumn.png"
-    zoom 0.5
+    "chara/arya.png"
+    zoom 1.5
 
 image Presiden:
     "chara/presiden.png"
@@ -2510,8 +2528,8 @@ image Brama_y:
     zoom 0.5
 
 image Arya_y:
-    "chara/aryabumn.png"
-    zoom 0.5
+    "chara/arya.png"
+    zoom 1.5
 
 image Presiden:
     "chara/presiden.png"
