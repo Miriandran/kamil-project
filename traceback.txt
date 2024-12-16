@@ -1,13 +1,35 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
+<<<<<<< Updated upstream
 While running game code:
   File "game/script.rpy", line 2480, in script
     diplomat "Hi, it’s okay, I have free time for you."
 Exception: Sayer 'diplomat' is not defined.
+=======
+After initialization, but before game start.
+  File "game/screens.rpy", line 101, in prepare_screen
+    screen say(who, what):
+  File "game/screens.rpy", line 101, in prepare
+    screen say(who, what):
+  File "game/screens.rpy", line 104, in prepare
+    window:
+  File "game/screens.rpy", line 104, in prepare
+    window:
+  File "game/screens.rpy", line 107, in prepare
+    if who is not None:
+  File "game/screens.rpy", line 107, in prepare
+    if who is not None:
+  File "game/screens.rpy", line 109, in prepare
+    window:
+  File "game/screens.rpy", line 109, in prepare
+    window:
+SyntaxError: unexpected EOF while parsing (game/screens.rpy, line 114)
+>>>>>>> Stashed changes
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
+<<<<<<< Updated upstream
   File "game/script.rpy", line 2480, in script
     diplomat "Hi, it’s okay, I have free time for you."
   File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 2579, in execute
@@ -17,8 +39,49 @@ Full traceback:
   File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 470, in eval_who
     raise Exception("Sayer '%s' is not defined." % who)
 Exception: Sayer 'diplomat' is not defined.
+=======
+  File "D:\renpy-8.3.2-sdk\renpy\bootstrap.py", line 359, in bootstrap
+    renpy.main.main()
+  File "D:\renpy-8.3.2-sdk\renpy\main.py", line 652, in main
+    run(restart)
+  File "D:\renpy-8.3.2-sdk\renpy\main.py", line 94, in run
+    renpy.display.screen.prepare_screens()
+  File "D:\renpy-8.3.2-sdk\renpy\display\screen.py", line 1026, in prepare_screens
+    s.ast.prepare_screen()
+  File "game/screens.rpy", line 101, in prepare_screen
+    screen say(who, what):
+  File "game/screens.rpy", line 101, in prepare
+    screen say(who, what):
+  File "game/screens.rpy", line 104, in prepare
+    window:
+  File "game/screens.rpy", line 104, in prepare
+    window:
+  File "game/screens.rpy", line 107, in prepare
+    if who is not None:
+  File "game/screens.rpy", line 107, in prepare
+    if who is not None:
+  File "game/screens.rpy", line 109, in prepare
+    window:
+  File "game/screens.rpy", line 109, in prepare
+    window:
+  File "D:\renpy-8.3.2-sdk\renpy\py3analysis.py", line 803, in ast_eval
+    return self.ast_eval_literal(expr)[0]
+  File "D:\renpy-8.3.2-sdk\renpy\py3analysis.py", line 785, in ast_eval_literal
+    expr = py_compile(expr, 'eval', ast_node=True)
+  File "D:\renpy-8.3.2-sdk\renpy\python.py", line 1144, in py_compile
+    raise e
+  File "D:\renpy-8.3.2-sdk\renpy\python.py", line 1081, in py_compile
+    raise orig_e
+  File "D:\renpy-8.3.2-sdk\renpy\python.py", line 1073, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: unexpected EOF while parsing (game/screens.rpy, line 114)
+>>>>>>> Stashed changes
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.3.4.24120703
 Kamil 1.0
+<<<<<<< Updated upstream
 Tue Dec 17 00:28:34 2024
+=======
+Tue Dec 17 02:44:18 2024
+>>>>>>> Stashed changes

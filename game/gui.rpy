@@ -51,7 +51,7 @@ define gui.hover_muted_color = '#8895cc'
 
 ## The colors used for dialogue and menu choice text.
 define gui.text_color = '#404040'
-define gui.interface_text_color = '#404040'
+define gui.interface_text_color = '#ffffff'
 
 
 ## Fonts and Font Sizes ########################################################
@@ -251,7 +251,6 @@ define gui.file_slot_rows = 2
 ## The position of the left side of the navigation buttons, relative to the left
 ## side of the screen.
 define gui.navigation_xpos = 60
-
 ## The vertical position of the skip indicator.
 define gui.skip_ypos = 15
 

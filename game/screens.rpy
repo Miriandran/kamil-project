@@ -105,12 +105,15 @@ screen say(who, what):
         id "window"
 
         if who is not None:
-
+            
             window:
                 id "namebox"
                 style "namebox"
                 text who id "who"
-
+                xpos 480
+                ypos -15
+                background Image("gui/phone/char_name_box.png", xpos = -75)
+            
         text what id "what"
 
 
@@ -139,7 +142,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Image("gui/phone/textbox.png", xalign=0.5, yalign=1.0, yoffset = -35)
 
 style namebox:
     xpos gui.name_xpos
@@ -480,7 +483,6 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     textbutton _("Return"):
         style "return_button"
-
         action Return()
 
     label title
@@ -541,6 +543,13 @@ style return_button:
     xpos gui.navigation_xpos
     yalign 1.0
     yoffset -45
+
+style main_menu_button:
+    xalign 0.5
+    xoffset -30
+    yalign 0.0
+    yoffset 20
+
 
 
 ## About screen ################################################################
@@ -753,16 +762,19 @@ screen preferences():
 
                     vbox:
                         style_prefix "radio"
-                        label _("Display")
+                        label _("Display Settings")
                         textbutton _("Window") action Preference("display", "window")
                         textbutton _("Fullscreen") action Preference("display", "fullscreen")
-
+               
                 vbox:
                     style_prefix "check"
-                    label _("Skip")
+                    label _("Skip Settings")
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+                if not main_menu:
+                    label _("Move to")
+                    textbutton _("Main Menu") action MainMenu() style "main_menu_button"
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
@@ -1163,7 +1175,7 @@ screen confirm(message, yes_action, no_action):
 
     style_prefix "confirm"
 
-    add "gui/overlay/confirm.png"
+    # add "gui/overlay/confirm.png"
 
     frame:
 
