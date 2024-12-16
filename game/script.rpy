@@ -2411,15 +2411,360 @@ label rapat_dewan_direksi:
     return #Ending Penjara
 
 # # ------------------------------------- B -------------------------------------
-# # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
+label B:
+    scene ruang_rapatbumn with fade
+    show BramaK at cpos
 
-# # IMAGE BACKGROUND
-# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+    # (Ngomong dalam hati)
+    b "Aku harus lihat situasinya. Perusahaan ini adalah hidupku."
+    b "Kalau aku kehilangan dana ini, aku juga akan kehilangan segalanya. Tawaran dari PT Angin Topan ini jalan keluar terbaik."
+    b "Aku rasa mereka tidak akan mencurigai apa-apa kalau aku berhati-hati."
 
-# # IMAGE CHARA
-# image Brama
+    o "Tapi bukankah kita tidak mengetahui kredibilitas PT Angin Topan?"
+    o "Brama, kalau kamu merasa ada yang salah, maka ikuti perasaanmu."
 
+    b "Tapi bagaimana dengan nasib karyawanku?"
+    o "Apakah menerima tawaran itu bisa menjawab semua permasalahan? Coba pikirkan kembali."
+
+    b "Aku terlalu banyak khawatir. Ingat, ini bukan cuma tentang dirimu."
+    b "Ini juga tentang bagaimana orang yang hidup dari perusahaan ini."
+    b "Apa aku harus mengikuti jalan yang sepertinya salah demi menyelamatkan perusahaan?"
+    b "Atau aku harus bertahan dengan prinsipku, walaupun aku tahu aku mungkin akan hancur?"
+    b "Bagaimana dengan keluarga kecilku kalau aku menyerah pada ini?"
+    b "Tapi kalau aku dipenjara, bagaimana aku bisa melindungi mereka?"
+    b "Aku tidak punya pilihan lain, aku harus menyelamatkan semuanya, aku harus melakukannya."
+
+    # [Mengetik email balasan]
+    "Brama mulai mengetik email balasan di laptopnya."
+    scene laptop_email with dissolve
+    b "Semoga ini tidak kembali menghantui aku di masa depan..."
+
+    # Time skip
+    #SLDIDE MERAHJ
+    #
+    #
+    #
+    scene istana_negara with fade
+    b "Akhirnya saudaraku, kau hebat."
+    b "Selamat ya Arya, telah menjadi menteri perdagangan."
+
+    show Arya at cpos
+    a "Ini berkatmu juga, Brama. Selalu support, kamu juga tidak kalah keren, telah menjadi menteri luar negeri."
+    a "Selamat!"
+
+    # [16.43, rumah]
+    scene rumah with fade
+    show Istri at cpos
+    b "Sayang, aku pulang..."
+
+    i "Sayang, aku sangat bangga atas pencapaianmu, selamat ya!"
+    i "Hari ini pasti sangat melelahkan ya, aku buatkan kopi susu buat kamu sayang."
+
+    b "Emm, enak sekali. Makasih ya sayang, ini berkatmu juga."
+
+    # [Dilanjutkan Brama menonton TV]
+    scene siaran_berita with fade
+    b "Apa yang terjadi di Natuna?"
+
+    i "Ayah, lihat ada kapal ditenggelamkan oleh pihak asing. Kasihan sekali bagaimana dengan keluarga mereka."
+
+    b "Gawat, kejam sekali mereka kepada rakyat Indonesia. Aku harus segera mengambil tindakan!"
+
+    # [POV Arya]
+    scene diplomat_call with fade
+    show Arya at cpos
+
+    a "Hi Mr. Diplomat, sorry for bothering your time but right now I have something important to discuss with you."
+
+    diplomat "Hi, it’s okay, I have free time for you."
+    diplomat "What do you want to talk about?"
+    diplomat "It's about a problem on Natuna."
+    diplomat "There’s a mistake that caused our coast guard to pass the Indonesian maritime border, which makes a little conflict with local fishermen and sink their ship."
+
+    a "So, what can I do for you? There’s something free nowadays. What can I get if I help you?"
+
+    diplomat "I want that this conflict isn’t prolonged so that it can give a domino effect to other sectors."
+    diplomat "The relationship between Indonesia and China has been very good recently."
+    diplomat "Don't let this make our relationship become worse."
+    diplomat "I want you to lobby to the ministry of foreign to make a policy to protect our coast guard."
+    diplomat "And I will guarantee you that this is the last time and no more like this will happen again."
+    diplomat "What do you want from us?"
+    diplomat "We can give you everything you want."
+    diplomat "Just say it and we will fulfill what you asked."
+
+    a "Okay, I will clear the problem."
+    a "It’s easy to handle, my brother."
+    a "But I want you to get rid of my brother Brama in a soft way."
+    a "So I can be the president for the next period."
+
+    diplomat "Sure, we will give you another gift which is everything you want like money, etc." 
+
+    # [Scene transition]
+    scene black with fade
+    "Rencana Arya mulai terbentuk di benaknya, dan dia tahu langkah selanjutnya yang harus diambil." 
+
+    scene rumah with fade
+    show Brama at cpos
+
+    # [POV Brama]
+    b "Aduh, baru bentar menjabat jadi Kemenlu, ada aja kerjaan yang harus dilakukan."
+    b "Tapi ini kasus cukup serius. Aku harus melakukan apa?"
+
+    menu:
+        "Bergegas pergi rapat":
+            jump pergirapat
+        "Menghubungi Arya":
+            jump menghubungiarya
+
+label pergirapat:
+    b "Sayang, aku harus segera pergi ke kantor untuk membicarakan masalah ini."
+
+    show Istri at slpos
+    i "Boleh, ayah. Hati-hati ya di jalan."
+
+    # [Telepon Sekretaris]
+    b "Hallo, Pak. Tolong segera dibuatkan rapat untuk membahas permasalahan ini ya."
+
+    staff "Baik, akan segera saya informasikan mengenai ruangan di tempat meeting biasa ya, Pak."
+
+    b "Baik, tolong disiapkan dan kabarkan pada yang lain."
+
+    "Brama bergegas menuju kantor, merasa berat dengan tanggung jawab yang harus dihadapi."
+
+    jump rapat_dewan_direksi  # Melanjutkan ke rapat dewan direksi
+
+label menghubungiarya:
+    b "Aku membutuhkan Arya. Ini sangat kacau situasinya."
+
+    # [Menelpon Arya]
+    show Arya at cpos
+    b "Hallo, Arya. Ada apa, Brama?"
+
+    b "Permasalahan dengan Tiongkok, mereka melakukan tindakan sangat kejam kepada rakyat Indonesia."
+
+    a "APA! Kita harus mengadakan rapat segera."
+
+    b "Aku akan mengadakan jadwal rapat pada hari ini."
+
+    a "Tidak perlu tergesa-gesa, Brama."
+
+    b "Tidak bisa, ini harus dibahas segera. Aku akan menuju kantor."
+
+    "Brama menutup telepon dan bersiap-siap untuk pergi."
+
+    jump rapat_dewan_direksi  # Melanjutkan ke rapat dewan direksi
+
+# Define the variable C
+define C = False
+
+label ruang_rapat:
+    scene ruang_rapat_menteri with fade
+    show Brama at cpos
+    show Arya at rpos
+    show Staff at lpos
+
+    "Suasana ruang rapat terbatas terlihat tegang. Sebuah layar besar di depan mereka menunjukkan peta perairan Natuna, dengan laporan insiden terbaru yang melibatkan kapal asing dari Tiongkok yang menenggelamkan kapal nelayan Indonesia."
+
+    staff "Pak Menteri, ini adalah laporan terbaru."
+    staff "Sebuah kapal nelayan dari Natuna tenggelam oleh kapal patroli asing."
+
+    b "Bagaimana dengan keadaan orang di dalam kapal tersebut?"
+    staff "Lima nelayan selamat, tetapi mereka mengalami trauma berat."
+    staff "Ini bukan kejadian pertama, dan mereka semakin berani memasuki wilayah kita."
+
+    b "Begitu ya?"
+    b "Kalau begitu, kita harus TENGGELAMKAN kapal mereka juga."
+    b "Mereka tidak akan jera apabila tidak dengan tindakan yang agresif."
+
+    a "Brama, saya paham kemarahan masyarakat, tapi mari kita realistis."
+    a "Kalau kita mengambil langkah agresif terhadap mereka, dampaknya pada ekonomi kita bisa fatal."
+    a "Mereka salah satu mitra dagang terbesar kita."
+    a "Kalau hubungan ini memburuk, ekspor kita bisa hancur, dan itu akan memukul perekonomian nasional."
+
+    menu:
+        "Tetap Idealis (C)":
+            $ C = True
+            jump tetapidealis
+        "Setuju dengan Arya (D)":
+            jump setujuarya
+
+label tetapidealis:
+    b "Saya tahu itu, Arya."
+    b "Tapi kita juga tidak bisa terus membiarkan kejadian ini."
+    b "Rakyat kita di Natuna semakin kehilangan kepercayaan pada pemerintah."
+    b "Mereka merasa kita tidak melindungi mereka."
+    b "Pendapatan pajak dari sektor perikanan di sana juga terus menurun karena nelayan takut melaut."
+
+    a "Lalu apa saranmu, Brama? Kita menenggelamkan kapal asing?"
+    a "Itu sama saja dengan mendeklarasikan perang secara tidak langsung."
+    a "Ekonomi kita tidak siap menghadapi embargo atau retaliasi dagang."
+
+    b "Masalahnya, Arya, ini bukan hanya tentang ekonomi."
+    b "Ini soal kedaulatan kita."
+    b "Kalau mereka terus menekan, apa yang akan kita tinggalkan untuk generasi mendatang?"
+    b "Uang bisa dicari, tapi bagaimana dengan rakyat dan kehormatan negara?"
+
+    a "Brama, jangan idealis di sini."
+    a "Kita bicara soal realitas."
+
+    # Continue the story based on the choice
+    jump akhir_rapat
+
+label setujuarya:
+    b "Ada benarnya yang kamu katakan, mereka juga menguasai jalur perdagangan terbesar."
+
+    o "BRAMA, pikirlah kembali, bagaimana dengan rakyat di sana?"
+    b "Tetapi langkah agresif ini akan membuat perpecahan antar negara."
+    o "Kapal mereka ditenggelamkan dengan semena-mena."
+    o "Mereka sedang melakukan kerja demi keluarga-keluarga mereka."
+    o "Kau tidak berpikir, Brama?"
+
+    b "Tapi aku setuju dengan pernyataan Arya, hal ini tidak bisa dilakukan."
+    o "Kau tidak kasihan sebagai menteri pada rakyat Indonesia?"
+    o "Dan, ingat Brama, rakyatmu keluargamu juga."
+
+    b "Arya, apakah kau memikirkan dampaknya juga terdapat masyarakat di sana?"
+    a "Ya, tentu saja saya memikirkan mereka."
+    a "Tapi apa boleh buat, ini demi menjaga hubungan yang baik sesama negara."
+
+    b "Tapi, Wan, bagaimana jika mereka terus menekan kita?"
+    b "Jika kita hanya diam, apa yang akan terjadi pada nelayan kita?"
+
+    a "Saya paham, Brama. Tapi kita harus cerdas dalam mengambil langkah."
+    a "Diplomasi adalah kunci dalam situasi ini. Kita bisa melibatkan pihak internasional untuk menekan mereka secara hukum."
+
+    b "Dan sementara itu, rakyat kita tetap menjadi korban?"
+    b "Saya tidak bisa membiarkan hal itu."
+
+    a "Tidak, Brama. Kita tidak akan membiarkan mereka."
+    a "Kita bisa meningkatkan pengawasan di perairan kita, menambah kapal patroli, dan memperkuat koordin asi dengan angkatan laut."
+    a "Dengan begitu, kita menunjukkan ketegasan tanpa memicu konflik langsung."
+
+    b "Kau yakin langkah ini cukup untuk membuat mereka jera?"
+    a "Ini adalah cara paling aman untuk melindungi kepentingan kita, baik di dalam negeri maupun di luar negeri."
+    a "Jika kita memprovokasi mereka dengan tindakan agresif, kita berisiko menghadapi konsekuensi yang lebih besar, termasuk isolasi ekonomi."
+
+    b "…"
+    b "Baiklah, Arya. Saya mengerti logikamu. Kita akan menempuh jalur diplomasi dan memperkuat pertahanan kita di wilayah tersebut."
+
+    a "Terima kasih, Brama. Dengan langkah ini, kita melindungi rakyat kita tanpa harus mengorbankan hubungan antarnegara."
+    b "Tapi saya minta satu hal, Arya. Jangan biarkan ini hanya menjadi rencana di atas kertas."
+    b "Pastikan semua langkah segera dilaksanakan."
+
+    a "Tentu, Brama. Kita akan bergerak cepat."
+    b "Kalau begitu, mari kita susun strategi ini dengan detail."
+    b "Saya ingin semua pihak terkait dilibatkan dalam diskusi."
+
+    jump makan
+
+label makan:
+    scene ruang_rapat with fade
+    show Brama at cpos
+    show Arya at rpos
+
+    # [Pemimpin rapat ketok-ketok palu]
+    "{tok tok tok tok}"
+
+    moderator "Cukup saudara-saudara sekalian."
+    moderator "Diskusi kita cukupkan."
+    moderator "Kesepakatan keputusan akan kita diskusikan lebih lanjut bersama presiden beberapa hari lagi."
+
+    # [Sesaat setelah rapat]
+    scene lorongbumn
+    "{suara perut bunyi}"
+    b "Perutku sudah bunyi, lapar sekali."
+    b "Enaknya makan di mana ya?"
+
+    menu:
+        "Kantin Di Kantor":
+            jump kantin
+        "Cafe dekat kantor":
+            jump cafe
+
+label kantin:
+    b "Mmm, sepertinya makan Ayam saus mentega enak."
+    b "Mas, mau ayam saus mentega 1 dan es teh 1 ya."
+
+    # [Ridwan melewati Brama tetapi dia tidak melihat Brama]
+    show Arya at rpos
+    a "..."
+
+    menu:
+        "Menyapa Arya":
+            jump menyapa_arya
+        "Tidak menyapa Arya":
+            jump tidak_menyapa_arya
+
+label cafe:
+    b "Mmm, sepertinya makan Sop buntut enak dan segar."
+    b "Mba, saya pesan sop buntut dan es kopinya 1 ya."
+
+    # [Ridwan melewati Brama tetapi dia tidak melihat Brama]
+    show Arya at rpos
+    a "..."
+
+    menu:
+        "Menyapa Arya":
+            jump menyapa_arya
+        "Tidak menyapa Arya":
+            jump tidak_menyapa_arya
+
+label menyapa_arya:
+    b "Arya……!"
+
+    a "Eh, Brama! Kamu juga makan di sini?"
+    b "Iya nih, kebetulan lapar banget makannya kesini."
+    a "Oala, aku ikut makan di sini juga ya."
+    b "Iya, boleh, Arya. Sini aja."
+
+    # Continue the story after they sit together
+    jump lanjut_makan
+
+label tidak_menyapa_arya:
+    b "Mmmm, aku tidak perlu menyapanya…"
+
+    a "Brama…!"
+    b "Eehh.. Arya, kamu makan di sini juga?"
+    a "Iya, tadi bosen sama makanan di kantin jadi kesini."
+    b "Oala, sini duduk di sini aja."
+    a "Eiyaa, boleh, aku ikut makan di sini ya, Brama?"
+
+    # Continue the story after they sit together
+    jump lanjut_makan
+
+label lanjut_makan:
+    "Brama dan Arya duduk bersama, menikmati makanan mereka sambil berbincang-bincang."
+
+    b "Oiya, Arya, maaf ya untuk tadi."
+    b "Aku terbawa emosi, pikiranku sedang berantakan."
+
+    a "Eiyaa, santai aja, ko."
+    a "Aku ingin kamu memutuskan permasalahan Laut Cina Selatan ini dengan lebih tenang dan rasional, Brama."
+
+    b "Iya, Arya. Aku akan pertimbangkan dari seluruh aspek, baik yang kamu sampaikan kemarin."
+
+    a "Hal yang kusampaikan tidak semata-mata hanya ingin memperoleh keuntungan."
+    a "Tetapi aku memikirkan keterjalinan hubungan yang baik antar negara nantinya, Brama."
+
+    b "Baik, Arya. Akan ku coba pikirkan lagi mengenai hal tersebut."
+    b "Terima kasih ya."
+
+    # [Makanan datang, mereka pun makan bersama]
+    "Makanan yang dipesan pun datang, dan mereka mulai makan bersama."
+
+    b "Aduh, kenyangnya. Oiya, Arya, aku izin pergi ke kantor duluan ya, ada pekerjaan yang harus diselesaikan."
+
+    a "Oiya, boleh, Brama. Sampai ketemu di kantor."
+
+    # [Brama pergi dengan pikiran yang dipenuhi oleh permasalahan yang dihadapi]
+    "Brama pergi dengan pikiran yang dipenuhi oleh permasalahan yang dihadapi."
+
+    jump dialogchoiceB
+label dialogchoiceB:
+    if C:
+        jump C
+    else:
+        jump D
 
 # # ------------------------------------- C -------------------------------------
 # # DEFINE CHARACTERS
@@ -2430,7 +2775,391 @@ label rapat_dewan_direksi:
 
 # # IMAGE CHARA
 # image Brama
+label ruang_kerja:
+    scene ruang_kerja_bram with fade
+    show Brama at cpos
 
+    b "Apakah aku mengambil keputusan yang benar?"
+    b "Menantang mereka dengan idealismeku mungkin hanya akan menghancurkan lebih banyak hal..."
+    
+    o "Tapi jika aku terus diam, lalu siapa yang akan berdiri untuk mereka?"
+    o "Kehormatan negara bukan sesuatu yang bisa dijual."
+
+    b "Tapi… apa aku bisa memikul konsekuensinya?"
+
+    # [Foto keluarga]
+    o "Lihat anakmu… apa kamu nggak ingin dia tumbuh di negara yang kuat, di mana rakyatnya dihormati?"
+
+    b "Tapi… apa aku akan menjadi ayah yang bertanggung jawab kalau pilihanku ini menghancurkan segalanya?"
+
+    "{tok..tok..tok..}"
+    b "Siapa ya di pagi hari sudah mengetuk ruang kerjaku?"
+
+    menu:
+        "Membuka Pintu":
+            jump membuka_pintu
+        "Mengabaikannya":
+            jump mengabaikannya
+
+label membuka_pintu:
+    b "Sebentar, siapa di sana?"
+    
+    a "Pagi, Brama. Sorry pagi-pagi mengganggu aktivitasmu."
+    
+    b "Ada apa, Arya? Silahkan masuk."
+
+    jump setelah_masuk
+
+label mengabaikannya:
+    b "Aduh, siapa yang mengetuk sepagi ini?"
+    b "Aku tidak perlu membukanya, masih banyak pekerjaan yang perlu diselesaikan."
+
+    "{tok..tok..tok..}"
+    b "Ya ampun, suaranya mengganggu hingga tidak bisa melanjutkan pekerjaanku."
+    b "Eh, Arya, ada apa…?"
+
+    a "Pagi, Brama. Sorry pagi-pagi mengganggu aktivitasmu."
+    b "Iya, tak apa. Silahkan duduk."
+
+label setelah_masuk:
+    a "Brama, aku tahu kau pasti memikirkannya."
+    a "Dengar, aku tidak ke sini untuk berdebat."
+    a "Tapi... aku ingin kita bicara dengan kepala dingin."
+
+    b "…"
+
+    a "Aku tahu kau punya idealisme yang kuat."
+    a "Itu salah satu hal yang selalu aku kagumi darimu."
+    a "Tapi terkadang, Brama… dunia ini tidak selalu hitam dan putih."
+    a "Kita harus pragmatis."
+
+    b "Pragmatis seperti apa, Arya?"
+    b "Menutup mata terhadap kezaliman dan kehilangan kedaulatan demi angka di laporan ekonomi meningkat?"
+
+    a "Bukan begitu."
+    a "Tapi kita harus realistis."
+    a "Kalau kita melawan mereka dengan cara frontal, apa yang akan terjadi?"
+    a "Mereka bisa menghancurkan kita."
+    a "Negara ini masih bergantung pada investasi asing, dan kau tahu itu."
+
+    b "…"
+    b "Jadi kita membiarkan mereka melakukan apa pun yang mereka mau?"
+    b "Aku tidak bisa."
+
+    a "Brama! Aku tidak ingin melihatmu dihancurkan oleh keputusan bodoh."
+    a "Cobalah lihat gambaran besarnya!"
+    a "Brama, ini bukan soal siapa yang benar."
+    a "Ini soal siapa yang akan bertahan."
+
+    b "…"
+    b "…"
+    b "…"
+
+    a "Brama, kau tahu aku nggak akan pernah menyarankan sesuatu yang buruk untukmu."
+    a "Kau mungkin tidak menyukai caraku."
+    a "Tapi aku hanya ingin memastikan kita semua tetap bertahan."
+    a "Bukankah itu yang penting?"
+
+    b "…"
+    b "Tapi bertahan dengan cara apa, Arya?"
+    b "Dengan menjual prinsip kita?"
+    b "Dengan membiarkan orang-orang itu terus menghancurkan kedaulatan kita?"
+
+    a "…"
+    a "Kau harus melihat gambaran besar, Brama."
+    a "Ini bukan soal menyerah atau menjual prinsip."
+    a "Ini soal bertahan di medan perang yang tidak adil."
+    a "Kita melawan, tapi dengan cara yang cerdas."
+    a "Kalau kau terlalu frontal, mereka akan menghancurkanmu sebelum kau sempat melakukan apa pun."
+
+    # [Brama beranjak dari kursinya mendekati jendela. Ia menatap ke luar.]
+    "Brama beranjak dari kursinya dan mendekati jendela, menatap ke luar."
+
+    menu:
+        "Bertanya":
+            jump bertanya
+        "Tegaskan!":
+            jump tegas
+
+label bertanya:
+    b "Sampai kapan kita terus bergantung, Arya?"
+    b "Kalau kita tidak mulai sekarang, kapan kita akan membangun kemandirian itu?"
+    b "Rakyat kita di Natuna sudah lama berteriak, tapi kita terus diam dengan alasan yang sama."
+
+    a "Saya tidak bilang kita diam saja."
+    a "Mungkin kita bisa meningkatkan patroli, memastikan kehadiran militer lebih terasa di sana."
+    a "Tapi untuk tindakan agresif seperti menenggelamkan kapal mereka?"
+    a "Itu langkah yang terlalu jauh."
+
+    jump bramaberbeda
+
+label tegas:
+    b "Arya, kita tidak bisa terus berpikir bahwa semua akan selesai dengan sendirinya."
+    b "Kalau kita tidak mulai mengambil keputusan sekarang, kita hanya akan menunda masalah."
+    b "Orang-orang di Natuna butuh bukti, bukan janji lagi."
+
+    a "Saya mengerti keresahan itu, Brama."
+    a "Mungkin kita bisa mulai dengan pendekatan diplomatik yang lebih tegas."
+    a "Tapi kalau kita langsung bertindak tanpa mempertimbangkan konsekuensinya, itu hanya akan memperkeruh situasi."
+
+    jump bramaberbeda
+
+label bramaberbeda:
+    b "…"
+    a "Brama, kau berbeda. Aku tahu itu."
+    a "Kau punya hati, dan itu yang membuatmu lebih baik."
+    a "Kadang, kau harus mengotori tanganmu untuk bisa membersihkan lumpur yang lebih besar."
+
+    b "…"
+
+    o "BRAMA, jangan terpengaruh. Kau harus teguh pada prinsip awalmu yang sudah benar."
+
+    b "…"
+
+    a "Masih terdapat 5 hari lagi untuk kau memutuskan segalanya."
+    a "Aku bicara soal bertahan, Brama."
+    a "Bertahan untuk terus membangun negeri ini."
+    a "Kalau kita kalah dalam perang ekonomi, bahkan kedaulatan yang kau perjuangkan itu tidak akan ada artinya."
+    a "Kita harus realistis."
+    a "Gunakan diplomasi, mainkan strategi, jangan bertarung di medan yang jelas-jelas bukan keunggulan kita."
+    a "Jangan lupa, batas waktu 5 hari lagi."
+    a "Aku yakin kau akan mengambil keputusan yang benar."
+    a "Aku pamit dulu, sampai jumpa nanti."
+
+    menu:
+        "Ragu":
+            jump ragu
+        "Arya masuk akal":
+            jump arya_masuk_akal
+
+label ragu:
+    b "Arya mungkin benar."
+    b "Kalau kita terlalu keras, kita bisa kehilangan semuanya."
+
+    o "Tapi… bagaimana kamu bisa berdiri di depan rakyatmu nanti kalau kamu menyerah sekarang?"
+    o "Apa yang akan mereka lihat darimu sebagai pemimpin?"
+
+    jump merenung
+
+label arya_masuk_akal:
+    b "Arya mungkin punya poin yang baik."
+    b "Tindakan yang terlalu gegabah bisa membuat kita kehilangan apa yang sudah kita perjuangkan."
+
+    o "Tapi jika kamu berhenti sekarang, bagaimana rakyatmu akan percaya lagi?"
+    o "Apa yang akan kamu tunjukkan sebagai pemimpin mereka?"
+
+    jump merenung
+
+label merenung:
+    o "Brama, cobalah merenung."
+    o "Ini tentang hajat hidup masyarakat Natuna."
+    o "Kamu harus berempati pada mereka."
+    o "Ke sana lah! Berbincanglah dengan mereka."
+
+    b "Iya, aku rasa aku harus berbicara dengan masyarakat lokal."
+    o "Lakukan segera!"
+
+    # [Keesokan harinya]
+    "{suara pesawat take-off}"
+    scene pesisir with fade
+
+    # [Mengikuti suara hatinya, Brama memutuskan untuk berangkat ke Natuna untuk berbincang langsung dengan masyarakat lokal]
+    kades "Selamat datang, Pak Menteri."
+    kades "Terima kasih sudah meluangkan waktu datang ke sini."
+    kades "Kami sudah lama menunggu seseorang dari pusat untuk melihat langsung kondisi kami."
+
+    b "Saya yang seharusnya berterima kasih, Pak."
+    b "Ini tanggung jawab saya untuk mendengar langsung keluhan bapak dan warga di sini."
+
+    kades "Pak Menteri, kami sudah kehabisan cara."
+    kades "Kapal-kapal asing itu bukan hanya mencuri ikan kami, tapi juga menenggelamkan perahu-perahu kecil milik nelayan."
+    kades "Satu-satunya yang kami miliki untuk mencari nafkah hanyalah laut."
+    kades "Kami melawan sebisa mungkin, tapi apa daya…"
+    kades "Kami tidak punya kekuatan seperti mereka."
+    kades "Banyak rakyat yang mengungkapkan kapal mereka baru saja ditenggelamkan, Pak."
+    kades "Mereka hampir tidak selamat."
+    kades "Anak mereka yang baru masuk sekolah tidak tahu apa yang harus dimakan besok kalau ini terus terjadi."
+
+    menu:
+        "Berikan janji":
+            jump berikan_janji
+        "Tunjukkan empati":
+            jump tunjukkan_empati
+
+label berikan_janji:
+    b "Saya mendengar semuanya, Pak."
+    b "Saya tidak bisa bayangkan bagaimana beratnya hidup kalian di sini."
+    b "Percayalah, pemerintah pusat tidak akan tinggal diam."
+    b "Kami akan memastikan perairan kita aman dan hak kalian sebagai warga negara dilindungi."
+
+    kades "Tapi, Pak Menteri… apa itu bukan hanya janji?"
+    kades "Sudah berapa kali kami dijanjikan perlindungan, tapi tidak ada yang benar-benar berubah."
+    kades "Kapal asing itu masih berkeliaran, dan hidup kami masih terancam."
+
+    jump kembali_ke_script_utama
+
+label tunjukkan_empati:
+    b "Saya mendengar keluhan bapak dan warga di sini dengan sangat serius."
+    b "Saya bisa merasakan betapa beratnya beban yang harus kalian pikul."
+    b "Saya tidak datang ke sini hanya untuk berbicara, saya ingin membawa solusi nyata."
+
+    kades "Pak Menteri, kami ingin percaya."
+    kades "Tapi setiap kali ada kunjungan, selalu ada janji, dan setelah itu kami ditinggalkan sendirian lagi."
+    kades "Sementara itu, kapal-kapal asing masih mengambil apa yang seharusnya milik kami, bahkan merusak hidup kami."
+
+    b "Saya paham keraguan bapak, dan itu wajar."
+    b "Tapi kali ini, saya pastikan ada langkah konkret."
+    b "Kami akan meningkatkan patroli, memberikan dukungan hukum, dan memastikan pelaku ditindak."
+
+    kades "Kami akan menunggu tindakan itu, Pak Menteri."
+    kades "Tapi tolong, jangan sampai kami hanya menjadi korban lagi tanpa keadilan."
+
+    jump kembali_ke_script_utama
+
+label kembali_ke_script_utama:
+    b "…"
+    b "Saya tidak akan memberi janji kosong, Pak."
+    b "Saya akan membawa suara bapak dan semua warga di sini langsung ke pusat."
+    b "Jika perlu, saya sendiri yang akan memimpin pembicaraan ini di forum internasional."
+    b "Kedaulatan negara kita tidak bisa ditawar."
+
+    kades "Pak Menteri, jangan hanya bicara soal forum internasional."
+    kades "Kami butuh tindakan sekarang. Berapa banyak lagi kapal kami yang harus tenggelam?"
+    kades "Berapa banyak lagi keluarga yang harus kehilangan ayah mereka di laut?"
+
+    menu:
+        "Saya usahakan":
+            jump saya_usahakan
+        "Mari bersinergi":
+            jump mari_bersinergi
+
+label saya_usahakan:
+    b "Bapak benar. Kita tidak bisa menunggu terlalu lama."
+    b "Saya akan segera mengatur agar kapal patroli ditambah di Natuna."
+    b "Tapi saya juga butuh dukungan kalian."
+    b "Jangan pernah takut untuk melaporkan setiap pelanggaran."
+    b "Ini perjuangan kita bersama."
+
+    kades "Pasti, Pak!"
+    b "Pak, terakhir, saya mohon… jika ada perkembangan atau ancaman baru, segera kabari saya."
+    b "Saya tidak ingin ada korban lagi di sini."
+
+    kades "Kami percaya pada Bapak, Pak Menteri."
+    kades "Tapi tolong, jangan kecewakan kami lagi."
+
+    b "Terima kasih atas kepercayaannya, akan saya lakukan yang terbaik."
+
+    jump kembali_ke_script_utama_2
+
+label mari_bersinergi:
+    b "Bapak benar. Kita harus bergerak lebih cepat untuk melindungi wilayah kita."
+    b "Namun, perlindungan ini tidak hanya soal kapal patroli. Kita juga perlu memperkuat kesadaran masyarakat di Natuna."
+    b "Saya akan meminta pelatihan tambahan bagi nelayan agar mereka siap menghadapi situasi darurat."
+
+    kades "Itu langkah yang bagus, Pak Menteri. Tapi, kami juga butuh kepastian."
+    kades "Nelayan kami tidak bisa hanya bergantung pada pelatihan, mereka butuh pengamanan nyata di laut."
+
+    b "Tentu, Pak. Kapal patroli akan segera kami tambahkan, tapi ini perjuangan jangka panjang."
+    b "Mohon kerja sama dan kesiagaan dari Bapak dan warga di sini. Kita tidak boleh lengah."
+
+    kades "Kami akan mendukung semampu kami, Pak Menteri. Yang penting, jangan biarkan kami menghadapi ini sendirian."
+
+    b "Saya berjanji akan terus memantau situasi di sini. Jika ada perkembangan atau ancaman baru, kabari saya segera."
+
+    kades "Baik, Pak. Kami percaya pada Bapak, tapi buktikan bahwa kami tidak salah berharap."
+
+    b "Terima kasih atas kepercayaan ini. Saya tidak akan mengecewakan kalian."
+
+    jump kembali_ke_script_utama_2
+
+label kembali_ke_script_utama_2:
+    b "Kalau begitu, saya izin pamit kembali ke Jakarta."
+    b "Mohon ditunggu untuk koordinasi dan informasi lebih lanjut."
+
+    kades "Baik, Pak. Terima kasih banyak atas perhatiannya kepada kami."
+
+    # [Scene dalam pesawat]
+    scene dalam_pesawat with fade
+
+    b "Mereka semua menggantungkan harapan pada saya."
+    b "Tapi apa yang bisa saya lakukan?"
+    b "Diplomasi butuh waktu, sementara mereka sudah kehilangan segalanya."
+    b "Apakah ini saatnya saya harus mengambil langkah yang lebih keras…?"
+    b "Meski itu berarti membawa negara ini ke risiko yang lebih besar?"
+
+    # [Keesokan harinya]
+    scene kantor with fade
+
+    a "Kau masih di sini, Brama? Sudah larut malam."
+    a "Aku pikir kau sudah pulang."
+
+    b "Ada terlalu banyak hal di kepala."
+    b "Tidur rasanya bukan pilihan malam ini."
+
+    a "Aku tahu kau selalu memikirkannya dengan serius."
+    a "Itu yang aku kagumi darimu."
+    a "Tapi kau tidak bisa terus-menerus memikul semua ini sendirian."
+
+    b "…"
+    b "Mereka menggantungkan harapan pada kita, Arya."
+    b "Masyarakat Natuna… mereka benar-benar terdesak."
+    b "Bagaimana aku bisa pulang dan tidur dengan tenang sementara mereka bahkan tidak tahu apakah mereka bisa makan esok hari?"
+
+    a " Aku mengerti. Aku sudah mendengar semuanya."  
+    a "Tapi Brama, aku harus mengingatkanmu lagi."  
+    a "Langkah gegabah tidak akan menyelesaikan apa-apa. " 
+    a "Kau tahu risiko yang akan kita hadapi jika bertindak terlalu keras.  "
+
+    b "Risiko itu sudah mereka hadapi setiap hari, Arya. " 
+    b "Kapal mereka tenggelam. Hidup mereka hancur.  "
+    b "Jika aku diam, aku sama saja dengan membiarkan semua itu terus terjadi. " 
+
+    a "Aku tidak bilang kita diam. Aku bilang, kita harus pintar."  
+    a "Diplomasi itu alat yang sulit, tapi itu satu-satunya jalan yang tidak menghancurkan kita semua.  "
+    a "Kau tahu bagaimana negara ini masih bergantung pada pihak luar. " 
+    a "Jika kita kehilangan mereka, situasi bisa lebih buruk daripada sekarang.  "
+
+    b "Tapi apakah diplomasi akan cukup?  "
+    b "Setiap detik yang kita habiskan untuk berbicara, mereka kehilangan lebih banyak.  "
+    b "Bagaimana aku bisa menghadapi mereka lagi jika aku tidak membawa perubahan nyata? " 
+
+    a "Diplomasi mungkin lambat, tapi itu lebih aman daripada langkah frontal yang bisa menghancurkan kita. " 
+    a "Kita perlu strategi.  "
+    a "Jika kau terlalu keras sekarang, kita mungkin tidak akan punya kesempatan untuk memperbaiki keadaan di masa depan."  
+
+    b "Lalu, sampai kapan kita menunggu?  "
+    b "Sampai kapan kita hanya menjadi pemain kecil di medan yang dikuasai orang lain?  "
+
+    a "Sampai kita cukup kuat untuk melawan.  "
+    a "Brama, kau harus memikirkan ini secara jangka panjang.  "
+    a "Masyarakat Natuna membutuhkanmu, tapi mereka juga membutuhkan negara ini tetap berdiri. " 
+    a "Jangan mengambil langkah yang bisa membuat kita kehilangan segalanya. " 
+
+    b "Aku tidak tahu, Arya."  
+    b "Bagaimana jika aku salah?"  
+    b "Bagaimana jika pilihan ini malah memperpanjang penderitaan mereka?"  
+
+    a "Kau tidak sendirian dalam hal ini."  
+    a "Aku di sini untuk mendukungmu, dan begitu juga yang lainnya."  
+    a "Tapi aku mohon, pertimbangkan ini baik-baik."  
+    a "Jangan biarkan emosimu mengaburkan pandanganmu."  
+
+    b "Aku akan memikirkannya, Arya."  
+    b "Aku tahu kau hanya ingin yang terbaik, tapi aku masih belum tahu apakah yang terbaik itu cukup untuk mereka. " 
+
+    a "Kau punya lima hari lagi untuk memutuskan, Brama."  
+    a "Gunakan waktu itu dengan bijak."  
+    a "Aku percaya kau akan mengambil langkah yang benar."  
+
+    b "Terima kasih, Arya. Aku berharap aku bisa sebijak yang kau pikirkan."  
+    a "Kau lebih bijak dari yang kau sadari, Brama." 
+    a "Jangan terlalu keras pada dirimu sendiri."
+
+    menu:
+        "Perjuangkan Natuna":
+            jump E
+        "Ikuti Arya":
+            jump F
 
 # # ------------------------------------- D -------------------------------------
 # # DEFINE CHARACTERS
@@ -2441,6 +3170,259 @@ label rapat_dewan_direksi:
 
 # # IMAGE CHARA
 # image Brama
+label D:
+    scene kantor_pribadi with fade
+
+    b "Apa yang dikatakan oleh Arya tadi ada benarnya juga."
+    b "Tapi apakah hal tersebut merupakan yang terbaik bagi masyarakat dan negara?"
+    b "Apa jadinya jika aku tetap ngotot untuk memaksakan kehendakku?"
+    b "Apalagi sampai nekat melakukan konfrontasi secara langsung terhadap frigate China."
+    b "Sudah pasti ekonomi negara ini bisa kacau."
+
+    o "Brama, sadar lah!!! Keputusan yang kamu ambil saat ini sangat merugikan bagi rakyat."
+    o "Mereka bertaruh nyawa demi mencari sesuap nasi dan dibayangi oleh kapal asing yang semena-mena."
+    o "Apa kamu tidak kasihan dengan mereka, Brama?"
+    o "Bagaimana kalau kejadian ini terus berulang dan menghilangkan nyawa mereka?"
+
+    b "Tindakan yang telah aku ambil merupakan yang terbaik bagi kita semua."
+    b "Aku tidak bisa mengorbankan ekonomi dan kestabilan negara ini hanya untuk menembaki kapal-kapal itu."
+
+    o "Sungguh jahatnya dirimu, Brama."
+    o "Di mana sisi kemanusiaanmu itu?"
+    o "Apakah kau mulai ragu terhadap dirimu sendiri hingga kau tidak mengutamakan keadilan dan kepentingan rakyat?"
+
+    b "…"
+
+    # [Keesokan harinya setelah mempersiapkan segala hal mengenai tindakan apa yang akan diambil dan disampaikan kepada presiden, Brama pun melakukan rapat terbatas dengan beberapa kementerian terkait]
+    scene ruang_rapat with fade
+
+    a "Brama, tindakan yang anda ajukan tadi sungguh ide cerdas."
+    a "Kita harus mengutamakan hubungan kedua negara."
+    a "Jangan sampai perekonomian kita hancur cuma gara-gara hal ini."
+
+    menu:
+        "Tekankan transparansi":
+            jump tekankan_transparansi
+        "Tekankan kerja sama":
+            jump tekankan_kerja_sama
+
+label tekankan_transparansi:
+    b "Eh iya, terima kasih, Arya. Kamu benar-benar mengingatkanku soal tanggung jawab yang lebih besar."
+    b "Kalau waktu itu aku terlalu emosional, mungkin kita malah menghadapi situasi yang lebih kacau sekarang."
+
+    a "Betul, Brama. Kadang sulit untuk menahan emosi saat menghadapi masalah besar seperti ini."
+    a "Tapi itulah tugas kita, memastikan setiap keputusan membawa dampak positif, bukan sekadar reaksi sesaat."
+    a "Bagaimanapun, yang kita lakukan ini untuk menjaga masa depan negara, bukan hanya menyelesaikan masalah sesaat."
+
+    b "Kamu benar, Arya. Tapi aku masih merasa khawatir tentang bagaimana masyarakat akan menerima ini."
+    b "Mereka butuh hasil nyata, bukan sekadar janji diplomasi."
+
+    a "Itu tugas kita selanjutnya, Brama."
+    a "Pastikan langkah-langkah yang sudah direncanakan, seperti peningkatan patroli dan perlindungan nelayan, benar-benar berjalan. Masyarakat butuh melihat bukti nyata."
+
+    b "Iya, itu harus jadi prioritas. Kalau masyarakat merasa terlindungi, mereka akan lebih mendukung langkah kita."
+    b "Tapi aku harap kita bisa segera menyampaikan ini kepada Presiden."
+
+    a "Pasti, Brama. Dengan dukungan Presiden, rencana ini bisa lebih kuat."
+    a "Dan jangan lupa, transparansi dengan masyarakat itu kunci."
+    a "Kita harus terus berkomunikasi dengan mereka."
+
+    b "Benar, Arya. Terima kasih atas pandanganmu. Aku rasa, tanpa masukanmu, aku mungkin sudah mengambil langkah yang bisa merugikan banyak pihak."
+
+    a "Sama-sama, Brama. Kita ada di sini untuk saling mengingatkan."
+    a "Yang penting, kita tetap bekerja untuk kebaikan bersama."
+
+    jump kembali_ke_rumah
+
+label tekankan_kerja_sama:
+    b "Eh iya, terima kasih, Arya. Kamu benar-benar membuka mataku soal risiko yang mungkin terjadi."
+    b "Kalau waktu itu aku tetap keras kepala, mungkin dampaknya akan jauh lebih buruk bagi negara kita."
+
+    a "Ah, nggak perlu berlebihan, Brama. Yang penting, kita bisa menjaga keseimbangan antara kedaulatan negara dan hubungan internasional."
+    a "Kalau kita berhasil mengelola ini dengan baik, saya yakin masyarakat juga akan melihat manfaatnya dalam jangka panjang."
+
+    b "Betul, Arya. Tapi, aku tahu pasti akan ada kritik. Apalagi dari mereka yang merasa kita kurang tegas."
+
+    a "Itu wajar, Brama. Kita tidak bisa memuaskan semua pihak."
+    a "Tapi kalau hasil akhirnya baik untuk rakyat dan negara, itu yang paling penting."
+    a "Saya percaya, kalau Presiden dan masyarakat melihat rencana ini dijalankan dengan serius, mereka akan mendukung."
+
+    b "Iya, Arya. Semoga langkah ini menjadi titik awal perubahan yang lebih baik. Terima kasih sudah mendukungku berpikir lebih bijak."
+
+    a "Sama-sama, Brama. Ini tanggung jawab kita bersama untuk menjaga stabilitas negara."
+
+    jump kembali_ke_rumah
+
+label kembali_ke_rumah:
+    scene rumah with fade
+
+    b "Sayang, aku pulang."
+    istri "Eh sayang, udah pulang. Bagaimana pekerjaan hari ini sayang?"
+    b "Dilihat-lihat dari raut wajah, kayaknya ini hari yang melelahkan ya di kantor?"
+    b "Iya sayang, kok kamu peka banget sih sama suami mu ini, hari ini hari yang berat."
+    b "Tadi aku habis rapat terbatas dengan beberapa menteri, kami membahas mengenai LCS."
+
+    istri "Wah, aku yang mendengarkan saja bisa membayangkan betapa capeknya, apalagi kamu yang ngejalanin ya sayang."
+    b "Oiya, Nina di mana? Kok aku tidak melihatnya dari tadi?"
+
+    istri "Nina belum pulang sayang, dia lagi di jalan pulang sehabis les."
+    b "Paling sebentar lagi sampai rumah."
+    istri "Sekarang kamu bebersih sambil nunggu Nina pulang, terus kita makan malam bersama, okay?"
+
+    b "Oke sayang."
+
+    # [19.21, makan malam]
+    scene makan_malam with fade
+
+    b "Istri dan anakku sayang, ayah lusa mau pergi beberapa hari ke sana."
+    b "Ada pekerjaan yang harus ayah selesaikan di sana."
+
+    istri "Pasti soal kapal nelayan di situ ya, yah?"
+    b "Iya sayang, aku harus ke sana untuk mengecek keadaan masyarakat di sana."
+
+    nina "Hati-hati ya, yah. Awas ditenggelamkan sama coast guard China."
+    b "Aduh, bisaan anak ayah satu ini. Iya, ayah akan hati-hati di sana."
+
+    istri "Iya, ayah hati-hati ya. Semoga masalah ini cepat selesai."
+    b "Iya sayang, makasih."
+    jump keesokan_harinya
+
+label keesokan_harinya:
+    'Keesokan harinya....'
+    scene pesisir with fade
+
+    b "Selamat siang bapak ibu masyarakat. Perkenalkan saya Brama selaku menteri luar negeri."
+    b "Kehadiran saya di sini adalah untuk mendengarkan dan berdiskusi kepada bapak-bapak dan ibu-ibu."
+    b "Bahasannya mengenai laut yang diganggu oleh kapal China."
+
+    kades "Selamat datang, Pak Menteri."
+    kades "Terima kasih sudah meluangkan waktu datang ke sini."
+    kades "Kami sudah lama menunggu seseorang dari pusat untuk melihat langsung kondisi kami."
+
+    b "Saya yang seharusnya berterima kasih, Pak."
+    b "Ini tanggung jawab saya untuk mendengar langsung keluhan bapak dan warga di sini."
+
+    kades "Pak Menteri, kami sudah kehabisan cara."
+    kades "Kapal-kapal asing itu bukan hanya mencuri ikan kami, tapi juga menenggelamkan perahu-perahu kecil milik nelayan."
+    kades "Satu-satunya yang kami miliki untuk mencari nafkah hanyalah laut."
+    kades "Kami melawan sebisa mungkin, tapi apa daya… kami tidak punya kekuatan seperti mereka."
+
+    menu:
+        "Yakinkan mereka":
+            jump yakinkan_mereka
+        "Arya masuk akal":
+            jump arya_masuk_akal
+
+label yakinkan_mereka:
+    b "Saya mengerti perasaan Bapak dan warga di sini."
+    b "Saya sendiri marah setiap kali mendengar kejadian seperti ini."
+    b "Tapi kita harus menghadapi ini dengan kepala dingin."
+
+    kades "Kepala dingin, Pak Menteri? Kami sudah cukup sabar!"
+    kades "Apa lagi yang harus kami tunggu? Kapal-kapal asing itu semakin merajalela!"
+
+    b "Saya paham, Pak. Justru itulah mengapa saya di sini."
+    b "Saya ingin memastikan suara Bapak dan masyarakat sampai ke tingkat internasional."
+    b "Dengan diplomasi, kita bisa mempermalukan China di hadapan dunia."
+    b "Bukankah itu lebih efektif daripada konfrontasi langsung yang justru bisa merugikan kita sendiri?"
+
+    kades "Tapi, Pak, selama proses itu berjalan, nelayan kami terus menjadi korban."
+    kades "Apa gunanya bicara di tingkat internasional kalau kami menderita?"
+
+    b "Itu kekhawatiran yang wajar, Pak. Tapi mari kita pikirkan ini."
+    b "Jika kita memulai tindakan agresif, apakah Bapak siap melihat eskalasi yang bisa membuat ini menjadi medan konflik?"
+    b "Jika itu terjadi, bukan hanya nelayan yang terancam, tapi seluruh masyarakat."
+
+    kades "Jadi, maksud Pak Menteri, kami harus menyerah?"
+
+    b "Tentu saja tidak, Pak. Justru saya sedang memperjuangkan jalan yang lebih aman dan bermartabat bagi kita semua."
+    b "Saya juga sedang berkoordinasi untuk meningkatkan bantuan pusat, termasuk kapal patroli dan perlindungan hukum bagi nelayan."
+
+    kades "Itu terdengar seperti janji lama, Pak Menteri. Kami ingin bukti nyata."
+
+    b "Dan Bapak akan mendapatkannya. Tapi saya mohon pengertian, Bapak."
+    b "Jika kita bertindak sembrono, kita tidak hanya mempertaruhkan hubungan dagang dengan China, tetapi juga masa depan anak-anak kita di sini."
+    b "Apa yang akan mereka warisi jika ini menjadi zona konflik?"
+
+    jump kembali_ke_script
+
+label arya_masuk_akal:
+    b "Saya memahami rasa frustrasi Bapak dan seluruh warga. Kondisi ini memang sangat tidak adil bagi kita."
+    b "Namun, saya ingin berbagi bahwa pendekatan kita harus strategis."
+
+    kades "Strategis seperti apa, Pak Menteri? Apakah hanya dengan kata-kata? Sementara nelayan kami terus menjadi korban."
+
+    b "Bukan hanya kata-kata, Pak. Kami sedang merancang langkah diplomasi yang melibatkan pihak internasional."
+    b "Dengan cara ini, kita bisa menekan China secara hukum tanpa memicu konflik langsung."
+
+    kades "Pak Menteri, dengan segala hormat, apakah diplomasi itu akan cukup?"
+    b "Kapal-kapal asing itu tidak pernah peduli dengan peringatan."
+    b "Mereka terus datang, dan kami di sini yang harus menanggung akibatnya."
+
+    b "Saya tidak mengatakan ini mudah, Pak Kades. Namun, tindakan agresif terhadap China bisa berdampak buruk bagi kita semua."
+    b "Mereka adalah mitra dagang terbesar kita, dan konflik langsung bisa mem engaruhi perekonomian nasional, termasuk wilayah ini."
+
+    kades "Jadi, kami harus terus hidup dalam ketakutan, Pak? Apakah nyawa nelayan kami tidak lebih penting daripada ekonomi?"
+
+    b "Saya tidak mengatakan begitu, Pak. Nyawa warga adalah prioritas saya."
+    b "Kami akan menambah kapal patroli, memperkuat pengawasan, dan memberikan pelatihan kepada nelayan untuk mengurangi risiko."
+    b "Tapi kita harus berhati-hati agar tidak memicu ketegangan internasional yang lebih besar."
+
+    kades "Kapal patroli? Itu seperti membangun dinding yang tidak pernah selesai, Pak Menteri."
+    kades "Kami butuh tindakan yang lebih nyata dan tegas!"
+
+    b "Pak Kades, saya memahami amarah Bapak, tapi kita harus melihat ini secara keseluruhan."
+    b "Jika kita memilih konfrontasi, risikonya terlalu besar."
+    b "Saya yakin, dengan tekanan diplomasi, kita bisa menyelesaikan ini secara berimbang."
+
+    jump kembali_ke_script
+
+label kembali_ke_script:
+    scene chaos with fade
+
+    warga_a "Dasar pemerintah egois!!! Mereka tidak memikirkan rakyatnya yang di sini!"
+    warga_a "Kami di sini setiap hari bertaruh dengan nyawa setiap kali bertemu dengan mereka."
+    warga_a "Bahkan kapal kami tak segan-segan mereka tenggelamkan di wilayah negara kita sendiri."
+    warga_a "Tapi apa nyatanya pemerintah malah berpihak pada aseng?"
+
+    masyarakat "SETUJU! Negara tidak peduli terhadap rakyatnya sendiri tapi malah memikirkan kantongnya sendiri!"
+
+    # [Keadaan menjadi anarkis dan Kamil segera meninggalkan tempat dengan pengawalan ketat]
+    {suara chaos demo anarkis}
+    [Polisi menghadang massa yang semakin menggila dan berujung pada sedikit kerusuhan yang menyebabkan beberapa masyarakat mengalami luka-luka]
+    {ditambah suara sirine polisi}
+
+    # -time skip-
+    [Setibanya di Jakarta, Kamil langsung pergi ke kantornya]
+    scene kantor with fade
+
+    b "Apa tindakan yang aku lakukan ini merupakan yang terbaik?"
+    b "Lantas mengapa banyak yang menolak?"
+
+    other "Apa yang kamu lakukan merupakan hal yang salah, Brama."
+    other "Ini tidak sesuai dengan prinsip pribadimu."
+    other "Kau rela mengorbankan rakyat demi kepentingan pribadimu."
+
+    b "Tidak. Aku tidak mengorbankan mereka dan tidak untuk kepentingan pribadiku."
+    b "Ini semua demi rakyat dan negara. Tau apa mereka soal politik dan ekonomi?"
+
+    other "Mereka mungkin tidak berpendidikan tinggi seperti dirimu."
+    other "Tapi apakah mereka pantas dikorbankan begitu saja?"
+    other "Apa kau tidak kasihan dengan keluarganya?"
+    other "Di mana sisi kemanusiaanmu itu, Brama?"
+
+    b "Aku akan tetap menjalankan rencana yang sudah disetujui dengan presiden apapun itu caranya."
+    b "Aku tidak akan membiarkan konflik ini membawa buruk bagi perekonomian dan hubungan kedua negara."
+
+    other "Kau memang sudah berubah, Brama."
+    other "Mana Brama yang ku kenal itu yang mengutamakan keadilan dan kepentingan rakyat?"
+    other "Rakyat juga butuh kehadiran negara untuk melindungi mereka."
+
+    menu:
+        "Mantab ikuti Arya":
+            jump H
+        "Ragu":
+            jump G
 
 
 # # ------------------------------------- E -------------------------------------
