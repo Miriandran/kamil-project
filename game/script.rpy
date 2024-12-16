@@ -16,7 +16,7 @@ image ruangtamu = im.Scale("bg/Ruang Tamu.png", 1920, 1080)
 image ruangmakan = im.Scale("bg/ruang makan.png", 1920, 1080)
 image depanrumah = im.Scale("bg/rumahkmilkecil.png", 1920,1080)
 image rumah_sore = im.Scale("bg/ruang makan malam.png", 1920,1080)
-image rakbuku = im.Scale("bg/rakbuku.png", 1920,1080)
+image rakbuku = im.Scale("mini/buku/awal.jpg", 1920,1080)
 image gerbangsekolah = im.Scale("bg/GerbangSekolah.png", 1920,1080)
 image sekolah_sore = im.Scale("bg/sekolahsore.jpg", 1920,1080)
 image jalan = im.Scale("bg/jalansore.jpg", 1920,1080)
@@ -242,6 +242,7 @@ label t1:
 
     jump m1
 
+image jadwal = im.Scale("cutscene/x/jadwal.jpeg", 1920, 1080)
 label m1:
     hide Brama
     hide Arya
@@ -271,6 +272,10 @@ label m1:
     show Brama Bingung at lpos
     k 'oke hari ini jadwal kita olahraga, matematika, sama biologi'
     '(Brama sambil melihat selebaran jadwal yang nempel di dinding)'
+    show jadwal at left
+    pause 2
+    hide jadwal
+    show Brama Bingung at lpos
     #[jadwal pelajaran sekolah SMA Cendekia Maju di selebaran kertas]
     k 'hmmmm berarti gw harus bawa buku, baju ganti, sama
             kalkulator'
@@ -280,14 +285,23 @@ label m1:
     #(mini game milih buku di rak)
     jump minibuku
 
+image rakakhir = im.Scale("mini/buku/akhir.jpg", 1920,1080)
+image rakbio = im.Scale("mini/buku/bioambil.jpg", 1920,1080)
+image rakmtk = im.Scale("mini/buku/mtkambil.jpg", 1920,1080)
+image rakolah = im.Scale("mini/buku/olahraga ambil.jpg", 1920,1080)
+image rakbioolah = im.Scale("mini/buku/bioolah.jpg", 1920,1080)
+image rakmtkolah = im.Scale("mini/buku/mtkolah.jpg", 1920,1080)
+image rakmtkbio = im.Scale("mini/buku/mtkbio.jpg", 1920,1080)
 label minibuku:
     scene rakbuku
-    show Brama at rpos
+    show Brama:
+        xalign 0.9
+        yalign -0.75
     $ correct_books = ["Buku Olahraga", "Buku Matematika", "Buku Biologi"]  # Correct books
     $ chosen_books = []  # Store player's choices
 
     "Brama mulai memilih buku yang harus dibawa dari rak buku."
-
+    hide brama
     while len(chosen_books) < 3:
         $ options = []
 
@@ -302,27 +316,69 @@ label minibuku:
             $ options.append("Buku Sejarah")
         if "Buku Fisika" not in chosen_books:
             $ options.append("Buku Fisika")
+        if "Buku PPKN" not in chosen_books:
+            $ options.append("Buku PPKN")
 
         # Display the menu with available options
         menu:
             "Pilih buku untuk dibawa:"
 
             # Add each option dynamically
+            "Buku PPKN" if "Buku PPKN" in options:
+                $ chosen_books.append("Buku PPKN")
+                "Brama mengambil Buku PPKN."
+
             "Buku Olahraga" if "Buku Olahraga" in options:
                 $ chosen_books.append("Buku Olahraga")
+                if "Buku Biologi" in options:
+                    if "Buku Matematika" in options:
+                        scene rakolah
+                    else:
+                        scene rakmtkolah
+                elif "Buku Matematika" in options:
+                    if "Buku Biologi" in options:
+                        scene rakolah
+                    else:
+                        scene rakbioolah
+                else:
+                    scene rakakhir
                 "Brama mengambil Buku Olahraga."
 
             "Buku Matematika" if "Buku Matematika" in options:
                 $ chosen_books.append("Buku Matematika")
+                if "Buku Olahraga" in options:
+                    if "Buku Biologi" in options:
+                        scene rakmtk
+                    else:
+                        scene rakmtkbio
+                elif "Buku Biologi" in options:
+                    if "Buku Olahraga" in options:
+                        scene rakmtk
+                    else:
+                        scene rakmtkolah
+                else:
+                    scene rakakhir
                 "Brama mengambil Buku Matematika."
-
-            "Buku Biologi" if "Buku Biologi" in options:
-                $ chosen_books.append("Buku Biologi")
-                "Brama mengambil Buku Biologi."
 
             "Buku Sejarah" if "Buku Sejarah" in options:
                 $ chosen_books.append("Buku Sejarah")
                 "Brama mengambil Buku Sejarah."
+
+            "Buku Biologi" if "Buku Biologi" in options:
+                $ chosen_books.append("Buku Biologi")
+                if "Buku Olahraga" in options:
+                    if "Buku Matematika" in options:
+                        scene rakbio
+                    else:
+                        scene rakmtkbio
+                elif "Buku Matematika" in options:
+                    if "Buku Olahraga" in options:
+                        scene rakbio
+                    else:
+                        scene rakbioolah
+                else:
+                    scene rakakhir
+                "Brama mengambil Buku Biologi."
 
             "Buku Fisika" if "Buku Fisika" in options:
                 $ chosen_books.append("Buku Fisika")
@@ -333,7 +389,7 @@ label minibuku:
 
     if correct_count == 3:
         "Brama: Hmmm... Semua buku yang gw pilih udah bener."
-        jump ruangmakan
+        jump kalku
     else:
         "Brama: Aduh, kayaknya ada buku yang salah deh."
         $ chosen_books = []
@@ -341,7 +397,26 @@ label minibuku:
             
 #minigame pilih baju blm
 #minigame pilih kalkulator
-
+image laci = im.Scale("cutscene/x/laci.png", 1920, 1080)
+image atk = im.Scale("cutscene/x/atk.png", 1080, 720)
+label kalku:
+    scene kamartidur
+    show Brama Bahagia at cpos
+    k 'yes terakhir, kalkulator'
+    hide Brama Bahagia
+    show laci
+    show atk:
+        zoom 1
+        xalign 0.5
+        yalign 0.3
+    k 'bukan ini deh, kok gaada ya'
+    k 'aku yakin taruh sini kok'
+    hide laci
+    hide atk 
+    show Brama Marah at cpos
+    k 'wah ini pasti ulah Arya'
+    '(Kamil pun datang ke ruangan meja makan nyamperin Ridwan)'
+    jump ruangmakan
 
 image slide1 = im.Scale("text/X-SMA/Slide1.png", 1920, 1080)
 # Label ruangmakan
@@ -414,6 +489,7 @@ label ruangmakan:
         "lu aja yang bawa":
             jump motorarya
 
+define motorkamil = False
 label motorbima:
     show Brama Bahagia at lpos
     k "Gw aja gapapa, ntar baliknya lu."
@@ -424,6 +500,7 @@ label motorbima:
     k "Mana ada, gw adalah the best rider on the world!"
     show Arya Kesala at arpos
     r "The best bacot kali lu."
+    define motorkamil = True
     jump gerbangsekolah
 
 label motorarya:
@@ -438,6 +515,7 @@ label motorarya:
     r "Formalitas aja WKWKWKWK."
     show Brama Marah at lpos
     k "Yeuuu, yaudah mana kuncinya."
+    define motorkamil = False
     jump gerbangsekolah
 
 image slide2 = im.Scale("text/X-SMA/Slide2.png", 1920, 1080)
@@ -492,14 +570,135 @@ label gerbangsekolah:
 
     jump mininabrak
 
+init python:
+    # Import the minigame logic
+    # minigame.py
+
+    # Minigame logic variables and functions
+    bg_yoffset = 0
+    player_x, player_y = 500, 600
+    police_cars = [{"x": 300, "y": -100}]
+    score = 0
+    player_speed = 50
+    police_speed = 60
+
+    # def move_player(dx, dy):
+    #     global player_x, player_y
+    #     player_x = max(0, min(1500, player_x + dx))  # Keep within screen bounds
+    #     player_y = max(100, min(375, player_y + dy))
+    #     print(f"Player move to: ({player_x}, {player_y})")
+    def move_player(dx, dy):
+        global player_x, player_y
+
+        # Define lane positions
+        lane_1 = 255  # Middle of lane 1
+        lane_2 = 720  # Middle of lane 2
+        lane_3 = 1175  # Middle of lane 3
+        lane_4 = 50   # Far left lane
+        lane_5 = 1400  # Far right lane
+
+        # Snap player to nearest lane
+        if dx < 0:  # Moving left
+            if player_x > lane_2:
+                player_x = lane_2
+            elif player_x > lane_1:
+                player_x = lane_1
+            elif player_x > lane_4:
+                player_x = lane_4
+        elif dx > 0:  # Moving right
+            if player_x < lane_2:
+                player_x = lane_2
+            elif player_x < lane_3:
+                player_x = lane_3
+            elif player_x < lane_5:
+                player_x = lane_5
+
+        # Vertical movement (if needed)
+        player_y = max(100, min(375, player_y + dy))
+        print(f"Player move to: ({player_x}, {player_y})")
+
+            
+
+    def update_police_cars():
+        global police_cars, player_x, player_y, police_speed
+        # Smaller increments for smoother movement
+        movement_increment = 50  # Change this value to adjust the speed of the movement
+        
+        for car in police_cars:
+            car["y"] += movement_increment  # Move police car down by a small increment
+            if car["y"] > 1000:  # Remove car if it goes off-screen
+                police_cars.remove(car)
+
+        # Spawn new police cars
+        import random
+        if random.random() < 0.02:
+            # Randomly spawn cars at different x positions
+            car_x = random.choice([300, 500, 700, 900, 1100,])  # Example x positions
+            police_cars.append({"x": car_x, "y": -100})  # Start cars off-screen
+
+
+    def check_collision():
+        global player_x, player_y, police_cars
+        for car in police_cars:
+            if abs(car["x"] - player_x) < 80 and abs(car["y"] - player_y) < 80:
+                return True  # Collision detected
+        return False
+
+    def check_collisionroad():
+        global player_x, player_y, police_cars
+        if player_x < 100 or player_x > 1300:
+            return True  # Collision detected
+        return False
+
+    # Update road scrolling
+    def update_background():
+        global bg_yoffset
+        bg_yoffset += 40
+        if bg_yoffset >= 1080:
+            bg_yoffset = 10
+
+# The game starts here.
+
 label mininabrak:
-    # Placeholder for the mini-game outcome where the player makes a mistake and "nabrak."
-    # Define this scene based on your mini-game logic.
-    menu:
-        '(gagal minigame (nabrak))':
-            jump nabrak
-        '(minigame berhasil)':
-            jump ganabrak
+    scene black
+    call screen chase_game
+
+# Minigame Screens
+screen scrolling_background:
+    add "mini/nyetir/sh.png" ypos bg_yoffset zoom 2.5
+    add "mini/nyetir/bg.png" ypos bg_yoffset zoom 2.5
+    add "mini/nyetir/bg.png" ypos (bg_yoffset - 1080) zoom 2.5
+    timer 0.039 repeat True action Function(update_background)
+    
+
+screen chase_game():
+    use scrolling_background
+
+    # Display score
+    text "Score: [score]" at top
+
+    # Display player car
+    if motorkamil:
+        add im.Scale("mini/nyetir/pergisekolah.png", 500, 700) pos (player_x, player_y)
+    else:
+        add im.Scale("mini/nyetir/ngambillaporan.png", 500, 700) pos (player_x, player_y)
+    
+    # Spawn police cars
+    for car in police_cars:
+        add im.Scale("mini/nyetir/r1.png", 500, 700) pos (car["x"], car["y"])
+        add im.Scale("mini/nyetir/r2.png", 500, 700) pos (car["x"], car["y"])
+
+    timer 0.1 repeat True action [
+        Function(update_police_cars),
+        If(check_collision(), Jump("nabrak")),
+        If(check_collisionroad(), Jump("nabrak")),
+        SetVariable("score", score + 1), 
+        If(score >= 250, Jump("ganabrak")),
+
+    ]
+
+    key "K_LEFT" action Function(move_player, -player_speed, 0)
+    key "K_RIGHT" action Function(move_player, player_speed, 0)
 
 image slide3 = im.Scale("text/X-SMA/Slide3.png", 1920, 1080)
 image slide5 = im.Scale("text/X-SMA/Slide5.png", 1920, 1080)
@@ -555,9 +754,8 @@ label nabrak:
     scene depanrumah with fade
     show Brama Cemas at lpos
     show Arya Kesal at arpos
-    "06.52 sampai rumah."
-
-    r "Wah gila, buruan ambil, kita udah telat."
+    'sampai rumah'
+    r "Wah gila, buruan ambil, kita udah telat gara lu nabrak si."
     show Brama Malu at lpos
     k "Iya, tunggu sini bentar ya."
     "Brama masuk rumah."
@@ -942,12 +1140,12 @@ label ibutibatiba:
     
     jump minigame_nyetir
 
-label minigame_nyetir:
-    menu:
-        '(gagal minigame (lama sampai))':
-            jump lamatpsampe
-        '(minigame berhasil)':
-            jump sampei
+# label minigame_nyetir:
+#     menu:
+#         '(gagal minigame (lama sampai))':
+#             jump lamatpsampe
+#         '(minigame berhasil)':
+#             jump sampei
     # Setup for the driving mini-game
     # $ driving_speed = 0
     # $ distance_covered = 0
@@ -1226,7 +1424,8 @@ label akhirsampe:
     # Glitching effect to show the impact of the incident.
     # This leads into the next part of the story.
 
-    return
+    jump ybumn
+
 
 
 # # ------------------------------------- Y-BUMN Pre -------------------------------------
@@ -1290,7 +1489,7 @@ define tlcpos = Position(xalign=0.5, yalign=0)
 define tlrpos = Position(xalign=1.01, yalign=0.6)
 define tllpos = Position(xalign=0,yalign=0)
 
-label start: #ybumn
+label ybumn: #ybumn
     show Brama_y at cpos
     k "Orang mengatakan kematian itu adalah hal mutlak, tidak dapat dihindarkan."
     k "Tapi yang jadi pertanyaan adalah.."
@@ -1978,10 +2177,265 @@ label balikkamil:
 
     menu:
         "Tolak":
-            jump a #ganti "jump i" kalo mauj lihat yang i
+            jump A #ganti "jump i" kalo mauj lihat yang i
         "Terima":
-            jump b #ganti "jump j" kalo mauj lihat yang j
+            jump B #ganti "jump j" kalo mauj lihat yang j
 #----------------------------------
+
+# # ------------------------------------- A -------------------------------------
+# DEFINE CHARACTERS
+define b = Character("Brama", color="#472301")
+define o = Character("Other", color="#472301")
+define s = Character("Sekretaris", color="#472301")
+define dir_a = Character("Direktur A", color="#472301")
+define dir_b = Character("Direktur B", color="#472301")
+define dir_c = Character("Direktur C", color="#472301")
+define t = Character("Satpam", color="#472301")
+define p = Character("Petugas KPK", color="#472301")
+
+# IMAGE BACKGROUND
+image kantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
+image ruang_rapatbumn = im.Scale("bg/bumn/rapat.png", 1920, 1080)
+image lobibumn = im.Scale("bg/bumn/lobi.png", 1920, 1080)
+image lorongbumn = im.Scale("bg/bumn/lorong.png", 1920, 1080)
+
+# IMAGE CHARA
+image BramaK:
+    "chara/Brama.png"
+    zoom 0.5
+image Sekretaris:
+    "chara/Sekre.png"
+    zoom 0.65
+
+#Posisi2 yang di dettermined buat image dengan resolusi chara 1239 x 3508 px
+define cpos = Position(xalign=0.5, yalign=0)
+define rpos = Position(xalign=0.9, yalign=0)
+define lpos = Position(xalign=0,yalign=0)
+define slpos = Position(xalign=0,yalign=0)
+
+label A: #email_keputusan
+    scene kantor with fade
+    show BramaK at cpos
+
+    "Suasana tegang, Brama sedang duduk di depan komputernya, mengetik email balasan untuk menolak tawaran investasi."
+
+    show BramaK at cpos
+    b "Coba aja aku tahu lebih dalam tentang PT. Angin Topan..."
+    b "Kalau kayak gini aku harus cari dana tambahan ke mana lagi?"
+
+    show Other at right
+    o "Sudah, tenang saja Brama. Tetaplah berpegang teguh pada prinsipmu itu."
+    o "Ingatlah bahwa setiap permasalahan pasti akan ada solusinya."
+    o "Bagaimana jika feeling-mu itu benar?"
+    o "Bagaimana jika PT. Angin Topan justru membawa masalah lebih jauh?"
+    o "Coba pikirkan kemungkinan bahwa Angin Topan membawa uang haram."
+    o "Apa kamu nggak malu dengan keluarga kecilmu kalau nantinya tertangkap karena melakukan pencucian uang?"
+
+    show BramaK at cpos
+    b "Benar juga... Kasihan dengan anak dan istriku."
+    b "Mereka pasti malu punya suami dan seorang ayah koruptor."
+    b "Semoga ada jalan untuk menyelesaikan permasalahan ini."
+
+    "Brama terlihat sangat gelisah. Ia memanggil sekretarisnya melalui telepon."
+
+    show BramaK at cpos
+    b "Sekretaris, tolong adakan rapat dewan direksi darurat 1 jam lagi dengan semua direksi."
+    b "Semua harus hadir untuk membahas persoalan ini."
+    b "Dan pastikan tidak ada pihak asing yang masuk ke kantor."
+    b "Saya nggak mau rapat terganggu, terlebih isu ini sangat penting."
+
+    show Sekretaris at slpos
+    s "Baik Pak, akan segera saya informasikan kepada seluruh direksi perusahaan."
+    s "Untuk keamanan, akan saya sampaikan ke pihak security di depan."
+
+    "Sekretaris keluar dari ruangan, meninggalkan Brama yang masih terlihat cemas."
+
+    jump rapat_dewan_direksi
+
+image slideA = im.Scale("text/A/A.png", 1920, 1080)
+label rapat_dewan_direksi:
+    scene ruang_rapatbumn with fade
+
+    show BramaK at cpos
+    b "Selamat siang bapak dan ibu dewan direksi."
+    hide BramaK
+    show Direktur_A at left
+    show Direktur_B at right
+    show Direktur_C at center
+    dir_a "Siang."
+    dir_b "Siang."
+    dir_c "Siang."
+    hide Direktur_A 
+    hide Direktur_B
+    hide Direktur_C 
+
+    show BramaK at cpos
+    b "Pada rapat terbatas kali ini saya akan membahas kelanjutan persoalan yang sudah kita bahas sebelumnya."
+    b "Perlu diingat, kita mendapatkan tawaran investasi dari PT. Angin Topan untuk membantu menutup pembengkakan biaya."
+    b "Lebih tepatnya proyek ekspansi dapur di bandara Changi yang sedang kita jalankan."
+    b "Meskipun pada rapat terbatas sebelumnya bapak ibu sekalian telah menyetujui untuk menerima tawaran investasi."
+    b "Saya telah mencoba untuk pertimbangkan kembali mengenai risiko dengan legalitas hukum keputusan ini."
+    b "Saya rasa, terlalu banyak yang harus kita korbankan jika kita menerima tawaran investasi itu."
+    b "Sehingga dengan berat hati saya putuskan untuk menolak tawaran investasi ini."
+    b "Karena hal juga tidak sesuai dengan prinsip pribadi saya."
+    b "Mengingat kita juga tidak mengetahui kredibilitas PT. Angin Topan."
+    b "Sehingga pada kesimpulannya kita harus tetap mengutamakan kejujuran dan keadilan dalam mengambil suatu tindakan."
+
+    "Ruang rapat menjadi ribut dan ricuh."
+
+    hide BramaK
+    show Direktur_A at left
+    show Direktur_B at right
+    show Direktur_C at center
+
+    dir_a "Mohon maaf pak Kamil, saya rasa ini tidak bisa menjadi keputusan sepihak bapak saja."
+    dir_a "Karena ini menyangkut hajat hidup orang banyak dan demi keberlanjutan perusahaan."
+    dir_b "Benar dengan yang dikatakan oleh direktur keuangan, saya tidak setuju dengan keputusan bapak barusan."
+    dir_a "Apakah bapak tidak memikirkan bagaimana nasib para karyawan jika nantinya perusahaan ini bangkrut?"
+    dir_a "Berdasarkan hasil audit tim keuangan pun sudah jelas bahwa pembengkakan biaya ini cukup membuat keuangan perusahaan menjadi minus."
+    dir_a "Kita sudah tidak punya lagi sisa uang untuk melanjutkan proyek tersebut."
+
+    "Di luar kantor terjadi kericuhan dan ramai dengan rombongan KPK yang akan menggeledah dan menangkap Kamil."
+
+    scene lobibumn with fade
+    show Satpam at center
+    show Petugas at left
+
+    t "Selamat siang, mohon maaf ini rame-rame bapak-bapak semua dari pihak mana dan ada keperluan apa datang kemari?"
+    p "Siang, kami dari KPK akan melakukan penangkapan terhadap pak Kamil selaku direktur utama perusahaan katering Garuda."
+    p "Berdasarkan hasil laporan dan penyelidikan kami bahwa di perusahaan ini terdapat indikasi tindak pidana manipulasi laporan keuangan yang melibatkan pak Kamil."
+    t "Mohon maaf pak, bapak tidak bisa masuk dikarenakan arahan dari pak Kamil seperti itu."
+
+    "Pihak KPK tetap maksa masuk dan terjadi sedikit kericuhan."
+
+    p "Ga bisa pak, ini sudah menjadi tugas kami untuk melakukan penggeledahan dan penangkapan pak Kamil."
+    t "Silahkan tunjukan surat perintah penggeledahan dan penangkapan."
+
+    "Petugas menunjukkan surat perintah, beberapa orang pegawai KPK telah masuk ke kantor."
+
+    p "Ini untuk surat perintah kami, silahkan bapak baca."
+
+    scene lorongbumn with fade
+    show Sekretaris at cpos
+
+    s "Aduh kenapa bisa secepat ini mereka menyadari permasalahan ini, mana direksi lagi pada rapat?"
+
+    scene ruang_rapatbumn with fade
+    show Direktur_C at center
+
+    dir_c "Tenang bapak-bapak semua, apa yang pak Kamil sampaikan benar adanya."
+    dir_c "Berdasarkan hasil rapat, dari divisi pengelolaan risiko menyatakan bahwa jika nantinya terbukti bahwa uang yang diinvestasikan merupakan hasil tindak pidana korupsi."
+    dir_c "Maka nantinya yang terkena dampaknya tidak hanya kepada perusahaan saja tapi kepada kita semua yang berada di ruangan ini."
+    hide Direktur_C
+    "Kamil menyadari bahwa terjadi keributan di luar ruang rapat."
+    show BramaK at cpos
+    b "Tenang bapak-bapak semuanya, sepertinya rapat ini harus kita tunda lagi."
+    b "Saya menyadari ada suatu keributan di …"
+    hide BramaK
+    "Tiba-tiba pegawai KPK masuk ke ruangan rapat."
+    show Petugas at center
+    p "Selamat siang, kami dari KPK akan melakukan penggeledahan terhadap kantor ini."
+    p "Dan kepada saudara Kamil silahkan ikuti saya keluar ruangan."
+    hide Petugas
+    "Suasana ruang rapat tegang dan Kamil cemas."
+    show BramaK at lpos
+    b "Saya Kamil, kalau boleh tau ini ada apa kenapa kalian tiba-tiba datang dan menggeledah kantor kami?"
+    show Petugas at right
+    p "Kami telah menerima laporan bahwa terdapat indikasi tindak pidana manipulasi keuangan terhadap salah satu proyek yang sedang dikerjakan."
+    p "Berdasarkan hasil pengamatan kami juga bahwa hal tersebut juga disetujui oleh saudara Kamil selaku direktur utama perusahaan ini."
+    p "Kami mohon kooperatifnya agar berjalan dengan lancar."
+    hide Petugas
+    hide BramaK
+    "Kamil pun berfikir."
+    show BramaK at cpos
+    b "(Wah ini gimana ceritanya mereka bisa secepat ini mencium permasalahan ini? Aduh aku harus apa ini?)"
+    show BramaK at lpos
+    show Petugas at right
+    b "Baik pak."
+
+    "Kamil pergi mengikuti pegawai KPK. Akhirnya Kamil dibawa ke kantor KPK untuk dimintai keterangan."
+    scene black with fade
+    show slideA
+    pause 10
+
+    return #Ending Penjara
+
+# # ------------------------------------- B -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- C -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- D -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- E -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- F -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- G -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
+
+# # ------------------------------------- H -------------------------------------
+# # DEFINE CHARACTERS
+# define k = Character("Brama", color="#472301")
+
+# # IMAGE BACKGROUND
+# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
+
+# # IMAGE CHARA
+# image Brama
+
 
 # # ------------------------------------- I -------------------------------------
 # # DEFINE CHARACTERS
@@ -2085,172 +2539,6 @@ label j:
 
     return
 
-
-# # # ------------------------------------- A -------------------------------------
-# # DEFINE CHARACTERS
-# define b = Character("Brama", color="#472301")
-# define o = Character("Other", color="#472301")
-# define s = Character("Sekretaris", color="#472301")
-
-# # IMAGE BACKGROUND
-# image kantor = im.Scale("bg/kantor.jpg", 1920, 1080)
-
-# # IMAGE CHARA
-# image Brama:
-#     "chara/Brama.png"
-#     zoom 0.5
-# image Brama Cemas:
-#     "chara/sma_kamil/k angry.png"
-#     zoom 0.5
-# image Brama Shocked : 
-#     "chara/sma_kamil/k lega.png"
-#     zoom 0.5
-# image Brama Serius :
-#     "chara/sma_kamil/k conf.png"
-#     zoom 0.5
-
-
-# #Posisi2 yang di dettermined buat image dengan resolusi chara 1239 x 3508 px
-# define cpos = Position(xalign=0.5, yalign=0)
-# define rpos = Position(xalign=0.9, yalign=0)
-# define lpos = Position(xalign=0,yalign=0)
-
-# label start: #email_keputusan
-#     scene kantor with fade
-#     show Brama at cpos
-
-#     "Suasana tegang, Brama sedang duduk di depan komputernya, mengetik email balasan untuk menolak tawaran investasi."
-
-#     show Brama Cemas at cpos
-#     b "Coba aja aku tahu lebih dalam tentang PT. Angin Topan..."
-#     b "Kalau kayak gini aku harus cari dana tambahan ke mana lagi?"
-
-#     show Other at left
-#     o "Sudah, tenang saja Brama. Tetaplah berpegang teguh pada prinsipmu itu."
-#     o "Ingatlah bahwa setiap permasalahan pasti akan ada solusinya."
-#     o "Bagaimana jika feeling-mu itu benar?"
-#     o "Bagaimana jika PT. Angin Topan justru membawa masalah lebih jauh?"
-#     o "Coba pikirkan kemungkinan bahwa Angin Topan membawa uang haram."
-#     o "Apa kamu nggak malu dengan keluarga kecilmu kalau nantinya tertangkap karena melakukan pencucian uang?"
-
-#     show Brama Shocked at cpos
-#     b "Benar juga... Kasihan dengan anak dan istriku."
-#     b "Mereka pasti malu punya suami dan seorang ayah koruptor."
-#     b "Semoga ada jalan untuk menyelesaikan permasalahan ini."
-
-#     "Brama terlihat sangat gelisah. Ia memanggil sekretarisnya melalui telepon."
-
-#     show Brama Serius at cpos
-#     b "Sekretaris, tolong adakan rapat dewan direksi darurat 1 jam lagi dengan semua direksi."
-#     b "Semua harus hadir untuk membahas persoalan ini."
-#     b "Dan pastikan tidak ada pihak asing yang masuk ke kantor."
-#     b "Saya nggak mau rapat terganggu, terlebih isu ini sangat penting."
-
-#     show Sekretaris at right
-#     s "Baik Pak, akan segera saya informasikan kepada seluruh direksi perusahaan."
-#     s "Untuk keamanan, akan saya sampaikan ke pihak security di depan."
-
-#     "Sekretaris keluar dari ruangan, meninggalkan Brama yang masih terlihat cemas."
-
-#     return
-
-# # ------------------------------------- B -------------------------------------
-# # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-
-# # IMAGE BACKGROUND
-# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
-
-# # IMAGE CHARA
-# image Brama
-
-
-# # ------------------------------------- C -------------------------------------
-# # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-
-# # IMAGE BACKGROUND
-# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
-
-# # IMAGE CHARA
-# image Brama
-
-
-# # ------------------------------------- D -------------------------------------
-# # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-
-# # IMAGE BACKGROUND
-# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
-
-# # IMAGE CHARA
-# image Brama
-
-
-# # ------------------------------------- E -------------------------------------
-# # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-
-# # IMAGE BACKGROUND
-# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
-
-# # IMAGE CHARA
-# image Brama
-
-
-# # ------------------------------------- F -------------------------------------
-# # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-
-# # IMAGE BACKGROUND
-# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
-
-# # IMAGE CHARA
-# image Brama
-
-
-# # ------------------------------------- G -------------------------------------
-# # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-
-# # IMAGE BACKGROUND
-# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
-
-# # IMAGE CHARA
-# image Brama
-
-
-# # ------------------------------------- H -------------------------------------
-# # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-
-# # IMAGE BACKGROUND
-# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
-
-# # IMAGE CHARA
-# image Brama
-
-
-# # ------------------------------------- I -------------------------------------
-# # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-
-# # IMAGE BACKGROUND
-# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
-
-# # IMAGE CHARA
-# image Brama
-
-
-# # ------------------------------------- J -------------------------------------
-# # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-
-# # IMAGE BACKGROUND
-# image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
-
-# # IMAGE CHARA
-# image Brama
 
 init python:
     class glitch(renpy.Displayable):
