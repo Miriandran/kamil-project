@@ -674,6 +674,8 @@ init python:
 # The game starts here.
 
 label mininabrak:
+    stop music
+    play music "audio/motor.mp3"
     scene black
     call screen chase_game
 
@@ -717,6 +719,8 @@ screen chase_game():
 image slide3 = im.Scale("text/X-SMA/Slide3.png", 1920, 1080)
 image slide5 = im.Scale("text/X-SMA/Slide5.png", 1920, 1080)
 label ganabrak:
+    stop music
+    play music "audio/idle.wav"
     play sound "audio/trans1.wav"
     scene black with fade
     show slide3
@@ -765,12 +769,16 @@ image slide4 = im.Scale("text/X-SMA/Slide4.png", 1920, 1080)
 image slide6 = im.Scale("text/X-SMA/Slide6.png", 1920, 1080)
 image slide7 = im.Scale("text/X-SMA/Slide7.png", 1920, 1080)
 label nabrak:
+    play sound "ckit.mp3"
+    stop music
     scene black with fade
     show slide4
     pause 1
     scene depanrumah with fade
     show Brama Cemas at lpos
     show Arya Kesal at arpos
+    stop sound
+    play music "audio/idle.wav"
     'sampai rumah'
     r "Wah gila, buruan ambil, kita udah telat gara lu nabrak si."
     show Brama Malu at lpos
@@ -788,11 +796,14 @@ label nabrak:
     k "Itu nunggu di depan. Aku langsung ya, Bu. Keburu telat."
     i "Iya, sana buru!"
     i "Hati-hati ya nak."
+    play sound "audio/ngetik.mp3"
     scene black with fade
     show slide6
     pause 1
     scene gerbangsekolah with fade
+    stop sound
     "07.07 gerbang sekolah."
+    
     show Brama Cemas at lpos
     show Arya Kesala at arpos
     r "Waduh, mampus, kita telat."
@@ -810,7 +821,7 @@ label nabrak:
     k "Iya kak, gw minta maaf ya jadi bawa lu di sini."
     show Arya Bahagia at arpos
     r "Dah gapapa. Udah makanan sehari-sehari ngadep guru BK."
-
+    play sound "audio/trans1.wav"
     scene black with fade
     show slide7
     pause 1
@@ -912,10 +923,12 @@ label aaa:
     k "Oke."
 
     # Time skip to their return home
+    play sound "audio/ngetik.mp3"
     scene black with fade
     show slide8
     pause 1
     scene rumah_sore with fade
+    stop sound
     show Arya at alpos
     show Brama at lpos
 
@@ -1007,11 +1020,13 @@ label makanmakan:
     a "Yeuuu, enak aja kamu!"
     show Arya Ketawa at alpos
     a "Udah, sana siap-siap."
-
+    stop music
     # Time skip to evening preparation
+    play sound "audio/transserem.wav"
     scene black with fade
     show slide9
     pause 1
+    plau music "audio/idle.wav"
     scene kamar with fade
     show Brama Bingung at lpos
     k "Kak, lu udah siap belom?"
@@ -1027,7 +1042,7 @@ label makanmakan:
     r "Apa?"
 
     menu:
-        "Reemburse dompet":
+        "Reimburse dompet":
             jump reemburse
 
         "Arya salah":

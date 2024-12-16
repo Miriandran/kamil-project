@@ -1,22 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 1149, in script
-    jump minigame_nyetir
-ScriptError: could not find label 'minigame_nyetir'.
+  File "game/script.rpy", line 823, in script
+    plau sound "audio/trans1.wav"
+Exception: Sayer 'plau' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 1149, in script
-    jump minigame_nyetir
-  File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 1705, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'minigame_nyetir'.
+  File "game/script.rpy", line 823, in script
+    plau sound "audio/trans1.wav"
+  File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 2579, in execute
+    Say.execute(self)
+  File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 581, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 470, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'plau' is not defined.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.3.4.24120703
 Kamil 1.0
-Mon Dec 16 23:19:30 2024
+Tue Dec 17 00:03:49 2024
