@@ -160,6 +160,9 @@ define alpos = Position(xalign=0,yalign=0)
 
 label start:
 # The game starts here.
+
+    play sound "audio/semoga tense.wav"
+
     scene acak1
     with fade
     scene acak2
@@ -183,6 +186,8 @@ label start:
    
     scene kamartidur
     with dissolve
+
+    stop music
 
     "(seketika Brama bangun dari tidur bersamaan dengan suara pistol)"
     play sound "audio/nafasberat.mp3"
