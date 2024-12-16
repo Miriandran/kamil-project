@@ -160,6 +160,7 @@ define alpos = Position(xalign=0,yalign=0)
 
 label start:
 # The game starts here.
+    jump B
 
     play music "audio/semoga tense.wav"
 
@@ -2242,6 +2243,7 @@ define dir_b = Character("Direktur B", color="#472301")
 define dir_c = Character("Direktur C", color="#472301")
 define t = Character("Satpam", color="#472301")
 define p = Character("Petugas KPK", color="#472301")
+define diplomat = Character("Diplomat Cina", color="#472301") # untuk B
 
 # IMAGE BACKGROUND
 image kantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
@@ -2411,6 +2413,7 @@ label rapat_dewan_direksi:
     return #Ending Penjara
 
 # # ------------------------------------- B -------------------------------------
+
 label B:
     scene ruang_rapatbumn with fade
     show BramaK at cpos
@@ -2677,11 +2680,11 @@ label makan:
 
     menu:
         "Kantin Di Kantor":
-            jump kantin
+            jump kantin2
         "Cafe dekat kantor":
             jump cafe
 
-label kantin:
+label kantin2:
     b "Mmm, sepertinya makan Ayam saus mentega enak."
     b "Mas, mau ayam saus mentega 1 dan es teh 1 ya."
 
@@ -2928,11 +2931,11 @@ label bramaberbeda:
 
     menu:
         "Ragu":
-            jump ragu
+            jump ragu2
         "Arya masuk akal":
-            jump arya_masuk_akal
+            jump arya_masuk_akal2
 
-label ragu:
+label ragu2:
     b "Arya mungkin benar."
     b "Kalau kita terlalu keras, kita bisa kehilangan semuanya."
 
@@ -2941,7 +2944,7 @@ label ragu:
 
     jump merenung
 
-label arya_masuk_akal:
+label arya_masuk_akal2:
     b "Arya mungkin punya poin yang baik."
     b "Tindakan yang terlalu gegabah bisa membuat kita kehilangan apa yang sudah kita perjuangkan."
 
@@ -3388,12 +3391,12 @@ label kembali_ke_script:
     masyarakat "SETUJU! Negara tidak peduli terhadap rakyatnya sendiri tapi malah memikirkan kantongnya sendiri!"
 
     # [Keadaan menjadi anarkis dan Kamil segera meninggalkan tempat dengan pengawalan ketat]
-    {suara chaos demo anarkis}
-    [Polisi menghadang massa yang semakin menggila dan berujung pada sedikit kerusuhan yang menyebabkan beberapa masyarakat mengalami luka-luka]
-    {ditambah suara sirine polisi}
+    # {suara chaos demo anarkis}
+    # [Polisi menghadang massa yang semakin menggila dan berujung pada sedikit kerusuhan yang menyebabkan beberapa masyarakat mengalami luka-luka]
+    # {ditambah suara sirine polisi}
 
     # -time skip-
-    [Setibanya di Jakarta, Kamil langsung pergi ke kantornya]
+    "Setibanya di Jakarta, Kamil langsung pergi ke kantornya"
     scene kantor with fade
 
     b "Apa tindakan yang aku lakukan ini merupakan yang terbaik?"

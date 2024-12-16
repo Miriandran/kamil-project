@@ -1,24 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 823, in script
-    plau sound "audio/trans1.wav"
-Exception: Sayer 'plau' is not defined.
+  File "game/script.rpy", line 2480, in script
+    diplomat "Hi, it’s okay, I have free time for you."
+Exception: Sayer 'diplomat' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 823, in script
-    plau sound "audio/trans1.wav"
+  File "game/script.rpy", line 2480, in script
+    diplomat "Hi, it’s okay, I have free time for you."
   File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 2579, in execute
     Say.execute(self)
   File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 581, in execute
     who = eval_who(self.who, self.who_fast)
   File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 470, in eval_who
     raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'plau' is not defined.
+Exception: Sayer 'diplomat' is not defined.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.3.4.24120703
 Kamil 1.0
-Tue Dec 17 00:03:49 2024
+Tue Dec 17 00:28:34 2024
