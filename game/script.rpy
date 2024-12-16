@@ -1,9 +1,9 @@
 ﻿
 # # ------------------------------------- SCRIPT X - SMA -------------------------------------# #
 # DEFINE CHARACTERS
-define k = Character("Brama", image="chara/sma_kamil/k", color="#472301")
-define r = Character("Arya", color="#a8652e")
-define i = Character('Ibu', color="#423d3d")
+define k = Character("Brama", image="chara/sma_kamil/k", color="#e19f62")
+define r = Character("Arya", color="#e86868")
+define i = Character('Ibu', color="#f6fa8e")
 define a = Character('Ayah', color="#423d3d")
 
 # IMAGE BACKGROUND
@@ -743,7 +743,7 @@ label ganabrak:
     k "Iya iya, ntar jam istirahat."
     jump nemudompet
 
-define s = Character('Satpam', color="#423d3d")
+define s = Character('Satpam', color="#827a7a")
 image slide4 = im.Scale("text/X-SMA/Slide4.png", 1920, 1080)
 image slide6 = im.Scale("text/X-SMA/Slide6.png", 1920, 1080)
 image slide7 = im.Scale("text/X-SMA/Slide7.png", 1920, 1080)
@@ -1430,8 +1430,8 @@ label akhirsampe:
 
 # # ------------------------------------- SCRIPT Y - BUMN -------------------------------------# #
 # # DEFINE CHARACTERS
-define k = Character("Brama", color="#472301")
-define r = Character("Arya",  color="#472301")
+# define k = Character("Brama", color="#472301")
+# define r = Character("Arya",  color="#472301")
 define o = Character("Others",  color="#472301")
 define n = Character("Nina",  color="#472301")
 define ist = Character("Istri",  color="#472301")
@@ -3913,11 +3913,11 @@ label H:
 
 # # ------------------------------------- SCRIPT I -------------------------------------# #
 # # DEFINE CHARACTERS
-define k = Character("Brama", color="#472301")
-define r = Character("Arya",  color="#472301")
-define pres = Character("Presiden", color="#472301")
-define kades = Character("Kepala Desa", color="#472301")
-define warta = Character("Wartawan", color="#472301")
+define k = Character("Brama", color="#ffffff")
+define r = Character("Arya",  color="#fe9f46")
+define pres = Character("Presiden", color="#ff7c7c")
+define kades = Character("Kepala Desa", color="#95ff7d")
+define warta = Character("Wartawan", color="#837d77")
 
 # # IMAGE BACKGROUND
 image bumnkantor = im.Scale("bg/BUMN Kantor.png", 1920, 1080)
