@@ -480,8 +480,9 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
                     transclude
 
     #use navigation
-
-    textbutton _("Return"):
+    if not main_menu:
+        textbutton _("Main Menu") action MainMenu() style "main_menu_button"
+    textbutton _("Resume"):
         style "return_button"
         action Return()
 
@@ -545,10 +546,9 @@ style return_button:
     yoffset -45
 
 style main_menu_button:
-    xalign 0.5
-    xoffset -30
-    yalign 0.0
-    yoffset 20
+    xpos 50
+    yalign 1.0
+    yoffset -125
 
 
 
@@ -772,9 +772,7 @@ screen preferences():
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
-                if not main_menu:
-                    label _("Move to")
-                    textbutton _("Main Menu") action MainMenu() style "main_menu_button"
+
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
