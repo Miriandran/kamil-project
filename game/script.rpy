@@ -161,7 +161,7 @@ define alpos = Position(xalign=0,yalign=0)
 label start:
 # The game starts here.
 
-    play sound "audio/semoga tense.wav"
+    play music "audio/semoga tense.wav"
 
     scene acak1
     with fade
@@ -196,6 +196,7 @@ label start:
     show Arya Serius at acpos
 
     with fade
+  
     r "Mimpi buruk lagi ya lu?"
 
     menu:
@@ -203,7 +204,7 @@ label start:
             jump y1
         ".....":
             jump t1
-    
+    play music "audio/idle.wav"
 
 label y1:
     show Brama at lpos
@@ -461,6 +462,7 @@ label ruangmakan:
     show Arya Bahagia at arpos
     show Brama at lpos
     i "Sana kalian cepat siap-siap sekolah!"
+    stop music
     
 
     # Time skip
@@ -470,6 +472,7 @@ label ruangmakan:
     scene depanrumah with fade
     show Arya at arpos
     show Brama Bingung at lpos
+    play music "audio/idle.wav"
     k "Arya, lu udah siap belom?"
     show Arya Ketawa at arpos
     r "Udah, yok berangkat."

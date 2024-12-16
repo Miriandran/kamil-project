@@ -1,40 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-After initialization, but before game start.
-  File "renpy/common/00start.rpy", line 83, in _init_language
-    renpy.change_language(language)
-SyntaxError: unexpected EOF while parsing (game/screens.rpy, line 67)
+While running game code:
+  File "game/script.rpy", line 1149, in script
+    jump minigame_nyetir
+ScriptError: could not find label 'minigame_nyetir'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "D:\renpy-8.3.2-sdk\renpy\bootstrap.py", line 359, in bootstrap
-    renpy.main.main()
-  File "D:\renpy-8.3.2-sdk\renpy\main.py", line 652, in main
-    run(restart)
-  File "D:\renpy-8.3.2-sdk\renpy\main.py", line 75, in run
-    renpy.translation.init_translation()
-  File "D:\renpy-8.3.2-sdk\renpy\translation\__init__.py", line 702, in init_translation
-    renpy.store._init_language() # type: ignore
-  File "renpy/common/00start.rpy", line 83, in _init_language
-    renpy.change_language(language)
-  File "D:\renpy-8.3.2-sdk\renpy\translation\__init__.py", line 796, in change_language
-    new_change_language(tl, language)
-  File "D:\renpy-8.3.2-sdk\renpy\translation\__init__.py", line 748, in new_change_language
-    i.apply()
-  File "D:\renpy-8.3.2-sdk\renpy\ast.py", line 2800, in apply
-    value = renpy.python.py_eval(expr)
-  File "D:\renpy-8.3.2-sdk\renpy\python.py", line 1207, in py_eval
-    code = py_compile(code, 'eval')
-  File "D:\renpy-8.3.2-sdk\renpy\python.py", line 1144, in py_compile
-    raise e
-  File "D:\renpy-8.3.2-sdk\renpy\python.py", line 1081, in py_compile
-    raise orig_e
-  File "D:\renpy-8.3.2-sdk\renpy\python.py", line 1073, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
-SyntaxError: unexpected EOF while parsing (game/screens.rpy, line 67)
+  File "game/script.rpy", line 1149, in script
+    jump minigame_nyetir
+  File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 1705, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'minigame_nyetir'.
 
 Windows-10-10.0.22631 AMD64
-Ren'Py 8.3.2.24090902
+Ren'Py 8.3.4.24120703
 Kamil 1.0
-Sun Dec 15 21:11:03 2024
+Mon Dec 16 23:19:30 2024
