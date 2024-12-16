@@ -201,11 +201,14 @@ label start:
 
     menu:
         "Iya kak..":
+            play music "audio/idle.wav"
+
             jump y1
         ".....":
-            jump t1
-    play music "audio/idle.wav"
+            play music "audio/idle.wav"
 
+            jump t1
+            
 label y1:
     show Brama at lpos
     show Arya at arpos
@@ -466,9 +469,11 @@ label ruangmakan:
     
 
     # Time skip
+    play sound "audio/ngetik.mp3"
     scene black with fade
     show slide1
     pause 1
+    stop sound
     scene depanrumah with fade
     show Arya at arpos
     show Brama Bingung at lpos
@@ -528,6 +533,7 @@ label motorarya:
 
 image slide2 = im.Scale("text/X-SMA/Slide2.png", 1920, 1080)
 label gerbangsekolah:
+    play sound "audio/trans1.wav"
     scene black with fade
     show slide2
     pause 1
@@ -711,6 +717,7 @@ screen chase_game():
 image slide3 = im.Scale("text/X-SMA/Slide3.png", 1920, 1080)
 image slide5 = im.Scale("text/X-SMA/Slide5.png", 1920, 1080)
 label ganabrak:
+    play sound "audio/trans1.wav"
     scene black with fade
     show slide3
     pause 1
@@ -733,11 +740,13 @@ label ganabrak:
     k "Itu nunggu di depan. Aku langsung ya, Bu. Keburu telat."
     i "Iya, sana buru!"
     i "Hati-hati ya nak."
+    play sound "audio/ngetik.mp3"
     scene black with fade
     show slide5
     pause 1
     scene gerbangsekolah with fade
     "06.59 gerbang sekolah."
+    stop sound
     show Brama Lega at lpos
     show Arya Lega at arpos
     r "Anjing, hampir aja kita telat."
