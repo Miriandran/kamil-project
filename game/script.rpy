@@ -1,9 +1,9 @@
 ﻿# # ------------------------------------- SCRIPT X - SMA -------------------------------------# #
 # DEFINE CHARACTERS
-define k = Character("Brama", image="chara/sma_kamil/k", color="#e19f62")
-define r = Character("Arya", color="#e86868")
-define i = Character('Ibu', color="#f6fa8e")
-define a = Character('Ayah', color="#423d3d")
+define k = Character("Brama", image="chara/sma_kamil/k", color="#86ccec")
+define r = Character("Arya", color="#ffd54a")
+define i = Character('Ibu', color="#ffffff")
+define ay = Character('Ayah', color="#ffffff")
 
 # IMAGE BACKGROUND
 image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
@@ -28,47 +28,73 @@ image tokobaju = im.Scale("bg/tokobaju.png", 1920,1080)
 
 # IMAGE CHARA
 image Brama Glitch:
-    At("chara/sma_kamil/k netral.png", glitch)
+    At("chara/kaos_bram/kosong.png", glitch)
     pause 0.2
-    At("chara/sma_kamil/k netral.png", animated_glitch)
+    At("chara/kaos_bram/kosong.png", animated_glitch)
     pause 0.2
-    At("chara/sma_kamil/k netral.png", glitch)
+    At("chara/kaos_bram/kosong.png", glitch)
     pause 0.1
-    At("chara/sma_kamil/k netral.png", animated_glitch)
+    At("chara/kaos_bram/kosong.png", animated_glitch)
     pause 0.1
-    At("chara/sma_kamil/k netral.png", glitch)
+    At("chara/kaos_bram/kosong.png", glitch)
     pause 0.3
-    At("chara/sma_kamil/k netral.png", animated_glitch)
+    At("chara/kaos_bram/kosong.png", animated_glitch)
     pause 1.0
     repeat
 image Arya Marah Glitch:
-    At("chara/sma_arya/RAGE.png", glitch)
+    At("chara/kaos_ar/kesal.png", glitch)
     pause 0.2
-    At("chara/sma_arya/RAGE.png", animated_glitch)
+    At("chara/kaos_ar/kesal.png", animated_glitch)
     pause 0.2
-    At("chara/sma_arya/RAGE.png", glitch)
+    At("chara/kaos_ar/kesal.png", glitch)
     pause 0.1
-    At("chara/sma_arya/RAGE.png", animated_glitch)
+    At("chara/kaos_ar/kesal.png", animated_glitch)
     pause 0.1
-    At("chara/sma_arya/RAGE.png", glitch)
+    At("chara/kaos_ar/kesal.png", glitch)
     pause 0.3
-    At("chara/sma_arya/RAGE.png", animated_glitch)
+    At("chara/kaos_ar/kesal.png", animated_glitch)
     pause 1.0
     repeat
 image Arya Menangis Glitch:
-    At("chara/sma_arya/CRYING.png", glitch)
+    At("chara/kaos_ar/marah.png", glitch)
     pause 0.2
-    At("chara/sma_arya/CRYING.png", squares_glitch)
+    At("chara/kaos_ar/marah.png", squares_glitch)
     pause 0.2
-    At("chara/sma_arya/CRYING.png", glitch)
+    At("chara/kaos_ar/marah.png", glitch)
     pause 0.1
-    At("chara/sma_arya/CRYING.png", squares_glitch)
+    At("chara/kaos_ar/marah.png", squares_glitch)
     pause 0.1
-    At("chara/sma_arya/CRYING.png", glitch)
+    At("chara/kaos_ar/marah.png", glitch)
     pause 0.3
-    At("chara/sma_arya/CRYING.png", squares_glitch)
+    At("chara/kaos_ar/marah.png", squares_glitch)
     pause 1.0
     repeat
+
+image Bramaos : 
+    "chara/kaos_bram/biasa.png"
+    zoom 3
+image Bramaos K : 
+    "chara/kaos_bram/kosong.png"
+    zoom 3
+image Bramaos M: 
+    "chara/kaos_bram/marah.png"
+    zoom 3
+image Bramaos B: 
+    "chara/kaos_bram/bahagia.png"
+    zoom 3
+
+image Aryaos: 
+    "chara/kaos_ar/biasa.png"
+    zoom 3
+image Aryaos K: 
+    "chara/kaos_ar/kesal.png"
+    zoom 3
+image Aryaos W: 
+    "chara/kaos_ar/ketawa.png"
+    zoom 3
+image Aryaos M: 
+    "chara/kaos_ar/marah.png"
+    zoom 3
 
 image Pencuri:
     "chara/PENCURI/Neutral.png"
@@ -212,10 +238,10 @@ label start:
     show Brama Glitch:
         xalign 0.5
         yalign 0
-        zoom 1
-    "DORR!"
-    "(dentuman pistol)"
-    show Brama Bingung at cpos:
+        zoom 3
+    "(DENTUMAN PISTOL)"
+    hide Brama Glitch
+    show Bramaos at cpos:
         zoom 2.5
     k "...."
    
@@ -241,15 +267,15 @@ label start:
     
 
 label y1:
-    show Brama at lpos
+    show Bramaos at lpos
     show Arya at arpos
 
-    show Brama Malu at lpos
+    show Bramaos at lpos
     k "iya kak..."
     show Arya Bingung at arpos
     r "terus-terusan mimpi 
         buruk? kenapa sih?"
-    show Brama Bahagia at lpos
+    show Bramaos B at lpos
     k 'gapapa kok'
     show Arya Lega at arpos
     r ' lu kalo ada apa-apa
@@ -262,9 +288,9 @@ label y1:
     jump m1
 
 label t1:
-    show Brama at lpos
+    show Bramaos at lpos
     show Arya at arpos
-    show Brama Bingung at lpos
+    show Bramaos K at lpos
     k '...'
     show Arya Kesal at arpos
     r 'yeuu malah bengong'
@@ -273,10 +299,10 @@ label t1:
         cerita aja ke gw. 
         gini-gini gw kakak lu'
     show Arya at arpos
-    show Brama Kosong 
+    show Bramaos K 
     k '...'
     hide Arya
-    show Brama Kosong at cpos:
+    show Bramaos K at cpos:
         zoom 2
     '(tatapan kosong menyelimuti wajah Brama)'
 
@@ -284,14 +310,14 @@ label t1:
 
 image jadwal = im.Scale("cutscene/x/jadwal.jpeg", 1920, 1080)
 label m1:
-    hide Brama
+    hide Bramaos
     hide Arya
 
     i 'naaaak, Brama, Arya, ayo sarapan'
-    a 'ayo turun nak. Jangan sampe telat sekolah'
+    ay 'ayo turun nak. Jangan sampe telat sekolah'
     '(suara ayah ibu terdengar dari luar kamar)'
 
-    show Brama Bingung at lpos
+    show Bramaos M at lpos
     k 'EH IYA SEKARANG JAM BERAPA?'
     '(panik karena bangun kesiangan)'
     show Arya Bahagia at arpos
@@ -301,21 +327,21 @@ label m1:
 
     show Arya at arpos
     #[Arya sudah rapi dengan pakaian dan perlengkapannya]
-    show Brama Marah at lpos
+    show Bramaos M at lpos
     k 'MANA BISA GITU anjing, SEKOLAH KITA JAUH'
     show Arya Ketawa at arpos
     r 'wkwkwk'
     #[Arya tertawa kecil]
-    show Brama at lpos
+    show Bramaos at lpos
     r 'dah sana buruan siap-siap, gw tunggu sambil sarapan'
     hide Arya
-    show Brama Bingung at lpos
+    show Bramaos at lpos
     k 'oke hari ini jadwal kita olahraga, matematika, sama biologi'
     '(Brama sambil melihat selebaran jadwal yang nempel di dinding)'
     show jadwal at left
     pause 2
     hide jadwal
-    show Brama Bingung at lpos
+    show Bramaos at lpos
     #[jadwal pelajaran sekolah SMA Cendekia Maju di selebaran kertas]
     k 'hmmmm berarti gw harus bawa buku, baju ganti, sama
             kalkulator'
@@ -334,9 +360,9 @@ image rakmtkolah = im.Scale("mini/buku/mtkolah.jpg", 1920,1080)
 image rakmtkbio = im.Scale("mini/buku/mtkbio.jpg", 1920,1080)
 label minibuku:
     scene rakbuku
-    show Brama:
+    show Bramaos:
         xalign 0.9
-        yalign -0.75
+        yalign -2.5
     $ correct_books = ["Buku Olahraga", "Buku Matematika", "Buku Biologi"]  # Correct books
     $ chosen_books = []  # Store player's choices
 
@@ -484,10 +510,10 @@ label ruangmakan:
     i "Ibu berani sumpah tembok di rumah ini lebih sering dengerin kalian berantem daripada dengerin omongan baik."
     show Ayah us at Position(xalign=0.3, yalign=0.1)
     show Ibu us at Position(xalign=0.8, yalign=0.1)
-    a "Udah nak, jangan berantem lagi."
+    ay "Udah nak, jangan berantem lagi."
     i "Marahin pak anaknya!"
-    a "Brama, kalkulator kamu Ayah yang pinjam semalam waktu kamu tidur."
-    a "Maaf ya nak, Ayah lupa ngembaliin kalkulator kamu ke tempatnya."
+    ay "Brama, kalkulator kamu Ayah yang pinjam semalam waktu kamu tidur."
+    ay "Maaf ya nak, Ayah lupa ngembaliin kalkulator kamu ke tempatnya."
     show Brama Malu at lpos
     k "Oalah, Ayah toh yang make. Hehehe."
     show Arya Kesal at arpos
@@ -519,7 +545,7 @@ label ruangmakan:
     k "Buuu, Yah. Kita berangkat yaa."
     show Brama at lpos
     show Ayah at Position(xalign=0.3, yalign=0.1)
-    a "Ya nak, hati-hati di jalan ya."
+    ay "Ya nak, hati-hati di jalan ya."
     show Ibu at Position(xalign=0.8, yalign=0.1)
     i "Barang gaada yang ketinggalan?"
     show Arya Ketawa at arpos
@@ -845,12 +871,12 @@ label nabrak:
     r "Waduh, mampus, kita telat."
     show Brama Kosong at lpos
     k "Wah iya anjing."
-    # show male at ncpos #
+    show male at ncpos
     sat "Kenapa telat? Tunggu di luar dulu."
     show Brama Malu at lpos
     k "Tapi Pak…"
     sat "Ga ada tapi-tapi. Tunggu guru BK ke sini."
-    # hide male
+    hide male
     show Arya Kesal at arpos
     r "Yah, dihukum deh kita."
     show Brama Kosong at lpos
@@ -967,60 +993,60 @@ label aaa:
     pause 1
     stop sound
     scene rumah_sore with fade
-    show Arya at alpos
+    show Arya at arpos
     show Brama at lpos
 
 
     show Ayahw at cpos
-    a "Eehh, jagoan-jagoan Ayah udah pulang!"
-    show Arya Lega at alpos
+    ay "Eehh, jagoan-jagoan Ayah udah pulang!"
+    show Arya Lega at arpos
     r "Hehe, iya Yah, udah kelar sekolahnya."
-    show Arya at alpos
+    show Arya at arpos
     show Brama Bingung at lpos
     k "…" # (masih speechless kelakuan Arya)
     show Ibu at rpos
     i "Tadi gimana sekolahnya? Sampe bolak-balik gitu kalian?"
     show Ayah at cpos
-    a "Tadi kalian balik pulang?"
+    ay "Tadi kalian balik pulang?"
 
     show Ibus at rpos
     i "Iya Yah, tadi baru banget Ayah berangkat kerja mereka balik pulang."
     show Brama Malu at lpos
     k "Iya Yah, hehe, laporan Brama ketinggalan."
     show Ayah at cpos
-    a "Wah kacau, lain kali bener-bener dicek ya, jangan sampe ada yang lupa."
-    show Arya Lega at alpos
+    ay "Wah kacau, lain kali bener-bener dicek ya, jangan sampe ada yang lupa."
+    show Arya Lega at arpos
     r "Walah, Ayah aja lupa ngembaliin kalkulator sampe tantrum tuh si anak."
-    show Arya at alpos
+    show Arya at arpos
     show Brama Bingung at lpos
     k "Diem ya lu."
-    show Arya Bahagia at alpos
+    show Arya Bahagia at arpos
     show Ayahw at cpos
-    a "HAHAHAHA, namanya juga udah bapak-bapak pasti lupaan."
+    ay "HAHAHAHA, namanya juga udah bapak-bapak pasti lupaan."
 
     # Transition to the birthday moment
     show Ayahw at cpos
     i "Ngomong-ngomong, Brama, Arya, kalian inget nggak sekarang hari apa?"
-    show Arya Bingung at alpos
+    show Arya Bingung at arpos
     r "Hari Kamis?"
     show Brama Bahagia at lpos
     k "OH, HARI ULANG TAHUN AYAH!"
-    show Arya Kaget at alpos
+    show Arya Kaget at arpos
     r "OIYAA!"
-    show Arya Bahagia at alpos
+    show Arya Bahagia at arpos
     show Ayahw at cpos
-    a "HAHAHAHA. Ternyata masih ada yang inget ulang tahun Ayah."
+    ay "HAHAHAHA. Ternyata masih ada yang inget ulang tahun Ayah."
     show Ibus at rpos
     i "Kita harus ucapin apa, nakk? Satu, dua, tiga…"
-    show Arya Ketawa at alpos
+    show Arya Ketawa at arpos
     show Brama Bahagia at lpos
     "Selamat ulang tahun Ayahhh!"
     show Ayahw at cpos
-    a "Hahahaha, terima kasih yaa nak, Ibu."
+    ay "Hahahaha, terima kasih yaa nak, Ibu."
     show Ibus at rpos
     i "Jadiii… buat ngerayain ulang tahun Ayah, kita mau makan-makan dimana inii??"
     show Ayahw at cpos
-    a "Hahahaha, sok kalian tentukan. Ayah ngikut dan tinggal bayar aja. HAHAHAHA."
+    ay "Hahahaha, sok kalian tentukan. Ayah ngikut dan tinggal bayar aja. HAHAHAHA."
 
     menu:
         "Sate":
@@ -1032,7 +1058,7 @@ label aaa:
 label sate:
     show Brama Bahagia at lpos
     k "Sate kayanya menarik deh Yah, udah lama ngga makan sate."
-    show Arya Kesal at alpos
+    show Arya Kesal at arpos
     r "Ah, tapi lagi pengen makanan berkuah. Sop buntut kali ya?"
     show Ibu at rpos
     i "Hmmm, sop buntut oke sih."
@@ -1042,7 +1068,7 @@ label sate:
 label sopbuntut:
     show Brama Bahagia at lpos
     k "Sop buntut kayanya menarik deh Yah, udah lama ngga makan sop buntut."
-    show Arya Kesal at alpos
+    show Arya Kesal at arpos
     r "Ah, tapi lagi pengen makanan bakaran. Sate kali ya?"
     show Ibu at rpos
     i "Hmmm, sate oke sih."
@@ -1053,11 +1079,11 @@ label makanmakan:
     i "Yaudah yuk kita siap-siap dan beberes. Habis maghrib kita berangkat yaa!"
     k "Mau makan di mana kita, Bu?"
     i "Sarinah oke ngga, Ayah?"
-    a "Yaaa… kalau Ayah sih oke aja asal belanjanya ngga sampai 1 juta. HAHAHAHAHA!"
+    ay "Yaaa… kalau Ayah sih oke aja asal belanjanya ngga sampai 1 juta. HAHAHAHAHA!"
     r "Ya kalau ada 1 juta mah mending buat beli TV lagi, taruh di kamar Arya."
-    a "Yeuuu, enak aja kamu!"
-    show Arya Ketawa at alpos
-    a "Udah, sana siap-siap."
+    ay "Yeuuu, enak aja kamu!"
+    show Arya Ketawa at arpos
+    ay "Udah, sana siap-siap."
     stop music
     # Time skip to evening preparation
     play sound "audio/transserem.wav"
@@ -1066,15 +1092,15 @@ label makanmakan:
     pause 1
     play music "audio/idle.wav"
     scene kamar with fade
-    show Brama Bingung at lpos
+    show Bramaos at lpos
     k "Kak, lu udah siap belom?"
-    show Arya Ketawa at arpos
+    show Aryaos W at rpos
     r "Lihat aja gw, udah cakep gini."
     k "Kali aja lu mau ngapain lagi kek."
-    show Arya Kesal at arpos
+    show Aryaos K at rpos
     r "Ah, gw ngga seribet itu orangnya."
     k "Oh iya, ngomong-ngomong soal dompet tadi..."
-    show Brama at lpos
+    show Bramaos K at lpos
     r "Udah lah, Bram, mau dipanjangin sampai kapan lagi?"
     k "Nggak gitu, gw mau ngomong sesuatu sama lu."
     r "Apa?"
@@ -1088,25 +1114,25 @@ label makanmakan:
 
 label reemburse:
     k "Sebenernya waktu gw tadi minta nyusul karena kencing, gw ketemu Ujang."
-    show Brama Lega at lpos
+    show Bramaos B at lpos
     r "Terus?"
     k "Dompet itu, ternyata dompet Ujang."
     r "Ujang anak bahasa itu?"
     k "Iya."
-    show Arya Kaget at arpos
+    show Aryaos K at rpos
     r "Ngaku-ngaku aja kali. Orang di dompetnya gaada kartu identitas sama sekali."
     k "Tapi dia nyebutin ciri-ciri dompet yang sama persis, dan nominalnya sama persis yang lu ambil."
-    show Brama Malu at lpos
+    show Bramaos at lpos
     r "Yaelah, terus gimana?"
     k "Dia bilang dia lagi butuh banget duitnya buat makan seminggu."
     k "Karena itu duit lu ambil, jadinya gw ga enak ke Ujang."
-    show Arya Serius at arpos
+    show Aryaos at rpos
     r "Ngapain pake ga enak, yaudah lah itu kesialan Ujang."
     k "Mana bisa gitu Arya. Akhirnya duit Ujang gw ganti. Gw bilang gw yang nemu dompetnya."
-    show Arya Kesal at arpos
+    show Aryaos K at rpos
     r "Lah, tapi kan dompetnya masih ada di gw. Gimana lu ngembaliinnya?"
     k "Iya, gw bilang dompetnya masih lu amanin, jadi duitnya dulu yang gw kasih ke dia."
-    show Brama Malu at lpos
+    show Bramaos at lpos
     r "Berarti ini dompet mau dibalikin besok?"
     k "Iya. Sekalian gw sekarang mau minta duit gw lu balikin."
     r "Heuuuhh. Percuma tadi debat panjang lebar, ujung-ujungnya ga jadi rezeki."
@@ -1115,35 +1141,35 @@ label reemburse:
 
 label aryasalah:
     k "…"
-    show Brama Bingung at lpos
+    show Bramaos at lpos
     k "(Bingung mau gimana ngomongnya.)"
-    show Arya Serius at arpos
+    show Aryaos  at rpos
     r "Kenapa, Bram?"
     k "Gapapa, ga jadi Arya."
-    show Arya Kecewa at arpos
+    show Aryaos K at rpos
     r "Hufft."
     r "(Menghela nafas.)"
-    show Arya Serius at arpos
+    show Aryaos at rpos
     r "Gini Bram, dunia ini ngga akan pernah adil Bram."
     r "Lu lihat aja para pejabat di Senayan sana."
-    show Arya Marah at arpos
+    show Aryaos M at rpos
     r "Lu lihat aja tahun kemarin gimana bobroknya presiden kita?"
     r "Kesengsaraan rakyat ga pernah mereka dengar, Bram!"
-    show Arya Serius at arpos
+    show Aryaos K at rpos
     r "Dunia ini ga akan pernah adil, Bram."
-    show Arya Kaget at arpos
+    show Aryaos W at rpos
     r "Kehidupan ini ibarat bertahan di tengah hutan rimba."
     r "Lu harus bisa survive gimanapun caranya."
-    show Arya Kesal at arpos
+    show Aryaos K at rpos
     r "Lihat tuh Ayah. Ayah jadi polisi harus jual sawah kakek dulu, Bram!"
     k "Tapi…"
-    show Arya Serius at arpos
+    show Aryaos at rpos
     r "Tapi apa, Bram?"
     k "Lihat Pak Habibie, Arya. Rupiah kita sekarang menguat banget."
     k "Pak Habibie, Arya! Dia mau berjuang untuk masyarakat."
-    show Arya Kaget at arpos
+    show Aryaos M at rpos
     k "Kalo ibarat lu kehidupan ini adalah hutan belantara, beliau masih bisa sukses tanpa harus merugikan orang lain, Arya!"
-    show Arya Serius at arpos
+    show Aryaos K at rpos
     r "Pak Habibie itu punya otak, Bram! Ga kaya aku yang goblok ini."
     r "Bagi kami yang goblok ini akan terus-terusan dibodohi dan ga akan bisa maju."
     r "Cara satu-satunya bagi kami bisa bertahan hidup ya dengan mengusahakan segala cara!"
@@ -1153,12 +1179,12 @@ label aryasalah:
 label ibutibatiba:
     i "Eeeh, ini ada apa ya ribut-ribut?" #(berbicara dari luar kamar)
     i "Udah siap belom kalian?"
-    show Arya Serius at arpos
+    show Aryaos at rpos
     r "Udah, Bu." #(membalas dari dalam kamar)
-    show Arya Kesal at arpos
+    show Aryaos K at rpos
     r "Nanti kita bahas lagi." 
     "(berbisik Arya)"
-    show Arya Serius at arpos
+    show Aryaos M at rpos
     r "Gw gamau kesenangan ulang tahun Ayah harus diganggu dengan masalah dompet."
     k "Ya."
 
@@ -1166,46 +1192,44 @@ label ibutibatiba:
     pause 0.5
 
     scene ruangtamu with fade
-    show Brama Lega at lpos
+    show Bramaos at lpos
     k "Kita udah siap nih, Bu."
-    show Arya Bahagia at arpos
+    show Aryaos W at rpos
     i "Widihh, udah cakep-cakep nih."
-    show Arya at arpos
+    show Aryaos at rpos
     r "Ayah mana, Bu?"
     i "Ayah masih di kamar mandi, lagi mual-mual."
     
-    show Arya Kaget at arpos
-    a "Haloo, udah siap?" #(Ayah keluar dari kamar mandi)
+    show Aryaos K at rpos
+    ay "Haloo, udah siap?" #(Ayah keluar dari kamar mandi)
     k "Ayah sakit? Ayah kalo ga enak badan ngga usah dipaksain makan di luar, yah."
-    show Arya  at arpos
+    show Aryaos  at rpos
     r "Iya, kita masih bisa ngerayain di rumah kok, Yah."
-    show Arya Kesal at arpos
+    show Aryaos K at rpos
     i "Tuh kan, Ibu bilang apa tadi."
-    show Arya Bahagia at arpos
-    a "Gapapa kok, Ayah lagi merasa ga enak aja perasaannya, ga tau kenapa ya."
-    show Arya at arpos
-    a "Apa mungkin Ayah ngga rela kehilangan uang sampe 1 juta? Hahahahaha."
-    show Arya Kesal at arpos
+    show Aryaos W at rpos
+    ay "Gapapa kok, Ayah lagi merasa ga enak aja perasaannya, ga tau kenapa ya."
+    show Aryaos at rpos
+    ay "Apa mungkin Ayah ngga rela kehilangan uang sampe 1 juta? Hahahahaha."
+    show Aryaos K at rpos
     i "Ih Ayah, Ayah beneran gapapa?"
-    a "Iya gapapa. Ayah sehat kok. Yok berangkat habis ini."
+    ay "Iya gapapa. Ayah sehat kok. Yok berangkat habis ini."
     k "Syukurlah. Yaudah, ayok kita berangkat."
-    show Arya Bahagia at arpos
+    show Aryaos W at rpos
     r "Yokkk!"
-    a "Brama, kamu yang bawa mobilnya ya."
-    show Arya Kesala at arpos
+    ay "Brama, kamu yang bawa mobilnya ya."
+    show Aryaos K at rpos
     k "Eh, kok aku, Yah? Kenapa ngga Kak Arya aja?"
-    show Arya Kesal at arpos
     r "Udah lu aja, udah punya SIM juga."
-    show Arya Bahagia at arpos
+    show Aryaos W at rpos
     i "Ya sekali-kali lah, Nak. Mumpung udah ada SIM."
     i "Kasihan kakak kamu yang nyetir mulu."
-    show Arya Ketawa at arpos
-    a "Hahahaha, Ayah juga pengen tau gimana skill kamu nyetir."
-    show Brama Lega at lpos
+    ay "Hahahaha, Ayah juga pengen tau gimana skill kamu nyetir."
+    show Bramaos B at lpos
     k "Baikkk, siap komandan!"
 
     scene jalanan_malam with fade
-    show Brama at lpos
+    show Bramaos at lpos
     k "Oke, ayo kita mulai jalan. Doain aja semuanya lancar!"
     
     jump sampei
@@ -1254,30 +1278,30 @@ label ibutibatiba:
 image sarinah_dari_depan = im.Scale("bg/sarinah depan.jpg", 1920, 1080)
 label sampei:
     scene jakarta_malam
-    show Brama Bahagia at lpos
+    show Bramaos B at lpos
     k "Alhamdulillah, udah sampe."
     # a sound of the car stopping.
     scene sarinah_dari_depan with fade
-    show Arya Kaget at arpos
+    show Aryaos K at rpos
     i "Ayo nak, keburu tutup Sarinah-nya."
     
-    a "Ngghroookk..." 
+    ay "Ngghroookk..." 
     #(Ayah ketiduran)R
 
     jump akhirsampe
 
 label lamatpsampe:
     scene jakarta_malam
-    show Brama Bingung at lpos
+    show Bramaos at lpos
     k "Ini beloknya kemana ya?"
-    show Arya Kesal at arpos
+    show Aryaos K at rpos
     r "Tau jalan ga sih lu?"
-    show Arya Kesal at arpos
     i "Ayo nak, keburu tutup Sarinah-nya."
-    a "Ngghroookk..." 
+    ay "Ngghroookk..." 
 
     jump akhirsampe
 
+define prpos = Position(xalign=0.9, yalign=0)
 define pcpos = Position(xalign=0.5, yalign=0)
 define pistol = Position(xalign=0.5, yalign=0.4)
 define staff = Character('staff', color="#423d3d")
@@ -1299,6 +1323,12 @@ image slide15 = im.Scale("text/X-SMA/Slide15.png", 1920, 1080)
 image slide16 = im.Scale("text/X-SMA/Slide16.png", 1920, 1080)
 image slide17 = im.Scale("text/X-SMA/Slide17.png", 1920, 1080)
 image slide18 = im.Scale("text/X-SMA/Slide18.png", 1920, 1080)
+image staffsep:
+    'chara/sepatu/biasa.png'
+    zoom 1.6
+image staffsepser:
+    'chara/sepatu/serius.png'
+    zoom 1.6
 
 label akhirsampe:
     i "Akhirnya, udah sampe juga."
@@ -1308,49 +1338,53 @@ label akhirsampe:
     pause 1
     # Transition to the restaurant scene
     scene restoran_1 with fade
+    show fem at nrpos
     staff "Selamat datang. Ini untuk buku menunya. Pesanan langsung ditulis di sini ya…"
     
-    show Brama Bahagia at lpos
+    show Bramaos B at lpos
     k "Ayah, Ibu, Kak, mau pesen apa? Brama aja yang nulisin."
     # Start the mini-game to order food here.
     #call mini_game_order_food
     
     staff "Baik, mohon ditunggu sebentar ya..."
+    hide fem
     i "Senengnyaa, jarang-jarang kita makan di restoran."
-    a "Ya ngapain toh repot-repot ke restoran kalau masakan ibu itu yang terenak di dunia."
+    ay "Ya ngapain toh repot-repot ke restoran kalau masakan ibu itu yang terenak di dunia."
     i "Alah-alah masa sih ayah?"
-    a "Loh iya dong, Arya, Brama, 20 tahun nikah sama ibu, ga pernah sekalipun ayah ngga habisin masakan ibu."
-    show Arya Ketawa at arpos
+    ay "Loh iya dong, Arya, Brama, 20 tahun nikah sama ibu, ga pernah sekalipun ayah ngga habisin masakan ibu."
+    show Aryaos W at rpos
     r "Hahahaha, keliatan banget sih emang dari perutnya."
-    a "HAHAHAHA!"
+    ay "HAHAHAHA!"
     k "Hahaha, ayah mah emang di mana-mana makannya banyak."
     i "Ih, percaya ga sih kalian, dulu ayah waktu masih bujang tuh badannya bagus tau."
     i "Ganteng dan gagah."
-    show Arya Kaget at arpos
+    show Aryaos K at rpos
     i "Kalau sekarang, ih, gantengnya emang masih iya, tapi gagahnya berubah jadi gajah."
-    a "HAHAHA, ah ibu ini bisa aja."
-    show Arya at arpos
+    ay "HAHAHA, ah ibu ini bisa aja."
+    show Aryaos at rpos
     i "Iya, ayah kan dulu juga ga kalah keren dari Brama dan Arya."
     
     # Staff brings the food.
+    show fem at ncpos
     staff "Silakan… (menyajikan makanan)"
     staff "Untuk pesanannya sudah lengkap ya?"
     k "Mmmmm, udah kak, terima kasih ya…"
     staff "Terima kasih kembali."
+    hide fem 
     
     # Transition to eating and wrapping up at the restaurant.
     scene black with fade
     show slide11
     pause 1
     scene restoran_1 with fade
-    show Brama Lega at lpos
-    show Arya Bahagia at arpos
-    a "Alhamdulillah kenyang."
+    show Bramaos at lpos
+    show Aryaos W at rpos
+    ay "Alhamdulillah kenyang."
     i "Alhamdulillah, seneng banget deh yah, makasih yaaa."
     k "Besok traktir sop buntut dong yah."
-    a "Wah tunggu ayah gajian lagi ya hahahaha."
+    ay "Wah tunggu ayah gajian lagi ya hahahaha."
     i "Brama, Arya, minta tolong bayarin ke kasir ya, ini bawa dompet ibu."
-    show Arya Ketawa at arpos
+    show Aryaos W at rpos
     r "Siap."
     stop music
     
@@ -1360,21 +1394,24 @@ label akhirsampe:
     show slide12
     pause 1
     scene kasir with fade
-    show Brama  at lpos
-    show Arya Bahagia at arpos
+    show Bramaos  at lpos
+    show Aryaos W at rpos
     k "Meja nomor 5, totalnya berapa kak?"
+    show fem at ncpos
     staff "Totalnya jadi Rp120.000."
-    show Brama Bahagia at lpos
+    show Bramaos B at lpos
     k "Okee, ini kak."
     "Brama memberikan uang"
     staff "Uangnya pas ya? Terima kasih."
     k "Sama-sama kak."
-    show Brama  at lpos
-    show Arya Kesala at arpos
+    hide fem
+    scene restoran_1 with fade
+    show Bramaos  at lpos
+    show Aryaos K at rpos
     r "Mahal amat ya sampe abis segitu."
-    show Brama Bahagia at lpos
+    show Bramaos B at lpos
     k "Yaelah bro, kita makan di Sarinah, beli sate berapa banyak juga tadi?"
-    show Arya Lega at arpos
+    show Aryaos at rpos
     r "Yaaa, iya sihh."
 
     scene black with fade
@@ -1383,57 +1420,58 @@ label akhirsampe:
     pause 1
     # The tension builds up as they notice something strange outside.
     scene tokobaju with fade
-    show Brama Bingung at lpos
+    show Bramaos at lpos
     k "Eh Arya, lihat deh toko baju sebrang."
-    show Arya Bingung at arpos
+    show Aryaos at rpos
     r "Iya? Kenapa?"
-    show Brama Marah at lpos
+    show Bramaos M at lpos
     k "Lihat orang baju item itu? Dia lagi nyolong sepatu ga sih?"
     k "TUH TUH TUH DIA UMPETIN DI TAS DIA SI SEPATUNYA!"
-    show Arya Kaget at arpos
+    show Aryaos K at rpos
     r "EH IYA!"
     
     # Arya tries to calm down Brama.
-    show Arya at arpos
-    show Brama at lpos
+    show Aryaos at rpos
+    show Bramaos at lpos
     k "Wah gw harus bilang ke ayah."
-    show Arya Serius at arpos
+    show Aryaos at rpos
     r "Eh, tunggu Bram!"
-    show Arya Kesal at arpos
+    show Aryaos K at rpos
     k "Kenapa kak?"
     r "Udah biarin aja, ga usah ikut campur urusan orang."
-    show Brama Bingung at lpos
+    show Bramaos K at lpos
     k "Urusan orang? Maksud lu?"
     r "Udah jangan ikut campur, biarin, itu urusan yang punya toko."
     k "Hahhh?? Lu udah gila ya? Itu kriminalitas anjing, sempet-sempetnya lu mikir gitu."
     r "Ya terus kenapa? Apa untungnya buat kita ngurusin dia?!"
-    show Brama Marah at lpos
+    show Bramaos M at lpos
     k "Lu beneran gila ya? Ayah kita polisi loh!"
     k "Ini udah jadi tanggung jawab ayah."
-    show Arya Kesala at arpos
+    show Aryaos K at rpos
     r "Yaudah, biarin ngapa sih, ngerepotin aja tau ga sih."
     k "Gw gamau tau, gw harus kasih tau ayah."
     
     # Brama rushes to tell Ayah about the situation.
     play sound "audio/transserem.wav"
-    scene black with fade
     show slide14
     pause 1
     scene kasir with fade
-    show Brama Marah at lpos
+    show Bramaos M at lpos
     k "YAHH! Ada pencuri yahh di toko seberang!!"
-    a "Hmmmh? Gimana gimana?"
+    show Ayahk at rpos
+    ay "Hmmmh? Gimana gimana?"
     k "Toko baju seberang yah, ada orang nyolong sepatu, Brama lihat dengan mata kepala sendiri."
-    a "Bener Arya?"
-    show Arya Lega at arpos
+    show Ayah us at rpos
+    ay "Bener Arya?"
+    show Aryaos K at Position(xalign=-0.1, yalign=0)
     r "Iya yah."
-    show Arya at arpos
-    a "Wah ga bener nih, ayok kita samperin."
+    show Aryaos at Position(xalign=-0.1, yalign=0)
+    ay "Wah ga bener nih, ayok kita samperin."
     i "Dek, emang ga ada satpamnya yang jaga? Ulang tahun ayah masa harus tetep kerja sih?"
-    a "Udah lah bu, ini tanggung jawab ayah."
-    a "Yang mana orangnya?"
+    ay "Udah lah bu, ini tanggung jawab ayah."
+    ay "Yang mana orangnya?"
     k "Itu yah, yang baju hitam."
-    a "Mana? Ohhh, yang bawa tas itu?"
+    ay "Mana? Ohhh, yang bawa tas itu?"
 
     # Transition to confrontation with the thief.
     play sound "audio/transserem.wav"
@@ -1441,23 +1479,30 @@ label akhirsampe:
     show slide15
     pause 1
     scene tokobaju with fade
-    a "Permisi mas, saya Kompol Susilo, Kapolsek Matraman." #
+    show Ayah us at lpos
+    ay "Permisi mas, saya Kompol Susilo, Kapolsek Matraman."
+    hide Ayah
     show Badge at lpos
-    a "Saya menerima laporan kecurigaan tindakan pencurian yang melibatkan mas sebagai tersangka."
-    a "Untuk itu akan saya periksa mas untuk meluruskan apakah dugaan benar atau salah."
+    ay "Saya menerima laporan kecurigaan tindakan pencurian yang melibatkan mas sebagai tersangka."
     hide Badge
-    show Pencuri at pcpos
+    show Ayah us at lpos
+    ay "Untuk itu akan saya periksa mas untuk meluruskan apakah dugaan benar atau salah."
+    show Pencuri at prpos
     x "Wah, salam kenal pak Susilo. Izin meluruskan, saya tidak mencuri barang apapun di toko ini."
-    a "Maka biarkan saya memeriksa agar dugaan bisa dibantah jika memang tidak ada bukti."
+    ay "Maka biarkan saya memeriksa agar dugaan bisa dibantah jika memang tidak ada bukti."
+    show staffsep at Position(xalign=1.5, yalign=0)
     staff "Bapak polisi?"
-    a "Iya, ada yang bisa saya bantu?"
+    show Ayahs at lpos
+    ay "Iya, ada yang bisa saya bantu?"
+    show staffsepser at Position(xalign=1.5, yalign=0)
     staff "Kami kehilangan satu pasang sepatu di rak pajangan A9 pak, sepertinya mas ini adalah pelakunya."
-    a "Mas… menanggapi ini, saya mohon mas untuk kooperatif."
-    show Pencuri Panik at pcpos
+    show Ayah us at lpos
+    ay "Mas… menanggapi ini, saya mohon mas untuk kooperatif."
+    show Pencuri Panik at prpos
 
     # Tension builds as X pulls a weapon.
     play music "audio/semoga tense.wav"
-    x "..." 
+    x "..."
     scene black with fade
     show slide16
     pause 0.5
@@ -1475,27 +1520,27 @@ label akhirsampe:
     pause 0.2
     show Pistol Nembak at pistol
     play sound "audio/dentumanpistol.mp3"
-    "DORR!"
+    "(DENTUMAN PISTOL)"
     # *DENTUMAN GUNSHOT*
 
     # Transition to chaos after the gunshot.
     # scene glitch_transition with glitch
     hide Pistol Nembak
-    show Arya Kaget at acpos:
+    show Aryaos M at cpos:
         zoom 1.5
     r "AYAHHHHH!"
-    hide Arya Kaget
+    hide Aryaos M
 
     show Brama Glitch at cpos:
-        zoom 1
+        zoom 3
     k "..."
     hide Brama Glitch
-    show Arya Marah Glitch at acpos:
-        zoom 2
+    show Arya Marah Glitch at cpos:
+        zoom 3
     r "BRAMA!"
     r "BRAMA!"
-    show Arya Menangis Glitch at acpos:
-        zoom 2
+    show Arya Menangis Glitch at cpos:
+        zoom 3
     r "BRAMA, LIHAT YANG KAMU PERBUAT!!!"
     stop music
     # Glitching effect to show the impact of the incident.
@@ -1507,67 +1552,98 @@ label akhirsampe:
 
 # # ------------------------------------- SCRIPT Y - BUMN -------------------------------------# #
 # # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-# define r = Character("Arya",  color="#472301")
+define k = Character("Brama", color="#86ccec")
+define r = Character("Arya",  color="#ffd54a")
 define o = Character("Others",  color="#e3bb96")
 define n = Character("Nina",  color="#6ba7e3")
-define ist = Character("Istri",  color="#472301")
-define ceo = Character("CEO",  color="#472301")
-define ast = Character("Asisten",  color="#472301")
-define skre = Character("Sekretaris",  color="#472301")
-define an = Character("Andi",  color="#472301")
-define m = Character("Mahfudz",  color="#472301")
-define staffa = Character("Staff A",  color="#472301")
-define staffb = Character("Staff B",  color="#472301")
-define staffm = Character("Staff M",  color="#472301")
-define staffr = Character("Staff R",  color="#472301")
-define dir_a = Character("Direktur A", color="#472301")
-define rs = Character("Rosa", color="#472301")
+define ist = Character("Istri",  color="#ffffff")
+define ceo = Character("CEO",  color="#ffffff")
+define ast = Character("Asisten",  color="#ffffff")
+define skre = Character("Sekretaris",  color="#ffffff")
+define an = Character("Andi",  color="#ffffff")
+define m = Character("Mahfudz",  color="#ffffff")
+define staffa = Character("Staff A",  color="#ffffff")
+define staffb = Character("Staff B",  color="#ffffff")
+define staffm = Character("Staff M",  color="#ffffff")
+define staffr = Character("Staff R",  color="#ffffff")
+define dir_a = Character("Direktur A", color="#ffffff")
+define rs = Character("Rosa", color="#ffffff")
 #define narasi = Character("Narasi", color="#472301")
 
 # # IMAGE BACKGROUND
-image kamartidur_y = im.Scale("bg/Rumah2 Tidur.png", 1920, 1080)
-image ruangmakan_y = im.Scale("bg/Rumah2 Makan.png", 1920, 1080)
-image kantorrumah_y = im.Scale("bg/Rumah2 Kantor.png", 1920, 1080)
-image terasrumah_y = im.Scale("bg/Rumah2 Kamil Dewasa.png", 1920, 1080)
-image bumnkantor = im.Scale("bg/BUMN Kantor.png", 1920, 1080)
-image bumnlobi = im.Scale("bg/BUMN Lobi.png", 1920, 1080)
-image bumnlorong = im.Scale("bg/BUMN Lorong.png", 1920, 1080)
-image bumnrapat = im.Scale("bg/BUMN Rapat.png", 1920, 1080)
+image kamartidur_y = im.Scale("bg/rumahkamil/tidur.png", 1920, 1080)
+image ruangmakan_y = im.Scale("bg/rumahkamil/makan.png", 1920, 1080)
+image kantorrumah_y = im.Scale("bg/rumahkamil/kantor.png", 1920, 1080)
+image terasrumah_y = im.Scale("bg/rumahkamil/teras.png", 1920, 1080)
+image bumnkantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
+image bumnlobi = im.Scale("bg/bumn/lobi.png", 1920, 1080)
+image bumnlorong = im.Scale("bg/bumn/lorong.png", 1920, 1080)
+image bumnrapat = im.Scale("bg/bumn/rapat.png", 1920, 1080)
 image pov_arya = im.Scale("text/Y-BUMN/Slide1.PNG", 1920, 1080)
 image pov_brama = im.Scale("text/Y-BUMN/Slide2.PNG", 1920, 1080)
-
+image ngaca = im.Scale("tam/ngaca.png", 1920, 1080)
 
 # # IMAGE CHARA
 image Brama_y:
     "chara/brama.png"
     zoom 0.5
 
-image Arya_y:
-    "chara/arya.png"
-    
+image abatik:
+    "chara/aryabatik.png"
+    zoom 1.5
+
 image telfonkabel:
     "single asset/Telfon kabel.png"
     zoom 0.45
 
-# buat brama
+image Nina:
+    "chara/Nina.png"  
+    zoom 0.60
+
+image Istri:
+    "chara/istri/biasa.png"  
+    zoom 1.6
+
+image Istri s:
+    "chara/istri/buka.png"  
+    zoom 1.6
+
+image Istri snark:
+    "chara/istri/snark.png"  
+    zoom 1.6
+
+image male:
+    "chara/male.png"  
+    zoom 1.4
+image male2:
+    "chara/male.png"  
+    zoom 1.4
+image fem:
+    "chara/fem.png"  
+    zoom 1.4
+
+#Posisi custom bikinan bisa apply to all
 define cpos = Position(xalign=0.5, yalign=0)
 define rpos = Position(xalign=0.9, yalign=0)
-define lpos = Position(xalign=0,yalign=0)
+define lpos = Position(xalign=0.1,yalign=0)
 
 # buat arya
 define aycpos = Position(xalign=0.5, yalign=0)
-define ayrpos = Position(xalign=0.9, yalign=0)
-define aylpos = Position(xalign=0,yalign=0)
+define ayrpos = Position(xalign=1.2, yalign=0)
+define aylpos = Position(xalign=0, yalign=0)
 
 # buat telpon
 define tlcpos = Position(xalign=0.5, yalign=0)
 define tlrpos = Position(xalign=1.01, yalign=0.6)
 define tllpos = Position(xalign=0,yalign=0)
 
+# buat malefem
+define ncpos = Position(xalign=0.5, yalign=-0.14)
+define nrpos = Position(xalign=0.9, yalign=-0.14)
+define nlpos = Position(xalign=0,yalign=-0.14)
+
 label ybumn: #ybumn
-    scene black
-    show Brama_y at cpos
+    scene ngaca
     k "Orang mengatakan kematian itu adalah hal mutlak, tidak dapat dihindarkan."
     k "Tapi yang jadi pertanyaan adalah.."
     k "Kematian seperti apa yang diikhlaskan semua orang?"
@@ -1589,16 +1665,14 @@ label ybumn: #ybumn
     #dari atas sampai sini ga ada image karakter yang muncul di kiri kanan, murni karakter background]
 
     #mulai sini balik ke biasanya, ada karakter di samping kiri kanan]
-    hide Brama_y
+
     o "Tidak salah untuk bersedih dan menyesal."
     o "Fitrah manusia sudah ditetapkan untuk memiliki perasaan."
     o "Sangat wajar jika kamu merasa terpuruk kehilangan ayah."
     o "Terlebih hal itu disebabkan oleh keputusanmu."
 
-    show Brama_y at cpos
     k "..."
 
-    hide Brama_y
     o "Tetap ingatlah satu hal, Brama."
     o "Kamu sudah melakukan hal yang benar."
     o "Terkadang hal-hal yang terjadi berada di luar kendali kita."
@@ -1612,7 +1686,6 @@ label ybumn: #ybumn
             jump denial
 
 label terima:
-    show Brama_y at cpos
     k "Kamu benar, Brama."
     k "Takdir tuhan selalu tidak dapat ditebak."
     k "Akan ada saatnya semua orang akan mati."
@@ -1622,11 +1695,9 @@ label terima:
 
     k "Tapi apakah aku harus melakukannya?"
     k "Apakah aku bisa merubah masa lalu?"
-    hide Brama_y
     jump nina
 
 label denial:
-    show Brama_y at cpos
     k "Engga, engga, engga!"
     k "Aku ga bisa harus menjalani ini!"
     k "Kenapa ya Allah??"
@@ -1634,7 +1705,6 @@ label denial:
     k "Kenapa engkau tidak menganugerahi aku otak bodoh dan apatis?"
     k "Ayah seharusnya tidak akan mati karena aku."
     k "..."
-    hide Brama_y
     #menunduk sedih]
     jump nina
 
@@ -1642,17 +1712,21 @@ label nina:
     scene kamartidur_y with fade
     #(Nina masuk ke kamar Brama dan memanggil Brama, ekspresi Brama kaget terbangun dari lamunannya)
     #{musik make netral}
-    n "Nina  : Ayahhh!!"
+    show Nina at cpos
+    n "Ayahhh!!"
 
-    show Brama_y at cpos
+    show Brama_y at lpos
+    show Nina at rpos
     k "Iya nak, kenapa nak?"
     n "Ayah-ayah, ayo buruan sarapan udah ditunggu sama bundaaa!"
     n "Bunda udah nunggu lama di meja makan ihh!"
     n "Ayah juga buruuuu, nanti telat berangkat kerjaa!"
     k "Oh hehehe, iya nina, sebentar ya ayah masih harus siap-siap dulu."
     k "Kamu turun duluan ya nak, Ayah 5 menit lagi turun ke bawah."
-    k "Okay yah awas kalau lama."
+    n "Okay yah awas kalau lama."
+    hide Nina
     #Ekspresi kesal nina]
+    show Brama_y at cpos
     k "Haduuhh aku tadi mikirin apa sampai ga sadar gini."
     k "Dah dah, mending aku turun sekarang, terus sarapan dengan anak dan istriku."
     hide Brama_y
@@ -1660,6 +1734,7 @@ label nina:
     #ruang makan]
     #{musik netral lagi}
     scene ruangmakan_y with fade
+    show Istri s at cpos
     ist "Pagi ayah, ngapain aja sii lama banget di atasnya?"
     
     menu:
@@ -1669,14 +1744,15 @@ label nina:
             jump benerinshower
 
 label cucimuka:
-    show Brama_y at cpos
+    show Brama_y at lpos
     k "Nggapapa kok sayang, tadi aku cuci muka bentar."
+    show Istri at cpos
     ist "Ohhh begituu."
     hide Brama_y
     jump lanjutmakan
 
 label benerinshower:
-    show Brama_y at cpos
+    show Brama_y at lpos
     k "Nggapapa kok sayang, tadi shower kita bocor."
     k "Jadi aku tadi benerin bentar."
     ist "Loh, rusaknya parah kah?"
@@ -1686,16 +1762,22 @@ label benerinshower:
     jump lanjutmakan
 
 label lanjutmakan:
-    show Brama_y at cpos
+    show Brama_y at lpos
+    show Istri s at cpos
     ist "Eh iya, yuk kita makannn!"
     ist "Nina udah nungguin ayah nih dari tadi nggak turun-turun."
+    show Istri at cpos
+    show Nina at rpos
     n "Iya nih ayah lama banget nggak tau apa kalau aku udah laper dan nungguin dari tadi."
     k "Hehehe iya sayang maaf ya ayah kelamaan siap-siapnya."
-    k "Bunda masak apa pagi ini? Dari jauh aja aku bisa mencium aroma sedap masakan bunda."
+    n "Bunda masak apa pagi ini? Dari jauh aja aku bisa mencium aroma sedap masakan bunda."
+    show Istri s at cpos
     ist "Ih bisa aja kamu yah,"
     ist "Aku hari ini masak makanan kesukaan kamu banget nihh."
     ist "Ada udang saus padang sama ayam mentega."
+    show Istri at cpos
     k "Wihhhhhhh."
+    show Istri s at cpos
     ist "Kamu mau makan sama yang mana yah?"
 
     menu:
@@ -1718,9 +1800,13 @@ label atau:
     jump laptop
 
 label laptop:
+    scene ruangmakan_y with fade
+    show Nina at cpos
     n "Ayah berangkat jam berapa? Ini udah 06.15 loh."
     n "Awas kena macet loh nanti di jalan."
     n "Terus jadi telat deh masuk kantornya."
+    show Brama_y at lpos
+    show Nina at rpos
     k "Eh iya bener juga makasih ya sayang udah diingetin."
     n "Ayah cek lagi semua barang-barang bawaan ayah jangan sampai ada yang ketinggalan."
     k "Iya sayang, ini udah ayah cek semuanya udah ada di tas ayah."
@@ -1728,11 +1814,17 @@ label laptop:
     k "Untung kamu ingetin, Nina."
     k "Kalau nggak laptop ayah bakal ketinggalan di rumah."
     k "Bunda lihat laptop ayah di mana nggak ya? Ayah lupa naruhnya."
+    hide Nina
+    show Istri s at rpos
     ist "Kemarin bukannya ayah pake di ruang kerja ya?"
     ist "Coba deh ayah cek juga di kamar kalau semisal di ruang kerja nggak ada."
+    hide Istri s
+    show Nina at rpos
     n "Tuhkan untung aja aku ingetin."
     n "Kalau nggak bisa-bisa ayah balik lagi ke rumah untuk ambil laptop doang."
     k "Iya sayang, makasii yaa."
+    hide Nina
+    show Brama_y at cpos
     k "Laptop aku di mana ya?"
     k "Aku lupa terakhir kali make aku taruh mana ya?"
 
@@ -1766,16 +1858,23 @@ label ruangkamar:
 
 label berangkatkerja:
     scene terasrumah_y with fade
-    show Brama_y at cpos
+    show Brama_y at lpos
     k "Ninaaa, makasih yaa nakk udah diingetin."
+    show Nina at rpos
     n "Iya, Ayah. Jangan sampai lupa lagi, ya!"
+    hide Nina
+    show Brama_y at cpos
     k "Maaa, aku berangkat yaa!"
+    hide Brama_y
+    show Istri s at lpos
+    show Nina at rpos
     ist "Iya sayangg, hati hatii!"
     hide Brama_y
 
     scene bumnlobi with fade
     show Brama_y at cpos
     k "Fyuh, akhirnya bisa sampai tepat waktu."
+    show male at nrpos
     staffa "Selamat pagi, Pak Brama."
     k "Selamat pagi."
     staffa "Saya ada kabar, Pak. Bisa berbicara sebentar?"
@@ -1786,10 +1885,17 @@ label berangkatkerja:
     k "Kalau begitu, saya minta tolong pastikan semua dokumen kontraknya sudah dicek sebelum finalisasi ya."
     staffa "Baik, Pak."
     k "Ada lagi yang perlu saya tahu?"
+    show Brama_y at lpos
+    show fem at ncpos
     staffb "Pak, tadi pagi ada email dari tim IT tentang pembaruan sistem akuntansi kita."
     k "Oke, lanjut."
     staffb "Mereka butuh konfirmasi Bapak untuk lanjut ke tahap berikutnya."
     k "Oh iya, itu penting. Saya cek nanti. Terima kasih sudah mengingatkan."
+    hide fem
+    hide male
+    show male at lpos
+    show Brama_y at cpos
+    show fem at rpos
     ast "Selamat pagi, Pak Brama. Hari ini ingin minum apa?"
     k "Oh selamat pagi, Mas."
     
@@ -1809,6 +1915,13 @@ label tehhijau:
     k "Yasudah, seperti biasa aja."
     jump mulaikerja
 
+image email = im.Scale("tam/email.png", 1920, 1080)
+image zoommeeting = im.Scale("tam/zoom.png", 1920, 1080)
+image present = im.Scale("tam/present.png", 1920, 1080)
+image folder = im.Scale("tam/folder.png", 1920, 1080)
+image folderselect = im.Scale("tam/folders.png", 1920, 1080)
+image file = im.Scale("tam/select.png", 1920, 1080)
+image filesend = im.Scale("tam/send.png", 1920, 1080)
 label mulaikerja:
     ast "Baik pak, ada lagi yang perlu saya siapkan?"
     k "Oh iya, setelah ini saya langsung ke ruangan saya."
@@ -1818,14 +1931,16 @@ label mulaikerja:
 
     scene bumnkantor with fade
     show Brama_y at cpos
-    #[kamil bermain laptop]
+    k "hmmm..."
+    scene email
     #(Kamil membaca email dengan serius. Di dalamnya ada laporan mengenai kondisi keuangan perusahaan dan persiapan untuk presentasi di meeting direksi)
     #[menunjukan screen tampilan email] → screenshot layar email di laptop gpp
     #[Kamil mengecek lampiran laporan tersebut, notifikasi tentang meeting yang akan dimulai dalam waktu 10 menit] → manipulasi aja seakan-akan ada email gini 
     #[scene notifikasi meeting]
-
+    scene bumnkantor with fade
+    show Brama_y at cpos
     k "Nahh iya, hari ini aku harus meeting online. Hampir saja lupa…"
-    #[tampilan zoom meeting]
+    scene zoommeeting with fade
     ceo "Selamat pagi, semuanya."
     ceo "Sebelum kita mulai, saya ingin memberi tahu mengenai regenerasi tim kita."
     ceo "Izinkan saya memperkenalkan seorang kandidat untuk posisi strategis baru di perusahaan kita, Ibu Rosa."
@@ -1839,7 +1954,7 @@ label mulaikerja:
     k "Selamat pagi, Bapak/Ibu Direksi. Saya akan memaparkan laporan keuangan tahunan kita."
     k "Dimulai dari performa pendapatan selama tahun fiskal ini."
     k "Mohon perhatian ke slide berikut ini."
-    #[Kamil mengganti slide, menampilkan grafik pendapatan dan pengeluaran selama setahun terakhir]
+    scene present with dissolve
     k "Seperti yang terlihat, perusahaan mengalami kenaikan pendapatan sebesar 12\% dibandingkan tahun lalu."
     k "Namun, kita juga melihat adanya peningkatan pengeluaran operasional sebesar 8\%, terutama di kuartal terakhir."
     dir_a "Kenaikan pengeluaran ini disebabkan oleh apa?"
@@ -1849,7 +1964,17 @@ label mulaikerja:
     k "Namun, tim keuangan kami telah memastikan bahwa semua alokasi biaya ini sesuai dengan perencanaan awal."
 
     r "Pak Brama, saya perlu melihat file detail pengeluaran kuartal keempat. Bisa kirimkan sekarang?"
+    scene folder with dissolve
+    pause 1.0
+    scene folderselect with dissolve
+    pause 1.0
+    scene file with dissolve
+    pause 1.0
+    scene filesend with dissolve
+    pause 1.0
+    # PAKE SOUND CLICK DIANTARA SCENE DIATAS
 
+    scene present with fade
     r "Terima kasih, Pak Brama. File ini sesuai dengan yang saya butuhkan."
 
     k "Baik, Bapak/Ibu. Selain laporan pengeluaran, kami juga melihat adanya peningkatan margin keuntungan bersih sebesar 3\%."
@@ -1859,6 +1984,8 @@ label mulaikerja:
     show Brama_y at cpos
     k "Fyuh, akhirnya selesai juga presentasi hari ini."
     k "Selanjutnya apa ya agendaku?"
+    show Sekretaris at rpos
+    show Brama_y at lpos
     skre "Pak Brama, maaf mengganggu. Ada hal penting yang baru saja saya dapatkan."
     skre "Bapak perlu tahu ini sekarang."
     k "Iya, apa ada masalah?"
@@ -1880,6 +2007,8 @@ label mulaikerja:
     k "Aduh, masalah apa lagi."
     k "Udah hampir tutup laporan tahunan."
     k "Yaa semoga seberat apa pun itu bisa diselesaikan."
+    show Sekretaris at lpos
+    show Brama_y at rpos
     skre "Permisi, Pak."
     k "Iya, silakan."
     skre "Jadi, apakah kita sudah bisa membicarakan soal masalah pembiayaan proyek, Pak?"
@@ -1956,6 +2085,9 @@ label rumit:
             jump ahlihukumkantor
 
 label pakmahfudz:
+    hide Sekretaris
+    show Brama_y at lpos
+    show telfonkabel at tlrpos
     k "Halo, Pak Mahfudz."
     m "Halo, Pak Brama."
     k "Bagaimana, Pak, kabarnya? Apa bisa kita berdiskusi sejenak?"
@@ -1971,12 +2103,15 @@ label ahlihukumkantor:
 
     scene bumnlobi with fade
     show Brama_y at cpos
+    show male at nrpos
     staffa "Ada yang bisa saya bantu, Pak?"
     k "Tolong panggilkan staf hukum."
     k "Mungkin staf pembantu Pak Mahfudz."
     staffa "Baik, Pak. Mohon ditunggu."
     k "Oke."
-
+    scene bumnkantor with fade
+    show Brama_y at cpos
+    show fem at nlpos
     staffm "Bapak mencari saya?"
     k "Iya, saya ada perlu."
     staffm "Baik, Pak. Apakah ini terkait hukum?"
@@ -2016,7 +2151,7 @@ label pakandi:
     an "Kalau ternyata masalahnya serius, mungkin kita perlu transparan dan melibatkan otoritas."
     k "Baik, Pak. Terima kasih atas masukannya."
     hide telfonkabel
-
+    show Brama_y at cpos
     k "Ini masalah besar…"
     k "Kalau informasi kesalahan ini sampai keluar, saya yang akan dimintai tanggung jawab."
 
@@ -2031,9 +2166,11 @@ label pakandi:
         "Kantin":
             jump kantin
         "Kafe":
-            jump kafe
-
+            jump Cafe
+image Kantin = im.Scale("tam/kantin.jpg", 1920, 1080)
 label kantin:
+    scene Kantin
+    show Brama_y at cpos
     k "Mikirin masalah gini jadi laper."
     k "Oh iya, dengar-dengar ada stan baru di kantin."
     k "Jual apa ya dia kata sekretaris kemarin?"
@@ -2042,8 +2179,10 @@ label kantin:
     hide Brama_y
     #scene kantin
     jump curhatarya
-
-label kafe:
+image Cafe = im.Scale("tam/cafe.png", 1920, 1080)
+label Cafe:
+    scene Cafe
+    show Brama_y at cpos
     k "Mikirin masalah gini jadi laper."
     k "Oh iya, dengar-dengar cafe di lantai bawah jualan menu baru."
     k "Kopi apa ya?"
@@ -2056,7 +2195,7 @@ label kafe:
 
 label curhatarya:
     show Brama_y at lpos
-    show Arya_y at ayrpos
+    show abatik at rpos
     r "Pak Brama, saudaraku!"
     k "..."
     r "Kelihatannya kamu lagi pusing berat."
@@ -2160,7 +2299,7 @@ label ambil:
     r "Tunggu apa lagi kalau begitu?"
     k "Iya sih, habis ini aku coba rapatin sama direksi yang lain."
     hide Brama_y
-    hide Arya_y
+    hide abatik
     jump throwbackarya
 
 label ragu:
@@ -2170,16 +2309,17 @@ label ragu:
     r "Eh bagus dong."
     k "Iya sih, habis ini aku coba rapatin sama direksi yang lain."
     hide Brama_y
-    hide Arya_y
+    hide abatik
     jump throwbackarya
 
 label throwbackarya:
     scene pov_arya with fade
     pause
     scene bumnkantor with fade
+    show male at nlpos
     staffr "Pagi, Pak Arya."
 
-    show Arya_y at aycpos
+    show abatik at aycpos
     r "Pagi, ada apa?"
     staffr "Saya mendapatkan informasi mengenai anak perusahaan Garuda."
     r "Anak perusahaan yang mana?"
@@ -2192,7 +2332,7 @@ label throwbackarya:
     r "Terima kasih atas informasinya."
     r "Tolong tinggalkan saya sendiri."
     staffr "Baik, Pak."
-
+    hide male
     r "Aduh, Brama ada aja."
     r "Berbuat apa kamu sampai terjebak di masalah gini."
     r "Kalau gini aku harus bantu dia."
@@ -2239,7 +2379,7 @@ label balikkamil:
     hide Brama_y
     
     show Brama_y at lpos
-    show Arya_y at arpos
+    show abatik at ayrpos
     r "Bagaimana, Pak? Apakah dewan direksi menyetujui tawaran investor PT. Angin Topan?"
     k "Eh, Arya."
     k "Saya masih bingung terhadap keputusan apa yang harus saya ambil."
@@ -2259,16 +2399,16 @@ label balikkamil:
             jump B 
 #----------------------------------
 
-# # ------------------------------------- SCRIPT A -------------------------------------# #
+# # # ------------------------------------- SCRIPT A -------------------------------------# #
 # DEFINE CHARACTERS
-define b = Character("Brama", color="#472301")
-define o = Character("Other", color="#472301")
-define s = Character("Sekretaris", color="#472301")
-define dir_a = Character("Direktur A", color="#472301")
-define dir_b = Character("Direktur B", color="#472301")
-define dir_c = Character("Direktur C", color="#472301")
-define t = Character("Satpam", color="#472301")
-define p = Character("Petugas KPK", color="#472301")
+define b = Character("Brama", color="#86ccec")
+define o = Character("Other", color="#99928c")
+define s = Character("Sekretaris", color="#ffffff")
+define dir_a = Character("Direktur A", color="#ffffff")
+define dir_b = Character("Direktur B", color="#ffffff")
+define dir_c = Character("Direktur C", color="#ffffff")
+define sl = Character("Staff Lobi", color="#ffffff")
+define p = Character("Petugas KPK", color="#ffffff")
 
 # IMAGE BACKGROUND
 image kantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
@@ -2285,13 +2425,10 @@ image Sekretaris:
     zoom 0.65
 image Direktur_A:
     "chara/dirA.png"
-    zoom 0.65
-
-#Posisi2 yang di dettermined buat image dengan resolusi chara 1239 x 3508 px
-define cpos = Position(xalign=0.5, yalign=0)
-define rpos = Position(xalign=0.9, yalign=0)
-define lpos = Position(xalign=0,yalign=0)
-define slpos = Position(xalign=0,yalign=0)
+    zoom 1.6
+image Direktur_C:
+    "chara/moder.png"
+    zoom 1.6
 
 label A: #email_keputusan
     scene kantor with fade
@@ -2316,12 +2453,13 @@ label A: #email_keputusan
     "Brama terlihat sangat gelisah. Ia memanggil sekretarisnya melalui telepon."
 
     show BramaK at rpos
+    show Sekretaris at lpos
     b "Sekretaris, tolong adakan rapat dewan direksi darurat 1 jam lagi dengan semua direksi."
     b "Semua harus hadir untuk membahas persoalan ini."
     b "Dan pastikan tidak ada pihak asing yang masuk ke kantor."
     b "Saya nggak mau rapat terganggu, terlebih isu ini sangat penting."
 
-    show Sekretaris at slpos
+    
     s "Baik Pak, akan segera saya informasikan kepada seluruh direksi perusahaan."
     s "Untuk keamanan, akan saya sampaikan ke pihak security di depan."
 
@@ -2330,21 +2468,22 @@ label A: #email_keputusan
     jump rapat_dewan_direksi
 
 image slideA = im.Scale("text/A/A.png", 1920, 1080)
+image surattangkap = im.Scale("tam/surattangkap.png", 1920, 1080)
 label rapat_dewan_direksi:
     scene ruang_rapatbumn with fade
 
     show BramaK at cpos
     b "Selamat siang bapak dan ibu dewan direksi."
     hide BramaK
-    show Direktur_A at left
-    show Direktur_B at right
-    show Direktur_C at center
+    show Direktur_A at Position(xalign=0.1,yalign=0)
+    show male at nrpos
+    show fem at ncpos
     dir_a "Siang."
     dir_b "Siang."
     dir_c "Siang."
     hide Direktur_A 
-    hide Direktur_B
-    hide Direktur_C 
+    hide fem
+    hide male
 
     show BramaK at cpos
     b "Pada rapat terbatas kali ini saya akan membahas kelanjutan persoalan yang sudah kita bahas sebelumnya."
@@ -2361,9 +2500,9 @@ label rapat_dewan_direksi:
     "Ruang rapat menjadi ribut dan ricuh."
 
     hide BramaK
-    show Direktur_A at left
-    show Direktur_B at right
-    show Direktur_C at center
+    show Direktur_A at Position(xalign=0.1,yalign=0)
+    show Direktur_C at Position(xalign=0.9,yalign=0)
+    show male at ncpos
 
     dir_a "Mohon maaf pak Kamil, saya rasa ini tidak bisa menjadi keputusan sepihak bapak saja."
     dir_a "Karena ini menyangkut hajat hidup orang banyak dan demi keberlanjutan perusahaan."
@@ -2375,22 +2514,24 @@ label rapat_dewan_direksi:
     "Di luar kantor terjadi kericuhan dan ramai dengan rombongan KPK yang akan menggeledah dan menangkap Kamil."
 
     scene lobibumn with fade
-    show Satpam at center
-    show Petugas at left
+    show fem at ncpos
+    show male2 at nlpos
 
-    t "Selamat siang, mohon maaf ini rame-rame bapak-bapak semua dari pihak mana dan ada keperluan apa datang kemari?"
+    sl "Selamat siang, mohon maaf ini rame-rame bapak-bapak semua dari pihak mana dan ada keperluan apa datang kemari?"
     p "Siang, kami dari KPK akan melakukan penangkapan terhadap pak Kamil selaku direktur utama perusahaan katering Garuda."
     p "Berdasarkan hasil laporan dan penyelidikan kami bahwa di perusahaan ini terdapat indikasi tindak pidana manipulasi laporan keuangan yang melibatkan pak Kamil."
-    t "Mohon maaf pak, bapak tidak bisa masuk dikarenakan arahan dari pak Kamil seperti itu."
+    sl "Mohon maaf pak, bapak tidak bisa masuk dikarenakan arahan dari pak Kamil seperti itu."
 
     "Pihak KPK tetap maksa masuk dan terjadi sedikit kericuhan."
 
     p "Ga bisa pak, ini sudah menjadi tugas kami untuk melakukan penggeledahan dan penangkapan pak Kamil."
-    t "Silahkan tunjukan surat perintah penggeledahan dan penangkapan."
+    sl "Silahkan tunjukan surat perintah penggeledahan dan penangkapan."
 
     "Petugas menunjukkan surat perintah, beberapa orang pegawai KPK telah masuk ke kantor."
 
     p "Ini untuk surat perintah kami, silahkan bapak baca."
+    scene surattangkap
+    pause 1
 
     scene lorongbumn with fade
     show Sekretaris at cpos
@@ -2398,7 +2539,7 @@ label rapat_dewan_direksi:
     s "Aduh kenapa bisa secepat ini mereka menyadari permasalahan ini, mana direksi lagi pada rapat?"
 
     scene ruang_rapatbumn with fade
-    show Direktur_C at center
+    show Direktur_C at Position(xalign=0.5,yalign=0)
 
     dir_c "Tenang bapak-bapak semua, apa yang pak Kamil sampaikan benar adanya."
     dir_c "Berdasarkan hasil rapat, dari divisi pengelolaan risiko menyatakan bahwa jika nantinya terbukti bahwa uang yang diinvestasikan merupakan hasil tindak pidana korupsi."
@@ -2410,24 +2551,24 @@ label rapat_dewan_direksi:
     b "Saya menyadari ada suatu keributan di …"
     hide BramaK
     "Tiba-tiba pegawai KPK masuk ke ruangan rapat."
-    show Petugas at center
+    show male at ncpos
     p "Selamat siang, kami dari KPK akan melakukan penggeledahan terhadap kantor ini."
     p "Dan kepada saudara Kamil silahkan ikuti saya keluar ruangan."
-    hide Petugas
+    hide male
     "Suasana ruang rapat tegang dan Kamil cemas."
     show BramaK at lpos
     b "Saya Kamil, kalau boleh tau ini ada apa kenapa kalian tiba-tiba datang dan menggeledah kantor kami?"
-    show Petugas at right
+    show male at nrpos
     p "Kami telah menerima laporan bahwa terdapat indikasi tindak pidana manipulasi keuangan terhadap salah satu proyek yang sedang dikerjakan."
     p "Berdasarkan hasil pengamatan kami juga bahwa hal tersebut juga disetujui oleh saudara Kamil selaku direktur utama perusahaan ini."
     p "Kami mohon kooperatifnya agar berjalan dengan lancar."
-    hide Petugas
+    hide male
     hide BramaK
     "Kamil pun berfikir."
     show BramaK at cpos
     b "(Wah ini gimana ceritanya mereka bisa secepat ini mencium permasalahan ini? Aduh aku harus apa ini?)"
     show BramaK at lpos
-    show Petugas at right
+    show male at nrpos
     b "Baik pak."
 
     "Kamil pergi mengikuti pegawai KPK. Akhirnya Kamil dibawa ke kantor KPK untuk dimintai keterangan."
@@ -3990,25 +4131,21 @@ label H:
 
 # # ------------------------------------- SCRIPT I -------------------------------------# #
 # # DEFINE CHARACTERS
-define k = Character("Brama", color="#ffffff")
+define k = Character("Brama", color="#86ccec")
 define r = Character("Arya",  color="#fe9f46")
 define pres = Character("Presiden", color="#ff7c7c")
 define kades = Character("Kepala Desa", color="#95ff7d")
 define warta = Character("Wartawan", color="#837d77")
 
 # # IMAGE BACKGROUND
-image bumnkantor = im.Scale("bg/BUMN Kantor.png", 1920, 1080)
-image bumnlobi = im.Scale("bg/BUMN Lobi.png", 1920, 1080)
-image bumnlorong = im.Scale("bg/BUMN Lorong.png", 1920, 1080)
-image bumnrapat = im.Scale("bg/BUMN Rapat.png", 1920, 1080)
+image bumnkantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
+image bumnlobi = im.Scale("bg/bumn/lobi.png", 1920, 1080)
+image bumnlorong = im.Scale("bg/bumn/lorong.png", 1920, 1080)
+image bumnrapat = im.Scale("bg/bumn/rapat.png", 1920, 1080)
 
 # # IMAGE CHARA
 image Brama_y:
     "chara/bramabumn.png"
-    zoom 0.5
-
-image Arya_y:
-    "chara/aryabumn.png"
     zoom 0.5
 
 image Presiden:
@@ -4029,7 +4166,7 @@ label I:
     pres "Baik, apabila meninjau dari dokumen yang sudah kau berikan dan jelaskan, saya setuju dengan keputusanmu. Mari kita laksanakan!"
 
     scene bumnkantor with fade
-    show Arya_y at aycpos
+    show abatik at aycpos
     r "Saya, atas nama integritas dan keadilan, harus mengungkap sebuah fakta. Menteri Bima telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya. Ini adalah pelanggaran hukum yang tidak bisa ditoleransi."
 
     warta "Pak Bima, apa benar tuduhan ini? Bagaimana tanggapan Anda?"
@@ -4043,26 +4180,13 @@ label I:
 
 # # ------------------------------------- SCRIPT J -------------------------------------# #
 # # DEFINE CHARACTERS
-define k = Character("Brama", color="#472301")
-define r = Character("Arya",  color="#472301")
+# define k = Character("Brama", color="#472301")
+# define r = Character("Arya",  color="#472301")
 define pres = Character("Presiden", color="#472301")
 define kades = Character("Kepala Desa", color="#472301")
 define warta = Character("Wartawan", color="#472301")
 
-# # IMAGE BACKGROUND
-image bumnkantor = im.Scale("bg/BUMN Kantor.png", 1920, 1080)
-image bumnlobi = im.Scale("bg/BUMN Lobi.png", 1920, 1080)
-image bumnlorong = im.Scale("bg/BUMN Lorong.png", 1920, 1080)
-image bumnrapat = im.Scale("bg/BUMN Rapat.png", 1920, 1080)
-
 # # IMAGE CHARA
-image Brama_y:
-    "chara/bramabumn.png"
-    zoom 0.5
-
-image Arya_y:
-    "chara/aryabumn.png"
-    zoom 0.5
 
 image Presiden:
     "chara/presiden.png"
