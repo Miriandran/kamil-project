@@ -1509,8 +1509,8 @@ label akhirsampe:
 # # DEFINE CHARACTERS
 # define k = Character("Brama", color="#472301")
 # define r = Character("Arya",  color="#472301")
-define o = Character("Others",  color="#472301")
-define n = Character("Nina",  color="#472301")
+define o = Character("Others",  color="#e3bb96")
+define n = Character("Nina",  color="#6ba7e3")
 define ist = Character("Istri",  color="#472301")
 define ceo = Character("CEO",  color="#472301")
 define ast = Character("Asisten",  color="#472301")
