@@ -518,7 +518,9 @@ label ruangmakan:
     show Brama Bahagia at lpos
     k "Buuu, Yah. Kita berangkat yaa."
     show Brama at lpos
+    show Ayah at Position(xalign=0.3, yalign=0.1)
     a "Ya nak, hati-hati di jalan ya."
+    show Ibu at Position(xalign=0.8, yalign=0.1)
     i "Barang gaada yang ketinggalan?"
     show Arya Ketawa at arpos
     r "Aku udah kebawa semua sih harusnya."
@@ -527,6 +529,8 @@ label ruangmakan:
     k "Amannn."
     show Brama Bingung at lpos
     show Arya Ketawa at arpos
+    hide Ayah
+    hide Ibu
     r "Mau lu atau gw yang bawa motor?" 
 
     menu:
@@ -797,7 +801,7 @@ label ganabrak:
     k "Iya iya, ntar jam istirahat."
     jump nemudompet
 
-define s = Character('Satpam', color="#827a7a")
+define sat = Character('Satpam', color="#827a7a")
 image slide4 = im.Scale("text/X-SMA/Slide4.png", 1920, 1080)
 image slide6 = im.Scale("text/X-SMA/Slide6.png", 1920, 1080)
 image slide7 = im.Scale("text/X-SMA/Slide7.png", 1920, 1080)
@@ -841,12 +845,12 @@ label nabrak:
     r "Waduh, mampus, kita telat."
     show Brama Kosong at lpos
     k "Wah iya anjing."
-    show satpam at cpos
-    s "Kenapa telat? Tunggu di luar dulu."
+    # show male at ncpos #
+    sat "Kenapa telat? Tunggu di luar dulu."
     show Brama Malu at lpos
     k "Tapi Pak…"
-    s "Ga ada tapi-tapi. Tunggu guru BK ke sini."
-    hide satpam
+    sat "Ga ada tapi-tapi. Tunggu guru BK ke sini."
+    # hide male
     show Arya Kesal at arpos
     r "Yah, dihukum deh kita."
     show Brama Kosong at lpos
@@ -875,6 +879,7 @@ label nemudompet:
     scene jalan with fade
     show Brama Bingung at lpos 
     show Arya Bingung at arpos
+    stop music
     "Baru jalan bentar..."
     #"[Tunjukin ada dompet di jalan]"
 
@@ -925,6 +930,7 @@ label moral:
 image slide8 = im.Scale("text/X-SMA/Slide8.png", 1920, 1080)
 label aaa:
     # Scene starts with Arya and Brama talking
+    play music "audio/idle.wav"
     scene jalan with fade
     show Brama at lpos
     show Arya Kesal at arpos
@@ -965,7 +971,7 @@ label aaa:
     show Brama at lpos
 
 
-    show Ayah Bahagia at cpos
+    show Ayahw at cpos
     a "Eehh, jagoan-jagoan Ayah udah pulang!"
     show Arya Lega at alpos
     r "Hehe, iya Yah, udah kelar sekolahnya."
@@ -974,14 +980,14 @@ label aaa:
     k "…" # (masih speechless kelakuan Arya)
     show Ibu at rpos
     i "Tadi gimana sekolahnya? Sampe bolak-balik gitu kalian?"
-    show Ayah Bingung at cpos
+    show Ayah at cpos
     a "Tadi kalian balik pulang?"
 
-    show Ibu Senyum at rpos
+    show Ibus at rpos
     i "Iya Yah, tadi baru banget Ayah berangkat kerja mereka balik pulang."
     show Brama Malu at lpos
     k "Iya Yah, hehe, laporan Brama ketinggalan."
-    show Ayah Bingung at cpos
+    show Ayah at cpos
     a "Wah kacau, lain kali bener-bener dicek ya, jangan sampe ada yang lupa."
     show Arya Lega at alpos
     r "Walah, Ayah aja lupa ngembaliin kalkulator sampe tantrum tuh si anak."
@@ -989,11 +995,11 @@ label aaa:
     show Brama Bingung at lpos
     k "Diem ya lu."
     show Arya Bahagia at alpos
-    show Ayah Tertawa at cpos
+    show Ayahw at cpos
     a "HAHAHAHA, namanya juga udah bapak-bapak pasti lupaan."
 
     # Transition to the birthday moment
-    show Ayah Bahagia at cpos
+    show Ayahw at cpos
     i "Ngomong-ngomong, Brama, Arya, kalian inget nggak sekarang hari apa?"
     show Arya Bingung at alpos
     r "Hari Kamis?"
@@ -1002,18 +1008,18 @@ label aaa:
     show Arya Kaget at alpos
     r "OIYAA!"
     show Arya Bahagia at alpos
-    show Ayah Tertawa at cpos
+    show Ayahw at cpos
     a "HAHAHAHA. Ternyata masih ada yang inget ulang tahun Ayah."
-    show Ibu Senyum at rpos
+    show Ibus at rpos
     i "Kita harus ucapin apa, nakk? Satu, dua, tiga…"
     show Arya Ketawa at alpos
     show Brama Bahagia at lpos
     "Selamat ulang tahun Ayahhh!"
-    show Ayah Tertawa at cpos
+    show Ayahw at cpos
     a "Hahahaha, terima kasih yaa nak, Ibu."
-    show Ibu Senyum at rpos
+    show Ibus at rpos
     i "Jadiii… buat ngerayain ulang tahun Ayah, kita mau makan-makan dimana inii??"
-    show Ayah Tertawa at cpos
+    show Ayahw at cpos
     a "Hahahaha, sok kalian tentukan. Ayah ngikut dan tinggal bayar aja. HAHAHAHA."
 
     menu:
