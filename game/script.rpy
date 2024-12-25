@@ -2579,6 +2579,8 @@ label rapat_dewan_direksi:
     return #Ending Penjara
 
 # # ------------------------------------- B -------------------------------------
+# IMAGE BACKGROUND
+image istana_negara = im.Scale("bg/IstanaNegara.jpg", 1920, 1080)
 
 label B:
     scene ruang_rapatbumn with fade
@@ -2592,9 +2594,11 @@ label B:
     o "Tapi bukankah kita tidak mengetahui kredibilitas PT Angin Topan?"
     o "Brama, kalau kamu merasa ada yang salah, maka ikuti perasaanmu."
 
+    show BramaK at cpos
     b "Tapi bagaimana dengan nasib karyawanku?"
     o "Apakah menerima tawaran itu bisa menjawab semua permasalahan? Coba pikirkan kembali."
 
+    show BramaK at cpos
     b "Aku terlalu banyak khawatir. Ingat, ini bukan cuma tentang dirimu."
     b "Ini juga tentang bagaimana orang yang hidup dari perusahaan ini."
     b "Apa aku harus mengikuti jalan yang sepertinya salah demi menyelamatkan perusahaan?"
@@ -2623,9 +2627,12 @@ label B:
 
     # [16.43, rumah]
     scene rumah with fade
-    show Istri at cpos
+    show BramaK at cpos
     b "Sayang, aku pulang..."
+    hide BramaK
 
+    show BramaK at lpos
+    show Istri at rpos
     i "Sayang, aku sangat bangga atas pencapaianmu, selamat ya!"
     i "Hari ini pasti sangat melelahkan ya, aku buatkan kopi susu buat kamu sayang."
 
@@ -2635,7 +2642,8 @@ label B:
     scene siaran_berita with fade
     b "Apa yang terjadi di Natuna?"
 
-    i "Ayah, lihat ada kapal ditenggelamkan oleh pihak asing. Kasihan sekali bagaimana dengan keluarga mereka."
+    i "Ayah, lihat ada kapal ditenggelamkan oleh pihak asing." 
+    i "Kasihan sekali bagaimana dengan keluarga mereka."
 
     b "Gawat, kejam sekali mereka kepada rakyat Indonesia. Aku harus segera mengambil tindakan!"
 
@@ -4142,6 +4150,7 @@ image bumnkantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
 image bumnlobi = im.Scale("bg/bumn/lobi.png", 1920, 1080)
 image bumnlorong = im.Scale("bg/bumn/lorong.png", 1920, 1080)
 image bumnrapat = im.Scale("bg/bumn/rapat.png", 1920, 1080)
+image natuna = im.Scale("bg/Natuna.png", 1920, 1080)
 
 # # IMAGE CHARA
 image Brama_y:
@@ -4152,27 +4161,58 @@ image Presiden:
     "chara/presiden.png"
     zoom 0.5
 
+image Pistol Nembak:
+    "cutscene/x/pistolnembak.png"
+    zoom 1.5
+image dentuman = im.Scale("cutscene/x/bg.png", 1920, 1080)
+
+# buat pres
+define prcpos = Position(xalign=0.5, yalign=0)
+define prrpos = Position(xalign=1.0, yalign=0)
+define prlpos = Position(xalign=0,yalign=0)
+
+define pistol = Position(xalign=0.5, yalign=0.4)
+
 label I:
     scene bumnkantor with fade
     show Brama_y at lpos
-    show Presiden at ayrpos
+    show Presiden at prrpos
     k "Yang Mulia Presiden, menteri-menteri terhormat, saya mengajukan kebijakan untuk memprioritaskan kesejahteraan rakyat, khususnya di wilayah-wilayah perbatasan seperti Natuna. Sudah terlalu lama mereka menjadi korban dari konflik kepentingan."
     k "Kita harus mengambil tindakan tegas terhadap kapal asing di Natuna."
     pres "Ini langkah yang berani, Menteri Bima. Apakah kau sudah mempertimbangkan seluruh aspeknya?"
-    k "Saya sudah mempertimbangkannya, Pak, dan ini sangat berdampak baik dan menguntungkan masyarakat Indonesia, Pak. Semuanya akan berjalan lancar."
+    k "Saya sudah mempertimbangkannya, dan ini sangat berdampak baik dan menguntungkan masyarakat Indonesia, Bu. Semuanya akan berjalan lancar."
 
+    #scene natuna with fade
     kades "Terima kasih, Pak Bima. Apa yang Bapak lakukan telah mengubah hidup kami. Kini kami punya sekolah baru dan fasilitas kesehatan yang layak."
     k "…… Ini semua untuk kalian. Negara harus hadir di sini, di mana rakyatnya membutuhkan."
     pres "Baik, apabila meninjau dari dokumen yang sudah kau berikan dan jelaskan, saya setuju dengan keputusanmu. Mari kita laksanakan!"
+    
+    scene black with fade
+    "(1 hari setelahnya, konferensi pers)"
 
-    scene bumnkantor with fade
+    scene bumnrapat with fade
     show abatik at aycpos
-    r "Saya, atas nama integritas dan keadilan, harus mengungkap sebuah fakta. Menteri Bima telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya. Ini adalah pelanggaran hukum yang tidak bisa ditoleransi."
+    r "Saya, atas nama integritas dan keadilan, harus mengungkap sebuah fakta."
+    r "Menteri Bima telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya."
+    r "Ini adalah pelanggaran hukum yang tidak bisa ditoleransi."
 
+    scene terasrumah_y with fade
+    "(Dengan diketahuinya kasus penyalahgunaan anggaran, Brama ditangkap oleh pihak kepolisian di kediamannya.)"
+    "(Beberapa wartawan berkumpul dengan Brama telah diborgol tangannya.)"
+    show male at cpos
     warta "Pak Bima, apa benar tuduhan ini? Bagaimana tanggapan Anda?"
+    hide male
+    show Brama_y at cpos
     k "Saya hanya ingin membantu rakyat. Jika ini harga yang harus saya bayar, saya terima."
     k "Untuk rakyatku, maafkan aku jika langkahku tidak sempurna. Tapi aku tidak pernah menyesal memperjuangkan kalian."
 
+    scene dentuman with fade
+    "(Brama divonis hukuman yang sangat berat. Mungkin Arya tidak berpikir akan sejauh ini tuntutannya. Tetapi jika melawan negara adidaya, apa yang bisa dilakukan?)"
+    "(Akhirnya kamil dipenjara, dan Brama dijatuhkan atas…)"
+    show Pistol Nembak at pistol with fade
+    "(Hukuman mati.)"
+    scene black
+    "DORR!"
     r "Mimpi buruk lagi lu?"
 
     return
@@ -4180,11 +4220,12 @@ label I:
 
 # # ------------------------------------- SCRIPT J -------------------------------------# #
 # # DEFINE CHARACTERS
-# define k = Character("Brama", color="#472301")
-# define r = Character("Arya",  color="#472301")
+define k = Character("Brama", color="#472301")
+define r = Character("Arya",  color="#472301")
 define pres = Character("Presiden", color="#472301")
 define kades = Character("Kepala Desa", color="#472301")
 define warta = Character("Wartawan", color="#472301")
+define pgw = Character("Pegawai", color="#472301")
 
 # # IMAGE CHARA
 
@@ -4193,23 +4234,54 @@ image Presiden:
     zoom 0.5
 
 label J:
+    "(Beberapa jam setelahnya, diadakan rapat untuk membahas keputusan final geostrategi Indonesia.)"
+    scene bumnkantor with fade
+    show Brama_y at cpos
     k "Sekretaris, tolong sampaikan kepada seluruh divisi untuk rapat pada sore hari ini. Ada hal penting yang harus diselesaikan sebelum rapat dengan presiden."
     skre "Baik, Pak Bima. Akan segera saya informasikan kepada seluruh divisi untuk menghadiri rapat."
-    k "Okay, setelah diskusi panjang dan lebar, menimbang seluruh pro dan kontra yang ada dengan ajuan kebijakan lain, maka kebijakan diplomasi menurut saya yang paling ideal."
-    k "Dengan dilakukannya diplomasi, kita dapat menerima keuntungan yang lebih banyak."
-    pegawai "Setuju dengan apa yang dikatakan oleh Pak Bima. Jadi tugas kita hari ini adalah dengan terus mengawal ajuan ini hingga menjadi seorang anggota dewan."
-    k "Selamat siang, Bapak Presiden yang terhormat, dan yang saya hormati Bapak Ibu Menteri sekalian. Di sini izinkan saya untuk menyampaikan solusi yang tepat untuk mengatasi permasalahan LCS."
-    k "LCS adalah masalah regional yang berlarut-larut dan merugikan negara ini. Oleh karena itu, saya mengajukan untuk kita melalui jalur diplomasi yang lebih kuat agar tidak terjadi peningkatan eskalasi regional."
-    pres "Ini langkah yang menguntungkan bagi kita, Pak Bima. Apakah Anda sudah mempertimbangkan seluruh aspek dari kebijakan tersebut?"
-    k "Sudah, Pak Presiden. Kami telah mengkaji secara mendalam bahwa dengan dilakukannya diplomasi, kita dapat menerima keuntungan lebih untuk membantu meningkatkan perekonomian kita dibandingkan dengan konfrontasi secara langsung."
-    k "Jika memilih konfrontasi, maka kita akan berada di situasi perang dan akan mengganggu kestabilan negara ini. Dengan diplomasi, kita dapat meningkatkan kesejahteraan rakyat juga secara tidak langsung."
-    pres "Baik, apabila meninjau dari dokumen yang sudah kau berikan dan jelaskan, saya setuju dengan keputusanmu. Mari kita laksanakan!"
 
-    kades "Saya rasa pemerintah tidak peduli terhadap kami, rakyatnya! Para pejabat itu hanya peduli soal kantongnya masing-masing, tidak peduli terhadap kami rakyat kecil di Natuna."
+    scene bumnrapat with fade
+    show Presiden at prcpos
+    pres "Selamat siang, Bapak Ibu sekalian. Saat ini adalah momen krusial kita."
+    pres "Melalui rapat ini, kita akan memutuskan aksi kita terhadap China."
+    pres "Silakan, Bapak Bima, selaku Menteri Luar Negeri, untuk menyampaikan pendapatnya."
+    hide Presiden
+
+    show Brama_y at lpos
+    show Presiden at prrpos
+    k "Selamat siang, Ibu Presiden yang terhormat, dan yang saya hormati, Bapak Ibu Menteri sekalian."
+    k "Di sini izinkan saya untuk menyampaikan solusi yang tepat untuk mengatasi permasalahan Laut Natuna."
+    k "Laut Natuna adalah masalah regional yang berlarut-larut dan merugikan negara ini."
+    k "Menimbang seluruh pro dan kontra yang ada, maka kebijakan diplomasi menurut saya adalah langkah yang paling ideal."
+    k "Oleh karena itu, saya mengajukan untuk kita melalui jalur diplomasi yang lebih kuat agar tidak terjadi ketegangan nasional."
+    k "Dengan dilakukannya diplomasi, kita dapat menerima keuntungan dan stabilitas yang lebih baik."
+    hide Presiden
+
+    show Arya_y at ayrpos
+    r "Setuju dengan apa yang dikatakan oleh Pak Bima."
+    hide Arya_y
+
+    show Presiden at prrpos
+    pres "Ini langkah yang menguntungkan bagi kita, Pak Bima."
+    pres "Apakah Anda sudah mempertimbangkan seluruh aspek dari kebijakan tersebut?"
+    k "Sudah, Ibu Presiden. Kami telah mengkaji secara mendalam."
+    k "Dengan dilakukannya diplomasi, kita dapat menerima keuntungan lebih untuk membantu meningkatkan perekonomian."
+    k "Jika memilih konfrontasi, maka kita akan berada di situasi perang dan akan mengganggu kestabilan negara ini."
+    k "Dengan diplomasi, kita dapat meningkatkan kesejahteraan rakyat juga secara tidak langsung."
+    pres "Baik, apabila meninjau dari dokumen yang sudah Bapak berikan dan jelaskan, saya setuju dengan keputusan Bapak."
+    pres "Mari kita laksanakan!"
+
+    "(Satu hari berikutnya..)"
+    scene natuna with fade
+    kades "Saya rasa pemerintah tidak peduli terhadap kami, rakyatnya! "
+    kades "Para pejabat itu hanya peduli soal kantongnya masing-masing, tidak peduli terhadap kami rakyat kecil di Natuna!"
     kades "Sungguh dzolim, terutama untuk Anda, Pak Menteri Luar Negeri, dan para pejabat negeri ini!"
 
-    k "Langkah ini yang terbaik untuk kita semua. Kita tidak bisa meningkatkan eskalasi regional yang akan sangat merugikan perekonomian."
-
+    #scene demo, belum ada
+    show Pistol Nembak at pistol with fade
+    "(Hukuman mati.)"
+    scene black
+    "DORR!"
     r "Mimpi buruk lagi lu?"
 
     return
