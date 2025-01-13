@@ -2402,22 +2402,29 @@ label balikkamil:
 # # # ------------------------------------- SCRIPT A -------------------------------------# #
 # DEFINE CHARACTERS
 define b = Character("Brama", color="#86ccec")
+define a = Character("Arya", color="#ffd54a")
 define o = Character("Other", color="#99928c")
 define s = Character("Sekretaris", color="#ffffff")
-define dir_a = Character("Direktur A", color="#ffffff")
-define dir_b = Character("Direktur B", color="#ffffff")
-define dir_c = Character("Direktur C", color="#ffffff")
-define sl = Character("Staff Lobi", color="#ffffff")
-define p = Character("Petugas KPK", color="#ffffff")
+define dir_a = Character("Direktur A", color="#000000ff")
+define dir_b = Character("Direktur B", color="#000000ff")
+define dir_c = Character("Direktur C", color="#000000ff")
+define sl = Character("Staff Lobi", color="#000000ff")
+define p = Character("Petugas KPK", color="#000000ff")
+define staffa = Character("Staff A",  color="#000000ff")
+define moderator = Character("Moderator", color="#000000ff")
+define diplomat = Character("Diplomat", color="#c00b0bff")
 
 # IMAGE BACKGROUND
 image kantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
 image ruang_rapatbumn = im.Scale("bg/bumn/rapat.png", 1920, 1080)
 image lobibumn = im.Scale("bg/bumn/lobi.png", 1920, 1080)
 image lorongbumn = im.Scale("bg/bumn/lorong.png", 1920, 1080)
+image ruang_rapat_menteri = im.Scale("bg/kmenteri/rapat.png", 1920, 1080)
+image ruang_kerja_bram_pagi = im.Scale("bg/kmenteri/pagi.png", 1920, 1080)
+image ruang_kerja_bram_malam = im.Scale("bg/kmenteri/malam.png", 1920, 1080)
 
 # IMAGE CHARA
-image BramaK:
+"""image BramaK:
     "chara/Brama.png"
     zoom 0.5
 image Sekretaris:
@@ -2428,7 +2435,110 @@ image Direktur_A:
     zoom 1.6
 image Direktur_C:
     "chara/moder.png"
+    zoom 1.6"""
+image BramaK:
+    "chara/Brama.png"
+    zoom 0.5
+image BramaKNetral:
+    "chara/bumn_brama/SERIOUS_NEUTRAL.png"
+    zoom 0.5
+image BramaKSenang:
+    "chara/bumn_brama/HAPPY.png"
+    zoom 0.5
+image BramaKLega:
+    "chara/bumn_brama/RELIEVED.png"
+    zoom 0.5
+image BramaKMarah:
+    "chara/bumn_brama/ANGRY.png"
+    zoom 0.5
+image BramaKKosong:
+    "chara/bumn_brama/EMPTY.png"
+    zoom 0.5
+image BramaKBingung:
+    "chara/bumn_brama/CONFUSED.png"
+    zoom 0.5
+
+image AryaYNetral:
+    "chara/bumn_arya/NEUTRAL.png"
+    zoom 1.5
+image AryaYKopi:
+    "chara/bumn_arya/MENYESAP KOPI.png"
+    zoom 1.5
+image AryaYSenyum:
+    "chara/bumn_arya/HAPPY SMILE.png"
+    zoom 1.5
+image AryaYKetawa:
+    "chara/bumn_arya/HAPPY LAUGH.png"
+    zoom 1.5
+image AryaYSerius:
+    "chara/bumn_arya/SERIOUS.png"
+    zoom 1.5
+
+image Istri:
+    "chara/istri/biasa.png"  
     zoom 1.6
+image Istri s:
+    "chara/istri/buka.png"
+    zoom 1.6
+image Istri snark:
+    "chara/istri/snark.png"  
+    zoom 1.6
+
+image telfonkabel:
+    "single asset/Telfon kabel.png"
+    zoom 0.45
+image Sekretaris:
+    "chara/Sekre.png"
+    zoom 0.65
+image Direktur_A:
+    "chara/dirA.png"
+    zoom 1.6
+image Direktur_C:
+    "chara/moder.png"
+    zoom 1.6
+image Diplomat:
+    "chara/dcinas.png"
+    zoom 1.2
+
+image male:
+    "chara/male.png"  
+    zoom 1.8
+image maleGlitch:
+    zoom 1.8
+    At("chara/male.png", glitch)
+    pause 0.2
+    At("chara/male.png", animated_glitch)
+    pause 0.2
+    At("chara/male.png", glitch)
+    pause 0.1
+    At("chara/male.png", animated_glitch)
+    pause 0.1
+    At("chara/male.png", glitch)
+    pause 0.3
+    At("chara/male.png", animated_glitch)
+    pause 1.0
+    repeat
+image male2:
+    "chara/male.png"  
+    zoom 1.8
+image fem:
+    "chara/fem.png"  
+    zoom 1.4
+
+# buat brama
+define cpos = Position(xalign=0.5, yalign=0)
+define rpos = Position(xalign=0.9, yalign=0)
+define lpos = Position(xalign=0,yalign=0)
+
+# buat arya
+define aycpos = Position(xalign=0.5, yalign=0)
+define ayrpos = Position(xalign=1.25, yalign=0)
+define aylpos = Position(xalign=0,yalign=0)
+
+# buat telpon
+define tlcpos = Position(xalign=0.5, yalign=0)
+define tlrpos = Position(xalign=1.01, yalign=0.6)
+define tllpos = Position(xalign=0,yalign=0)
 
 label A: #email_keputusan
     scene kantor with fade
@@ -2582,30 +2692,49 @@ label rapat_dewan_direksi:
 # IMAGE BACKGROUND
 image istana_negara = im.Scale("bg/IstanaNegara.jpg", 1920, 1080)
 
+# IMAGE TEXT
+image slideB1 = im.Scale("text/B/Slide1.PNG", 1920, 1080)
+image slideB2 = im.Scale("text/B/Slide2.PNG", 1920, 1080)
+image slideB3 = im.Scale("text/B/Slide3.PNG", 1920, 1080)
+image slideB4 = im.Scale("text/B/Slide4.PNG", 1920, 1080)
+image slideB5 = im.Scale("text/B/Slide5.PNG", 1920, 1080)
+image slideB6 = im.Scale("text/B/Slide6.PNG", 1920, 1080)
+image slideB7 = im.Scale("text/B/Slide7.PNG", 1920, 1080)
+image slideB8 = im.Scale("text/B/Slide8.PNG", 1920, 1080)
+image slideB9 = im.Scale("text/B/Slide9.PNG", 1920, 1080)
+
 label B:
     scene ruang_rapatbumn with fade
     show BramaK at cpos
 
     # (Ngomong dalam hati)
-    b "Aku harus lihat situasinya. Perusahaan ini adalah hidupku."
-    b "Kalau aku kehilangan dana ini, aku juga akan kehilangan segalanya. Tawaran dari PT Angin Topan ini jalan keluar terbaik."
-    b "Aku rasa mereka tidak akan mencurigai apa-apa kalau aku berhati-hati."
+    b "(Aku harus lihat situasinya. Perusahaan ini adalah hidupku.)"
+    b "(Kalau aku kehilangan dana ini, aku juga akan kehilangan segalanya. Tawaran dari PT Angin Topan ini jalan keluar terbaik.)"
+    b "(Aku rasa mereka tidak akan mencurigai apa-apa kalau aku berhati-hati.)"
+    hide BramaK
 
+    show maleGlitch at cpos
     o "Tapi bukankah kita tidak mengetahui kredibilitas PT Angin Topan?"
     o "Brama, kalau kamu merasa ada yang salah, maka ikuti perasaanmu."
+    hide maleGlitch
 
     show BramaK at cpos
     b "Tapi bagaimana dengan nasib karyawanku?"
+    hide BramaK
+    show maleGlitch at cpos
     o "Apakah menerima tawaran itu bisa menjawab semua permasalahan? Coba pikirkan kembali."
+    hide maleGlitch
 
     show BramaK at cpos
-    b "Aku terlalu banyak khawatir. Ingat, ini bukan cuma tentang dirimu."
-    b "Ini juga tentang bagaimana orang yang hidup dari perusahaan ini."
-    b "Apa aku harus mengikuti jalan yang sepertinya salah demi menyelamatkan perusahaan?"
-    b "Atau aku harus bertahan dengan prinsipku, walaupun aku tahu aku mungkin akan hancur?"
-    b "Bagaimana dengan keluarga kecilku kalau aku menyerah pada ini?"
-    b "Tapi kalau aku dipenjara, bagaimana aku bisa melindungi mereka?"
-    b "Aku tidak punya pilihan lain, aku harus menyelamatkan semuanya, aku harus melakukannya."
+    b "(...)"
+    b "(Aku terlalu banyak khawatir. Ingat, ini bukan cuma tentang dirimu.)"
+    b "(Ini juga tentang bagaimana orang yang hidup dari perusahaan ini.)"
+    b "(Apa aku harus mengikuti jalan yang sepertinya salah demi menyelamatkan perusahaan?)"
+    b "(Atau aku harus bertahan dengan prinsipku, walaupun aku tahu aku mungkin akan hancur?)"
+
+    b "(Bagaimana dengan keluarga kecilku kalau aku menyerah pada ini?)"
+    b "(Tapi kalau aku dipenjara, bagaimana aku bisa melindungi mereka?)"
+    b "(Aku tidak punya pilihan lain, aku harus menyelamatkan semuanya, aku harus melakukannya.)"
 
     # [Mengetik email balasan]
     "Brama mulai mengetik email balasan di laptopnya."
@@ -2613,48 +2742,62 @@ label B:
     b "Semoga ini tidak kembali menghantui aku di masa depan..."
 
     # Time skip
-    #SLDIDE MERAHJ
-    #
-    #
-    #
+    scene slideB1 with fade
+    pause
+    scene slideB2 with fade
+    pause
+    scene slideB3 with fade
+    pause
+    scene slideB4 with fade
+    pause
+    
     scene istana_negara with fade
+    show BramaKSenang at cpos
     b "Akhirnya saudaraku, kau hebat."
     b "Selamat ya Arya, telah menjadi menteri perdagangan."
-
-    show Arya at cpos
+    hide BramaKSenang
+    show AryaYKetawa at cpos
     a "Ini berkatmu juga, Brama. Selalu support, kamu juga tidak kalah keren, telah menjadi menteri luar negeri."
     a "Selamat!"
 
-    # [16.43, rumah]
+    scene slideB5 with fade
+    pause
     scene rumah with fade
-    show BramaK at cpos
+    show BramaKSenang at cpos
     b "Sayang, aku pulang..."
     hide BramaK
 
-    show BramaK at lpos
-    show Istri at rpos
-    i "Sayang, aku sangat bangga atas pencapaianmu, selamat ya!"
-    i "Hari ini pasti sangat melelahkan ya, aku buatkan kopi susu buat kamu sayang."
-
+    show BramaKSenang at lpos
+    show Istri s at ayrpos
+    ist "Sayang, aku sangat bangga atas pencapaianmu, selamat ya!"
+    ist "Hari ini pasti sangat melelahkan ya, aku buatkan kopi susu buat kamu sayang."
+    hide BramaKSenang
+    show BramaKLega at lpos
     b "Emm, enak sekali. Makasih ya sayang, ini berkatmu juga."
 
     # [Dilanjutkan Brama menonton TV]
     scene siaran_berita with fade
+    show BramaKNetral at cpos
     b "Apa yang terjadi di Natuna?"
+    hide BramaKNetral with fade
 
-    i "Ayah, lihat ada kapal ditenggelamkan oleh pihak asing." 
-    i "Kasihan sekali bagaimana dengan keluarga mereka."
+    show BramaK at lpos
+    show Istri at ayrpos
+    ist "Ayah, lihat ada kapal ditenggelamkan oleh pihak asing." 
+    ist "Kasihan sekali bagaimana dengan keluarga mereka."
 
     b "Gawat, kejam sekali mereka kepada rakyat Indonesia. Aku harus segera mengambil tindakan!"
 
-    # [POV Arya]
-    scene diplomat_call with fade
-    show Arya at cpos
+    scene slideB6 with fade
+    pause
+    scene kantor with fade #diplomat_call
+    "(Diplomat Tiongkok sedang menghubungi Ridwan untuk membahas permasalahan yang sedang ramai)"
 
-    a "Hi Mr. Diplomat, sorry for bothering your time but right now I have something important to discuss with you."
-
-    diplomat "Hi, it’s okay, I have free time for you."
-    diplomat "What do you want to talk about?"
+    show AryaYKopi at aylpos
+    show Diplomat at rpos
+    diplomat "Hi Mr. Arya, sorry for bothering your time but right now I have something important to discuss with you."
+    a "Hi, it’s okay, I have free time for you."
+    a "What do you want to talk about?"
     diplomat "It's about a problem on Natuna."
     diplomat "There’s a mistake that caused our coast guard to pass the Indonesian maritime border, which makes a little conflict with local fishermen and sink their ship."
 
@@ -2670,39 +2813,45 @@ label B:
     diplomat "Just say it and we will fulfill what you asked."
 
     a "Okay, I will clear the problem."
-    a "It’s easy to handle, my brother."
-    a "But I want you to get rid of my brother Brama in a soft way."
+    a "It’s easy to handle." #, my brother
+    a "But I want you to get rid of my brother, Brama, in a soft way."
     a "So I can be the president for the next period."
 
     diplomat "Sure, we will give you another gift which is everything you want like money, etc." 
 
     # [Scene transition]
     scene black with fade
-    "Rencana Arya mulai terbentuk di benaknya, dan dia tahu langkah selanjutnya yang harus diambil." 
+    show AryaYSerius at aycpos
+    "(Rencana Arya mulai terbentuk di benaknya, dan dia tahu langkah selanjutnya yang harus diambil.)" 
 
+    scene slideB7 with fade
+    pause
     scene rumah with fade
-    show Brama at cpos
-
-    # [POV Brama]
+    show BramaKBingung at cpos
     b "Aduh, baru bentar menjabat jadi Kemenlu, ada aja kerjaan yang harus dilakukan."
+    hide BramaKBingung
+    show BramaKNetral at cpos
     b "Tapi ini kasus cukup serius. Aku harus melakukan apa?"
 
     menu:
         "Bergegas pergi rapat":
+            hide BramaKNetral
             jump pergirapat
         "Menghubungi Arya":
+            hide BramaKNetral
             jump menghubungiarya
 
 label pergirapat:
+    show BramaKNetral at lpos
     b "Sayang, aku harus segera pergi ke kantor untuk membicarakan masalah ini."
-
-    show Istri at slpos
-    i "Boleh, ayah. Hati-hati ya di jalan."
+    show Istri s at rpos
+    ist "Boleh, ayah. Hati-hati ya di jalan."
+    hide Istri s
 
     # [Telepon Sekretaris]
-    b "Hallo, Pak. Tolong segera dibuatkan rapat untuk membahas permasalahan ini ya."
-
-    staff "Baik, akan segera saya informasikan mengenai ruangan di tempat meeting biasa ya, Pak."
+    b "Halo, Pak. Tolong segera dibuatkan rapat untuk membahas permasalahan ini ya."
+    show telfonkabel at tlrpos
+    staffa "Baik, akan segera saya informasikan mengenai ruangan di tempat meeting biasa ya, Pak."
 
     b "Baik, tolong disiapkan dan kabarkan pada yang lain."
 
@@ -2711,6 +2860,7 @@ label pergirapat:
     jump rapat_dewan_direksi  # Melanjutkan ke rapat dewan direksi
 
 label menghubungiarya:
+    show BramaKNetral at lpos
     b "Aku membutuhkan Arya. Ini sangat kacau situasinya."
 
     # [Menelpon Arya]
@@ -2734,30 +2884,40 @@ label menghubungiarya:
 # Define the variable C
 define C = False
 
-label ruang_rapat:
+label rapat_dewan_direksi:
     scene ruang_rapat_menteri with fade
-    show Brama at cpos
-    show Arya at rpos
-    show Staff at lpos
+    show BramaK at cpos
+    show AryaYNetral at ayrpos
+    show male at lpos
 
     "Suasana ruang rapat terbatas terlihat tegang. Sebuah layar besar di depan mereka menunjukkan peta perairan Natuna, dengan laporan insiden terbaru yang melibatkan kapal asing dari Tiongkok yang menenggelamkan kapal nelayan Indonesia."
 
-    staff "Pak Menteri, ini adalah laporan terbaru."
-    staff "Sebuah kapal nelayan dari Natuna tenggelam oleh kapal patroli asing."
-
+    staffa "Pak Menteri, ini adalah laporan terbaru."
+    staffa "Sebuah kapal nelayan dari Natuna tenggelam oleh kapal patroli asing."
+    hide BramaK
+    show BramaKNetral at cpos
     b "Bagaimana dengan keadaan orang di dalam kapal tersebut?"
-    staff "Lima nelayan selamat, tetapi mereka mengalami trauma berat."
-    staff "Ini bukan kejadian pertama, dan mereka semakin berani memasuki wilayah kita."
-
+    hide BramaKNetral
+    show BramaK at cpos
+    staffa "Lima nelayan selamat, tetapi mereka mengalami trauma berat."
+    staffa "Ini bukan kejadian pertama, dan mereka semakin berani memasuki wilayah kita."
+    hide BramaK
+    show BramaKNetral at cpos
     b "Begitu ya?"
+    hide BramaKNetral
+    show BramaKMarah at cpos
     b "Kalau begitu, kita harus TENGGELAMKAN kapal mereka juga."
     b "Mereka tidak akan jera apabila tidak dengan tindakan yang agresif."
-
+    hide AryaYNetral
+    show AryaYKopi at ayrpos
     a "Brama, saya paham kemarahan masyarakat, tapi mari kita realistis."
     a "Kalau kita mengambil langkah agresif terhadap mereka, dampaknya pada ekonomi kita bisa fatal."
+    hide AryaYKopi
+    show AryaYNetral at ayrpos
     a "Mereka salah satu mitra dagang terbesar kita."
     a "Kalau hubungan ini memburuk, ekspor kita bisa hancur, dan itu akan memukul perekonomian nasional."
-
+    hide AryaYNetral
+    hide male
     menu:
         "Tetap Idealis (C)":
             $ C = True
@@ -2766,21 +2926,30 @@ label ruang_rapat:
             jump setujuarya
 
 label tetapidealis:
+    show AryaYNetral at ayrpos
+    show male at lpos
+    hide BramaKMarah
+    show BramaKNetral at cpos
     b "Saya tahu itu, Arya."
     b "Tapi kita juga tidak bisa terus membiarkan kejadian ini."
     b "Rakyat kita di Natuna semakin kehilangan kepercayaan pada pemerintah."
     b "Mereka merasa kita tidak melindungi mereka."
     b "Pendapatan pajak dari sektor perikanan di sana juga terus menurun karena nelayan takut melaut."
-
+    hide AryaYNetral
+    show AryaYKopi at ayrpos
     a "Lalu apa saranmu, Brama? Kita menenggelamkan kapal asing?"
     a "Itu sama saja dengan mendeklarasikan perang secara tidak langsung."
     a "Ekonomi kita tidak siap menghadapi embargo atau retaliasi dagang."
 
     b "Masalahnya, Arya, ini bukan hanya tentang ekonomi."
+
+    hide BramaKNetral
+    show BramaKMarah at cpos
     b "Ini soal kedaulatan kita."
     b "Kalau mereka terus menekan, apa yang akan kita tinggalkan untuk generasi mendatang?"
     b "Uang bisa dicari, tapi bagaimana dengan rakyat dan kehormatan negara?"
-
+    hide AryaYKopi
+    show AryaYSerius at ayrpos
     a "Brama, jangan idealis di sini."
     a "Kita bicara soal realitas."
 
@@ -2788,8 +2957,16 @@ label tetapidealis:
     jump akhir_rapat
 
 label setujuarya:
+    show AryaYNetral at ayrpos
+    show male at lpos
+    hide BramaKMarah
+    show BramaKNetral at cpos
     b "Ada benarnya yang kamu katakan, mereka juga menguasai jalur perdagangan terbesar."
-
+    hide AryaYNetral
+    hide male
+    hide BramaKNetral
+    show BramaKNetral at lpos
+    show maleGlitch at rpos
     o "BRAMA, pikirlah kembali, bagaimana dengan rakyat di sana?"
     b "Tetapi langkah agresif ini akan membuat perpecahan antar negara."
     o "Kapal mereka ditenggelamkan dengan semena-mena."
@@ -2799,12 +2976,18 @@ label setujuarya:
     b "Tapi aku setuju dengan pernyataan Arya, hal ini tidak bisa dilakukan."
     o "Kau tidak kasihan sebagai menteri pada rakyat Indonesia?"
     o "Dan, ingat Brama, rakyatmu keluargamu juga."
+    hide maleGlitch
+    hide BramaKNetral
 
+    show AryaYNetral at ayrpos
+    show male at lpos
+    show BramaKNetral at cpos
     b "Arya, apakah kau memikirkan dampaknya juga terdapat masyarakat di sana?"
     a "Ya, tentu saja saya memikirkan mereka."
     a "Tapi apa boleh buat, ini demi menjaga hubungan yang baik sesama negara."
-
-    b "Tapi, Wan, bagaimana jika mereka terus menekan kita?"
+    hide AryaYNetral
+    show BramaKBingung at cpos
+    b "Tapi, Arya, bagaimana jika mereka terus menekan kita?"
     b "Jika kita hanya diam, apa yang akan terjadi pada nelayan kita?"
 
     a "Saya paham, Brama. Tapi kita harus cerdas dalam mengambil langkah."
@@ -2820,35 +3003,39 @@ label setujuarya:
     b "Kau yakin langkah ini cukup untuk membuat mereka jera?"
     a "Ini adalah cara paling aman untuk melindungi kepentingan kita, baik di dalam negeri maupun di luar negeri."
     a "Jika kita memprovokasi mereka dengan tindakan agresif, kita berisiko menghadapi konsekuensi yang lebih besar, termasuk isolasi ekonomi."
-
+    hide BramaKBingung
+    show BramaK at cpos
     b "…"
     b "Baiklah, Arya. Saya mengerti logikamu. Kita akan menempuh jalur diplomasi dan memperkuat pertahanan kita di wilayah tersebut."
 
     a "Terima kasih, Brama. Dengan langkah ini, kita melindungi rakyat kita tanpa harus mengorbankan hubungan antarnegara."
     b "Tapi saya minta satu hal, Arya. Jangan biarkan ini hanya menjadi rencana di atas kertas."
     b "Pastikan semua langkah segera dilaksanakan."
-
+    hide AryaYNetral
+    show AryaYSenyum at ayrpos
     a "Tentu, Brama. Kita akan bergerak cepat."
     b "Kalau begitu, mari kita susun strategi ini dengan detail."
     b "Saya ingin semua pihak terkait dilibatkan dalam diskusi."
 
     jump makan
 
-label makan:
-    scene ruang_rapat with fade
-    show Brama at cpos
-    show Arya at rpos
+label akhir_rapat:
+    scene ruang_rapat_menteri with fade
+    show male at cpos
+    show BramaK at lpos
+    show AryaYNetral at ayrpos
 
     # [Pemimpin rapat ketok-ketok palu]
-    "{tok tok tok tok}"
+    "*tok tok tok tok*"
 
     moderator "Cukup saudara-saudara sekalian."
     moderator "Diskusi kita cukupkan."
     moderator "Kesepakatan keputusan akan kita diskusikan lebih lanjut bersama presiden beberapa hari lagi."
 
     # [Sesaat setelah rapat]
-    scene lorongbumn
-    "{suara perut bunyi}"
+    scene lorongbumn with fade
+    "*suara perut bunyi*"
+    show BramaKBingung at cpos
     b "Perutku sudah bunyi, lapar sekali."
     b "Enaknya makan di mana ya?"
 
@@ -2857,29 +3044,37 @@ label makan:
             jump kantin2
         "Cafe dekat kantor":
             jump cafe
-
+image Kantin = im.Scale("tam/kantin.jpg", 1920, 1080)
 label kantin2:
+    scene Kantin with fade
+    show BramaKSenang at cpos
     b "Mmm, sepertinya makan Ayam saus mentega enak."
     b "Mas, mau ayam saus mentega 1 dan es teh 1 ya."
+    hide BramaKSenang
 
-    # [Ridwan melewati Brama tetapi dia tidak melihat Brama]
-    show Arya at rpos
+    "(Ridwan melewati Brama tetapi dia tidak melihat Brama)"
+    show AryaYNetral at aycpos
     a "..."
-
+    hide AryaYNetral
+    show BramaKSenang at cpos
     menu:
         "Menyapa Arya":
             jump menyapa_arya
         "Tidak menyapa Arya":
             jump tidak_menyapa_arya
-
+image Cafe = im.Scale("tam/cafe.png", 1920, 1080)
 label cafe:
+    scene Cafe with fade
+    show BramaKSenang at cpos
     b "Mmm, sepertinya makan Sop buntut enak dan segar."
     b "Mba, saya pesan sop buntut dan es kopinya 1 ya."
+    hide BramaKSenang
 
-    # [Ridwan melewati Brama tetapi dia tidak melihat Brama]
-    show Arya at rpos
+    "(Ridwan melewati Brama tetapi dia tidak melihat Brama)"
+    show AryaYNetral at aycpos
     a "..."
-
+    hide AryaYNetral
+    show BramaKSenang at cpos
     menu:
         "Menyapa Arya":
             jump menyapa_arya
@@ -2887,51 +3082,71 @@ label cafe:
             jump tidak_menyapa_arya
 
 label menyapa_arya:
+    hide BramaKSenang
+    show BramaKSenang at lpos
     b "Arya……!"
-
+    show AryaYKetawa at ayrpos
     a "Eh, Brama! Kamu juga makan di sini?"
     b "Iya nih, kebetulan lapar banget makannya kesini."
     a "Oala, aku ikut makan di sini juga ya."
     b "Iya, boleh, Arya. Sini aja."
-
+    hide BramaKSenang
     # Continue the story after they sit together
     jump lanjut_makan
 
 label tidak_menyapa_arya:
+    hide BramaKSenang
+    show BramaK at cpos
     b "Mmmm, aku tidak perlu menyapanya…"
+    hide BramaK
 
+    show AryaYKetawa at aycpos
     a "Brama…!"
+    hide AryaYKetawa
+
+    show BramaKNetral at lpos
+    show AryaYKetawa at ayrpos
     b "Eehh.. Arya, kamu makan di sini juga?"
     a "Iya, tadi bosen sama makanan di kantin jadi kesini."
     b "Oala, sini duduk di sini aja."
-    a "Eiyaa, boleh, aku ikut makan di sini ya, Brama?"
+    a "Eh iyaa, boleh, aku ikut makan di sini ya, Brama?"
+    hide BramaKNetral
 
     # Continue the story after they sit together
     jump lanjut_makan
 
 label lanjut_makan:
-    "Brama dan Arya duduk bersama, menikmati makanan mereka sambil berbincang-bincang."
+    hide AryaYKetawa
+    "(Brama dan Arya duduk bersama, menikmati makanan mereka sambil berbincang-bincang.)"
 
-    b "Oiya, Arya, maaf ya untuk tadi."
+    show BramaKBingung at lpos
+    b "Oh iya, Arya, maaf ya untuk tadi."
     b "Aku terbawa emosi, pikiranku sedang berantakan."
 
-    a "Eiyaa, santai aja, ko."
+    show AryaYKetawa at ayrpos
+    a "Eh iyaa, santai aja, ko."
     a "Aku ingin kamu memutuskan permasalahan Laut Cina Selatan ini dengan lebih tenang dan rasional, Brama."
 
     b "Iya, Arya. Aku akan pertimbangkan dari seluruh aspek, baik yang kamu sampaikan kemarin."
 
+    show AryaYKopi at ayrpos
     a "Hal yang kusampaikan tidak semata-mata hanya ingin memperoleh keuntungan."
     a "Tetapi aku memikirkan keterjalinan hubungan yang baik antar negara nantinya, Brama."
 
+    hide BramaKBingung
+    show BramaKNetral at lpos
     b "Baik, Arya. Akan ku coba pikirkan lagi mengenai hal tersebut."
     b "Terima kasih ya."
 
     # [Makanan datang, mereka pun makan bersama]
-    "Makanan yang dipesan pun datang, dan mereka mulai makan bersama."
+    "(Makanan yang dipesan pun datang, dan mereka mulai makan bersama.)"
+    hide BramaKNetral
+    hide AryaYKopi
 
+    show BramaKLega at lpos
     b "Aduh, kenyangnya. Oiya, Arya, aku izin pergi ke kantor duluan ya, ada pekerjaan yang harus diselesaikan."
-
-    a "Oiya, boleh, Brama. Sampai ketemu di kantor."
+    show AryaYKetawa at ayrpos
+    a "Oh iya, boleh, Brama. Sampai ketemu di kantor."
 
     # [Brama pergi dengan pikiran yang dipenuhi oleh permasalahan yang dihadapi]
     "Brama pergi dengan pikiran yang dipenuhi oleh permasalahan yang dihadapi."
@@ -2942,6 +3157,7 @@ label dialogchoiceB:
         jump C
     else:
         jump D
+#----------------------------------
 
 # # ------------------------------------- SCRIPT C -------------------------------------# #
 label ruang_kerja:
