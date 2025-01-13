@@ -2857,7 +2857,7 @@ label pergirapat:
 
     "Brama bergegas menuju kantor, merasa berat dengan tanggung jawab yang harus dihadapi."
 
-    jump rapat_dewan_direksi  # Melanjutkan ke rapat dewan direksi
+    jump rapat_dewan_direksi2  # Melanjutkan ke rapat dewan direksi
 
 label menghubungiarya:
     show BramaKNetral at lpos
@@ -2879,12 +2879,12 @@ label menghubungiarya:
 
     "Brama menutup telepon dan bersiap-siap untuk pergi."
 
-    jump rapat_dewan_direksi  # Melanjutkan ke rapat dewan direksi
+    jump rapat_dewan_direksi2  # Melanjutkan ke rapat dewan direksi
 
 # Define the variable C
 define C = False
 
-label rapat_dewan_direksi:
+label rapat_dewan_direksi2:
     scene ruang_rapat_menteri with fade
     show BramaK at cpos
     show AryaYNetral at ayrpos
