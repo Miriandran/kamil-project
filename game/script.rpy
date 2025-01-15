@@ -504,7 +504,7 @@ label kalku:
     hide atk 
     show Brama Marah at cpos
     k 'wah ini pasti ulah Arya'
-    '(Kamil pun datang ke ruangan meja makan nyamperin Ridwan)'
+    '(Brama pun datang ke ruangan meja makan nyamperin Ridwan)'
     jump ruangmakan
 
 image slide1 = im.Scale("text/X-SMA/Slide1.png", 1920, 1080)
@@ -1961,9 +1961,9 @@ label mulaikerja:
     show Brama_y at cpos
     k "hmmm..."
     scene email
-    #(Kamil membaca email dengan serius. Di dalamnya ada laporan mengenai kondisi keuangan perusahaan dan persiapan untuk presentasi di meeting direksi)
+    #(Brama membaca email dengan serius. Di dalamnya ada laporan mengenai kondisi keuangan perusahaan dan persiapan untuk presentasi di meeting direksi)
     #[menunjukan screen tampilan email] → screenshot layar email di laptop gpp
-    #[Kamil mengecek lampiran laporan tersebut, notifikasi tentang meeting yang akan dimulai dalam waktu 10 menit] → manipulasi aja seakan-akan ada email gini 
+    #[Brama mengecek lampiran laporan tersebut, notifikasi tentang meeting yang akan dimulai dalam waktu 10 menit] → manipulasi aja seakan-akan ada email gini 
     #[scene notifikasi meeting]
     scene bumnkantor with fade
     show Brama_y at cpos
@@ -2664,27 +2664,27 @@ label rapat_dewan_direksi:
     show Direktur_C at Position(xalign=0.9,yalign=0)
     show male at ncpos
 
-    dir_a "Mohon maaf pak Kamil, saya rasa ini tidak bisa menjadi keputusan sepihak bapak saja."
+    dir_a "Mohon maaf pak Brama, saya rasa ini tidak bisa menjadi keputusan sepihak bapak saja."
     dir_a "Karena ini menyangkut hajat hidup orang banyak dan demi keberlanjutan perusahaan."
     dir_b "Benar dengan yang dikatakan oleh direktur keuangan, saya tidak setuju dengan keputusan bapak barusan."
     dir_a "Apakah bapak tidak memikirkan bagaimana nasib para karyawan jika nantinya perusahaan ini bangkrut?"
     dir_a "Berdasarkan hasil audit tim keuangan pun sudah jelas bahwa pembengkakan biaya ini cukup membuat keuangan perusahaan menjadi minus."
     dir_a "Kita sudah tidak punya lagi sisa uang untuk melanjutkan proyek tersebut."
 
-    "Di luar kantor terjadi kericuhan dan ramai dengan rombongan KPK yang akan menggeledah dan menangkap Kamil."
+    "Di luar kantor terjadi kericuhan dan ramai dengan rombongan KPK yang akan menggeledah dan menangkap Brama."
     play sound trans1
     scene lobibumn with fade
     show fem at ncpos
     show male2 at nlpos
 
     sl "Selamat siang, mohon maaf ini rame-rame bapak-bapak semua dari pihak mana dan ada keperluan apa datang kemari?"
-    p "Siang, kami dari KPK akan melakukan penangkapan terhadap pak Kamil selaku direktur utama perusahaan katering Garuda."
-    p "Berdasarkan hasil laporan dan penyelidikan kami bahwa di perusahaan ini terdapat indikasi tindak pidana manipulasi laporan keuangan yang melibatkan pak Kamil."
-    sl "Mohon maaf pak, bapak tidak bisa masuk dikarenakan arahan dari pak Kamil seperti itu."
+    p "Siang, kami dari KPK akan melakukan penangkapan terhadap pak Brama selaku direktur utama perusahaan katering Garuda."
+    p "Berdasarkan hasil laporan dan penyelidikan kami bahwa di perusahaan ini terdapat indikasi tindak pidana manipulasi laporan keuangan yang melibatkan pak Brama."
+    sl "Mohon maaf pak, bapak tidak bisa masuk dikarenakan arahan dari pak Brama seperti itu."
 
     "Pihak KPK tetap maksa masuk dan terjadi sedikit kericuhan."
 
-    p "Ga bisa pak, ini sudah menjadi tugas kami untuk melakukan penggeledahan dan penangkapan pak Kamil."
+    p "Ga bisa pak, ini sudah menjadi tugas kami untuk melakukan penggeledahan dan penangkapan pak Brama."
     sl "Silahkan tunjukan surat perintah penggeledahan dan penangkapan."
 
     "Petugas menunjukkan surat perintah, beberapa orang pegawai KPK telah masuk ke kantor."
@@ -2701,11 +2701,11 @@ label rapat_dewan_direksi:
     scene ruang_rapatbumn with fade
     show Direktur_C at Position(xalign=0.5,yalign=0)
 
-    dir_c "Tenang bapak-bapak semua, apa yang pak Kamil sampaikan benar adanya."
+    dir_c "Tenang bapak-bapak semua, apa yang pak Brama sampaikan benar adanya."
     dir_c "Berdasarkan hasil rapat, dari divisi pengelolaan risiko menyatakan bahwa jika nantinya terbukti bahwa uang yang diinvestasikan merupakan hasil tindak pidana korupsi."
     dir_c "Maka nantinya yang terkena dampaknya tidak hanya kepada perusahaan saja tapi kepada kita semua yang berada di ruangan ini."
     hide Direktur_C
-    "Kamil menyadari bahwa terjadi keributan di luar ruang rapat."
+    "Brama menyadari bahwa terjadi keributan di luar ruang rapat."
     show BramaK at cpos
     b "Tenang bapak-bapak semuanya, sepertinya rapat ini harus kita tunda lagi."
     b "Saya menyadari ada suatu keributan di …"
@@ -2713,18 +2713,18 @@ label rapat_dewan_direksi:
     "Tiba-tiba pegawai KPK masuk ke ruangan rapat."
     show male at ncpos
     p "Selamat siang, kami dari KPK akan melakukan penggeledahan terhadap kantor ini."
-    p "Dan kepada saudara Kamil silahkan ikuti saya keluar ruangan."
+    p "Dan kepada saudara Brama silahkan ikuti saya keluar ruangan."
     hide male
-    "Suasana ruang rapat tegang dan Kamil cemas."
+    "Suasana ruang rapat tegang dan Brama cemas."
     show BramaK at lpos
-    b "Saya Kamil, kalau boleh tau ini ada apa kenapa kalian tiba-tiba datang dan menggeledah kantor kami?"
+    b "Saya Brama, kalau boleh tau ini ada apa kenapa kalian tiba-tiba datang dan menggeledah kantor kami?"
     show male at nrpos
     p "Kami telah menerima laporan bahwa terdapat indikasi tindak pidana manipulasi keuangan terhadap salah satu proyek yang sedang dikerjakan."
-    p "Berdasarkan hasil pengamatan kami juga bahwa hal tersebut juga disetujui oleh saudara Kamil selaku direktur utama perusahaan ini."
+    p "Berdasarkan hasil pengamatan kami juga bahwa hal tersebut juga disetujui oleh saudara Brama selaku direktur utama perusahaan ini."
     p "Kami mohon kooperatifnya agar berjalan dengan lancar."
     hide male
     hide BramaK
-    "Kamil pun berfikir."
+    "Brama pun berfikir."
     show BramaK at cpos
     b "(Wah ini gimana ceritanya mereka bisa secepat ini mencium permasalahan ini? Aduh aku harus apa ini?)"
     show BramaK at lpos
@@ -2732,7 +2732,7 @@ label rapat_dewan_direksi:
     b "Baik pak."
     stop music
 
-    "Kamil pergi mengikuti pegawai KPK. Akhirnya Kamil dibawa ke kantor KPK untuk dimintai keterangan."
+    "Brama pergi mengikuti pegawai KPK. Akhirnya Brama dibawa ke kantor KPK untuk dimintai keterangan."
     play music sad_bgm
     scene black with fade
     show slideA
@@ -4060,7 +4060,7 @@ label kembali_ke_script:
     warga_a "Tapi apa nyatanya pemerintah malah berpihak pada aseng?"
 
     warga_a "SETUJU! Negara tidak peduli terhadap rakyatnya sendiri tapi malah memikirkan kantongnya sendiri!"
-    # [Keadaan menjadi anarkis dan Kamil segera meninggalkan tempat dengan pengawalan ketat]
+    # [Keadaan menjadi anarkis dan Brama segera meninggalkan tempat dengan pengawalan ketat]
     # {suara chaos demo anarkis}
     scene slideD4 with fade
     pause
