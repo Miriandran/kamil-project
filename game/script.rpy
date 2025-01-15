@@ -4964,9 +4964,9 @@ label J:
     k "Dengan dilakukannya diplomasi, kita dapat menerima keuntungan dan stabilitas yang lebih baik."
     hide Presiden
 
-    show Arya_y at ayrpos
+    show AryaYSenyum at ayrpos
     r "Setuju dengan apa yang dikatakan oleh Pak Brama."
-    hide Arya_y
+    hide AryaYSenyum
 
     show Presiden at prrpos
     pres "Ini langkah yang menguntungkan bagi kita, Pak Brama."
