@@ -1,6 +1,6 @@
 ﻿# # ------------------------------------- SCRIPT X - SMA -------------------------------------# #
 # DEFINE CHARACTERS
-define k = Character("Brama", image="chara/sma_kamil/k", color="#86ccec")
+define k = Character("Brama", color="#86ccec")
 define r = Character("Arya", color="#ffd54a")
 define i = Character('Ibu', color="#ffffff")
 define ay = Character('Ayah', color="#ffffff")
@@ -72,6 +72,7 @@ image Arya Menangis Glitch:
 
 image Arya Serius Glitch:
     At("chara/sma_arya/SERIOUS.png", glitch)
+    zoom 2
     pause 0.2
     At("chara/sma_arya/SERIOUS.png", animated_glitch)
     pause 0.2
@@ -1574,8 +1575,6 @@ label akhirsampe:
 
 # # ------------------------------------- SCRIPT Y - BUMN -------------------------------------# #
 # # DEFINE CHARACTERS
-define k = Character("Brama", color="#86ccec")
-define r = Character("Arya",  color="#ffd54a")
 define o = Character("Others",  color="#e3bb96")
 define n = Character("Nina",  color="#6ba7e3")
 define ist = Character("Istri",  color="#ffffff")
@@ -1672,19 +1671,19 @@ label ybumn: #ybumn
     k "Kematian seperti apa yang diikhlaskan semua orang?"
 
     #nunggu full face reveal depan cermin
-    k "Kematian ayah harus terjadi karena keegoisan anaknya."
-    k "..."
-    k "Andai saja waktu dapat berputar."
-    k "24 tahun telah berlalu.."
-    k "Kedamaian dan kerelaan belum kunjung aku temukan."
+    b "Kematian ayah harus terjadi karena keegoisan anaknya."
+    b "..."
+    b "Andai saja waktu dapat berputar."
+    b "24 tahun telah berlalu.."
+    b "Kedamaian dan kerelaan belum kunjung aku temukan."
 
     #Brama mendongak ke atas, tampilan dari samping
     #ruangan di kamar mandi
-    k "Ayah, apakah engkau kecewa kepadaku?"
-    k "Ayah, aku hanya berusaha melakukan yang terbaik."
+    b "Ayah, apakah engkau kecewa kepadaku?"
+    b "Ayah, aku hanya berusaha melakukan yang terbaik."
     #Brama menunduk ke bawah, tampilan masih dari samping]
-    k "Apa jalan yang aku pilih sudah benar?"
-    k "..."
+    b "Apa jalan yang aku pilih sudah benar?"
+    b "..."
     #dari atas sampai sini ga ada image karakter yang muncul di kiri kanan, murni karakter background]
 
     #mulai sini balik ke biasanya, ada karakter di samping kiri kanan]
@@ -1694,7 +1693,7 @@ label ybumn: #ybumn
     o "Sangat wajar jika kamu merasa terpuruk kehilangan ayah."
     o "Terlebih hal itu disebabkan oleh keputusanmu."
 
-    k "..."
+    b "..."
 
     o "Tetap ingatlah satu hal, Brama."
     o "Kamu sudah melakukan hal yang benar."
@@ -1709,11 +1708,11 @@ label ybumn: #ybumn
             jump denial
 
 label terima:
-    k "Kamu benar, Brama."
-    k "Takdir tuhan selalu tidak dapat ditebak."
-    k "Akan ada saatnya semua orang akan mati."
-    k "Termasuk ayah."
-    k "..."
+    b "Kamu benar, Brama."
+    b "Takdir tuhan selalu tidak dapat ditebak."
+    b "Akan ada saatnya semua orang akan mati."
+    b "Termasuk ayah."
+    b "..."
     #(suddenly Brama crying) Brama meneteskan air mata]
 
     k "Tapi apakah aku harus melakukannya?"
@@ -1722,13 +1721,13 @@ label terima:
     jump nina
 
 label denial:
-    k "Engga, engga, engga!"
-    k "Aku ga bisa harus menjalani ini!"
-    k "Kenapa ya Allah??"
+    b "Engga, engga, engga!"
+    b "Aku ga bisa harus menjalani ini!"
+    b "Kenapa ya Allah??"
     #(start to cry) Brama meneteskan air mata]
-    k "Kenapa engkau tidak menganugerahi aku otak bodoh dan apatis?"
-    k "Ayah seharusnya tidak akan mati karena aku."
-    k "..."
+    b "Kenapa engkau tidak menganugerahi aku otak bodoh dan apatis?"
+    b "Ayah seharusnya tidak akan mati karena aku."
+    b "..."
     #menunduk sedih]
     stop music
     jump nina
@@ -1744,18 +1743,18 @@ label nina:
 
     show Brama_y at lpos
     show Nina at rpos
-    k "Iya nak, kenapa nak?"
+    b "Iya nak, kenapa nak?"
     n "Ayah-ayah, ayo buruan sarapan udah ditunggu sama bundaaa!"
     n "Bunda udah nunggu lama di meja makan ihh!"
     n "Ayah juga buruuuu, nanti telat berangkat kerjaa!"
-    k "Oh hehehe, iya nina, sebentar ya ayah masih harus siap-siap dulu."
-    k "Kamu turun duluan ya nak, Ayah 5 menit lagi turun ke bawah."
+    b "Oh hehehe, iya nina, sebentar ya ayah masih harus siap-siap dulu."
+    b "Kamu turun duluan ya nak, Ayah 5 menit lagi turun ke bawah."
     n "Okay yah awas kalau lama."
     hide Nina
     #Ekspresi kesal nina]
     show Brama_y at cpos
-    k "Haduuhh aku tadi mikirin apa sampai ga sadar gini."
-    k "Dah dah, mending aku turun sekarang, terus sarapan dengan anak dan istriku."
+    b "Haduuhh aku tadi mikirin apa sampai ga sadar gini."
+    b "Dah dah, mending aku turun sekarang, terus sarapan dengan anak dan istriku."
     hide Brama_y
     #(time skip) (Brama pergi ke meja makan, istri dan nina udah duduk di kursi) (Brama dan keluarga lagi sarapan di meja makan, Istri bahagia menyambut Brama tapi anak kesal dengan Brama karena terlalu lama)
     #ruang makan]
@@ -1772,7 +1771,7 @@ label nina:
 
 label cucimuka:
     show Brama_y at lpos
-    k "Nggapapa kok sayang, tadi aku cuci muka bentar."
+    b "Nggapapa kok sayang, tadi aku cuci muka bentar."
     show Istri at cpos
     ist "Ohhh begituu."
     hide Brama_y
@@ -4867,8 +4866,6 @@ label H:
 
 # # ------------------------------------- SCRIPT I -------------------------------------# #
 # # DEFINE CHARACTERS
-define k = Character("Brama", color="#86ccec")
-define r = Character("Arya",  color="#fe9f46")
 define pres = Character("Presiden", color="#ff7c7c")
 define kades = Character("Kepala Desa", color="#95ff7d")
 define warta = Character("Wartawan", color="#837d77")
@@ -4965,12 +4962,8 @@ label I:
 
 # # ------------------------------------- SCRIPT J -------------------------------------# #
 # # DEFINE CHARACTERS
-define k = Character("Brama", color="#472301")
-define r = Character("Arya",  color="#472301")
-define pres = Character("Presiden", color="#472301")
-define kades = Character("Kades", color="#472301")
-define warta = Character("Wartawan", color="#472301")
-define pgw = Character("Pegawai", color="#472301")
+define pgw = Character("Pegawai", color="#ffffff")
+
 
 # # IMAGE CHARA
 image kadestv = im.Scale("cutscene/j/kades di tv.png", 1920, 1080)
