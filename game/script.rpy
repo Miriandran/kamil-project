@@ -1666,6 +1666,7 @@ define nlpos = Position(xalign=0,yalign=-0.14)
 
 label ybumn: #ybumn
     scene ngaca
+    play music sad_bgm
     k "Orang mengatakan kematian itu adalah hal mutlak, tidak dapat dihindarkan."
     k "Tapi yang jadi pertanyaan adalah.."
     k "Kematian seperti apa yang diikhlaskan semua orang?"
@@ -1717,6 +1718,7 @@ label terima:
 
     k "Tapi apakah aku harus melakukannya?"
     k "Apakah aku bisa merubah masa lalu?"
+    stop music
     jump nina
 
 label denial:
@@ -1728,14 +1730,17 @@ label denial:
     k "Ayah seharusnya tidak akan mati karena aku."
     k "..."
     #menunduk sedih]
+    stop music
     jump nina
 
 label nina:
+    play sound trans1
     scene kamartidur_y with fade
     #(Nina masuk ke kamar Brama dan memanggil Brama, ekspresi Brama kaget terbangun dari lamunannya)
     #{musik make netral}
     show Nina at cpos
     n "Ayahhh!!"
+    play music idle
 
     show Brama_y at lpos
     show Nina at rpos
@@ -1892,9 +1897,11 @@ label berangkatkerja:
     show Nina at rpos
     ist "Iya sayangg, hati hatii!"
     hide Brama_y
-
+    play sound trans1
+    stop music
     scene bumnlobi with fade
     show Brama_y at cpos
+    play music office_bgm
     k "Fyuh, akhirnya bisa sampai tepat waktu."
     show male at nrpos
     staffa "Selamat pagi, Pak Brama."
@@ -1963,6 +1970,7 @@ label mulaikerja:
     show Brama_y at cpos
     k "Nahh iya, hari ini aku harus meeting online. Hampir saja lupa…"
     scene zoommeeting with fade
+    play sound notif
     ceo "Selamat pagi, semuanya."
     ceo "Sebelum kita mulai, saya ingin memberi tahu mengenai regenerasi tim kita."
     ceo "Izinkan saya memperkenalkan seorang kandidat untuk posisi strategis baru di perusahaan kita, Ibu Rosa."
@@ -1984,18 +1992,24 @@ label mulaikerja:
     k "Betul, ada dua proyek utama yang menjadi penyebab utama kenaikan biaya ini."
     k "Yaitu pengembangan produk baru dan ekspansi ke pasar luar negeri."
     k "Namun, tim keuangan kami telah memastikan bahwa semua alokasi biaya ini sesuai dengan perencanaan awal."
-
+    stop music
     r "Pak Brama, saya perlu melihat file detail pengeluaran kuartal keempat. Bisa kirimkan sekarang?"
+    play sound ngetik
     scene folder with dissolve
     pause 1.0
+    stop sound
+    play sound click_button
     scene folderselect with dissolve
     pause 1.0
+    play sound click_button
     scene file with dissolve
     pause 1.0
+    play sound click_button
     scene filesend with dissolve
     pause 1.0
+    play sound click_button
     # PAKE SOUND CLICK DIANTARA SCENE DIATAS
-
+    play music office_bgm
     scene present with fade
     r "Terima kasih, Pak Brama. File ini sesuai dengan yang saya butuhkan."
 
@@ -2016,8 +2030,10 @@ label mulaikerja:
     k "Lanjutkan."
     skre "Ada pembengkakan biaya di salah satu proyek besar kita, dan jumlahnya cukup signifikan."
     k "Bagaimana? Tolong diulangi."
+    stop music
     skre "Mohon maaf Pak, terdapat pembengkakan biaya pada salah satu proyek kita."
     k "…"
+    play music "audio/semoga tense.wav"
     skre "Sekali lagi mohon maaf Pak mengganggu waktunya."
     k "…"
     k "10 menit lagi silakan datang ke kantor saya."
@@ -2099,6 +2115,7 @@ label rumit:
     k "Ini masalah berat. Perjalanan hidupku sangat bergantung dengan momen ini."
     k "Bagaimana ya aku harus menyelesaikan ini?"
     k "Mungkin akan aku pastikan pada tim legal."
+    stop music
 
     menu:
         "Menelpon Pak Mahfudz":
@@ -2122,7 +2139,7 @@ label pakmahfudz:
 label ahlihukumkantor:
     k "Kalau tidak salah ingat, penasihat hukum utama kantor sedang keluar kota."
     k "Mungkin aku bisa bertanya pada staf pembantunya di kantor ini."
-
+    play sound trans1
     scene bumnlobi with fade
     show Brama_y at cpos
     show male at nrpos
@@ -2151,6 +2168,7 @@ label ahlihukumkantor:
     jump pakandi
 
 label pakandi:
+    play music idle
     scene bumnkantor with fade
     show Brama_y at lpos
     show telfonkabel at tlrpos
@@ -2176,7 +2194,8 @@ label pakandi:
     show Brama_y at cpos
     k "Ini masalah besar…"
     k "Kalau informasi kesalahan ini sampai keluar, saya yang akan dimintai tanggung jawab."
-
+    play sound notif
+    stop music
     #[screenshot notifikasi]
     #[header email: Our company is looking up for prospective investment]
     k "…"
@@ -2216,6 +2235,7 @@ label Cafe:
     jump curhatarya
 
 label curhatarya:
+    play music idle
     show Brama_y at lpos
     show abatik at rpos
     r "Pak Brama, saudaraku!"
@@ -2234,6 +2254,7 @@ label curhatarya:
             jump diamsaja
 
 label diamsaja:
+    play music idle
     k "Aman aja kok, Ar."
     r "Udah lah, dikira bisa bohong ke abangmu ini?"
     r "Kita udah tumbuh bareng lama, loh."
@@ -2249,6 +2270,7 @@ label diamsaja:
     jump cerita
 
 label cerita:
+    play music idle
     k "Haduh iya nih."
     k "Masalah baru menimpa lagi."
     k "Sangatlah pusing."
@@ -2309,7 +2331,7 @@ label lanjutcerita:
     r "Wah bagus dong kalau gitu."
     r "Tunggu apa lagi?"
     r "Ini kesempatan besar buat nyelamatin perusahaan kamu."
-
+    stop music
     menu:
         "Ambil":
             jump ambil
@@ -2335,6 +2357,7 @@ label ragu:
     jump throwbackarya
 
 label throwbackarya:
+    play sound trans1
     scene pov_arya with fade
     pause
     scene bumnkantor with fade
@@ -2342,6 +2365,7 @@ label throwbackarya:
     staffr "Pagi, Pak Arya."
 
     show abatik at aycpos
+    play music office_bgm
     r "Pagi, ada apa?"
     staffr "Saya mendapatkan informasi mengenai anak perusahaan Garuda."
     r "Anak perusahaan yang mana?"
@@ -2389,6 +2413,7 @@ label lanjutthrwback:
     jump balikkamil
 
 label balikkamil:
+    play sound trans1
     scene pov_brama with fade
     pause
     scene bumnrapat with fade
@@ -2413,7 +2438,7 @@ label balikkamil:
     r "Emang kamu nggak kasihan apa buat keluarga karyawan yang bergantung pada pekerja kita untuk hidup sehari-hari?"
     r "Saya dengar-dengar juga ada kemungkinan tindak pidana manipulasi keuangan yang bisa menyeret nama kamu ke jalur hukum."
     r "Daripada kamu kena getahnya, mending bapak terima saja tawaran itu."
-
+    stop music
     menu:
         "Tolak":
             jump A 
@@ -2727,6 +2752,7 @@ image slideB8 = im.Scale("text/B/Slide8.PNG", 1920, 1080)
 image slideB9 = im.Scale("text/B/Slide9.PNG", 1920, 1080)
 
 label B:
+  
     scene ruang_rapatbumn with fade
     show BramaK at cpos
 
@@ -2758,22 +2784,26 @@ label B:
     b "(Bagaimana dengan keluarga kecilku kalau aku menyerah pada ini?)"
     b "(Tapi kalau aku dipenjara, bagaimana aku bisa melindungi mereka?)"
     b "(Aku tidak punya pilihan lain, aku harus menyelamatkan semuanya, aku harus melakukannya.)"
-
+    play sound ngetik
     # [Mengetik email balasan]
     "Brama mulai mengetik email balasan di laptopnya."
-    scene laptop_email with dissolve
+    
     b "Semoga ini tidak kembali menghantui aku di masa depan..."
-
+    stop sound
     # Time skip
+    play sound trans1
     scene slideB1 with fade
     pause
+    play sound trans1
     scene slideB2 with fade
     pause
+    play sound trans1
     scene slideB3 with fade
     pause
+    play sound trans1
     scene slideB4 with fade
     pause
-    
+    play music idle
     scene istana_negara with fade
     show BramaKSenang at cpos
     b "Akhirnya saudaraku, kau hebat."
@@ -2843,12 +2873,14 @@ label B:
     diplomat "Sure, we will give you another gift which is everything you want like money, etc." 
 
     # [Scene transition]
+    play sound trans1
     scene black with fade
     show AryaYSerius at aycpos
     "(Rencana Arya mulai terbentuk di benaknya, dan dia tahu langkah selanjutnya yang harus diambil.)" 
 
     scene slideB7 with fade
     pause
+    stop music
     scene ruangmakan_y with fade
     show BramaKBingung at cpos
     b "Aduh, baru bentar menjabat jadi Kemenlu, ada aja kerjaan yang harus dilakukan."
@@ -2866,6 +2898,7 @@ label B:
 
 label pergirapat:
     show BramaKNetral at lpos
+    play music idle
     b "Sayang, aku harus segera pergi ke kantor untuk membicarakan masalah ini."
     show Istri s at rpos
     ist "Boleh, ayah. Hati-hati ya di jalan."
@@ -2883,6 +2916,8 @@ label pergirapat:
     jump rapat_dewan_direksi2  # Melanjutkan ke rapat dewan direksi
 
 label menghubungiarya:
+    stop music
+    play music office_bgm
     show BramaKNetral at lpos
     b "Aku membutuhkan Arya. Ini sangat kacau situasinya."
 
@@ -2908,6 +2943,7 @@ label menghubungiarya:
 define C = False
 
 label rapat_dewan_direksi2:
+    play music office_bgm
     scene ruang_rapat_menteri with fade
     show BramaK at cpos
     show AryaYNetral at ayrpos
@@ -2941,6 +2977,7 @@ label rapat_dewan_direksi2:
     a "Kalau hubungan ini memburuk, ekspor kita bisa hancur, dan itu akan memukul perekonomian nasional."
     hide AryaYNetral
     hide male
+    stop music
     menu:
         "Tetap Idealis": #C
             $ C = True
@@ -3047,7 +3084,7 @@ label akhir_rapat:
     show male at cpos
     show BramaK at lpos
     show AryaYNetral at ayrpos
-
+    play sound ngetok
     # [Pemimpin rapat ketok-ketok palu]
     "*tok tok tok tok*"
 
@@ -3069,6 +3106,7 @@ label akhir_rapat:
             jump cafe
 image Kantin = im.Scale("tam/kantin.jpg", 1920, 1080)
 label kantin2:
+    play music idle
     scene Kantin with fade
     show BramaKSenang at cpos
     b "Mmm, sepertinya makan Ayam saus mentega enak."
@@ -3087,6 +3125,7 @@ label kantin2:
             jump tidak_menyapa_arya
 image Cafe = im.Scale("tam/cafe.png", 1920, 1080)
 label cafe:
+    plau music idle
     scene Cafe with fade
     show BramaKSenang at cpos
     b "Mmm, sepertinya makan Sop buntut enak dan segar."
@@ -3173,6 +3212,7 @@ label lanjut_makan:
 
     # [Brama pergi dengan pikiran yang dipenuhi oleh permasalahan yang dihadapi]
     "Brama pergi dengan pikiran yang dipenuhi oleh permasalahan yang dihadapi."
+    stop music
 
     jump dialogchoiceB
 label dialogchoiceB:
@@ -3184,6 +3224,7 @@ label dialogchoiceB:
 
 # # ------------------------------------- SCRIPT C -------------------------------------# #
 label ruang_kerja:
+    play music office_bgm
     scene ruang_kerja_bram with fade
     show Brama at cpos
 
@@ -3199,7 +3240,7 @@ label ruang_kerja:
     o "Lihat anakmu… apa kamu nggak ingin dia tumbuh di negara yang kuat, di mana rakyatnya dihormati?"
 
     b "Tapi… apa aku akan menjadi ayah yang bertanggung jawab kalau pilihanku ini menghancurkan segalanya?"
-
+    play sound ngetok
     "{tok..tok..tok..}"
     b "Siapa ya di pagi hari sudah mengetuk ruang kerjaku?"
 
@@ -3221,7 +3262,7 @@ label membuka_pintu:
 label mengabaikannya:
     b "Aduh, siapa yang mengetuk sepagi ini?"
     b "Aku tidak perlu membukanya, masih banyak pekerjaan yang perlu diselesaikan."
-
+    play sound
     "{tok..tok..tok..}"
     b "Ya ampun, suaranya mengganggu hingga tidak bisa melanjutkan pekerjaanku."
     b "Eh, Arya, ada apa…?"
@@ -3894,6 +3935,7 @@ image keesokan_harinya = im.Scale("text/E/slide1.png", 1920, 1080)
 
 # # ------------------------------------- SCRIPT E -------------------------------------# #
 label E:
+    play music office_bgm
     scene black with fade
     show keesokan_harinya
     pause 1
@@ -3910,10 +3952,13 @@ label E:
     b "Dia hanya memikirkan angka dan strategi."
     b "Tapi aku tahu, aku di sini bukan untuk melayani kepentingan jalur diplomasi."
     b "Aku ada di sini untuk mempertahankan prinsip dan martabat bangsa."
+    stop music
     hide BramaKBingung
+    play sound ngetok
     "tok…tok…tok…"
     show BramaKBingung at rpos
     show AryaYSenyum at alpos with fade
+    play music office_bgm
     a "Brama…"
 
     b "Eh Arya, masuk."
@@ -3980,6 +4025,8 @@ label tidak_boleh_menyerah:
 
     a "Kau terlalu keras kepala."
     a "Dunia tidak bekerja seperti idealismemu, Brama. Kita harus pragmatis."
+
+
 
     b "Mungkin aku memang keras kepala, Arya."
     b "Tapi aku tidak akan berpaling dari rakyat Natuna."
@@ -4145,7 +4192,7 @@ label investor_yang_tepat:
     b "Kalau itu artinya aku harus kehilangan posisiku, aku terima."
     b "Tapi aku tidak akan mengorbankan prinsipku hanya demi angka atau hubungan pragmatis."
     b "Aku di sini untuk melindungi rakyat, bukan melayani mereka yang sudah punya terlalu banyak kuasa."
-
+    stop music
     a "…"
 
     # [Lanjutkan dengan alur cerita sesuai kebutuhan]
@@ -4603,6 +4650,7 @@ label I:
     scene bumnkantor with fade
     show Brama_y at lpos
     show Presiden at prrpos
+    play music office_bgm
     b "Yang Mulia Presiden, menteri-menteri terhormat, saya mengajukan kebijakan untuk memprioritaskan kesejahteraan rakyat" 
     b "khususnya di wilayah-wilayah perbatasan seperti Natuna. Sudah terlalu lama mereka menjadi korban dari konflik kepentingan."
     b "Kita harus mengambil tindakan tegas terhadap kapal asing di Natuna."
@@ -4613,6 +4661,8 @@ label I:
     kades "Terima kasih, Pak Brama. Apa yang Bapak lakukan telah mengubah hidup kami. Kini kami punya sekolah baru dan fasilitas kesehatan yang layak."
     b "…… Ini semua untuk kalian. Negara harus hadir di sini, di mana rakyatnya membutuhkan."
     pres "Baik, apabila meninjau dari dokumen yang sudah kau berikan dan jelaskan, saya setuju dengan keputusanmu. Mari kita laksanakan!"
+    play sound trans1
+    stop music
     scene black
     show slide_1 with fade
     pause 1
@@ -4623,6 +4673,7 @@ label I:
     a "Ini adalah pelanggaran hukum yang tidak bisa ditoleransi."
 
     scene terasrumah_y with fade
+    play music crowd
     "(Dengan diketahuinya kasus penyalahgunaan anggaran, Brama ditangkap oleh pihak kepolisian di kediamannya.)"
     "(Beberapa wartawan berkumpul dengan Brama telah diborgol tangannya.)"
     show male at cpos
@@ -4631,8 +4682,9 @@ label I:
     show Brama_y at cpos
     b "Saya hanya ingin membantu rakyat. Jika ini harga yang harus saya bayar, saya terima."
     b "Untuk rakyatku, maafkan aku jika langkahku tidak sempurna. Tapi aku tidak pernah menyesal memperjuangkan kalian."
-
+    stop music
     scene black 
+    play music "audio/semoga tense.wav"
     show slide_2 with fade
     pause 3
     show slide_3 with fade
