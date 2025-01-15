@@ -4942,12 +4942,12 @@ label I:
 # # ------------------------------------- SCRIPT J -------------------------------------# #
 label J:
     "(Beberapa jam setelahnya, diadakan rapat untuk membahas keputusan final geostrategi Indonesia.)"
-    scene bumnkantor with fade
+    scene ruang_kerja_bram_pagi with fade
     show Brama_y at cpos
     k "Sekretaris, tolong sampaikan kepada seluruh divisi untuk rapat pada sore hari ini. Ada hal penting yang harus diselesaikan sebelum rapat dengan presiden."
     skre "Baik, Pak Brama. Akan segera saya informasikan kepada seluruh divisi untuk menghadiri rapat."
 
-    scene bumnrapat with fade
+    scene ruang_rapat_menteri with fade
     show Presiden at prcpos
     pres "Selamat siang, Bapak Ibu sekalian. Saat ini adalah momen krusial kita."
     pres "Melalui rapat ini, kita akan memutuskan aksi kita terhadap China."
