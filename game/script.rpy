@@ -220,7 +220,7 @@ define alpos = Position(xalign=0,yalign=0)
 
 label start:
 # The game starts here.
-
+    jump H
 
     play music "audio/semoga tense.wav"
 
@@ -4433,20 +4433,27 @@ label tidak_boleh_menyerah2:
 
 # # ------------------------------------- SCRIPT H -------------------------------------# #
 label H:
+    scene ruang_kerja_bram_pagi
+    show maleGlitch at cpos 
     o "Tujuan yang ingin kamu capai mungkin memang baik, tapi apakah caranya sudah betul, Brama?"
     o "Jikalau cara yang kau gunakan salah, maka akan banyak mendapat penolakan."
-
+    hide maleGlitch
+    show BramaKNetral at cpos
     b "Apakah ada cara lain selain cara ini? Ku rasa tidak ada."
     b "Apakah mereka juga memikirkan efek jangka panjangnya jika aku melakukan tindakan yang sebaliknya?"
     b "Ku rasa mereka tidak memikirkan sampai hal itu."
     b "Mereka kalau jadi aku dengan posisi ini pasti akan memiliki pemikiran yang sama."
-
+    hide BramaKNetral
+    show maleGlitch at cpos
     o "Terserah kamu lah."
-
+    hide maleGlitch
     "(tok…tok…tok…)"
+    show BramaKBingung at cpos
     a "Brama…"
-
+    hide BramaKBingung
+    show BramaKLega at cpos
     b "Oh, masuk Arya."
+    show AryaYNetral at ayrpos
 
     a "Bagaimana update dari masyarakat Natuna sana?"
     b "Yaa seperti biasa, mereka menginginkan keadilan."
@@ -4460,7 +4467,8 @@ label H:
 
     a "Maka buat mereka berpikir kau bukan ancaman. Biarkan mereka lengah."
     a "Waktu akan memberikan kita ruang untuk bertindak lebih cerdas."
-
+    hide BramaKLega
+    show BramaKNetral at cpos
     b "Kau pikir ini akan berhasil?"
 
     a "Aku tidak tahu, Brama. Tapi ini lebih baik daripada menghancurkan segalanya dengan satu keputusan gegabah."
@@ -4473,7 +4481,8 @@ label H:
     a "Kita akan menemukan jalan, Brama. Kita selalu bisa."
 
     b "Aku rasa kamu benar. Kita harus realistis dalam menghadapi ini."
-
+    hide AryaYNetral
+    show AryaYSenyum at ayrpos
     a "Ah Brama, saudaraku."
     a "Aku senang kamu bisa memutuskan yang terbaik."
     a "Kalau begitu mari kita lanjutkan pembahasan dengan Ibu Presiden."
@@ -4575,14 +4584,14 @@ define pgw = Character("Pegawai", color="#472301")
 
 image Presiden:
     "chara/presiden.png"
-    zoom 0.5
+    zoom 0.8
 
 label J:
     "(Beberapa jam setelahnya, diadakan rapat untuk membahas keputusan final geostrategi Indonesia.)"
     scene bumnkantor with fade
     show Brama_y at cpos
     k "Sekretaris, tolong sampaikan kepada seluruh divisi untuk rapat pada sore hari ini. Ada hal penting yang harus diselesaikan sebelum rapat dengan presiden."
-    skre "Baik, Pak Bima. Akan segera saya informasikan kepada seluruh divisi untuk menghadiri rapat."
+    skre "Baik, Pak Brama. Akan segera saya informasikan kepada seluruh divisi untuk menghadiri rapat."
 
     scene bumnrapat with fade
     show Presiden at prcpos
