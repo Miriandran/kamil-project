@@ -70,6 +70,21 @@ image Arya Menangis Glitch:
     pause 1.0
     repeat
 
+image Arya Serius Glitch:
+    At("chara/sma_arya/SERIOUS.png", glitch)
+    pause 0.2
+    At("chara/sma_arya/SERIOUS.png", animated_glitch)
+    pause 0.2
+    At("chara/sma_arya/SERIOUS.png", glitch)
+    pause 0.1
+    At("chara/sma_arya/SERIOUS.png", animated_glitch)
+    pause 0.1
+    At("chara/sma_arya/SERIOUS.png", glitch)
+    pause 0.3
+    At("chara/sma_arya/SERIOUS.png", animated_glitch)
+    pause 1.0
+    repeat
+
 image Bramaos : 
     "chara/kaos_bram/biasa.png"
     zoom 3
@@ -4547,24 +4562,24 @@ label I:
     scene bumnkantor with fade
     show Brama_y at lpos
     show Presiden at prrpos
-    k "Yang Mulia Presiden, menteri-menteri terhormat, saya mengajukan kebijakan untuk memprioritaskan kesejahteraan rakyat" 
-    k "khususnya di wilayah-wilayah perbatasan seperti Natuna. Sudah terlalu lama mereka menjadi korban dari konflik kepentingan."
-    k "Kita harus mengambil tindakan tegas terhadap kapal asing di Natuna."
+    b "Yang Mulia Presiden, menteri-menteri terhormat, saya mengajukan kebijakan untuk memprioritaskan kesejahteraan rakyat" 
+    b "khususnya di wilayah-wilayah perbatasan seperti Natuna. Sudah terlalu lama mereka menjadi korban dari konflik kepentingan."
+    b "Kita harus mengambil tindakan tegas terhadap kapal asing di Natuna."
     pres "Ini langkah yang berani, Menteri Brama. Apakah kau sudah mempertimbangkan seluruh aspeknya?"
-    k "Saya sudah mempertimbangkannya, dan ini sangat berdampak baik dan menguntungkan masyarakat Indonesia, Bu. Semuanya akan berjalan lancar."
+    b "Saya sudah mempertimbangkannya, dan ini sangat berdampak baik dan menguntungkan masyarakat Indonesia, Bu. Semuanya akan berjalan lancar."
 
     #scene natuna with fade
     kades "Terima kasih, Pak Brama. Apa yang Bapak lakukan telah mengubah hidup kami. Kini kami punya sekolah baru dan fasilitas kesehatan yang layak."
-    k "…… Ini semua untuk kalian. Negara harus hadir di sini, di mana rakyatnya membutuhkan."
+    b "…… Ini semua untuk kalian. Negara harus hadir di sini, di mana rakyatnya membutuhkan."
     pres "Baik, apabila meninjau dari dokumen yang sudah kau berikan dan jelaskan, saya setuju dengan keputusanmu. Mari kita laksanakan!"
     scene black
     show slide_1 with fade
     pause 1
     scene bumnrapat with fade
     show abatik at aycpos
-    r "Saya, atas nama integritas dan keadilan, harus mengungkap sebuah fakta."
-    r "Menteri Brama telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya."
-    r "Ini adalah pelanggaran hukum yang tidak bisa ditoleransi."
+    a "Saya, atas nama integritas dan keadilan, harus mengungkap sebuah fakta."
+    a "Menteri Brama telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya."
+    a "Ini adalah pelanggaran hukum yang tidak bisa ditoleransi."
 
     scene terasrumah_y with fade
     "(Dengan diketahuinya kasus penyalahgunaan anggaran, Brama ditangkap oleh pihak kepolisian di kediamannya.)"
@@ -4573,8 +4588,8 @@ label I:
     warta "Pak Brama, apa benar tuduhan ini? Bagaimana tanggapan Anda?"
     hide male
     show Brama_y at cpos
-    k "Saya hanya ingin membantu rakyat. Jika ini harga yang harus saya bayar, saya terima."
-    k "Untuk rakyatku, maafkan aku jika langkahku tidak sempurna. Tapi aku tidak pernah menyesal memperjuangkan kalian."
+    b "Saya hanya ingin membantu rakyat. Jika ini harga yang harus saya bayar, saya terima."
+    b "Untuk rakyatku, maafkan aku jika langkahku tidak sempurna. Tapi aku tidak pernah menyesal memperjuangkan kalian."
 
     scene black 
     show slide_2 with fade
@@ -4587,8 +4602,11 @@ label I:
     show slide_4 with fade
     pause 1.5
     scene black
+    play sound dentumanpistol
+    stop music
     "DORR!"
-    r "Mimpi buruk lagi lu?"
+    show Arya Serius Glitch at aycpos
+    a "Mimpi buruk lagi lu?"
 
     return
 #---------------------------------
@@ -4681,8 +4699,8 @@ label J:
     play sound dentumanpistol
     stop music
     "DORR!"
-    show maleGlitch at cpos
-    r "Mimpi buruk lagi lu?"
+    show Arya Serius Glitch at aycpos
+    a "Mimpi buruk lagi lu?"
 
     return
 
