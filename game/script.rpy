@@ -2920,10 +2920,10 @@ label rapat_dewan_direksi2:
     hide AryaYNetral
     hide male
     menu:
-        "Tetap Idealis":
+        "Tetap Idealis": #C
             $ C = True
             jump tetapidealis
-        "Setuju dengan Arya":
+        "Setuju dengan Arya":#D
             jump setujuarya
 
 label tetapidealis:
@@ -3018,7 +3018,7 @@ label setujuarya:
     b "Kalau begitu, mari kita susun strategi ini dengan detail."
     b "Saya ingin semua pihak terkait dilibatkan dalam diskusi."
 
-    jump makan
+    jump akhir_rapat
 
 label akhir_rapat:
     scene ruang_rapat_menteri with fade
@@ -3548,6 +3548,7 @@ label kembali_ke_script_utama_2:
             jump F
 
 # # ------------------------------------- SCRIPT D -------------------------------------# #
+image pesisir = im.Scale("bg/Natuna.png", 1920, 1080)
 # IMAGE TEXT
 image slideD1 = im.Scale("text/D/Slide1.PNG", 1920, 1080)
 image slideD2 = im.Scale("text/D/Slide2.PNG", 1920, 1080)
@@ -3660,7 +3661,7 @@ label kembali_ke_rumah:
     ist "Eh sayang, udah pulang. Bagaimana pekerjaan hari ini sayang?"
     hide Istri s 
     show Istri at lpos
-    Ist "Dilihat-lihat dari raut wajah, kayaknya ini hari yang melelahkan ya di kantor?"
+    ist "Dilihat-lihat dari raut wajah, kayaknya ini hari yang melelahkan ya di kantor?"
     b "Iya sayang, kok kamu peka banget sih sama suami mu ini, hari ini hari yang berat."
     b "Tadi aku habis rapat terbatas dengan beberapa menteri, kami membahas mengenai LCS."
     hide Istri
@@ -3692,7 +3693,7 @@ label kembali_ke_rumah:
     b "Ada pekerjaan yang harus ayah selesaikan di sana."
     hide Istri 
     show Istri s at cpos
-    istri "Pasti soal kapal nelayan di situ ya, yah?"
+    ist "Pasti soal kapal nelayan di situ ya, yah?"
     hide Istri s 
     show Istri at cpos
     hide BramaK 
@@ -3708,7 +3709,7 @@ label kembali_ke_rumah:
     show BramaK at lpos
     hide Istri 
     show Istri s at cpos
-    istri "Iya, ayah hati-hati ya. Semoga masalah ini cepat selesai."
+    ist "Iya, ayah hati-hati ya. Semoga masalah ini cepat selesai."
     hide Istri s 
     show Istri at cpos
     hide BramaK 
