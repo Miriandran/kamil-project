@@ -4435,6 +4435,7 @@ label tidak_boleh_menyerah2:
 
 # # ------------------------------------- SCRIPT H -------------------------------------# #
 label H:
+    play music office_bgm
     scene ruang_kerja_bram_pagi
     show maleGlitch at cpos 
     o "Tujuan yang ingin kamu capai mungkin memang baik, tapi apakah caranya sudah betul, Brama?"
@@ -4583,6 +4584,11 @@ define warta = Character("Wartawan", color="#472301")
 define pgw = Character("Pegawai", color="#472301")
 
 # # IMAGE CHARA
+image kadestv = im.Scale("cutscene/j/kades di tv.png", 1920, 1080)
+image endj1 = im.Scale("cutscene/j/ending J.png", 1920, 1080)
+image endj2 = im.Scale("cutscene/j/ending j 2.png", 1920, 1080)
+image endj3 = im.Scale("cutscene/j/ending j 3.png", 1920, 1080)
+image endj4 = im.Scale("cutscene/j/ending j 4.png", 1920, 1080)
 
 image Presiden:
     "chara/presiden.png"
@@ -4626,17 +4632,37 @@ label J:
     pres "Baik, apabila meninjau dari dokumen yang sudah Bapak berikan dan jelaskan, saya setuju dengan keputusan Bapak."
     pres "Mari kita laksanakan!"
 
+    stop music
     "(Satu hari berikutnya..)"
-    scene natuna with fade
+    play music "audio/semoga tense.wav"
+    scene  kadestv with fade
+    pause 2.0
+    
+ 
+
     kades "Saya rasa pemerintah tidak peduli terhadap kami, rakyatnya! "
     kades "Para pejabat itu hanya peduli soal kantongnya masing-masing, tidak peduli terhadap kami rakyat kecil di Natuna!"
     kades "Sungguh dzolim, terutama untuk Anda, Pak Menteri Luar Negeri, dan para pejabat negeri ini!"
 
+    scene endj1 with fade
+    pause 2.0
+    scene endj2 with fade
+    pause 2.0
+    scene endj3 with fade
+    pause 2.0
+    scene endj4 with fade
+    pause 2.0
+
+    scene black
+    
     #scene demo, belum ada
     show Pistol Nembak at pistol with fade
     "(Hukuman mati.)"
     scene black
+    play sound dentumanpistol
+    stop music
     "DORR!"
+    show maleGlitch at cpos
     r "Mimpi buruk lagi lu?"
 
     return
