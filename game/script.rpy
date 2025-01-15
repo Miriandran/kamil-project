@@ -3124,7 +3124,7 @@ label kantin2:
             jump tidak_menyapa_arya
 image Cafe = im.Scale("tam/cafe.png", 1920, 1080)
 label cafe:
-    plau music idle
+    play music idle
     scene Cafe with fade
     show BramaKSenang at cpos
     b "Mmm, sepertinya makan Sop buntut enak dan segar."
@@ -3222,15 +3222,8 @@ label dialogchoiceB:
 #----------------------------------
 
 # # ------------------------------------- SCRIPT C -------------------------------------# #
-<<<<<<< HEAD
-label ruang_kerja:
-    play music office_bgm
-    scene ruang_kerja_bram with fade
-    show Brama at cpos
-=======
 # DEFINE CHARACTERS
 define kades = Character("Kades",  color="#000000ff")
->>>>>>> b9b8badce603aca585438078863a15e342e2a716
 
 # IMAGE BACKGROUND
 image kantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
@@ -3252,7 +3245,7 @@ image Kades:
 image slideC1 = im.Scale("text/C/Slide1.PNG", 1920, 1080)
 image slideC2 = im.Scale("text/C/Slide2.PNG", 1920, 1080)
 
-label start:
+label C:
     scene slideC1 with fade
     pause
     scene ruang_kerja_bram_pagi with fade
@@ -3271,15 +3264,10 @@ label start:
     o "Lihat anakmu… apa kamu tidak ingin dia tumbuh di negara yang kuat, di mana rakyatnya dihormati?"
 
     b "Tapi… apa aku akan menjadi ayah yang bertanggung jawab kalau pilihanku ini menghancurkan segalanya?"
-<<<<<<< HEAD
-    play sound ngetok
-    "{tok..tok..tok..}"
-=======
 
     "*tok..tok..tok..*"
     hide BramaKKosong
     show BramaKMarah at lpos
->>>>>>> b9b8badce603aca585438078863a15e342e2a716
     b "Siapa ya di pagi hari sudah mengetuk ruang kerjaku?"
     hide BramaKMarah
     hide maleGlitch
@@ -3306,14 +3294,9 @@ label membuka_pintu:
 label mengabaikannya:
     b "Aduh, siapa yang mengetuk sepagi ini?"
     b "Aku tidak perlu membukanya, masih banyak pekerjaan yang perlu diselesaikan."
-<<<<<<< HEAD
-    play sound
-    "{tok..tok..tok..}"
-=======
     hide BramaKMarah
     "*tok..tok..tok..*"
     show BramaKMarah at cpos
->>>>>>> b9b8badce603aca585438078863a15e342e2a716
     b "Ya ampun, suaranya mengganggu hingga tidak bisa melanjutkan pekerjaanku."
     hide BramaKMarah
     show BramaKNetral at cpos
