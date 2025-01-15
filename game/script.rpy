@@ -236,6 +236,14 @@ define alpos = Position(xalign=0,yalign=0)
 label start:
 # The game starts here.
 
+
+    # Menampilkan disclaimer
+    scene black
+    show text "Semua nama, karakter, tempat, dan peristiwa dalam game ini bersifat fiksi. Jika terdapat kesamaan dengan nama, karakter, tempat, atau peristiwa nyata, hal tersebut hanyalah kebetulan belaka." with fade
+    pause 3.0
+
+   
+
     play music "audio/semoga tense.wav"
 
     scene acak1
