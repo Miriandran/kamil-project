@@ -579,7 +579,7 @@ screen about():
             if gui.about:
                 text "[gui.about!t]\n"
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n Project Manager: Firdausin Ahlaputra Rahman (15421117) \n\n  Game Designer:\n   -Nasywa Nurul Yasmin (17523002)\n   -Nabhan Albar Aqbari (17523041)\n\n  Script Writer:\n   -Safdar Syuja P.R. (12323012)\n   -Ivana Jevin Maretha (12323009)\n\n  Graphic designer/Ilustrator:\n   -Farah Syaharani (15422053)\n   -Slenggoro Lantip Sufi Assafwan (13623014)\n   -Raniah Dinda Azzahra (17523018)\n\n  Programemer:\n   -Sulthan Miftahul Ulum (18122015)\n   -Rayyan Daud (18122014)\n   -Kimi Rafif Asyadda (18122006)\n   -Nahiza Hazim V.M. (18023021)\n\n UI/UX:\n   -Dashley H Chrisangela Wenas (17523021)\n\n  Sound Composer:\n   -Kimi Rafif Asyadda (18122006)\n\n  Publication\n   -Nasywa Fatimah (12323046)\n\n  Quality Tester:\n   -Zulcar Mendo (12323049)\n   -Farras Affina (12323045)\n\n[renpy.license!t]")
 
 
 style about_label is gui_label
