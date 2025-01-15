@@ -220,7 +220,7 @@ define alpos = Position(xalign=0,yalign=0)
 
 label start:
 # The game starts here.
-
+    jump H
 
     play music "audio/semoga tense.wav"
 
@@ -1324,10 +1324,10 @@ image slide16 = im.Scale("text/X-SMA/Slide16.png", 1920, 1080)
 image slide17 = im.Scale("text/X-SMA/Slide17.png", 1920, 1080)
 image slide18 = im.Scale("text/X-SMA/Slide18.png", 1920, 1080)
 image staffsep:
-    'chara/sepatu/biasa.png'
+    'chara/sepatu/NEUTRAL.png'
     zoom 1.6
 image staffsepser:
-    'chara/sepatu/serius.png'
+    'chara/sepatu/SERIOUS.png'
     zoom 1.6
 
 label akhirsampe:
@@ -2200,7 +2200,7 @@ label curhatarya:
     k "..."
     r "Kelihatannya kamu lagi pusing berat."
     r "Ada masalah besar lagi, ya?"
-    r "Ceritalah, Bim."
+    r "Ceritalah, Bram."
     r "Saudaramu ini direktur keuangan."
     r "Masalah bagi gw udah kayak makanan sehari-hari. Hahahaha!"
     k "..."
@@ -2266,7 +2266,7 @@ label sudah:
 label jagarahasia:
     k "Belum, Wan."
     k "Intinya dari pembengkakan biaya ini bikin kita butuh dana yang cukup besar."
-    r "Kamu benar, Bim."
+    r "Kamu benar, Bram."
     r "Kalau aja sampai gagal mengatasi pembengkakan, perusahaan yang kamu pegang bisa rugi besar."
     k "Iya, aku ngerti soal itu."
     r "Tapi kalau hanya masalah itu, seharusnya saudaraku ini tidak segusar itu."
@@ -2386,7 +2386,7 @@ label balikkamil:
     k "Dewan direksi setuju untuk mengambil kesempatan ini."
     k "Mereka tidak mau perusahaan kita bangkrut dan karyawan kita kehilangan pekerjaan mereka."
     k "Kalau saya sendiri masih bingung karena saya punya feeling nggak enak."
-    r "Udah lah, Bim."
+    r "Udah lah, Bram."
     r "Kalau kata saya, terima saja tawaran itu."
     r "Emang kamu nggak kasihan apa buat keluarga karyawan yang bergantung pada pekerja kita untuk hidup sehari-hari?"
     r "Saya dengar-dengar juga ada kemungkinan tindak pidana manipulasi keuangan yang bisa menyeret nama kamu ke jalur hukum."
@@ -2688,9 +2688,10 @@ label rapat_dewan_direksi:
 
     return #Ending Penjara
 
-# # ------------------------------------- B -------------------------------------
+# # ------------------------------------- Script B -------------------------------------
 # IMAGE BACKGROUND
 image istana_negara = im.Scale("bg/IstanaNegara.jpg", 1920, 1080)
+image siaran_berita = im.Scale("bg/rumahkamil/tv.png", 1920, 1080)
 
 # IMAGE TEXT
 image slideB1 = im.Scale("text/B/Slide1.PNG", 1920, 1080)
@@ -2762,7 +2763,7 @@ label B:
 
     scene slideB5 with fade
     pause
-    scene rumah with fade
+    scene ruangmakan_y with fade
     show BramaKSenang at cpos
     b "Sayang, aku pulang..."
     hide BramaK
@@ -2826,7 +2827,7 @@ label B:
 
     scene slideB7 with fade
     pause
-    scene rumah with fade
+    scene ruangmakan_y with fade
     show BramaKBingung at cpos
     b "Aduh, baru bentar menjabat jadi Kemenlu, ada aja kerjaan yang harus dilakukan."
     hide BramaKBingung
@@ -2864,7 +2865,7 @@ label menghubungiarya:
     b "Aku membutuhkan Arya. Ini sangat kacau situasinya."
 
     # [Menelpon Arya]
-    show Arya at cpos
+    show telfonkabel at tlrpos
     b "Hallo, Arya. Ada apa, Brama?"
 
     b "Permasalahan dengan Tiongkok, mereka melakukan tindakan sangat kejam kepada rakyat Indonesia."
@@ -2919,10 +2920,10 @@ label rapat_dewan_direksi2:
     hide AryaYNetral
     hide male
     menu:
-        "Tetap Idealis (C)":
+        "Tetap Idealis": #C
             $ C = True
             jump tetapidealis
-        "Setuju dengan Arya (D)":
+        "Setuju dengan Arya":#D
             jump setujuarya
 
 label tetapidealis:
@@ -3017,7 +3018,7 @@ label setujuarya:
     b "Kalau begitu, mari kita susun strategi ini dengan detail."
     b "Saya ingin semua pihak terkait dilibatkan dalam diskusi."
 
-    jump makan
+    jump akhir_rapat
 
 label akhir_rapat:
     scene ruang_rapat_menteri with fade
@@ -3547,32 +3548,47 @@ label kembali_ke_script_utama_2:
             jump F
 
 # # ------------------------------------- SCRIPT D -------------------------------------# #
-label D:
-    scene kantor_pribadi with fade
+image pesisir = im.Scale("bg/Natuna.png", 1920, 1080)
+# IMAGE TEXT
+image slideD1 = im.Scale("text/D/Slide1.PNG", 1920, 1080)
+image slideD2 = im.Scale("text/D/Slide2.PNG", 1920, 1080)
+image slideD3 = im.Scale("text/D/Slide3.PNG", 1920, 1080)
+image slideD4 = im.Scale("text/D/Slide4.PNG", 1920, 1080)
+image slideD5 = im.Scale("text/D/Slide5.PNG", 1920, 1080)
+image slideD6 = im.Scale("text/D/Slide6.PNG", 1920, 1080)
+image slideD7 = im.Scale("text/D/Slide7.PNG", 1920, 1080)
 
+label D:
+    scene ruang_kerja_bram_pagi with fade
+    show BramaK at cpos
     b "Apa yang dikatakan oleh Arya tadi ada benarnya juga."
     b "Tapi apakah hal tersebut merupakan yang terbaik bagi masyarakat dan negara?"
     b "Apa jadinya jika aku tetap ngotot untuk memaksakan kehendakku?"
     b "Apalagi sampai nekat melakukan konfrontasi secara langsung terhadap frigate China."
     b "Sudah pasti ekonomi negara ini bisa kacau."
-
+    hide BramaK
+    show maleGlitch at cpos
     o "Brama, sadar lah!!! Keputusan yang kamu ambil saat ini sangat merugikan bagi rakyat."
     o "Mereka bertaruh nyawa demi mencari sesuap nasi dan dibayangi oleh kapal asing yang semena-mena."
     o "Apa kamu tidak kasihan dengan mereka, Brama?"
     o "Bagaimana kalau kejadian ini terus berulang dan menghilangkan nyawa mereka?"
-
+    hide maleGlitch
+    show BramaK at cpos
     b "Tindakan yang telah aku ambil merupakan yang terbaik bagi kita semua."
     b "Aku tidak bisa mengorbankan ekonomi dan kestabilan negara ini hanya untuk menembaki kapal-kapal itu."
-
+    hide BramaK
+    show maleGlitch at cpos   
     o "Sungguh jahatnya dirimu, Brama."
     o "Di mana sisi kemanusiaanmu itu?"
     o "Apakah kau mulai ragu terhadap dirimu sendiri hingga kau tidak mengutamakan keadilan dan kepentingan rakyat?"
-
+    hide maleGlitch
+    show BramaK at cpos
     b "…"
 
-    # [Keesokan harinya setelah mempersiapkan segala hal mengenai tindakan apa yang akan diambil dan disampaikan kepada presiden, Brama pun melakukan rapat terbatas dengan beberapa kementerian terkait]
-    scene ruang_rapat with fade
-
+    scene slideD1 with fade
+    pause
+    scene ruang_rapat_menteri with fade
+    show AryaYSenyum at aycpos
     a "Brama, tindakan yang anda ajukan tadi sungguh ide cerdas."
     a "Kita harus mengutamakan hubungan kedua negara."
     a "Jangan sampai perekonomian kita hancur cuma gara-gara hal ini."
@@ -3584,9 +3600,12 @@ label D:
             jump tekankan_kerja_sama
 
 label tekankan_transparansi:
+    scene ruang_rapat_menteri with fade
+    show BramaKSenang at cpos
     b "Eh iya, terima kasih, Arya. Kamu benar-benar mengingatkanku soal tanggung jawab yang lebih besar."
     b "Kalau waktu itu aku terlalu emosional, mungkin kita malah menghadapi situasi yang lebih kacau sekarang."
-
+    show BramaKSenang at lpos
+    show AryaYSenyum at ayrpos
     a "Betul, Brama. Kadang sulit untuk menahan emosi saat menghadapi masalah besar seperti ini."
     a "Tapi itulah tugas kita, memastikan setiap keputusan membawa dampak positif, bukan sekadar reaksi sesaat."
     a "Bagaimanapun, yang kita lakukan ini untuk menjaga masa depan negara, bukan hanya menyelesaikan masalah sesaat."
@@ -3612,9 +3631,12 @@ label tekankan_transparansi:
     jump kembali_ke_rumah
 
 label tekankan_kerja_sama:
+    scene ruang_rapat_menteri with fade
+    show BramaKSenang at cpos
     b "Eh iya, terima kasih, Arya. Kamu benar-benar membuka mataku soal risiko yang mungkin terjadi."
     b "Kalau waktu itu aku tetap keras kepala, mungkin dampaknya akan jauh lebih buruk bagi negara kita."
-
+    show BramaKSenang at lpos
+    show AryaYSenyum at ayrpos
     a "Ah, nggak perlu berlebihan, Brama. Yang penting, kita bisa menjaga keseimbangan antara kedaulatan negara dan hubungan internasional."
     a "Kalau kita berhasil mengelola ini dengan baik, saya yakin masyarakat juga akan melihat manfaatnya dalam jangka panjang."
 
@@ -3631,41 +3653,73 @@ label tekankan_kerja_sama:
     jump kembali_ke_rumah
 
 label kembali_ke_rumah:
-    scene rumah with fade
-
+    scene terasrumah_y with fade
+    show BramaK at cpos
     b "Sayang, aku pulang."
-    istri "Eh sayang, udah pulang. Bagaimana pekerjaan hari ini sayang?"
-    b "Dilihat-lihat dari raut wajah, kayaknya ini hari yang melelahkan ya di kantor?"
+    show BramaK at rpos
+    show Istri s at lpos
+    ist "Eh sayang, udah pulang. Bagaimana pekerjaan hari ini sayang?"
+    hide Istri s 
+    show Istri at lpos
+    ist "Dilihat-lihat dari raut wajah, kayaknya ini hari yang melelahkan ya di kantor?"
     b "Iya sayang, kok kamu peka banget sih sama suami mu ini, hari ini hari yang berat."
     b "Tadi aku habis rapat terbatas dengan beberapa menteri, kami membahas mengenai LCS."
-
-    istri "Wah, aku yang mendengarkan saja bisa membayangkan betapa capeknya, apalagi kamu yang ngejalanin ya sayang."
+    hide Istri
+    show Istri s at lpos
+    ist "Wah, aku yang mendengarkan saja bisa membayangkan betapa capeknya, apalagi kamu yang ngejalanin ya sayang."
+    hide Istri s 
+    show Istri at lpos
     b "Oiya, Nina di mana? Kok aku tidak melihatnya dari tadi?"
-
-    istri "Nina belum pulang sayang, dia lagi di jalan pulang sehabis les."
+    hide Istri
+    show Istri s at lpos
+    ist "Nina belum pulang sayang, dia lagi di jalan pulang sehabis les."
+    hide Istri s 
+    show Istri at lpos
     b "Paling sebentar lagi sampai rumah."
-    istri "Sekarang kamu bebersih sambil nunggu Nina pulang, terus kita makan malam bersama, okay?"
-
+    hide Istri
+    show Istri s at lpos
+    ist "Sekarang kamu bebersih sambil nunggu Nina pulang, terus kita makan malam bersama, okay?"
+    hide BramaK
+    show BramaKSenang at rpos
     b "Oke sayang."
 
-    # [19.21, makan malam]
-    scene makan_malam with fade
-
+    scene slideD2 with fade
+    pause
+    scene ruangmakan_y with fade
+    show BramaK at lpos
+    show Istri at cpos
+    show Nina at rpos
     b "Istri dan anakku sayang, ayah lusa mau pergi beberapa hari ke sana."
     b "Ada pekerjaan yang harus ayah selesaikan di sana."
-
-    istri "Pasti soal kapal nelayan di situ ya, yah?"
+    hide Istri 
+    show Istri s at cpos
+    ist "Pasti soal kapal nelayan di situ ya, yah?"
+    hide Istri s 
+    show Istri at cpos
+    hide BramaK 
+    show BramaKSenang at lpos
     b "Iya sayang, aku harus ke sana untuk mengecek keadaan masyarakat di sana."
-
+    hide BramaKSenang 
+    show BramaK at lpos
     nina "Hati-hati ya, yah. Awas ditenggelamkan sama coast guard China."
+    hide BramaK 
+    show BramaKSenang at lpos
     b "Aduh, bisaan anak ayah satu ini. Iya, ayah akan hati-hati di sana."
-
-    istri "Iya, ayah hati-hati ya. Semoga masalah ini cepat selesai."
+    hide BramaKSenang 
+    show BramaK at lpos
+    hide Istri 
+    show Istri s at cpos
+    ist "Iya, ayah hati-hati ya. Semoga masalah ini cepat selesai."
+    hide Istri s 
+    show Istri at cpos
+    hide BramaK 
+    show BramaKSenang at lpos
     b "Iya sayang, makasih."
     jump keesokan_harinya
 
 label keesokan_harinya:
-    'Keesokan harinya....'
+    scene slideD3 with fade
+    pause
     scene pesisir with fade
 
     b "Selamat siang bapak ibu masyarakat. Perkenalkan saya Brama selaku menteri luar negeri."
@@ -3763,14 +3817,17 @@ label kembali_ke_script:
     warga_a "Tapi apa nyatanya pemerintah malah berpihak pada aseng?"
 
     masyarakat "SETUJU! Negara tidak peduli terhadap rakyatnya sendiri tapi malah memikirkan kantongnya sendiri!"
-
     # [Keadaan menjadi anarkis dan Kamil segera meninggalkan tempat dengan pengawalan ketat]
     # {suara chaos demo anarkis}
+    scene slideD4 with fade
+    pause
     # [Polisi menghadang massa yang semakin menggila dan berujung pada sedikit kerusuhan yang menyebabkan beberapa masyarakat mengalami luka-luka]
     # {ditambah suara sirine polisi}
-
+    scene slideD5 with fade
+    pause
     # -time skip-
-    "Setibanya di Jakarta, Kamil langsung pergi ke kantornya"
+    scene slideD7 with fade
+    pause
     scene kantor with fade
 
     b "Apa tindakan yang aku lakukan ini merupakan yang terbaik?"
@@ -4202,49 +4259,100 @@ label F:
     jump J
 
 # # ------------------------------------- SCRIPT G -------------------------------------# #
+image slideG1 = im.Scale("text/G/Slide1.PNG", 1920, 1080)
 label G:
+    scene slideG1 with fade
+    pause
+    scene ruang_kerja_bram_pagi with fade
+    show BramaK at cpos
     b "Tujuan yang ingin aku capai memang baik, tapi… apakah caraku sudah benar?"
+    hide BramaK
+    show maleGlitch at cpos    
     o "Kau tahu jawabannya, Brama. Kalau caramu benar, kenapa hatimu terasa ragu?"
+    hide maleGlitch
+    show BramaK at cpos
     b "Karena aku tidak melihat pilihan lain. Jalan ini terasa satu-satunya yang masuk akal."
+    hide BramaK
+    show maleGlitch at cpos    
     o "Benarkah? Atau itu hanya apa yang ingin kau percayai?"
+    hide maleGlitch
+    show BramaK at cpos
     b "Aku sudah mempertimbangkan semuanya. Bagaimana efek jangka panjangnya, bagaimana reaksi orang-orang…"
     b "Aku tahu ini sulit, tapi bukankah keputusan besar selalu sulit?"
+    hide BramaK
+    show maleGlitch at cpos
     o "Sulit, ya. Tapi sulit bukan berarti benar."
     o "Apakah kau yakin dengan menyerah pada tekanan, kau benar-benar menyelesaikan masalah?"
+    hide maleGlitch
+    show BramaK at cpos
     b "…"
     b "Aku… aku hanya ingin menjaga semuanya tetap stabil."
+    hide BramaK
+    show maleGlitch at cpos
     o "Stabilitas seperti apa yang kau kejar, Brama?"
     o "Stabilitas yang datang dari mengabaikan hati nuranimu?"
     o "Stabilitas yang mengorbankan martabat rakyatmu?"
+    hide maleGlitch
+    show BramaK at cpos
     b "Tapi bagaimana kalau aku salah?"
     b "Bagaimana kalau keputusanku membawa lebih banyak kehancuran?"
+    hide BramaK
+    show maleGlitch at cpos 
     o "Kau takut salah, itu wajar. Tapi kau sudah tahu mana yang benar."
     o "Takut tidak akan mengubah kenyataan, Brama."
+    hide maleGlitch
+    show BramaK at cpos
     b "Jadi menurutmu, aku harus tetap bertahan?"
+    hide BramaK
+    show maleGlitch at cpos
     o "Kau tahu jawabannya, Brama."
     o "Kau berdiri di sini bukan untuk menyerah."
     o "Kau sudah melihat penderitaan mereka. Kau tahu apa yang harus kau lakukan."
     o "Jika kau menyerah, apa yang kau katakan pada dirimu sendiri nanti?"
     o "Apa yang kau katakan pada rakyat Natuna?"
     o "Bahwa kau menyerah karena takut?"
+    hide maleGlitch
+    show BramaK at cpos
     b "Aku… aku tidak bisa membiarkan itu terjadi."
+    hide BramaK
+    show maleGlitch at cpos
     o "Tepat. Kau tidak bisa."
+    hide maleGlitch
+    show BramaK at cpos
     b "Aku hanya ingin melindungi semuanya… keluarga, rakyat, negara ini…"
+    hide BramaK
+    show maleGlitch at cpos
     o "Dan kau tahu, melindungi mereka tidak berarti menyerah."
     o "Melindungi mereka berarti berdiri untuk apa yang benar, meskipun itu sulit."
+    hide maleGlitch
+    show BramaK at cpos
     b "Kau benar. Aku tidak bisa menyerah begitu saja."
+    hide BramaK
+    show maleGlitch at cpos
     o "Kau tidak pernah bisa menyerah, Brama. Itu bukan dirimu."
+    hide maleGlitch
+    show BramaK at cpos
     b "Baiklah. Aku tahu apa yang harus kulakukan."
+    hide BramaK
+    show maleGlitch at cpos
     o "Ingat, Brama. Keberanianmu adalah harapan mereka."
     o "Jangan biarkan itu pudar."
+    hide maleGlitch
+    show BramaK at cpos
     b "Aku akan tetap pada pendirianku. Apapun yang terjadi."
+    hide BramaK
+    show maleGlitch at cpos
     o "Dan itulah yang menjadikanmu pemimpin sejati, Brama."
-
+    hide maleGlitch
+    show BramaK at cpos
     "{tok…tok…tok…}"
     a "Brama…"
-    
+    hide BramaK
+    show BramaKSenang at cpos
     b "Oh, masuk Arya."
-
+    hide BramaKSenang
+    show BramaK at rpos
+    show AryaYNetral at aylpos
     a "Bagaimana update dari masyarakat Natuna sana?"
     b "Yaa seperti biasa, mereka menginginkan keadilan."
 
@@ -4256,24 +4364,33 @@ label G:
 
 label tolak_mentah2:
     a "Jadi, apa pilihan finalmu?"
+    hide BramaK
+    show BramaKNetral at rpos
     b "Aku menolak saranmu, aku akan memperjuangkan keadilan."
-
+    hide AryaYNetral
+    show AryaYSerius at aylpos
     a "Kau memilih rakyat Natuna daripada peluang untuk menghentikan konflik ini dengan cara damai?"
+    hide BramaKNetral
+    show BramaKMarah at rpos
     b "Pilihan itu tidak benar-benar damai, Arya."
     b "Kesepakatan itu sama saja membiarkan kedaulatan kita diinjak-injak."
-
+    hide BramaKMarah
+    show BramaKNetral at rpos
     a "Brama, kau sadar apa yang kau lakukan?"
     a "Kau mempertaruhkan stabilitas negara ini."
     a "Jika kita melawan mereka, konsekuensinya akan jauh lebih besar dari yang bisa kau bayangkan."
-
+    hide BramaKNetral
+    show BramaKMarah at rpos
     b "Kalau kita terus menyerah, kapan kita akan mulai berdiri di atas kaki sendiri?"
     b "Ini bukan hanya soal stabilitas, Arya."
     b "Ini tentang harga diri bangsa."
-
+    hide BramaKMarah
+    show BramaKNetral at rpos
     a "Kau terlalu idealis, Brama."
     a "Dunia ini tidak bekerja seperti itu."
     a "Kita harus memilih pertarungan yang bisa kita menangkan."
-
+    hide BramaKNetral
+    show BramaKSenang at rpos
     b "Aku sudah memilih, Arya."
     b "Aku akan berdiri bersama rakyat Natuna."
 
@@ -4281,22 +4398,35 @@ label tolak_mentah2:
 
 label tidak_boleh_menyerah2:
     a "Jadi, apa pilihan finalmu?"
+    hide BramaK
+    show BramaKNetral at rpos
     b "Aku menolak saranmu, aku akan memperjuangkan keadilan."
-
+    hide AryaYNetral
+    show AryaYSerius at aylpos
     a "Jadi, kau memilih jalan ini, meskipun kita tahu konsekuensinya akan sangat berat?"
+    hide BramaKNetral
+    show BramaK at rpos
     b "Jalan yang mereka tawarkan bukanlah damai, Arya."
     b "Itu penyerahan diri."
-
+    hide AryaYNetral
+    show AryaYSerius at aylpos
     a "Penyerahan diri? Kau tahu ini bukan soal kalah atau menang, Brama. Ini soal bertahan."
+    hide BramaK
+    show BramaKNetral at rpos
     b "Bertahan dengan menyerahkan kedaulatan kita? Itu bukan bertahan, Arya. Itu kehancuran yang tertunda."
-
+    hide BramaKNetral
+    show BramaK at rpos
     a "Apa kau sadar apa yang sedang kau lakukan?"
     a "Kau mempertaruhkan masa depan negara ini untuk sesuatu yang mungkin tidak bisa kita menangkan!"
-
+    hide BramaK
+    show BramaKNetral at rpos
     b "Kalau kita terus menyerah dan bergantung, kapan kita akan memulai langkah untuk benar-benar berdaulat?"
     b "Harga diri bangsa ini tidak boleh terus dipertaruhkan hanya karena ketakutan."
-
+    hide BramaKNetral
+    show BramaK at rpos
     a "Kau terlalu keras kepala. Dunia tidak bekerja seperti idealismemu, Brama. Kita harus pragmatis."
+    hide BramaK
+    show BramaKNetral at rpos
     b "Mungkin aku memang keras kepala, Arya."
     b "Tapi aku tidak akan berpaling dari rakyat Natuna."
     b "Aku tahu ini tidak mudah, tapi mereka pantas untuk diperjuangkan."
@@ -4305,20 +4435,27 @@ label tidak_boleh_menyerah2:
 
 # # ------------------------------------- SCRIPT H -------------------------------------# #
 label H:
+    scene ruang_kerja_bram_pagi
+    show maleGlitch at cpos 
     o "Tujuan yang ingin kamu capai mungkin memang baik, tapi apakah caranya sudah betul, Brama?"
     o "Jikalau cara yang kau gunakan salah, maka akan banyak mendapat penolakan."
-
+    hide maleGlitch
+    show BramaKNetral at cpos
     b "Apakah ada cara lain selain cara ini? Ku rasa tidak ada."
     b "Apakah mereka juga memikirkan efek jangka panjangnya jika aku melakukan tindakan yang sebaliknya?"
     b "Ku rasa mereka tidak memikirkan sampai hal itu."
     b "Mereka kalau jadi aku dengan posisi ini pasti akan memiliki pemikiran yang sama."
-
+    hide BramaKNetral
+    show maleGlitch at cpos
     o "Terserah kamu lah."
-
+    hide maleGlitch
     "(tok…tok…tok…)"
+    show BramaKBingung at cpos
     a "Brama…"
-
+    hide BramaKBingung
+    show BramaKLega at cpos
     b "Oh, masuk Arya."
+    show AryaYNetral at ayrpos
 
     a "Bagaimana update dari masyarakat Natuna sana?"
     b "Yaa seperti biasa, mereka menginginkan keadilan."
@@ -4332,7 +4469,8 @@ label H:
 
     a "Maka buat mereka berpikir kau bukan ancaman. Biarkan mereka lengah."
     a "Waktu akan memberikan kita ruang untuk bertindak lebih cerdas."
-
+    hide BramaKLega
+    show BramaKNetral at cpos
     b "Kau pikir ini akan berhasil?"
 
     a "Aku tidak tahu, Brama. Tapi ini lebih baik daripada menghancurkan segalanya dengan satu keputusan gegabah."
@@ -4345,7 +4483,8 @@ label H:
     a "Kita akan menemukan jalan, Brama. Kita selalu bisa."
 
     b "Aku rasa kamu benar. Kita harus realistis dalam menghadapi ini."
-
+    hide AryaYNetral
+    show AryaYSenyum at ayrpos
     a "Ah Brama, saudaraku."
     a "Aku senang kamu bisa memutuskan yang terbaik."
     a "Kalau begitu mari kita lanjutkan pembahasan dengan Ibu Presiden."
@@ -4400,11 +4539,11 @@ label I:
     k "Yang Mulia Presiden, menteri-menteri terhormat, saya mengajukan kebijakan untuk memprioritaskan kesejahteraan rakyat" 
     k "khususnya di wilayah-wilayah perbatasan seperti Natuna. Sudah terlalu lama mereka menjadi korban dari konflik kepentingan."
     k "Kita harus mengambil tindakan tegas terhadap kapal asing di Natuna."
-    pres "Ini langkah yang berani, Menteri Bima. Apakah kau sudah mempertimbangkan seluruh aspeknya?"
+    pres "Ini langkah yang berani, Menteri Brama. Apakah kau sudah mempertimbangkan seluruh aspeknya?"
     k "Saya sudah mempertimbangkannya, dan ini sangat berdampak baik dan menguntungkan masyarakat Indonesia, Bu. Semuanya akan berjalan lancar."
 
     #scene natuna with fade
-    kades "Terima kasih, Pak Bima. Apa yang Bapak lakukan telah mengubah hidup kami. Kini kami punya sekolah baru dan fasilitas kesehatan yang layak."
+    kades "Terima kasih, Pak Brama. Apa yang Bapak lakukan telah mengubah hidup kami. Kini kami punya sekolah baru dan fasilitas kesehatan yang layak."
     k "…… Ini semua untuk kalian. Negara harus hadir di sini, di mana rakyatnya membutuhkan."
     pres "Baik, apabila meninjau dari dokumen yang sudah kau berikan dan jelaskan, saya setuju dengan keputusanmu. Mari kita laksanakan!"
     scene black
@@ -4413,14 +4552,14 @@ label I:
     scene bumnrapat with fade
     show abatik at aycpos
     r "Saya, atas nama integritas dan keadilan, harus mengungkap sebuah fakta."
-    r "Menteri Bima telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya."
+    r "Menteri Brama telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya."
     r "Ini adalah pelanggaran hukum yang tidak bisa ditoleransi."
 
     scene terasrumah_y with fade
     "(Dengan diketahuinya kasus penyalahgunaan anggaran, Brama ditangkap oleh pihak kepolisian di kediamannya.)"
     "(Beberapa wartawan berkumpul dengan Brama telah diborgol tangannya.)"
     show male at cpos
-    warta "Pak Bima, apa benar tuduhan ini? Bagaimana tanggapan Anda?"
+    warta "Pak Brama, apa benar tuduhan ini? Bagaimana tanggapan Anda?"
     hide male
     show Brama_y at cpos
     k "Saya hanya ingin membantu rakyat. Jika ini harga yang harus saya bayar, saya terima."
@@ -4456,20 +4595,20 @@ define pgw = Character("Pegawai", color="#472301")
 
 image Presiden:
     "chara/presiden.png"
-    zoom 0.5
+    zoom 0.8
 
 label J:
     "(Beberapa jam setelahnya, diadakan rapat untuk membahas keputusan final geostrategi Indonesia.)"
     scene bumnkantor with fade
     show Brama_y at cpos
     k "Sekretaris, tolong sampaikan kepada seluruh divisi untuk rapat pada sore hari ini. Ada hal penting yang harus diselesaikan sebelum rapat dengan presiden."
-    skre "Baik, Pak Bima. Akan segera saya informasikan kepada seluruh divisi untuk menghadiri rapat."
+    skre "Baik, Pak Brama. Akan segera saya informasikan kepada seluruh divisi untuk menghadiri rapat."
 
     scene bumnrapat with fade
     show Presiden at prcpos
     pres "Selamat siang, Bapak Ibu sekalian. Saat ini adalah momen krusial kita."
     pres "Melalui rapat ini, kita akan memutuskan aksi kita terhadap China."
-    pres "Silakan, Bapak Bima, selaku Menteri Luar Negeri, untuk menyampaikan pendapatnya."
+    pres "Silakan, Bapak Brama, selaku Menteri Luar Negeri, untuk menyampaikan pendapatnya."
     hide Presiden
 
     show Brama_y at lpos
@@ -4483,11 +4622,11 @@ label J:
     hide Presiden
 
     show Arya_y at ayrpos
-    r "Setuju dengan apa yang dikatakan oleh Pak Bima."
+    r "Setuju dengan apa yang dikatakan oleh Pak Brama."
     hide Arya_y
 
     show Presiden at prrpos
-    pres "Ini langkah yang menguntungkan bagi kita, Pak Bima."
+    pres "Ini langkah yang menguntungkan bagi kita, Pak Brama."
     pres "Apakah Anda sudah mempertimbangkan seluruh aspek dari kebijakan tersebut?"
     k "Sudah, Ibu Presiden. Kami telah mengkaji secara mendalam."
     k "Dengan dilakukannya diplomasi, kita dapat menerima keuntungan lebih untuk membantu meningkatkan perekonomian."
