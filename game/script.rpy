@@ -3211,6 +3211,8 @@ label dialogchoiceB:
 
 
 label C:
+    play sound trans1
+    play music office_bgm
     scene slideC1 with fade
     pause
     scene ruang_kerja_bram_pagi with fade
@@ -3229,7 +3231,8 @@ label C:
     o "Lihat anakmu… apa kamu tidak ingin dia tumbuh di negara yang kuat, di mana rakyatnya dihormati?"
 
     b "Tapi… apa aku akan menjadi ayah yang bertanggung jawab kalau pilihanku ini menghancurkan segalanya?"
-
+    stop music
+    play sound ngetok
     "*tok..tok..tok..*"
     hide BramaKKosong
     show BramaKMarah at lpos
@@ -3260,6 +3263,7 @@ label mengabaikannya:
     b "Aduh, siapa yang mengetuk sepagi ini?"
     b "Aku tidak perlu membukanya, masih banyak pekerjaan yang perlu diselesaikan."
     hide BramaKMarah
+    play sound ngetok
     "*tok..tok..tok..*"
     show BramaKMarah at cpos
     b "Ya ampun, suaranya mengganggu hingga tidak bisa melanjutkan pekerjaanku."
@@ -3275,6 +3279,7 @@ label mengabaikannya:
     hide BramaKNetral
 
 label setelah_masuk:
+    play music office_bgm
     show BramaK at lpos
     show AryaYNetral at ayrpos
     a "Brama, aku tahu kau pasti memikirkannya."
@@ -3389,7 +3394,7 @@ label tegas:
     a "Tapi kalau kita langsung bertindak tanpa mempertimbangkan konsekuensinya, itu hanya akan memperkeruh situasi."
 
     jump bramaberbeda
-
+    stop music
 label bramaberbeda:
     b "…"
     a "Brama, kau berbeda. Aku tahu itu."
@@ -3428,6 +3433,7 @@ label bramaberbeda:
             jump arya_masuk_akal3
 
 label ragu3:
+    play music office_bgm
     hide BramaK
     show BramaKNetral at cpos
     b "Arya mungkin benar."
@@ -3442,6 +3448,7 @@ label ragu3:
     jump merenung
 
 label arya_masuk_akal3:
+    play music office_bgm
     hide BramaK
     show BramaKNetral at cpos
     b "Arya mungkin punya poin yang baik."
@@ -3466,7 +3473,7 @@ label merenung:
     show BramaKNetral at lpos
     b "Iya, aku rasa aku harus berbicara dengan masyarakat lokal."
     o "Lakukan segera!"
-
+    play sound trans1
     scene slideC2 with fade
     pause
     scene black with fade
@@ -3528,6 +3535,7 @@ label tunjukkan_empati:
     b "Saya tidak datang ke sini hanya untuk berbicara, saya ingin membawa solusi nyata."
     hide BramaKNetral
     show BramaK at lpos
+    stop music
     kades "Pak Menteri, kami ingin percaya."
     kades "Tapi setiap kali ada kunjungan, selalu ada janji, dan setelah itu kami ditinggalkan sendirian lagi."
     kades "Sementara itu, kapal-kapal asing masih mengambil apa yang seharusnya milik kami, bahkan merusak hidup kami."
@@ -3544,6 +3552,7 @@ label tunjukkan_empati:
     jump kembali_ke_script_utama
 
 label kembali_ke_script_utama:
+    play music idle
     b "…"
     hide BramaK
     show BramaKNetral at lpos
@@ -3631,6 +3640,7 @@ label kembali_ke_script_utama_2:
     kades "Baik, Pak. Terima kasih banyak atas perhatiannya kepada kami."
 
     # [Scene dalam pesawat]
+    play sound trans1
     scene pesawat with fade
     show BramaKNetral at cpos
     b "Mereka semua menggantungkan harapan pada saya."
@@ -3642,6 +3652,7 @@ label kembali_ke_script_utama_2:
     b "Meski itu berarti membawa negara ini ke risiko yang lebih besar?"
 
     # [Keesokan harinya]
+    play sound trans1
     scene ruang_kerja_bram_malam with fade
     show AryaYKopi at ayrpos
     show BramaK at lpos
@@ -3672,6 +3683,7 @@ label kembali_ke_script_utama_2:
     show BramaK at lpos
     hide AryaYNetral
     show AryaYKopi at ayrpos
+    stop music
     a "Aku mengerti. Aku sudah mendengar semuanya."  
     a "Tapi Brama, aku harus mengingatkanmu lagi."
     hide AryaYKopi
@@ -3708,6 +3720,7 @@ label kembali_ke_script_utama_2:
     hide AryaYKopi
     show AryaYSenyum at ayrpos
     a "Sampai kita cukup kuat untuk melawan.  "
+    play music "audio/semoga tense.wav"
     a "Brama, kau harus memikirkan ini secara jangka panjang.  "
     hide AryaYSenyum
     show AryaYNetral at ayrpos
@@ -3735,6 +3748,7 @@ label kembali_ke_script_utama_2:
     a "Kau punya lima hari lagi untuk memutuskan, Brama."  
     a "Gunakan waktu itu dengan bijak."  
     a "Aku percaya kau akan mengambil langkah yang benar."  
+    stop music
     hide BramaKNetral
     show BramaKLega at lpos
     b "Terima kasih, Arya. Aku berharap aku bisa sebijak yang kau pikirkan."  
@@ -3753,15 +3767,19 @@ label kembali_ke_script_utama_2:
 
 # # ------------------------------------- SCRIPT D -------------------------------------# #
 label D:
+    play sound trans1
     scene ruang_kerja_bram_pagi with fade
     show BramaK at cpos
+    play music office_bgm
     b "Apa yang dikatakan oleh Arya tadi ada benarnya juga."
     b "Tapi apakah hal tersebut merupakan yang terbaik bagi masyarakat dan negara?"
     b "Apa jadinya jika aku tetap ngotot untuk memaksakan kehendakku?"
     b "Apalagi sampai nekat melakukan konfrontasi secara langsung terhadap frigate China."
     b "Sudah pasti ekonomi negara ini bisa kacau."
     hide BramaK
+    stop music
     show maleGlitch at cpos
+    play music "audio/semoga tense.wav"
     o "Brama, sadar lah!!! Keputusan yang kamu ambil saat ini sangat merugikan bagi rakyat."
     o "Mereka bertaruh nyawa demi mencari sesuap nasi dan dibayangi oleh kapal asing yang semena-mena."
     o "Apa kamu tidak kasihan dengan mereka, Brama?"
@@ -3778,9 +3796,11 @@ label D:
     hide maleGlitch
     show BramaK at cpos
     b "…"
-
+    stop music
+    play sound trans1
     scene slideD1 with fade
     pause
+    play music office_bgm
     scene ruang_rapat_menteri with fade
     show AryaYSenyum at aycpos
     a "Brama, tindakan yang anda ajukan tadi sungguh ide cerdas."
@@ -3821,7 +3841,7 @@ label tekankan_transparansi:
 
     a "Sama-sama, Brama. Kita ada di sini untuk saling mengingatkan."
     a "Yang penting, kita tetap bekerja untuk kebaikan bersama."
-
+    stop music
     jump kembali_ke_rumah
 
 label tekankan_kerja_sama:
@@ -3843,10 +3863,11 @@ label tekankan_kerja_sama:
     b "Iya, Arya. Semoga langkah ini menjadi titik awal perubahan yang lebih baik. Terima kasih sudah mendukungku berpikir lebih bijak."
 
     a "Sama-sama, Brama. Ini tanggung jawab kita bersama untuk menjaga stabilitas negara."
-
+    stop music
     jump kembali_ke_rumah
 
 label kembali_ke_rumah:
+    play music idle
     scene terasrumah_y with fade
     show BramaK at cpos
     b "Sayang, aku pulang."
@@ -3876,7 +3897,7 @@ label kembali_ke_rumah:
     hide BramaK
     show BramaKSenang at rpos
     b "Oke sayang."
-
+    play sound trans1
     scene slideD2 with fade
     pause
     scene ruangmakan_y with fade
@@ -3909,9 +3930,12 @@ label kembali_ke_rumah:
     hide BramaK 
     show BramaKSenang at lpos
     b "Iya sayang, makasih."
+    stop music
     jump keesokan_harinya
 
 label keesokan_harinya:
+    play sound trans1
+    play music idle
     scene slideD3 with fade
     pause
     scene pesisir with fade
@@ -3927,7 +3951,7 @@ label keesokan_harinya:
 
     b "Saya yang seharusnya berterima kasih, Pak."
     b "Ini tanggung jawab saya untuk mendengar langsung keluhan bapak dan warga di sini."
-
+    stop music
     kades "Pak Menteri, kami sudah kehabisan cara."
     kades "Kapal-kapal asing itu bukan hanya mencuri ikan kami, tapi juga menenggelamkan perahu-perahu kecil milik nelayan."
     kades "Satu-satunya yang kami miliki untuk mencari nafkah hanyalah laut."
@@ -3973,6 +3997,7 @@ label yakinkan_mereka:
     jump kembali_ke_script
 
 label arya_masuk_akal:
+    play music idle
     b "Saya memahami rasa frustrasi Bapak dan seluruh warga. Kondisi ini memang sangat tidak adil bagi kita."
     b "Namun, saya ingin berbagi bahwa pendekatan kita harus strategis."
 
@@ -4004,8 +4029,9 @@ label arya_masuk_akal:
     jump kembali_ke_script
 
 label kembali_ke_script:
+    play sound trans1
     scene chaos with fade
-
+    play music crowd
     warga_a "Dasar pemerintah egois!!! Mereka tidak memikirkan rakyatnya yang di sini!"
     warga_a "Kami di sini setiap hari bertaruh dengan nyawa setiap kali bertemu dengan mereka."
     warga_a "Bahkan kapal kami tak segan-segan mereka tenggelamkan di wilayah negara kita sendiri."
@@ -4018,13 +4044,18 @@ label kembali_ke_script:
     pause
     # [Polisi menghadang massa yang semakin menggila dan berujung pada sedikit kerusuhan yang menyebabkan beberapa masyarakat mengalami luka-luka]
     # {ditambah suara sirine polisi}
+    stop music
+    play sound trans1
     scene slideD5 with fade
     pause
     # -time skip-
+    play sound trans1
     scene slideD7 with fade
     pause
+    play sound trans1
     scene kantor with fade
     show BramaKNetral at cpos
+    play music "audio/semoga tense.wav"
     b "Apa tindakan yang aku lakukan ini merupakan yang terbaik?"
     b "Lantas mengapa banyak yang menolak?"
     hide BramaKNetral
@@ -4051,6 +4082,7 @@ label kembali_ke_script:
     o "Kau memang sudah berubah, Brama."
     o "Mana Brama yang ku kenal itu yang mengutamakan keadilan dan kepentingan rakyat?"
     o "Rakyat juga butuh kehadiran negara untuk melindungi mereka."
+    stop music
 
     menu:
         "Mantab ikuti Arya":
@@ -4332,8 +4364,10 @@ image slideF2 = im.Scale("text/F/Slide2.PNG", 1920, 1080)
 image slideF3 = im.Scale("text/F/Slide1.PNG", 1920, 1080)
 
 label F:
+    play sound trans1
     scene slideF1 with fade
     pause
+    play music office_bgm
     scene ruang_kerja_bram_pagi with fade
     show BramaKNetral at cpos
     b "Apa yang sebenarnya harus kulakukan?"
@@ -4351,7 +4385,8 @@ label F:
     b "Dia hanya memikirkan angka dan strategi."
     b "Tapi aku tahu, aku di sini bukan untuk melayani kepentingan jalur diplomasi."
     b "Aku ada di sini untuk mempertahankan prinsip dan martabat bangsa."
-
+    stop music
+    play sound ngetok
     "*tok…tok…tok…*"
     hide BramaKMarah
     show AryaYNetral at aycpos
@@ -4359,6 +4394,7 @@ label F:
     hide AryaYNetral
     show BramaKNetral at cpos
     b "Eh Arya, masuk."
+    play music office_bgm
     hide BramaKNetral
     show AryaYNetral at aycpos
     a "Brama, aku butuh kepastian."
@@ -4458,9 +4494,11 @@ label F:
     hide AryaYSenyum
     show AryaYKopi at ayrpos
     a " Kita akan menemukan jalan, Brama. Kita selalu bisa."
-
+    play sound trans1
     scene slideF2 with fade
     pause
+    stop music
+    play music idle
     scene ruangmakan_y with fade
     show BramaKNetral at lpos
     b "…"
@@ -4555,10 +4593,12 @@ label F:
     i "Selalu."
     hide Istri s
     show Istri at rpos
-
+    stop music
+    play sound trans1
     scene slideF3 with fade
     pause
     scene ruang_rapat_menteri with fade
+    play music office_bgm
     show BramaK at lpos
     show Diplomat at rpos
     diplomat "Mr. Brama, we only wish to build a better relationship with your country."
@@ -4595,6 +4635,7 @@ label F:
     a "Ah Brama, saudaraku."
     a "Aku senang kamu bisa memutuskan yang terbaik."
     a "Kalau begitu mari kita lanjutkan pembahasan dengan Ibu Presiden."
+    stop music
 
     # [Lanjutkan dengan alur cerita sesuai kebutuhan]
     jump J
@@ -4602,8 +4643,10 @@ label F:
 # # ------------------------------------- SCRIPT G -------------------------------------# #
 image slideG1 = im.Scale("text/G/Slide1.PNG", 1920, 1080)
 label G:
+    play sound trans1
     scene slideG1 with fade
     pause
+    play music office_bgm
     scene ruang_kerja_bram_pagi with fade
     show BramaK at cpos
     b "Tujuan yang ingin aku capai memang baik, tapi… apakah caraku sudah benar?"
@@ -4696,6 +4739,7 @@ label G:
     show AryaYNetral at aylpos
     a "Bagaimana update dari masyarakat Natuna sana?"
     b "Yaa seperti biasa, mereka menginginkan keadilan."
+    stop music
 
     menu:
         "Tolak mentah":
@@ -4704,6 +4748,7 @@ label G:
             jump tidak_boleh_menyerah2
 
 label tolak_mentah2:
+    play music "audio/semoga tense.wav"
     a "Jadi, apa pilihan finalmu?"
     hide BramaK
     show BramaKNetral at rpos
@@ -4734,10 +4779,11 @@ label tolak_mentah2:
     show BramaKSenang at rpos
     b "Aku sudah memilih, Arya."
     b "Aku akan berdiri bersama rakyat Natuna."
-
+    stop music
     jump pindahidealis
 
 label tidak_boleh_menyerah2:
+    play music "audio/semoga tense.wav"
     a "Jadi, apa pilihan finalmu?"
     hide BramaK
     show BramaKNetral at rpos
@@ -4771,7 +4817,7 @@ label tidak_boleh_menyerah2:
     b "Mungkin aku memang keras kepala, Arya."
     b "Tapi aku tidak akan berpaling dari rakyat Natuna."
     b "Aku tahu ini tidak mudah, tapi mereka pantas untuk diperjuangkan."
-
+    stop music
     jump pindahidealis
 
 # # ------------------------------------- SCRIPT H -------------------------------------# #
