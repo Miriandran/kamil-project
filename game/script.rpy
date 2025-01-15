@@ -70,6 +70,21 @@ image Arya Menangis Glitch:
     pause 1.0
     repeat
 
+image Arya Serius Glitch:
+    At("chara/sma_arya/SERIOUS.png", glitch)
+    pause 0.2
+    At("chara/sma_arya/SERIOUS.png", animated_glitch)
+    pause 0.2
+    At("chara/sma_arya/SERIOUS.png", glitch)
+    pause 0.1
+    At("chara/sma_arya/SERIOUS.png", animated_glitch)
+    pause 0.1
+    At("chara/sma_arya/SERIOUS.png", glitch)
+    pause 0.3
+    At("chara/sma_arya/SERIOUS.png", animated_glitch)
+    pause 1.0
+    repeat
+
 image Bramaos : 
     "chara/kaos_bram/biasa.png"
     zoom 3
@@ -3548,6 +3563,11 @@ label kembali_ke_script_utama_2:
 
 # # ------------------------------------- SCRIPT D -------------------------------------# #
 image pesisir = im.Scale("bg/Natuna.png", 1920, 1080)
+image chaos = im.Scale("bg/chaos.png", 1920, 1080)
+define warga_a = Character("Warga", color="#bae6ff")
+image pakades:
+    "chara/pakades.png"
+    zoom 1.5
 # IMAGE TEXT
 image slideD1 = im.Scale("text/D/Slide1.PNG", 1920, 1080)
 image slideD2 = im.Scale("text/D/Slide2.PNG", 1920, 1080)
@@ -3700,7 +3720,7 @@ label kembali_ke_rumah:
     b "Iya sayang, aku harus ke sana untuk mengecek keadaan masyarakat di sana."
     hide BramaKSenang 
     show BramaK at lpos
-    nina "Hati-hati ya, yah. Awas ditenggelamkan sama coast guard China."
+    n "Hati-hati ya, yah. Awas ditenggelamkan sama coast guard China."
     hide BramaK 
     show BramaKSenang at lpos
     b "Aduh, bisaan anak ayah satu ini. Iya, ayah akan hati-hati di sana."
@@ -3720,11 +3740,12 @@ label keesokan_harinya:
     scene slideD3 with fade
     pause
     scene pesisir with fade
-
+    show BramaKSenang at cpos
     b "Selamat siang bapak ibu masyarakat. Perkenalkan saya Brama selaku menteri luar negeri."
     b "Kehadiran saya di sini adalah untuk mendengarkan dan berdiskusi kepada bapak-bapak dan ibu-ibu."
     b "Bahasannya mengenai laut yang diganggu oleh kapal China."
-
+    show BramaKSenang at lpos
+    show pakades at ayrpos
     kades "Selamat datang, Pak Menteri."
     kades "Terima kasih sudah meluangkan waktu datang ke sini."
     kades "Kami sudah lama menunggu seseorang dari pusat untuk melihat langsung kondisi kami."
@@ -3815,7 +3836,7 @@ label kembali_ke_script:
     warga_a "Bahkan kapal kami tak segan-segan mereka tenggelamkan di wilayah negara kita sendiri."
     warga_a "Tapi apa nyatanya pemerintah malah berpihak pada aseng?"
 
-    masyarakat "SETUJU! Negara tidak peduli terhadap rakyatnya sendiri tapi malah memikirkan kantongnya sendiri!"
+    warga_a "SETUJU! Negara tidak peduli terhadap rakyatnya sendiri tapi malah memikirkan kantongnya sendiri!"
     # [Keadaan menjadi anarkis dan Kamil segera meninggalkan tempat dengan pengawalan ketat]
     # {suara chaos demo anarkis}
     scene slideD4 with fade
@@ -3828,28 +3849,33 @@ label kembali_ke_script:
     scene slideD7 with fade
     pause
     scene kantor with fade
-
+    show BramaKNetral at cpos
     b "Apa tindakan yang aku lakukan ini merupakan yang terbaik?"
     b "Lantas mengapa banyak yang menolak?"
-
-    other "Apa yang kamu lakukan merupakan hal yang salah, Brama."
-    other "Ini tidak sesuai dengan prinsip pribadimu."
-    other "Kau rela mengorbankan rakyat demi kepentingan pribadimu."
-
+    hide BramaKNetral
+    show maleGlitch at cpos
+    o "Apa yang kamu lakukan merupakan hal yang salah, Brama."
+    o "Ini tidak sesuai dengan prinsip pribadimu."
+    o "Kau rela mengorbankan rakyat demi kepentingan pribadimu."
+    hide maleGlitch
+    show BramaKNetral at cpos
     b "Tidak. Aku tidak mengorbankan mereka dan tidak untuk kepentingan pribadiku."
     b "Ini semua demi rakyat dan negara. Tau apa mereka soal politik dan ekonomi?"
-
-    other "Mereka mungkin tidak berpendidikan tinggi seperti dirimu."
-    other "Tapi apakah mereka pantas dikorbankan begitu saja?"
-    other "Apa kau tidak kasihan dengan keluarganya?"
-    other "Di mana sisi kemanusiaanmu itu, Brama?"
-
+    hide BramaKNetral
+    show maleGlitch at cpos
+    o "Mereka mungkin tidak berpendidikan tinggi seperti dirimu."
+    o "Tapi apakah mereka pantas dikorbankan begitu saja?"
+    o "Apa kau tidak kasihan dengan keluarganya?"
+    o "Di mana sisi kemanusiaanmu itu, Brama?"
+    hide maleGlitch
+    show BramaKNetral at cpos
     b "Aku akan tetap menjalankan rencana yang sudah disetujui dengan presiden apapun itu caranya."
     b "Aku tidak akan membiarkan konflik ini membawa buruk bagi perekonomian dan hubungan kedua negara."
-
-    other "Kau memang sudah berubah, Brama."
-    other "Mana Brama yang ku kenal itu yang mengutamakan keadilan dan kepentingan rakyat?"
-    other "Rakyat juga butuh kehadiran negara untuk melindungi mereka."
+    hide BramaKNetral
+    show maleGlitch at cpos
+    o "Kau memang sudah berubah, Brama."
+    o "Mana Brama yang ku kenal itu yang mengutamakan keadilan dan kepentingan rakyat?"
+    o "Rakyat juga butuh kehadiran negara untuk melindungi mereka."
 
     menu:
         "Mantab ikuti Arya":
@@ -4467,6 +4493,7 @@ label tidak_boleh_menyerah2:
 
 # # ------------------------------------- SCRIPT H -------------------------------------# #
 label H:
+    play music office_bgm
     scene ruang_kerja_bram_pagi
     show maleGlitch at cpos 
     o "Tujuan yang ingin kamu capai mungkin memang baik, tapi apakah caranya sudah betul, Brama?"
@@ -4568,24 +4595,24 @@ label I:
     scene bumnkantor with fade
     show Brama_y at lpos
     show Presiden at prrpos
-    k "Yang Mulia Presiden, menteri-menteri terhormat, saya mengajukan kebijakan untuk memprioritaskan kesejahteraan rakyat" 
-    k "khususnya di wilayah-wilayah perbatasan seperti Natuna. Sudah terlalu lama mereka menjadi korban dari konflik kepentingan."
-    k "Kita harus mengambil tindakan tegas terhadap kapal asing di Natuna."
+    b "Yang Mulia Presiden, menteri-menteri terhormat, saya mengajukan kebijakan untuk memprioritaskan kesejahteraan rakyat" 
+    b "khususnya di wilayah-wilayah perbatasan seperti Natuna. Sudah terlalu lama mereka menjadi korban dari konflik kepentingan."
+    b "Kita harus mengambil tindakan tegas terhadap kapal asing di Natuna."
     pres "Ini langkah yang berani, Menteri Brama. Apakah kau sudah mempertimbangkan seluruh aspeknya?"
-    k "Saya sudah mempertimbangkannya, dan ini sangat berdampak baik dan menguntungkan masyarakat Indonesia, Bu. Semuanya akan berjalan lancar."
+    b "Saya sudah mempertimbangkannya, dan ini sangat berdampak baik dan menguntungkan masyarakat Indonesia, Bu. Semuanya akan berjalan lancar."
 
     #scene natuna with fade
     kades "Terima kasih, Pak Brama. Apa yang Bapak lakukan telah mengubah hidup kami. Kini kami punya sekolah baru dan fasilitas kesehatan yang layak."
-    k "…… Ini semua untuk kalian. Negara harus hadir di sini, di mana rakyatnya membutuhkan."
+    b "…… Ini semua untuk kalian. Negara harus hadir di sini, di mana rakyatnya membutuhkan."
     pres "Baik, apabila meninjau dari dokumen yang sudah kau berikan dan jelaskan, saya setuju dengan keputusanmu. Mari kita laksanakan!"
     scene black
     show slide_1 with fade
     pause 1
     scene bumnrapat with fade
     show abatik at aycpos
-    r "Saya, atas nama integritas dan keadilan, harus mengungkap sebuah fakta."
-    r "Menteri Brama telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya."
-    r "Ini adalah pelanggaran hukum yang tidak bisa ditoleransi."
+    a "Saya, atas nama integritas dan keadilan, harus mengungkap sebuah fakta."
+    a "Menteri Brama telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya."
+    a "Ini adalah pelanggaran hukum yang tidak bisa ditoleransi."
 
     scene terasrumah_y with fade
     "(Dengan diketahuinya kasus penyalahgunaan anggaran, Brama ditangkap oleh pihak kepolisian di kediamannya.)"
@@ -4594,8 +4621,8 @@ label I:
     warta "Pak Brama, apa benar tuduhan ini? Bagaimana tanggapan Anda?"
     hide male
     show Brama_y at cpos
-    k "Saya hanya ingin membantu rakyat. Jika ini harga yang harus saya bayar, saya terima."
-    k "Untuk rakyatku, maafkan aku jika langkahku tidak sempurna. Tapi aku tidak pernah menyesal memperjuangkan kalian."
+    b "Saya hanya ingin membantu rakyat. Jika ini harga yang harus saya bayar, saya terima."
+    b "Untuk rakyatku, maafkan aku jika langkahku tidak sempurna. Tapi aku tidak pernah menyesal memperjuangkan kalian."
 
     scene black 
     show slide_2 with fade
@@ -4608,8 +4635,11 @@ label I:
     show slide_4 with fade
     pause 1.5
     scene black
+    play sound dentumanpistol
+    stop music
     "DORR!"
-    r "Mimpi buruk lagi lu?"
+    show Arya Serius Glitch at aycpos
+    a "Mimpi buruk lagi lu?"
 
     return
 #---------------------------------
@@ -4624,6 +4654,11 @@ define warta = Character("Wartawan", color="#472301")
 define pgw = Character("Pegawai", color="#472301")
 
 # # IMAGE CHARA
+image kadestv = im.Scale("cutscene/j/kades di tv.png", 1920, 1080)
+image endj1 = im.Scale("cutscene/j/ending J.png", 1920, 1080)
+image endj2 = im.Scale("cutscene/j/ending j 2.png", 1920, 1080)
+image endj3 = im.Scale("cutscene/j/ending j 3.png", 1920, 1080)
+image endj4 = im.Scale("cutscene/j/ending j 4.png", 1920, 1080)
 
 image Presiden:
     "chara/presiden.png"
@@ -4667,18 +4702,38 @@ label J:
     pres "Baik, apabila meninjau dari dokumen yang sudah Bapak berikan dan jelaskan, saya setuju dengan keputusan Bapak."
     pres "Mari kita laksanakan!"
 
+    stop music
     "(Satu hari berikutnya..)"
-    scene natuna with fade
+    play music "audio/semoga tense.wav"
+    scene  kadestv with fade
+    pause 2.0
+    
+ 
+
     kades "Saya rasa pemerintah tidak peduli terhadap kami, rakyatnya! "
     kades "Para pejabat itu hanya peduli soal kantongnya masing-masing, tidak peduli terhadap kami rakyat kecil di Natuna!"
     kades "Sungguh dzolim, terutama untuk Anda, Pak Menteri Luar Negeri, dan para pejabat negeri ini!"
 
+    scene endj1 with fade
+    pause 2.0
+    scene endj2 with fade
+    pause 2.0
+    scene endj3 with fade
+    pause 2.0
+    scene endj4 with fade
+    pause 2.0
+
+    scene black
+    
     #scene demo, belum ada
     show Pistol Nembak at pistol with fade
     "(Hukuman mati.)"
     scene black
+    play sound dentumanpistol
+    stop music
     "DORR!"
-    r "Mimpi buruk lagi lu?"
+    show Arya Serius Glitch at aycpos
+    a "Mimpi buruk lagi lu?"
 
     return
 
