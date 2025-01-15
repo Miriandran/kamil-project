@@ -220,7 +220,6 @@ define alpos = Position(xalign=0,yalign=0)
 
 label start:
 # The game starts here.
-    jump H
 
     play music "audio/semoga tense.wav"
 
@@ -3549,6 +3548,11 @@ label kembali_ke_script_utama_2:
 
 # # ------------------------------------- SCRIPT D -------------------------------------# #
 image pesisir = im.Scale("bg/Natuna.png", 1920, 1080)
+image chaos = im.Scale("bg/chaos.png", 1920, 1080)
+define warga_a = Character("Warga", color="#bae6ff")
+image pakades:
+    "chara/pakades.png"
+    zoom 1.5
 # IMAGE TEXT
 image slideD1 = im.Scale("text/D/Slide1.PNG", 1920, 1080)
 image slideD2 = im.Scale("text/D/Slide2.PNG", 1920, 1080)
@@ -3701,7 +3705,7 @@ label kembali_ke_rumah:
     b "Iya sayang, aku harus ke sana untuk mengecek keadaan masyarakat di sana."
     hide BramaKSenang 
     show BramaK at lpos
-    nina "Hati-hati ya, yah. Awas ditenggelamkan sama coast guard China."
+    n "Hati-hati ya, yah. Awas ditenggelamkan sama coast guard China."
     hide BramaK 
     show BramaKSenang at lpos
     b "Aduh, bisaan anak ayah satu ini. Iya, ayah akan hati-hati di sana."
@@ -3721,11 +3725,12 @@ label keesokan_harinya:
     scene slideD3 with fade
     pause
     scene pesisir with fade
-
+    show BramaKSenang at cpos
     b "Selamat siang bapak ibu masyarakat. Perkenalkan saya Brama selaku menteri luar negeri."
     b "Kehadiran saya di sini adalah untuk mendengarkan dan berdiskusi kepada bapak-bapak dan ibu-ibu."
     b "Bahasannya mengenai laut yang diganggu oleh kapal China."
-
+    show BramaKSenang at lpos
+    show pakades at ayrpos
     kades "Selamat datang, Pak Menteri."
     kades "Terima kasih sudah meluangkan waktu datang ke sini."
     kades "Kami sudah lama menunggu seseorang dari pusat untuk melihat langsung kondisi kami."
@@ -3816,7 +3821,7 @@ label kembali_ke_script:
     warga_a "Bahkan kapal kami tak segan-segan mereka tenggelamkan di wilayah negara kita sendiri."
     warga_a "Tapi apa nyatanya pemerintah malah berpihak pada aseng?"
 
-    masyarakat "SETUJU! Negara tidak peduli terhadap rakyatnya sendiri tapi malah memikirkan kantongnya sendiri!"
+    warga_a "SETUJU! Negara tidak peduli terhadap rakyatnya sendiri tapi malah memikirkan kantongnya sendiri!"
     # [Keadaan menjadi anarkis dan Kamil segera meninggalkan tempat dengan pengawalan ketat]
     # {suara chaos demo anarkis}
     scene slideD4 with fade
@@ -3829,28 +3834,33 @@ label kembali_ke_script:
     scene slideD7 with fade
     pause
     scene kantor with fade
-
+    show BramaKNetral at cpos
     b "Apa tindakan yang aku lakukan ini merupakan yang terbaik?"
     b "Lantas mengapa banyak yang menolak?"
-
-    other "Apa yang kamu lakukan merupakan hal yang salah, Brama."
-    other "Ini tidak sesuai dengan prinsip pribadimu."
-    other "Kau rela mengorbankan rakyat demi kepentingan pribadimu."
-
+    hide BramaKNetral
+    show maleGlitch at cpos
+    o "Apa yang kamu lakukan merupakan hal yang salah, Brama."
+    o "Ini tidak sesuai dengan prinsip pribadimu."
+    o "Kau rela mengorbankan rakyat demi kepentingan pribadimu."
+    hide maleGlitch
+    show BramaKNetral at cpos
     b "Tidak. Aku tidak mengorbankan mereka dan tidak untuk kepentingan pribadiku."
     b "Ini semua demi rakyat dan negara. Tau apa mereka soal politik dan ekonomi?"
-
-    other "Mereka mungkin tidak berpendidikan tinggi seperti dirimu."
-    other "Tapi apakah mereka pantas dikorbankan begitu saja?"
-    other "Apa kau tidak kasihan dengan keluarganya?"
-    other "Di mana sisi kemanusiaanmu itu, Brama?"
-
+    hide BramaKNetral
+    show maleGlitch at cpos
+    o "Mereka mungkin tidak berpendidikan tinggi seperti dirimu."
+    o "Tapi apakah mereka pantas dikorbankan begitu saja?"
+    o "Apa kau tidak kasihan dengan keluarganya?"
+    o "Di mana sisi kemanusiaanmu itu, Brama?"
+    hide maleGlitch
+    show BramaKNetral at cpos
     b "Aku akan tetap menjalankan rencana yang sudah disetujui dengan presiden apapun itu caranya."
     b "Aku tidak akan membiarkan konflik ini membawa buruk bagi perekonomian dan hubungan kedua negara."
-
-    other "Kau memang sudah berubah, Brama."
-    other "Mana Brama yang ku kenal itu yang mengutamakan keadilan dan kepentingan rakyat?"
-    other "Rakyat juga butuh kehadiran negara untuk melindungi mereka."
+    hide BramaKNetral
+    show maleGlitch at cpos
+    o "Kau memang sudah berubah, Brama."
+    o "Mana Brama yang ku kenal itu yang mengutamakan keadilan dan kepentingan rakyat?"
+    o "Rakyat juga butuh kehadiran negara untuk melindungi mereka."
 
     menu:
         "Mantab ikuti Arya":
