@@ -1,11 +1,91 @@
-﻿# # ------------------------------------- SCRIPT X - SMA -------------------------------------# #
-# DEFINE CHARACTERS
+﻿# # DEFINE CHARACTERS
+define b = Character("Brama", color="#86ccec")
+define a = Character("Arya", color="#ffd54a")
+
+define pgw = Character("Pegawai", color="#ffffff")
+define pres = Character("Presiden", color="#ff7c7c")
+define kades = Character("Kepala Desa", color="#95ff7d")
+define warta = Character("Wartawan", color="#837d77")
+define o = Character("Other", color="#99928c")
+define s = Character("Sekretaris", color="#ffffff")
+define dir_a = Character("Direktur A", color="#000000ff")
+define dir_b = Character("Direktur B", color="#000000ff")
+define dir_c = Character("Direktur C", color="#000000ff")
+define sl = Character("Staff Lobi", color="#000000ff")
+define p = Character("Petugas KPK", color="#000000ff")
+define staffa = Character("Staff A",  color="#000000ff")
+define moderator = Character("Moderator", color="#000000ff")
+define diplomat = Character("Diplomat", color="#c00b0bff")
+define kades = Character("Kades",  color="#000000ff")
 define k = Character("Brama", color="#86ccec")
 define r = Character("Arya", color="#ffd54a")
 define i = Character('Ibu', color="#ffffff")
 define ay = Character('Ayah', color="#ffffff")
+define sat = Character('Satpam', color="#827a7a")
+define prpos = Position(xalign=0.9, yalign=0)
+define pcpos = Position(xalign=0.5, yalign=0)
+define pistol = Position(xalign=0.5, yalign=0.4)
+define staff = Character('staff', color="#423d3d")
+define x = Character('Pencuri', color="#423d3d")
+define o = Character("Others",  color="#e3bb96")
+define n = Character("Nina",  color="#6ba7e3")
+define ist = Character("Istri",  color="#ffffff")
+define ceo = Character("CEO",  color="#ffffff")
+define ast = Character("Asisten",  color="#ffffff")
+define skre = Character("Sekretaris",  color="#ffffff")
+define an = Character("Andi",  color="#ffffff")
+define m = Character("Mahfudz",  color="#ffffff")
+define staffa = Character("Staff A",  color="#ffffff")
+define staffb = Character("Staff B",  color="#ffffff")
+define staffm = Character("Staff M",  color="#ffffff")
+define staffr = Character("Staff R",  color="#ffffff")
+define dir_a = Character("Direktur A", color="#ffffff")
+define rs = Character("Rosa", color="#ffffff")
+define warga_a = Character("Warga", color="#bae6ff")
 
-# IMAGE BACKGROUND
+# buat pres
+define prcpos = Position(xalign=0.5, yalign=0)
+define prrpos = Position(xalign=1.0, yalign=0)
+define prlpos = Position(xalign=0,yalign=0)
+define pistol = Position(xalign=0.5, yalign=0.4)
+# buat arya kantor
+define aycpos = Position(xalign=0.5, yalign=0)
+define ayrpos = Position(xalign=1.2, yalign=0)
+define aylpos = Position(xalign=0, yalign=0)
+
+# buat telpon
+define tlcpos = Position(xalign=0.5, yalign=0)
+define tlrpos = Position(xalign=1.01, yalign=0.6)
+define tllpos = Position(xalign=0,yalign=0)
+
+# buat malefem
+define ncpos = Position(xalign=0.5, yalign=-0.14)
+define nrpos = Position(xalign=0.9, yalign=-0.14)
+define nlpos = Position(xalign=0,yalign=-0.14)
+
+# buat arya
+define acpos = Position(xalign=0.5, yalign=0)
+define arpos = Position(xalign=1.25, yalign=0)
+define alpos = Position(xalign=0,yalign=0)
+
+# buat brama
+define cpos = Position(xalign=0.5, yalign=0)
+define rpos = Position(xalign=0.9, yalign=0)
+define lpos = Position(xalign=0,yalign=0)
+
+
+# # IMAGE BACKGROUND
+image bumnkantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
+image bumnlobi = im.Scale("bg/bumn/lobi.png", 1920, 1080)
+image bumnlorong = im.Scale("bg/bumn/lorong.png", 1920, 1080)
+image bumnrapat = im.Scale("bg/bumn/rapat.png", 1920, 1080)
+image natuna = im.Scale("bg/Natuna.png", 1920, 1080)
+image slide_1 = im.Scale("text/I/slide1.png", 1920, 1080)
+image slide_2 = im.Scale("text/I/slide2.png", 1920, 1080)
+image slide_3 = im.Scale("text/I/slide3.png", 1920, 1080)
+image slide_4 = im.Scale("text/I/slide4.png", 1920, 1080)
+image pesisir = im.Scale("bg/Natuna.png", 1920, 1080)
+image chaos = im.Scale("bg/chaos.png", 1920, 1080)
 image acak1 = im.Scale("bg/acak1.webp", 1920, 1080)
 image acak2 = im.Scale("bg/acak2.jpg", 1920, 1080)
 image acak3 = im.Scale("bg/acak3.webp", 1920, 1080)
@@ -25,8 +105,154 @@ image jakarta_malam = im.Scale("bg/jakarta malem.jpg", 1920,1080)
 image restoran_1 = im.Scale("bg/restoduduk.png", 1920,1080)
 image kasir = im.Scale("bg/Restoran Kasir.png", 1920,1080)
 image tokobaju = im.Scale("bg/tokobaju.png", 1920,1080)
+image kantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
+image ruang_rapatbumn = im.Scale("bg/bumn/rapat.png", 1920, 1080)
+image lobibumn = im.Scale("bg/bumn/lobi.png", 1920, 1080)
+image lorongbumn = im.Scale("bg/bumn/lorong.png", 1920, 1080)
+image ruang_rapat_menteri = im.Scale("bg/kmenteri/rapat.png", 1920, 1080)
+image ruang_kerja_bram_pagi = im.Scale("bg/kmenteri/pagi.png", 1920, 1080)
+image ruang_kerja_bram_malam = im.Scale("bg/kmenteri/malam.png", 1920, 1080)
+image slideC1 = im.Scale("text/C/Slide1.PNG", 1920, 1080)
+image slideC2 = im.Scale("text/C/Slide2.PNG", 1920, 1080)
+image pesawat = im.Scale("bg/pesawat.png", 1920, 1080)
+image slideD1 = im.Scale("text/D/Slide1.PNG", 1920, 1080)
+image slideD2 = im.Scale("text/D/Slide2.PNG", 1920, 1080)
+image slideD3 = im.Scale("text/D/Slide3.PNG", 1920, 1080)
+image slideD4 = im.Scale("text/D/Slide4.PNG", 1920, 1080)
+image slideD5 = im.Scale("text/D/Slide5.PNG", 1920, 1080)
+image slideD6 = im.Scale("text/D/Slide6.PNG", 1920, 1080)
+image slideD7 = im.Scale("text/D/Slide7.PNG", 1920, 1080)
+image slideC1 = im.Scale("text/C/Slide1.PNG", 1920, 1080)
+image slideC2 = im.Scale("text/C/Slide2.PNG", 1920, 1080)
+image kamartidur_y = im.Scale("bg/rumahkamil/tidur.png", 1920, 1080)
+image ruangmakan_y = im.Scale("bg/rumahkamil/makan.png", 1920, 1080)
+image kantorrumah_y = im.Scale("bg/rumahkamil/kantor.png", 1920, 1080)
+image terasrumah_y = im.Scale("bg/rumahkamil/teras.png", 1920, 1080)
+image bumnkantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
+image bumnlobi = im.Scale("bg/bumn/lobi.png", 1920, 1080)
+image bumnlorong = im.Scale("bg/bumn/lorong.png", 1920, 1080)
+image bumnrapat = im.Scale("bg/bumn/rapat.png", 1920, 1080)
+image pov_arya = im.Scale("text/Y-BUMN/Slide1.PNG", 1920, 1080)
+image pov_brama = im.Scale("text/Y-BUMN/Slide2.PNG", 1920, 1080)
+image ngaca = im.Scale("tam/ngaca.png", 1920, 1080)
+image kadestv = im.Scale("cutscene/j/kades di tv.png", 1920, 1080)
+image endj1 = im.Scale("cutscene/j/ending J.png", 1920, 1080)
+image endj2 = im.Scale("cutscene/j/ending j 2.png", 1920, 1080)
+image endj3 = im.Scale("cutscene/j/ending j 3.png", 1920, 1080)
+image endj4 = im.Scale("cutscene/j/ending j 4.png", 1920, 1080)
 
-# IMAGE CHARA
+
+# # IMAGE CHARA
+image Presiden:
+    "chara/presiden.png"
+    zoom 0.8
+
+image Brama_y:
+    "chara/bramabumn.png"
+    zoom 0.5
+
+image Pistol Nembak:
+    "cutscene/x/pistolnembak.png"
+    zoom 1.5
+image dentuman = im.Scale("cutscene/x/bg.png", 1920, 1080)
+
+
+image Kades:
+    "chara/nelayana.png"
+    zoom 2.6
+image pakades:
+    "chara/pakades.png"
+    zoom 1.5
+
+image BramaK:
+    "chara/Brama.png"
+    zoom 0.5
+image BramaKNetral:
+    "chara/bumn_brama/SERIOUS_NEUTRAL.png"
+    zoom 0.5
+image BramaKSenang:
+    "chara/bumn_brama/HAPPY.png"
+    zoom 0.5
+image BramaKLega:
+    "chara/bumn_brama/RELIEVED.png"
+    zoom 0.5
+image BramaKMarah:
+    "chara/bumn_brama/ANGRY.png"
+    zoom 0.5
+image BramaKKosong:
+    "chara/bumn_brama/EMPTY.png"
+    zoom 0.5
+image BramaKBingung:
+    "chara/bumn_brama/CONFUSED.png"
+    zoom 0.5
+
+image AryaYNetral:
+    "chara/bumn_arya/NEUTRAL.png"
+    zoom 1.5
+image AryaYKopi:
+    "chara/bumn_arya/MENYESAP KOPI.png"
+    zoom 1.5
+image AryaYSenyum:
+    "chara/bumn_arya/HAPPY SMILE.png"
+    zoom 1.5
+image AryaYKetawa:
+    "chara/bumn_arya/HAPPY LAUGH.png"
+    zoom 1.5
+image AryaYSerius:
+    "chara/bumn_arya/SERIOUS.png"
+    zoom 1.5
+
+image Istri:
+    "chara/istri/biasa.png"  
+    zoom 1.6
+image Istri s:
+    "chara/istri/buka.png"
+    zoom 1.6
+image Istri snark:
+    "chara/istri/snark.png"  
+    zoom 1.6
+
+image telfonkabel:
+    "single asset/Telfon kabel.png"
+    zoom 0.45
+image Sekretaris:
+    "chara/Sekre.png"
+    zoom 0.65
+image Direktur_A:
+    "chara/dirA.png"
+    zoom 1.6
+image Direktur_C:
+    "chara/moder.png"
+    zoom 1.6
+image Diplomat:
+    "chara/dcinas.png"
+    zoom 1.2
+
+image male:
+    "chara/male.png"  
+    zoom 1.8
+image maleGlitch:
+    zoom 1.8
+    At("chara/male.png", glitch)
+    pause 0.2
+    At("chara/male.png", animated_glitch)
+    pause 0.2
+    At("chara/male.png", glitch)
+    pause 0.1
+    At("chara/male.png", animated_glitch)
+    pause 0.1
+    At("chara/male.png", glitch)
+    pause 0.3
+    At("chara/male.png", animated_glitch)
+    pause 1.0
+    repeat
+image male2:
+    "chara/male.png"  
+    zoom 1.8
+image fem:
+    "chara/fem.png"  
+    zoom 1.4
+
 image Brama Glitch:
     At("chara/kaos_bram/kosong.png", glitch)
     pause 0.2
@@ -224,16 +450,46 @@ image Ibu us :
     "chara/ibu/serius.png"
     zoom 1.45
 
-# buat brama
-define cpos = Position(xalign=0.5, yalign=0)
-define rpos = Position(xalign=0.9, yalign=0)
-define lpos = Position(xalign=0,yalign=0)
+# # IMAGE CHARA
+image Brama_y:
+    "chara/brama.png"
+    zoom 0.5
 
-# buat arya
-define acpos = Position(xalign=0.5, yalign=0)
-define arpos = Position(xalign=1.25, yalign=0)
-define alpos = Position(xalign=0,yalign=0)
+image abatik:
+    "chara/aryabatik.png"
+    zoom 1.5
 
+image telfonkabel:
+    "single asset/Telfon kabel.png"
+    zoom 0.45
+
+image Nina:
+    "chara/Nina.png"  
+    zoom 0.60
+
+image Istri:
+    "chara/istri/biasa.png"  
+    zoom 1.6
+
+image Istri s:
+    "chara/istri/buka.png"  
+    zoom 1.6
+
+image Istri snark:
+    "chara/istri/snark.png"  
+    zoom 1.6
+
+image male:
+    "chara/male.png"  
+    zoom 1.4
+image male2:
+    "chara/male.png"  
+    zoom 1.4
+image fem:
+    "chara/fem.png"  
+    zoom 1.4
+
+# # ------------------------------------- SCRIPT X - SMA -------------------------------------# #
 label start:
 # The game starts here.
 
@@ -850,7 +1106,7 @@ label ganabrak:
     k "Iya iya, ntar jam istirahat."
     jump nemudompet
 
-define sat = Character('Satpam', color="#827a7a")
+
 image slide4 = im.Scale("text/X-SMA/Slide4.png", 1920, 1080)
 image slide6 = im.Scale("text/X-SMA/Slide6.png", 1920, 1080)
 image slide7 = im.Scale("text/X-SMA/Slide7.png", 1920, 1080)
@@ -1257,47 +1513,6 @@ label ibutibatiba:
     
     jump sampei
 
-# label minigame_nyetir:
-#     menu:
-#         '(gagal minigame (lama sampai))':
-#             jump lamatpsampe
-#         '(minigame berhasil)':
-#             jump sampei
-    # Setup for the driving mini-game
-    # $ driving_speed = 0
-    # $ distance_covered = 0
-    # $ target_distance = 100  # Distance to complete the mini-game
-
-    # # Start the mini-game
-    # while distance_covered < target_distance:
-    #     menu:
-    #         "Gas (Percepat mobil)":
-    #             $ driving_speed += 10
-    #             $ distance_covered += driving_speed // 10
-    #             "Brama menginjak pedal gas, kecepatannya sekarang [driving_speed] km/h."
-    #         "Rem (Kurangi kecepatan)":
-    #             $ driving_speed = max(0, driving_speed - 10)
-    #             "Brama menginjak rem, kecepatannya sekarang [driving_speed] km/h."
-    #         "Jaga kecepatan (Tetap stabil)":
-    #             $ distance_covered += driving_speed // 15
-    #             "Brama menjaga kecepatan stabil di [driving_speed] km/h."
-
-    #     # Random events to make the mini-game challenging
-    #     if renpy.random.randint(0, 10) < 3:
-    #         "Ada lubang di jalan! Brama harus menghindar."
-    #         menu:
-    #             "Hindari ke kiri!":
-    #                 $ driving_speed = max(0, driving_speed - 15)
-    #                 "Berhasil menghindar, tapi kecepatannya berkurang!"
-    #             "Hindari ke kanan!":
-    #                 $ driving_speed = max(0, driving_speed - 15)
-    #                 "Berhasil menghindar, tapi kecepatannya berkurang!"
-    #             "Tidak hindar!":
-    #                 $ distance_covered -= 10
-    #                 "Mobil sedikit oleng! Jarak yang ditempuh berkurang."
-
-    # "Brama berhasil membawa mobil sampai tujuan dengan selamat!"
-
 image sarinah_dari_depan = im.Scale("bg/sarinah depan.jpg", 1920, 1080)
 label sampei:
     scene jakarta_malam
@@ -1323,12 +1538,6 @@ label lamatpsampe:
     ay "Ngghroookk..." 
 
     jump akhirsampe
-
-define prpos = Position(xalign=0.9, yalign=0)
-define pcpos = Position(xalign=0.5, yalign=0)
-define pistol = Position(xalign=0.5, yalign=0.4)
-define staff = Character('staff', color="#423d3d")
-define x = Character('Pencuri', color="#423d3d")
 
 image Pistol:
     "cutscene/x/pistol.png"
@@ -1574,95 +1783,6 @@ label akhirsampe:
 
 
 # # ------------------------------------- SCRIPT Y - BUMN -------------------------------------# #
-# # DEFINE CHARACTERS
-define o = Character("Others",  color="#e3bb96")
-define n = Character("Nina",  color="#6ba7e3")
-define ist = Character("Istri",  color="#ffffff")
-define ceo = Character("CEO",  color="#ffffff")
-define ast = Character("Asisten",  color="#ffffff")
-define skre = Character("Sekretaris",  color="#ffffff")
-define an = Character("Andi",  color="#ffffff")
-define m = Character("Mahfudz",  color="#ffffff")
-define staffa = Character("Staff A",  color="#ffffff")
-define staffb = Character("Staff B",  color="#ffffff")
-define staffm = Character("Staff M",  color="#ffffff")
-define staffr = Character("Staff R",  color="#ffffff")
-define dir_a = Character("Direktur A", color="#ffffff")
-define rs = Character("Rosa", color="#ffffff")
-#define narasi = Character("Narasi", color="#472301")
-
-# # IMAGE BACKGROUND
-image kamartidur_y = im.Scale("bg/rumahkamil/tidur.png", 1920, 1080)
-image ruangmakan_y = im.Scale("bg/rumahkamil/makan.png", 1920, 1080)
-image kantorrumah_y = im.Scale("bg/rumahkamil/kantor.png", 1920, 1080)
-image terasrumah_y = im.Scale("bg/rumahkamil/teras.png", 1920, 1080)
-image bumnkantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
-image bumnlobi = im.Scale("bg/bumn/lobi.png", 1920, 1080)
-image bumnlorong = im.Scale("bg/bumn/lorong.png", 1920, 1080)
-image bumnrapat = im.Scale("bg/bumn/rapat.png", 1920, 1080)
-image pov_arya = im.Scale("text/Y-BUMN/Slide1.PNG", 1920, 1080)
-image pov_brama = im.Scale("text/Y-BUMN/Slide2.PNG", 1920, 1080)
-image ngaca = im.Scale("tam/ngaca.png", 1920, 1080)
-
-# # IMAGE CHARA
-image Brama_y:
-    "chara/brama.png"
-    zoom 0.5
-
-image abatik:
-    "chara/aryabatik.png"
-    zoom 1.5
-
-image telfonkabel:
-    "single asset/Telfon kabel.png"
-    zoom 0.45
-
-image Nina:
-    "chara/Nina.png"  
-    zoom 0.60
-
-image Istri:
-    "chara/istri/biasa.png"  
-    zoom 1.6
-
-image Istri s:
-    "chara/istri/buka.png"  
-    zoom 1.6
-
-image Istri snark:
-    "chara/istri/snark.png"  
-    zoom 1.6
-
-image male:
-    "chara/male.png"  
-    zoom 1.4
-image male2:
-    "chara/male.png"  
-    zoom 1.4
-image fem:
-    "chara/fem.png"  
-    zoom 1.4
-
-#Posisi custom bikinan bisa apply to all
-define cpos = Position(xalign=0.5, yalign=0)
-define rpos = Position(xalign=0.9, yalign=0)
-define lpos = Position(xalign=0.1,yalign=0)
-
-# buat arya
-define aycpos = Position(xalign=0.5, yalign=0)
-define ayrpos = Position(xalign=1.2, yalign=0)
-define aylpos = Position(xalign=0, yalign=0)
-
-# buat telpon
-define tlcpos = Position(xalign=0.5, yalign=0)
-define tlrpos = Position(xalign=1.01, yalign=0.6)
-define tllpos = Position(xalign=0,yalign=0)
-
-# buat malefem
-define ncpos = Position(xalign=0.5, yalign=-0.14)
-define nrpos = Position(xalign=0.9, yalign=-0.14)
-define nlpos = Position(xalign=0,yalign=-0.14)
-
 label ybumn: #ybumn
     scene ngaca
     play music sad_bgm
@@ -2446,146 +2566,6 @@ label balikkamil:
 #----------------------------------
 
 # # # ------------------------------------- SCRIPT A -------------------------------------# #
-# DEFINE CHARACTERS
-define b = Character("Brama", color="#86ccec")
-define a = Character("Arya", color="#ffd54a")
-define o = Character("Other", color="#99928c")
-define s = Character("Sekretaris", color="#ffffff")
-define dir_a = Character("Direktur A", color="#000000ff")
-define dir_b = Character("Direktur B", color="#000000ff")
-define dir_c = Character("Direktur C", color="#000000ff")
-define sl = Character("Staff Lobi", color="#000000ff")
-define p = Character("Petugas KPK", color="#000000ff")
-define staffa = Character("Staff A",  color="#000000ff")
-define moderator = Character("Moderator", color="#000000ff")
-define diplomat = Character("Diplomat", color="#c00b0bff")
-
-# IMAGE BACKGROUND
-image kantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
-image ruang_rapatbumn = im.Scale("bg/bumn/rapat.png", 1920, 1080)
-image lobibumn = im.Scale("bg/bumn/lobi.png", 1920, 1080)
-image lorongbumn = im.Scale("bg/bumn/lorong.png", 1920, 1080)
-image ruang_rapat_menteri = im.Scale("bg/kmenteri/rapat.png", 1920, 1080)
-image ruang_kerja_bram_pagi = im.Scale("bg/kmenteri/pagi.png", 1920, 1080)
-image ruang_kerja_bram_malam = im.Scale("bg/kmenteri/malam.png", 1920, 1080)
-
-# IMAGE CHARA
-"""image BramaK:
-    "chara/Brama.png"
-    zoom 0.5
-image Sekretaris:
-    "chara/Sekre.png"
-    zoom 0.65
-image Direktur_A:
-    "chara/dirA.png"
-    zoom 1.6
-image Direktur_C:
-    "chara/moder.png"
-    zoom 1.6"""
-image BramaK:
-    "chara/Brama.png"
-    zoom 0.5
-image BramaKNetral:
-    "chara/bumn_brama/SERIOUS_NEUTRAL.png"
-    zoom 0.5
-image BramaKSenang:
-    "chara/bumn_brama/HAPPY.png"
-    zoom 0.5
-image BramaKLega:
-    "chara/bumn_brama/RELIEVED.png"
-    zoom 0.5
-image BramaKMarah:
-    "chara/bumn_brama/ANGRY.png"
-    zoom 0.5
-image BramaKKosong:
-    "chara/bumn_brama/EMPTY.png"
-    zoom 0.5
-image BramaKBingung:
-    "chara/bumn_brama/CONFUSED.png"
-    zoom 0.5
-
-image AryaYNetral:
-    "chara/bumn_arya/NEUTRAL.png"
-    zoom 1.5
-image AryaYKopi:
-    "chara/bumn_arya/MENYESAP KOPI.png"
-    zoom 1.5
-image AryaYSenyum:
-    "chara/bumn_arya/HAPPY SMILE.png"
-    zoom 1.5
-image AryaYKetawa:
-    "chara/bumn_arya/HAPPY LAUGH.png"
-    zoom 1.5
-image AryaYSerius:
-    "chara/bumn_arya/SERIOUS.png"
-    zoom 1.5
-
-image Istri:
-    "chara/istri/biasa.png"  
-    zoom 1.6
-image Istri s:
-    "chara/istri/buka.png"
-    zoom 1.6
-image Istri snark:
-    "chara/istri/snark.png"  
-    zoom 1.6
-
-image telfonkabel:
-    "single asset/Telfon kabel.png"
-    zoom 0.45
-image Sekretaris:
-    "chara/Sekre.png"
-    zoom 0.65
-image Direktur_A:
-    "chara/dirA.png"
-    zoom 1.6
-image Direktur_C:
-    "chara/moder.png"
-    zoom 1.6
-image Diplomat:
-    "chara/dcinas.png"
-    zoom 1.2
-
-image male:
-    "chara/male.png"  
-    zoom 1.8
-image maleGlitch:
-    zoom 1.8
-    At("chara/male.png", glitch)
-    pause 0.2
-    At("chara/male.png", animated_glitch)
-    pause 0.2
-    At("chara/male.png", glitch)
-    pause 0.1
-    At("chara/male.png", animated_glitch)
-    pause 0.1
-    At("chara/male.png", glitch)
-    pause 0.3
-    At("chara/male.png", animated_glitch)
-    pause 1.0
-    repeat
-image male2:
-    "chara/male.png"  
-    zoom 1.8
-image fem:
-    "chara/fem.png"  
-    zoom 1.4
-
-# buat brama
-define cpos = Position(xalign=0.5, yalign=0)
-define rpos = Position(xalign=0.9, yalign=0)
-define lpos = Position(xalign=0,yalign=0)
-
-# buat arya
-define aycpos = Position(xalign=0.5, yalign=0)
-define ayrpos = Position(xalign=1.25, yalign=0)
-define aylpos = Position(xalign=0,yalign=0)
-
-# buat telpon
-define tlcpos = Position(xalign=0.5, yalign=0)
-define tlrpos = Position(xalign=1.01, yalign=0.6)
-define tllpos = Position(xalign=0,yalign=0)
-
 label A: #email_keputusan
     play sound trans1
     scene kantor with fade
@@ -3228,21 +3208,7 @@ label dialogchoiceB:
 #----------------------------------
 
 # # ------------------------------------- SCRIPT C -------------------------------------# #
-# DEFINE CHARACTERS
-define kades = Character("Kades",  color="#000000ff")
 
-# IMAGE BACKGROUND
-image slideC1 = im.Scale("text/C/Slide1.PNG", 1920, 1080)
-image slideC2 = im.Scale("text/C/Slide2.PNG", 1920, 1080)
-image pesawat = im.Scale("bg/pesawat.png", 1920, 1080)
-# IMAGE CHARA
-image Kades:
-    "chara/nelayana.png"
-    zoom 2.6
-
-# IMAGE TEXT
-image slideC1 = im.Scale("text/C/Slide1.PNG", 1920, 1080)
-image slideC2 = im.Scale("text/C/Slide2.PNG", 1920, 1080)
 
 label C:
     scene slideC1 with fade
@@ -3655,6 +3621,7 @@ label mari_bersinergi:
     jump kembali_ke_script_utama_2
 
 label kembali_ke_script_utama_2:
+    scene ruang_kerja_bram_pagi
     hide BramaKSenang
     show BramaKNetral at lpos
     b "Kalau begitu, saya izin pamit kembali ke Jakarta."
@@ -3785,21 +3752,6 @@ label kembali_ke_script_utama_2:
             jump F
 
 # # ------------------------------------- SCRIPT D -------------------------------------# #
-image pesisir = im.Scale("bg/Natuna.png", 1920, 1080)
-image chaos = im.Scale("bg/chaos.png", 1920, 1080)
-define warga_a = Character("Warga", color="#bae6ff")
-image pakades:
-    "chara/pakades.png"
-    zoom 1.5
-# IMAGE TEXT
-image slideD1 = im.Scale("text/D/Slide1.PNG", 1920, 1080)
-image slideD2 = im.Scale("text/D/Slide2.PNG", 1920, 1080)
-image slideD3 = im.Scale("text/D/Slide3.PNG", 1920, 1080)
-image slideD4 = im.Scale("text/D/Slide4.PNG", 1920, 1080)
-image slideD5 = im.Scale("text/D/Slide5.PNG", 1920, 1080)
-image slideD6 = im.Scale("text/D/Slide6.PNG", 1920, 1080)
-image slideD7 = im.Scale("text/D/Slide7.PNG", 1920, 1080)
-
 label D:
     scene ruang_kerja_bram_pagi with fade
     show BramaK at cpos
@@ -4510,7 +4462,7 @@ label F:
     scene slideF2 with fade
     pause
     scene ruangmakan_y with fade
-    show BramaKNetral at lposs
+    show BramaKNetral at lpos
     b "…"
     b "…"
     b "…"
@@ -4734,7 +4686,7 @@ label G:
     o "Dan itulah yang menjadikanmu pemimpin sejati, Brama."
     hide maleGlitch
     show BramaK at cpos
-    "{tok…tok…tok…}"
+    "tok…tok…tok…"
     a "Brama…"
     hide BramaK
     show BramaKSenang at cpos
@@ -4883,43 +4835,6 @@ label H:
     jump J
 
 # # ------------------------------------- SCRIPT I -------------------------------------# #
-# # DEFINE CHARACTERS
-define pres = Character("Presiden", color="#ff7c7c")
-define kades = Character("Kepala Desa", color="#95ff7d")
-define warta = Character("Wartawan", color="#837d77")
-
-# # IMAGE BACKGROUND
-image bumnkantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
-image bumnlobi = im.Scale("bg/bumn/lobi.png", 1920, 1080)
-image bumnlorong = im.Scale("bg/bumn/lorong.png", 1920, 1080)
-image bumnrapat = im.Scale("bg/bumn/rapat.png", 1920, 1080)
-image natuna = im.Scale("bg/Natuna.png", 1920, 1080)
-image slide_1 = im.Scale("text/I/slide1.png", 1920, 1080)
-image slide_2 = im.Scale("text/I/slide2.png", 1920, 1080)
-image slide_3 = im.Scale("text/I/slide3.png", 1920, 1080)
-image slide_4 = im.Scale("text/I/slide4.png", 1920, 1080)
-
-# # IMAGE CHARA
-image Brama_y:
-    "chara/bramabumn.png"
-    zoom 0.5
-
-image Presiden:
-    "chara/presiden.png"
-    zoom 0.5
-
-image Pistol Nembak:
-    "cutscene/x/pistolnembak.png"
-    zoom 1.5
-image dentuman = im.Scale("cutscene/x/bg.png", 1920, 1080)
-
-# buat pres
-define prcpos = Position(xalign=0.5, yalign=0)
-define prrpos = Position(xalign=1.0, yalign=0)
-define prlpos = Position(xalign=0,yalign=0)
-
-define pistol = Position(xalign=0.5, yalign=0.4)
-
 label I:
     scene bumnkantor with fade
     show Brama_y at lpos
@@ -4979,21 +4894,6 @@ label I:
 #---------------------------------
 
 # # ------------------------------------- SCRIPT J -------------------------------------# #
-# # DEFINE CHARACTERS
-define pgw = Character("Pegawai", color="#ffffff")
-
-
-# # IMAGE CHARA
-image kadestv = im.Scale("cutscene/j/kades di tv.png", 1920, 1080)
-image endj1 = im.Scale("cutscene/j/ending J.png", 1920, 1080)
-image endj2 = im.Scale("cutscene/j/ending j 2.png", 1920, 1080)
-image endj3 = im.Scale("cutscene/j/ending j 3.png", 1920, 1080)
-image endj4 = im.Scale("cutscene/j/ending j 4.png", 1920, 1080)
-
-image Presiden:
-    "chara/presiden.png"
-    zoom 0.8
-
 label J:
     "(Beberapa jam setelahnya, diadakan rapat untuk membahas keputusan final geostrategi Indonesia.)"
     scene bumnkantor with fade
