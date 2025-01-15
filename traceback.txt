@@ -1,59 +1,31 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-<<<<<<< Updated upstream
-  File "game/script.rpy", line 3157, in script
-    jump C
-ScriptError: could not find label 'C'.
-=======
-  File "game/script.rpy", line 389, in script call
-    menu:
+  File "game/script.rpy", line 256, in script call
+    with fade
   File "renpy/common/00console.rpy", line 1177, in script call
     python in _console:
-  File "game/script.rpy", line 4411, in script
-    scene slide_1 with fade(2)
-TypeError: 'MultipleTransition' object is not callable
->>>>>>> Stashed changes
+  File "game/script.rpy", line 3917, in script
+    jump kembali_ke_utama
+ScriptError: could not find label 'kembali_ke_utama'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-<<<<<<< Updated upstream
-  File "game/script.rpy", line 3157, in script
-    jump C
-  File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\ast.py", line 1705, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\Kimic\Coding\Renpy\renpy-8.3.4-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'C'.
-=======
-  File "game/script.rpy", line 389, in script call
-    menu:
+  File "game/script.rpy", line 256, in script call
+    with fade
   File "renpy/common/00console.rpy", line 1177, in script call
     python in _console:
   File "<string>", line 1, in script call
-  File "game/script.rpy", line 4411, in script
-    scene slide_1 with fade(2)
-  File "D:\renpy-8.3.2-sdk\renpy\ast.py", line 1361, in execute
-    renpy.exports.with_statement(trans, paired=paired)
-  File "D:\renpy-8.3.2-sdk\renpy\exports\statementexports.py", line 257, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 1578, in do_with
-    return self.interact(trans_pause=True,
-  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 2215, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 2666, in interact_core
-    trans = instantiate_transition(None, old_root, layers_root)
-  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 2575, in instantiate_transition
-    trans = self.ongoing_transition[layer](
-TypeError: 'MultipleTransition' object is not callable
->>>>>>> Stashed changes
+  File "game/script.rpy", line 3917, in script
+    jump kembali_ke_utama
+  File "D:\renpy-8.3.2-sdk\renpy\ast.py", line 1699, in execute
+    rv = renpy.game.script.lookup(target)
+  File "D:\renpy-8.3.2-sdk\renpy\script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'kembali_ke_utama'.
 
 Windows-10-10.0.22631 AMD64
-Ren'Py 8.3.4.24120703
+Ren'Py 8.3.2.24090902
 Kamil 1.0
-<<<<<<< Updated upstream
-Wed Jan 15 18:19:42 2025
-=======
-Wed Jan 15 20:00:12 2025
->>>>>>> Stashed changes
+Wed Jan 15 21:01:30 2025

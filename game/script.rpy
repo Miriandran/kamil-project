@@ -220,7 +220,6 @@ define alpos = Position(xalign=0,yalign=0)
 
 label start:
 # The game starts here.
-    jump H
 
     play music "audio/semoga tense.wav"
 
@@ -3857,12 +3856,15 @@ label kembali_ke_script:
             jump H
         "Ragu":
             jump G
+image keesokan_harinya = im.Scale("text/E/slide1.png", 1920, 1080)
 
 # # ------------------------------------- SCRIPT E -------------------------------------# #
 label E:
-    # [Keesokan harinya]
-    scene ruang_kerja with fade
-
+    scene black with fade
+    show keesokan_harinya
+    pause 1
+    scene ruang_kerja_bram_pagi with fade
+    show BramaKBingung at cpos
     b "Apa yang sebenarnya harus kulakukan?"
     b "Semua fakta ada di depan mata."
     b "Aspirasi rakyat tidak bisa diabaikan, tapi tekanan Arya semakin berat."
@@ -3874,15 +3876,18 @@ label E:
     b "Dia hanya memikirkan angka dan strategi."
     b "Tapi aku tahu, aku di sini bukan untuk melayani kepentingan jalur diplomasi."
     b "Aku ada di sini untuk mempertahankan prinsip dan martabat bangsa."
-
-    "{tok…tok…tok…}"
+    hide BramaKBingung
+    "tok…tok…tok…"
+    show BramaKBingung at rpos
+    show AryaYSenyum at alpos with fade
     a "Brama…"
 
     b "Eh Arya, masuk."
 
     a "Brama, aku butuh kepastian."
     b "Kau benar-benar menolak kesepakatan damai dengan China?"
-
+    hide BramaKBingung
+    hide AryaYSenyum
     menu:
         "Tolak mentah":
             jump tolak_mentah
@@ -3890,6 +3895,8 @@ label E:
             jump tidak_boleh_menyerah
 
 label tolak_mentah:
+    show BramaKNetral at rpos
+    show AryaYSerius at alpos
     b "Ya, Arya. Aku menolaknya."
 
     a "Jadi benar."
@@ -3912,10 +3919,13 @@ label tolak_mentah:
 
     b "Aku sudah memilih, Arya."
     b "Aku akan berdiri bersama rakyat Natuna."
-
-    jump kembali_ke_utama
+    hide BramaKNetral
+    hide AryaYSerius
+    jump pindahidealis
 
 label tidak_boleh_menyerah:
+    show BramaKNetral at rpos
+    show AryaYSerius at alpos
     b "Aku tidak bisa menerima kesepakatan itu, Arya."
 
     a "Jadi, kau memilih jalan ini, meskipun kita tahu konsekuensinya akan sangat berat?"
@@ -3944,13 +3954,18 @@ label tidak_boleh_menyerah:
     jump pindahidealis
 
 label pindahidealis:
+    show BramaKNetral at rpos
+    show AryaYSerius at alpos
     a "Kau benar-benar keras kepala. Kau tahu, kau bukan hanya mempertaruhkan posisi menteri di sini."
-
+    hide BramaKNetral
+    show BramaKBingung at rpos 
     b "Apa maksudmu?"
-
+    hide AryaYSerius
+    show AryaYSenyum at alpos
     a "Kau ingat proyek dapur di Changi dulu?"
     a "Kau tahu dari mana uang untuk menyelamatkan ekspansi itu berasal?"
-
+    hide AryaYSenyum
+    hide BramaBingung
     menu:
         "Investor besar":
             jump investor_besar
@@ -3958,12 +3973,15 @@ label pindahidealis:
             jump investor_yang_tepat
 
 label investor_besar:
+    show BramaKBingung at rpos 
+    show AryaYNetral at alpos
     b "Tentu saja. Dari PT Angin Topan. Mereka adalah investor besar."
 
     a "Kau benar-benar tidak tahu, ya?"
     a " PT Angin Topan itu bukan sekadar investor biasa."
     a "Itu adalah topeng untuk mencuci uang seorang koruptor."
-
+    hide BramaKBingung
+    show BramaKMarah at rpos
     b "Apa?"
 
     a "Ya. Mereka menyuntikkan uang itu ke proyekmu, dan aku yang mengatur semuanya agar terlihat legal."
@@ -4000,11 +4018,14 @@ label investor_besar:
     b "Kalau itu harga yang harus kubayar untuk melakukan hal yang benar, maka biarlah."
 
 label investor_yang_tepat:
+    show BramaKBingung at rpos 
+    show AryaYNetral at alpos
     b "Tentu saja. Dari PT Angin Topan. Mereka adalah investor besar yang datang di saat yang tepat."
 
     a "\"Investor besar,\" katamu? Brama, PT Angin Topan itu topeng."
     a "Itu digunakan untuk mencuci uang seorang koruptor besar di negeri ini."
-
+    hide BramaKBingung
+    show BramaKMarah at rpos
     b "Apa yang kau bicarakan, Arya? Kau tidak serius, kan?"
 
     a "Aku sangat serius."
@@ -4014,7 +4035,8 @@ label investor_yang_tepat:
 
     a "Karena aku tahu kau tidak akan setuju, Brama!"
     a "Tapi aku melakukannya untuk menyelamatkanmu."
-
+    hide BramaKMarah
+    show BramaKMarah at rpos
     b "Kau menyebut ini menyelamatkan?"
     b "Kau menyeretku ke dalam sesuatu yang kotor tanpa memberiku pilihan!"
 
@@ -4036,12 +4058,15 @@ label investor_yang_tepat:
     b "Ini tentang keputusan yang harus aku buat sekarang."
 
     a "Dan keputusan itu bisa menghancurkan kita semua, Brama. Kau tahu itu."
-
+    hide BramaKMarah
+    show BramaKBingung at rpos 
     b "Aku tidak tahu harus berkata apa, Arya. Aku merasa dikhianati oleh kebenaran ini."
     b "Tapi aku juga tahu satu hal, aku tidak bisa mengabaikan apa yang terjadi di Natuna."
-
+    hide AryaYNetral
+    show AryaYSerius at alpos
     a "Jadi kau akan tetap maju? Kau akan menanggung semuanya sendiri?"
-
+    hide BramaKBingung
+    show BramaKNetral at rpos 
     b "Aku akan menanggung apa pun konsekuensinya."
     b "Jika aku harus membayar kesalahan masa lalu untuk memperjuangkan yang benar hari ini, aku siap."
 
@@ -4062,20 +4087,27 @@ label investor_yang_tepat:
     b "…"
 
     b "Sampai jumpa esok di rapat presiden."
+    hide BramaKNetral
+    hide AryaYSerius
 
     # [Keesokan harinya]
-    scene ruang_rapat with fade
-
+    scene ruang_rapat_menteri with fade
+    show AryaYNetral at arpos
+    show BramaKNetral at lpos with fade
     a "Brama, bagus kau datang. Kita perlu bicara soal langkah selanjutnya."
     a "Ingat, kita harus membuat semua pihak senang, terutama mereka yang punya pengaruh besar di sektor ekonomi."
 
     b "Tidak, Arya. Kita akan melakukan apa yang benar. Bukan untuk mereka, tapi untuk rakyat."
     b "Aku tidak peduli lagi dengan semua tekanan atau ancaman yang kau berikan. Keputusanku sudah bulat."
-
+    hide AryaYNetral
+    show AryaYKetawa at arpos
     a "Hahahaha."
     a "Jangan gegabah, Brama. Kau tahu ini bukan hanya soal idealisme."
     a "Ini soal kelangsungan hubungan kita dengan negara-negara besar."
-
+    hide BramaKNetral
+    hide AryaYKetawa
+    show AryaYSerius at arpos
+    show BramaKKosong at lpos
     b "Kalau itu artinya aku harus kehilangan posisiku, aku terima."
     b "Tapi aku tidak akan mengorbankan prinsipku hanya demi angka atau hubungan pragmatis."
     b "Aku di sini untuk melindungi rakyat, bukan melayani mereka yang sudah punya terlalu banyak kuasa."
