@@ -4507,6 +4507,10 @@ image bumnlobi = im.Scale("bg/bumn/lobi.png", 1920, 1080)
 image bumnlorong = im.Scale("bg/bumn/lorong.png", 1920, 1080)
 image bumnrapat = im.Scale("bg/bumn/rapat.png", 1920, 1080)
 image natuna = im.Scale("bg/Natuna.png", 1920, 1080)
+image slide_1 = im.Scale("text/I/slide1.png", 1920, 1080)
+image slide_2 = im.Scale("text/I/slide2.png", 1920, 1080)
+image slide_3 = im.Scale("text/I/slide3.png", 1920, 1080)
+image slide_4 = im.Scale("text/I/slide4.png", 1920, 1080)
 
 # # IMAGE CHARA
 image Brama_y:
@@ -4533,7 +4537,8 @@ label I:
     scene bumnkantor with fade
     show Brama_y at lpos
     show Presiden at prrpos
-    k "Yang Mulia Presiden, menteri-menteri terhormat, saya mengajukan kebijakan untuk memprioritaskan kesejahteraan rakyat, khususnya di wilayah-wilayah perbatasan seperti Natuna. Sudah terlalu lama mereka menjadi korban dari konflik kepentingan."
+    k "Yang Mulia Presiden, menteri-menteri terhormat, saya mengajukan kebijakan untuk memprioritaskan kesejahteraan rakyat" 
+    k "khususnya di wilayah-wilayah perbatasan seperti Natuna. Sudah terlalu lama mereka menjadi korban dari konflik kepentingan."
     k "Kita harus mengambil tindakan tegas terhadap kapal asing di Natuna."
     pres "Ini langkah yang berani, Menteri Brama. Apakah kau sudah mempertimbangkan seluruh aspeknya?"
     k "Saya sudah mempertimbangkannya, dan ini sangat berdampak baik dan menguntungkan masyarakat Indonesia, Bu. Semuanya akan berjalan lancar."
@@ -4542,10 +4547,9 @@ label I:
     kades "Terima kasih, Pak Brama. Apa yang Bapak lakukan telah mengubah hidup kami. Kini kami punya sekolah baru dan fasilitas kesehatan yang layak."
     k "…… Ini semua untuk kalian. Negara harus hadir di sini, di mana rakyatnya membutuhkan."
     pres "Baik, apabila meninjau dari dokumen yang sudah kau berikan dan jelaskan, saya setuju dengan keputusanmu. Mari kita laksanakan!"
-    
-    scene black with fade
-    "(1 hari setelahnya, konferensi pers)"
-
+    scene black
+    show slide_1 with fade
+    pause 1
     scene bumnrapat with fade
     show abatik at aycpos
     r "Saya, atas nama integritas dan keadilan, harus mengungkap sebuah fakta."
@@ -4562,11 +4566,16 @@ label I:
     k "Saya hanya ingin membantu rakyat. Jika ini harga yang harus saya bayar, saya terima."
     k "Untuk rakyatku, maafkan aku jika langkahku tidak sempurna. Tapi aku tidak pernah menyesal memperjuangkan kalian."
 
+    scene black 
+    show slide_2 with fade
+    pause 3
+    show slide_3 with fade
+    pause 2
     scene dentuman with fade
-    "(Brama divonis hukuman yang sangat berat. Mungkin Arya tidak berpikir akan sejauh ini tuntutannya. Tetapi jika melawan negara adidaya, apa yang bisa dilakukan?)"
-    "(Akhirnya kamil dipenjara, dan Brama dijatuhkan atas…)"
-    show Pistol Nembak at pistol with fade
-    "(Hukuman mati.)"
+    show Pistol Nembak at pistol
+    pause 1
+    show slide_4 with fade
+    pause 1.5
     scene black
     "DORR!"
     r "Mimpi buruk lagi lu?"
@@ -4579,7 +4588,7 @@ label I:
 define k = Character("Brama", color="#472301")
 define r = Character("Arya",  color="#472301")
 define pres = Character("Presiden", color="#472301")
-define kades = Character("Kepala Desa", color="#472301")
+define kades = Character("Kades", color="#472301")
 define warta = Character("Wartawan", color="#472301")
 define pgw = Character("Pegawai", color="#472301")
 
