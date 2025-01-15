@@ -112,7 +112,7 @@ screen say(who, what):
                 text who id "who"
                 xpos 480
                 ypos -15
-                background Image("gui/phone/char_name_box.png", xpos = -75)
+                background Image("gui/phone/char_name_box.png", xpos = -60)
             
         text what id "what"
 
