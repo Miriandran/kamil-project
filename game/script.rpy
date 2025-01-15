@@ -2587,12 +2587,14 @@ define tlrpos = Position(xalign=1.01, yalign=0.6)
 define tllpos = Position(xalign=0,yalign=0)
 
 label A: #email_keputusan
+    play sound trans1
     scene kantor with fade
     show BramaK at cpos
 
     "Suasana tegang, Brama sedang duduk di depan komputernya, mengetik email balasan untuk menolak tawaran investasi."
 
     show BramaK at cpos
+    play music "audio/semoga tense.wav"
     b "Coba aja aku tahu lebih dalam tentang PT. Angin Topan..."
     b "Kalau kayak gini aku harus cari dana tambahan ke mana lagi?"
     o "Sudah, tenang saja Brama. Tetaplah berpegang teguh pada prinsipmu itu."
@@ -2607,9 +2609,11 @@ label A: #email_keputusan
     b "Semoga ada jalan untuk menyelesaikan permasalahan ini."
 
     "Brama terlihat sangat gelisah. Ia memanggil sekretarisnya melalui telepon."
+    stop music
 
     show BramaK at rpos
     show Sekretaris at lpos
+    play music office_bgm
     b "Sekretaris, tolong adakan rapat dewan direksi darurat 1 jam lagi dengan semua direksi."
     b "Semua harus hadir untuk membahas persoalan ini."
     b "Dan pastikan tidak ada pihak asing yang masuk ke kantor."
@@ -2668,7 +2672,7 @@ label rapat_dewan_direksi:
     dir_a "Kita sudah tidak punya lagi sisa uang untuk melanjutkan proyek tersebut."
 
     "Di luar kantor terjadi kericuhan dan ramai dengan rombongan KPK yang akan menggeledah dan menangkap Kamil."
-
+    play sound trans1
     scene lobibumn with fade
     show fem at ncpos
     show male2 at nlpos
@@ -2691,9 +2695,9 @@ label rapat_dewan_direksi:
 
     scene lorongbumn with fade
     show Sekretaris at cpos
-
+    stop music
     s "Aduh kenapa bisa secepat ini mereka menyadari permasalahan ini, mana direksi lagi pada rapat?"
-
+    play music "audio/semoga tense.wav"
     scene ruang_rapatbumn with fade
     show Direktur_C at Position(xalign=0.5,yalign=0)
 
@@ -2726,8 +2730,10 @@ label rapat_dewan_direksi:
     show BramaK at lpos
     show male at nrpos
     b "Baik pak."
+    stop music
 
     "Kamil pergi mengikuti pegawai KPK. Akhirnya Kamil dibawa ke kantor KPK untuk dimintai keterangan."
+    play music sad_bgm
     scene black with fade
     show slideA
     pause 10
