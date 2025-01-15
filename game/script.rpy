@@ -3226,16 +3226,9 @@ label dialogchoiceB:
 define kades = Character("Kades",  color="#000000ff")
 
 # IMAGE BACKGROUND
-image kantor = im.Scale("bg/bumn/kantor.png", 1920, 1080)
-image ruang_rapatbumn = im.Scale("bg/bumn/rapat.png", 1920, 1080)
-image lobibumn = im.Scale("bg/bumn/lobi.png", 1920, 1080)
-image lorongbumn = im.Scale("bg/bumn/lorong.png", 1920, 1080)
-image ruang_rapat_menteri = im.Scale("bg/kmenteri/rapat.png", 1920, 1080)
-image ruang_kerja_bram_pagi = im.Scale("bg/kmenteri/pagi.png", 1920, 1080)
-image ruang_kerja_bram_malam = im.Scale("bg/kmenteri/malam.png", 1920, 1080)
-image dalam_pesawat = im.Scale("bg/pesawat.jpg", 1920, 1080)
-image pesisir = im.Scale("bg/Natuna.png", 1920, 1080)
-
+image slideC1 = im.Scale("text/C/Slide1.PNG", 1920, 1080)
+image slideC2 = im.Scale("text/C/Slide2.PNG", 1920, 1080)
+image pesawat = im.Scale("bg/pesawat.png", 1920, 1080)
 # IMAGE CHARA
 image Kades:
     "chara/nelayana.png"
@@ -3509,17 +3502,17 @@ label merenung:
     scene pesisir with fade
 
     # [Mengikuti suara hatinya, Brama memutuskan untuk berangkat ke Natuna untuk berbincang langsung dengan masyarakat lokal]
-    show Kades at cpos
+    show pakades at cpos
     kades "Selamat datang, Pak Menteri."
     kades "Terima kasih sudah meluangkan waktu datang ke sini."
     kades "Kami sudah lama menunggu seseorang dari pusat untuk melihat langsung kondisi kami."
-    hide Kades
+    hide pakades
     show BramaKSenang at cpos
     b "Saya yang seharusnya berterima kasih, Pak."
     b "Ini tanggung jawab saya untuk mendengar langsung keluhan bapak dan warga di sini."
     hide BramaKSenang
     show BramaKSenang at lpos
-    show Kades at rpos
+    show pakades at rpos
     kades "Pak Menteri, kami sudah kehabisan cara."
     hide BramaKSenang
     show BramaK at lpos
@@ -3530,7 +3523,7 @@ label merenung:
     kades "Banyak rakyat yang mengungkapkan kapal mereka baru saja ditenggelamkan, Pak."
     kades "Mereka hampir tidak selamat."
     kades "Anak mereka yang baru masuk sekolah tidak tahu apa yang harus dimakan besok kalau ini terus terjadi."
-    hide Kades
+    hide pakades
     hide BramaK
     show BramaK at cpos
     menu:
@@ -3542,7 +3535,7 @@ label merenung:
 label berikan_janji:
     hide BramaK
     show BramaKNetral at lpos
-    show Kades at rpos
+    show pakades at rpos
     b "Saya mendengar semuanya, Pak."
     b "Saya tidak bisa bayangkan bagaimana beratnya hidup kalian di sini."
     b "Percayalah, pemerintah pusat tidak akan tinggal diam."
@@ -3557,7 +3550,7 @@ label berikan_janji:
 label tunjukkan_empati:
     hide BramaK
     show BramaKNetral at lpos
-    show Kades at rpos
+    show pakades at rpos
     b "Saya mendengar keluhan bapak dan warga di sini dengan sangat serius."
     b "Saya bisa merasakan betapa beratnya beban yang harus kalian pikul."
     b "Saya tidak datang ke sini hanya untuk berbicara, saya ingin membawa solusi nyata."
@@ -3591,7 +3584,7 @@ label kembali_ke_script_utama:
     kades "Pak Menteri, jangan hanya bicara soal forum internasional."
     kades "Kami butuh tindakan sekarang. Berapa banyak lagi kapal kami yang harus tenggelam?"
     kades "Berapa banyak lagi keluarga yang harus kehilangan ayah mereka di laut?"
-    hide Kades
+    hide pakades
     hide BramaK
     show BramaK at cpos
     menu:
@@ -3603,7 +3596,7 @@ label kembali_ke_script_utama:
 label saya_usahakan:
     hide BramaK
     show BramaKNetral at lpos
-    show Kades at rpos
+    show pakades at rpos
     b "Bapak benar. Kita tidak bisa menunggu terlalu lama."
     b "Saya akan segera mengatur agar kapal patroli ditambah di Natuna."
     b "Tapi saya juga butuh dukungan kalian."
@@ -3629,7 +3622,7 @@ label saya_usahakan:
 label mari_bersinergi:
     hide BramaK
     show BramaKNetral at lpos
-    show Kades at rpos
+    show pakades at rpos
     b "Bapak benar. Kita harus bergerak lebih cepat untuk melindungi wilayah kita."
     b "Namun, perlindungan ini tidak hanya soal kapal patroli. Kita juga perlu memperkuat kesadaran masyarakat di Natuna."
     b "Saya akan meminta pelatihan tambahan bagi nelayan agar mereka siap menghadapi situasi darurat."
@@ -3665,7 +3658,7 @@ label kembali_ke_script_utama_2:
     kades "Baik, Pak. Terima kasih banyak atas perhatiannya kepada kami."
 
     # [Scene dalam pesawat]
-    scene dalam_pesawat with fade
+    scene pesawat with fade
     show BramaKNetral at cpos
     b "Mereka semua menggantungkan harapan pada saya."
     hide BramaKNetral
@@ -3676,7 +3669,7 @@ label kembali_ke_script_utama_2:
     b "Meski itu berarti membawa negara ini ke risiko yang lebih besar?"
 
     # [Keesokan harinya]
-    scene kantor with fade
+    scene ruang_kerja_bram_malam with fade
     show AryaYKopi at ayrpos
     show BramaK at lpos
     a "Kau masih di sini, Brama? Sudah larut malam."
@@ -4383,7 +4376,7 @@ image slideF3 = im.Scale("text/F/Slide1.PNG", 1920, 1080)
 label F:
     scene slideF1 with fade
     pause
-    scene kantor with fade
+    scene ruang_kerja_bram_pagi with fade
     show BramaKNetral at cpos
     b "Apa yang sebenarnya harus kulakukan?"
     b "Semua fakta ada di depan mata."
@@ -4510,64 +4503,100 @@ label F:
 
     scene slideF2 with fade
     pause
-    scene makan_malam_rumah with fade
-    show BramaKKosong at cpos 
+    scene ruangmakan_y with fade
+    show BramaKNetral at lposs
     b "…"
     b "…"
     b "…"
-    hide BramaKKosong
-    show Istri snark at cpos 
-    ist "Sayangku, ada apa? Kau kelihatan sangat terbebani."
-    hide Istri snark 
-    show BramaKBingung at lpos
-    show Istri at ayrpos
+    hide Istri
+    show Istri s at rpos
+    i "Sayangku, ada apa? Kau kelihatan sangat terbebani."
+    show Istri at rpos
+    hide Istri s
     b "Arya… Dia memperingatkan tentang risiko besar jika aku tetap bersikeras."
     b "Dia juga mengingatkanku pada kalian, pada anak-anak kita."
     hide Istri
-    show Istri snark at ayrpos 
-    ist "Apa yang dia katakan?"
+    show Istri s at rpos
+    i "Apa yang dia katakan?"
+    hide Istri s    
+    show Istri at rpos
+
     b "Dia mengungkit sesuatu dari masa lalu… proyek di Changi, tentang bagaimana aku menyelamatkannya."
     b "Dia bilang ada ancaman besar yang bisa menghancurkan kita semua kalau aku terus maju dengan keputusan ini."
-    ist "Jadi dia mencoba menakut-nakutimu?"
+    hide Istri
+    show Istri s at rpos
+    i "Jadi dia mencoba menakut-nakutimu?"
+    hide Istri s
+    show Istri at rpos
+    
     b "Dia bilang ini bukan ancaman, tapi kenyataan."
     b "Aku mulai merasa… mungkin dia benar."
     b "Kalau aku melawan, kita mungkin kehilangan semuanya."
-    ist "Sayang, aku tahu kau ingin melindungi kami."
-    ist "Tapi apakah kau yakin menyerah pada tekanan itu adalah solusi yang benar?"
+    hide Istri
+    show Istri s at rpos
+    i "Sayang, aku tahu kau ingin melindungi kami."
+    i "Tapi apakah kau yakin menyerah pada tekanan itu adalah solusi yang benar?"
+    hide Istri s
+    show Istri at rpos
+    
     b "Aku tidak tahu, Sayang. Aku hanya… lelah."
     b "Kadang aku merasa ini bukan soal benar atau salah lagi. Ini soal bertahan."
-    ist "Sayang, kau selalu berkata bahwa hidup ini tentang prinsip."
-    ist "Tentang melakukan apa yang benar, bahkan ketika itu sulit."
-    ist "Apa yang terjadi dengan keyakinan itu?"
+    hide Istri
+    show Istri s at rpos
+    i "Sayang, kau selalu berkata bahwa hidup ini tentang prinsip."
+    i "Tentang melakukan apa yang benar, bahkan ketika itu sulit."
+    i "Apa yang terjadi dengan keyakinan itu?"
+    hide Istri s
+    show Istri at rpos
+    
     b "Keyakinan itu masih ada… tapi melihat kalian, memikirkan apa yang bisa terjadi… aku takut."
     b "Aku takut membuat keputusan yang akan menghancurkan keluarga kita."
     b "Aku takut semua terulang seperti tragedi yang menimpa ayah dulu."
-    ist "Sayang, aku tahu kau memikirkan kami, tapi jangan jadikan kami alasan untuk mengabaikan nuranimu."
-    ist "Anak-anak kita akan belajar dari apa yang kamu lakukan."
-    ist "Apakah kau ingin mereka melihat ayahnya menyerah pada tekanan atau berdiri teguh pada apa yang ia percayai?"
-    b "Aku tidak ingin mereka melihat ayahnya gagal, Sayang. Aku ingin melindungi mereka."
-    hide Istri snark
-    show Istri s at ayrpos 
-    ist "Melindungi bukan berarti mengorbankan dirimu sendiri."
-    ist "Kau selalu mengajarkan bahwa kita harus berani menghadapi konsekuensi dari tindakan kita."
-    ist "Lakukan apa yang menurutmu benar, Sayang. Aku akan selalu di sisimu."
-
-    b "Tapi bagaimana kalau aku salah? Bagaimana kalau aku menghancurkan segalanya?"
-    ist "Setidaknya kau mencoba, Sayang. Setidaknya kau tidak meninggalkan prinsipmu."
-    ist "Itu jauh lebih berarti daripada menyerah hanya untuk mencari jalan mudah."
-    b "Kau tidak takut?"
+    hide Istri
+    show Istri s at rpos
+    i "Sayang, aku tahu kau memikirkan kami, tapi jangan jadikan kami alasan untuk mengabaikan nuranimu."
+    i "Anak-anak kita akan belajar dari apa yang kamu lakukan."
+    i "Apakah kau ingin mereka melihat ayahnya menyerah pada tekanan atau berdiri teguh pada apa yang ia percayai?"
     hide Istri s
-    show Istri snark at ayrpos 
-    ist "Aku takut, Sayang. Tapi aku lebih takut melihatmu menyesali keputusanmu sendiri di masa depan."
+    show Istri at rpos
+    
+    b "Aku tidak ingin mereka melihat ayahnya gagal, Sayang. Aku ingin melindungi mereka."
+    hide Istri
+    show Istri s at rpos
+    i "Melindungi bukan berarti mengorbankan dirimu sendiri."
+    i "Kau selalu mengajarkan bahwa kita harus berani menghadapi konsekuensi dari tindakan kita."
+    i "Lakukan apa yang menurutmu benar, Sayang. Aku akan selalu di sisimu."
+    hide Istri s
+    show Istri at rpos
+    
+    b "Tapi bagaimana kalau aku salah? Bagaimana kalau aku menghancurkan segalanya?"
+    hide Istri
+    show Istri s at rpos
+    i "Setidaknya kau mencoba, Sayang. Setidaknya kau tidak meninggalkan prinsipmu."
+    i "Itu jauh lebih berarti daripada menyerah hanya untuk mencari jalan mudah."
+    hide Istri s
+    show Istri at rpos
+    
+    b "Kau tidak takut?"
+    i "Aku takut, Sayang. Tapi aku lebih takut melihatmu menyesali keputusanmu sendiri di masa depan."
+    hide Istri s
+    show Istri at rpos
+    
     b "Aku akan memikirkannya, Sayang."
-    b "Tapi aku tidak tahu apakah aku masih bisa bertahan dengan idealisme ini." 
-    ist "Kau sudah bertahan sejauh ini."
-    ist "Aku tahu kau kuat. Tidurlah, Sayang."
-    ist "Kau akan tahu apa yang harus dilakukan."
+    b "Tapi aku tidak tahu apakah aku masih bisa bertahan dengan idealisme ini."
+    hide Istri
+    show Istri s at rpos
+    i "Kau sudah bertahan sejauh ini."
+    i "Aku tahu kau kuat. Tidurlah, Sayang."
+    i "Kau akan tahu apa yang harus dilakukan."
+    hide Istri s
+    show Istri at rpos
+    
+    show BramaKLega at lpos
     b "Terima kasih, Sayang."
-    hide Istri snark
-    show Istri s at ayrpos 
-    ist "Selalu."
+    i "Selalu."
+    hide Istri s
+    show Istri at rpos
 
     scene slideF3 with fade
     pause
