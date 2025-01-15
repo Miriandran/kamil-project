@@ -1324,10 +1324,10 @@ image slide16 = im.Scale("text/X-SMA/Slide16.png", 1920, 1080)
 image slide17 = im.Scale("text/X-SMA/Slide17.png", 1920, 1080)
 image slide18 = im.Scale("text/X-SMA/Slide18.png", 1920, 1080)
 image staffsep:
-    'chara/sepatu/biasa.png'
+    'chara/sepatu/NEUTRAL.png'
     zoom 1.6
 image staffsepser:
-    'chara/sepatu/serius.png'
+    'chara/sepatu/SERIOUS.png'
     zoom 1.6
 
 label akhirsampe:
@@ -2200,7 +2200,7 @@ label curhatarya:
     k "..."
     r "Kelihatannya kamu lagi pusing berat."
     r "Ada masalah besar lagi, ya?"
-    r "Ceritalah, Bim."
+    r "Ceritalah, Bram."
     r "Saudaramu ini direktur keuangan."
     r "Masalah bagi gw udah kayak makanan sehari-hari. Hahahaha!"
     k "..."
@@ -2266,7 +2266,7 @@ label sudah:
 label jagarahasia:
     k "Belum, Wan."
     k "Intinya dari pembengkakan biaya ini bikin kita butuh dana yang cukup besar."
-    r "Kamu benar, Bim."
+    r "Kamu benar, Bram."
     r "Kalau aja sampai gagal mengatasi pembengkakan, perusahaan yang kamu pegang bisa rugi besar."
     k "Iya, aku ngerti soal itu."
     r "Tapi kalau hanya masalah itu, seharusnya saudaraku ini tidak segusar itu."
@@ -2386,7 +2386,7 @@ label balikkamil:
     k "Dewan direksi setuju untuk mengambil kesempatan ini."
     k "Mereka tidak mau perusahaan kita bangkrut dan karyawan kita kehilangan pekerjaan mereka."
     k "Kalau saya sendiri masih bingung karena saya punya feeling nggak enak."
-    r "Udah lah, Bim."
+    r "Udah lah, Bram."
     r "Kalau kata saya, terima saja tawaran itu."
     r "Emang kamu nggak kasihan apa buat keluarga karyawan yang bergantung pada pekerja kita untuk hidup sehari-hari?"
     r "Saya dengar-dengar juga ada kemungkinan tindak pidana manipulasi keuangan yang bisa menyeret nama kamu ke jalur hukum."
@@ -2691,6 +2691,7 @@ label rapat_dewan_direksi:
 # # ------------------------------------- Script B -------------------------------------
 # IMAGE BACKGROUND
 image istana_negara = im.Scale("bg/IstanaNegara.jpg", 1920, 1080)
+image siaran_berita = im.Scale("bg/rumahkamil/tv.png", 1920, 1080)
 
 # IMAGE TEXT
 image slideB1 = im.Scale("text/B/Slide1.PNG", 1920, 1080)
@@ -2762,7 +2763,7 @@ label B:
 
     scene slideB5 with fade
     pause
-    scene rumah with fade
+    scene ruangmakan_y with fade
     show BramaKSenang at cpos
     b "Sayang, aku pulang..."
     hide BramaK
@@ -2826,7 +2827,7 @@ label B:
 
     scene slideB7 with fade
     pause
-    scene rumah with fade
+    scene ruangmakan_y with fade
     show BramaKBingung at cpos
     b "Aduh, baru bentar menjabat jadi Kemenlu, ada aja kerjaan yang harus dilakukan."
     hide BramaKBingung
@@ -2864,7 +2865,7 @@ label menghubungiarya:
     b "Aku membutuhkan Arya. Ini sangat kacau situasinya."
 
     # [Menelpon Arya]
-    show Arya at cpos
+    show telfonkabel at tlrpos
     b "Hallo, Arya. Ada apa, Brama?"
 
     b "Permasalahan dengan Tiongkok, mereka melakukan tindakan sangat kejam kepada rakyat Indonesia."
@@ -2919,10 +2920,10 @@ label rapat_dewan_direksi2:
     hide AryaYNetral
     hide male
     menu:
-        "Tetap Idealis (C)":
+        "Tetap Idealis":
             $ C = True
             jump tetapidealis
-        "Setuju dengan Arya (D)":
+        "Setuju dengan Arya":
             jump setujuarya
 
 label tetapidealis:
@@ -4532,11 +4533,11 @@ label I:
     show Presiden at prrpos
     k "Yang Mulia Presiden, menteri-menteri terhormat, saya mengajukan kebijakan untuk memprioritaskan kesejahteraan rakyat, khususnya di wilayah-wilayah perbatasan seperti Natuna. Sudah terlalu lama mereka menjadi korban dari konflik kepentingan."
     k "Kita harus mengambil tindakan tegas terhadap kapal asing di Natuna."
-    pres "Ini langkah yang berani, Menteri Bima. Apakah kau sudah mempertimbangkan seluruh aspeknya?"
+    pres "Ini langkah yang berani, Menteri Brama. Apakah kau sudah mempertimbangkan seluruh aspeknya?"
     k "Saya sudah mempertimbangkannya, dan ini sangat berdampak baik dan menguntungkan masyarakat Indonesia, Bu. Semuanya akan berjalan lancar."
 
     #scene natuna with fade
-    kades "Terima kasih, Pak Bima. Apa yang Bapak lakukan telah mengubah hidup kami. Kini kami punya sekolah baru dan fasilitas kesehatan yang layak."
+    kades "Terima kasih, Pak Brama. Apa yang Bapak lakukan telah mengubah hidup kami. Kini kami punya sekolah baru dan fasilitas kesehatan yang layak."
     k "…… Ini semua untuk kalian. Negara harus hadir di sini, di mana rakyatnya membutuhkan."
     pres "Baik, apabila meninjau dari dokumen yang sudah kau berikan dan jelaskan, saya setuju dengan keputusanmu. Mari kita laksanakan!"
     
@@ -4546,14 +4547,14 @@ label I:
     scene bumnrapat with fade
     show abatik at aycpos
     r "Saya, atas nama integritas dan keadilan, harus mengungkap sebuah fakta."
-    r "Menteri Bima telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya."
+    r "Menteri Brama telah terlibat dalam penyalahgunaan anggaran beberapa tahun lalu untuk menutupi pembengkakan proyeknya."
     r "Ini adalah pelanggaran hukum yang tidak bisa ditoleransi."
 
     scene terasrumah_y with fade
     "(Dengan diketahuinya kasus penyalahgunaan anggaran, Brama ditangkap oleh pihak kepolisian di kediamannya.)"
     "(Beberapa wartawan berkumpul dengan Brama telah diborgol tangannya.)"
     show male at cpos
-    warta "Pak Bima, apa benar tuduhan ini? Bagaimana tanggapan Anda?"
+    warta "Pak Brama, apa benar tuduhan ini? Bagaimana tanggapan Anda?"
     hide male
     show Brama_y at cpos
     k "Saya hanya ingin membantu rakyat. Jika ini harga yang harus saya bayar, saya terima."
@@ -4597,7 +4598,7 @@ label J:
     show Presiden at prcpos
     pres "Selamat siang, Bapak Ibu sekalian. Saat ini adalah momen krusial kita."
     pres "Melalui rapat ini, kita akan memutuskan aksi kita terhadap China."
-    pres "Silakan, Bapak Bima, selaku Menteri Luar Negeri, untuk menyampaikan pendapatnya."
+    pres "Silakan, Bapak Brama, selaku Menteri Luar Negeri, untuk menyampaikan pendapatnya."
     hide Presiden
 
     show Brama_y at lpos
@@ -4611,11 +4612,11 @@ label J:
     hide Presiden
 
     show Arya_y at ayrpos
-    r "Setuju dengan apa yang dikatakan oleh Pak Bima."
+    r "Setuju dengan apa yang dikatakan oleh Pak Brama."
     hide Arya_y
 
     show Presiden at prrpos
-    pres "Ini langkah yang menguntungkan bagi kita, Pak Bima."
+    pres "Ini langkah yang menguntungkan bagi kita, Pak Brama."
     pres "Apakah Anda sudah mempertimbangkan seluruh aspek dari kebijakan tersebut?"
     k "Sudah, Ibu Presiden. Kami telah mengkaji secara mendalam."
     k "Dengan dilakukannya diplomasi, kita dapat menerima keuntungan lebih untuk membantu meningkatkan perekonomian."
