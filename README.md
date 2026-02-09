@@ -8,7 +8,7 @@ Step into the shoes of **Kamil**,; it is a raw exploration of **corruption, ethi
 * **Moral Ambiguity:** No clear right or wrong, only choices and their heavy consequences.
 * **Personal Cost:** Explore how political power affects Kamil’s humanity and mental state.
 * **Sci-Fi Ethics:** How advanced technology amplifies old-world human greed.
-<p align="center">
+<p align="left">
   <img src="game/gui/main_menu.jpg" width="400" title="Kalut">
 </p>
 
